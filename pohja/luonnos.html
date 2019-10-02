@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf8">
+	<title>Jäsäkurssi</title>
+	<style type="text/css" media="screen">		
+		.editor-side {
+			padding-right: 1rem;
+		}
+
+		.editor {
+		}
+		
+		.toolbar {
+			display: flex;
+			flex-direction: row;
+			margin-bottom: 0.33rem;
+			padding: 2px;
+			background-color: #ebebeb;
+		}
+		
+		.toolbar > button {
+		}
+		
+		.example {
+			border: 1px solid gray;
+			border-radius: 0.5rem;
+			padding: 1rem;
+		}
+		
+		.left {
+			grid-column: 1;
+		}
+		
+		.right {
+			grid-column: 2;
+		}
+		
+		.split-screen {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+	</style>
+		
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+	<script>
+		let editorCounter = 0;
+		function addEditor(value) {
+			let number = editorCounter++;
+			document.write(`
+			<div class="split-screen">
+				<div class="left editor-side">
+					<div class="toolbar"><button id="update${number}">🏴</button></div>
+					<div class="editor" id="editor${number}"></div>
+				</div>
+				<iframe class="right result" id="result${number}"></iframe>
+			</div>`);
+			const editor = ace.edit(`editor${number}`);
+			editor.setTheme("ace/theme/eclipse");
+			editor.session.setMode("ace/mode/html");
+			editor.setOption("useSoftTabs", true);
+			editor.setOption("cursorStyle", "slim");
+			editor.setOption("maxLines", "100");
+			
+			const update = () => {
+				document.querySelector(`#result${number}`).src = "data:text/html;charset=latin1," + escape(editor.getValue());
+			};
+			
+			//editor.session.on("change", update);
+			document.querySelector(`#update${number}`).onclick = update;
+			//document.querySelector(`#result${number}`).src = "data:text/html;charset=latin1," + escape(value);
+			editor.setValue(value);
+			editor.clearSelection();
+		}
+		let closeScript = "</scr" + "ipt>";
+	</script>
+	<body>
+	
+	<div class="content">
+		<h1>Luonnos</h1>
+
+		<h2>Ensimmäinen ohjelma</h2>
+
+		<p>Alla on yksinkertainen ohjelma, joka näyttää näytöllä tekstin "<code>Hei maailma!</code>". Paina lippua suorittaaksesi ohjelman.</p>
+
+		<div class="example">
+		<script>
+			addEditor(
+`<!doctype HTML>
+<html>
+    <head>
+        <meta charset="utf8">
+    </head>
+    <body>
+        Hei maailma!
+    </body>
+</html>`
+			);
+		</script>
+		</div>
+
+		<p><code>window.onload</code>-käsittelijä suoritetaan, kun lippua painetaan:</p>
+
+		<div class="example">
+		<script>
+			addEditor(
+`<!doctype HTML>
+<html>
+    <head>
+        <meta charset="utf8">
+    </head>
+    <body>
+        Hei maailma!
+        <script>
+            window.onload = () => {
+                alert("Lippua painettiin!")
+            }
+        ${closeScript}
+    </body>
+</html>`
+			);
+		</script>
+		</div>
+
+		<p><code>document.querySelector("#nappi").onclick</code>-käsittelijä suoritetaan, kun nappia painetaan:</p>
+
+		<div class="example">
+		<script>
+			addEditor(
+`<!doctype HTML>
+<html>
+    <head>
+        <meta charset="utf8">
+    </head>
+    <body>
+        <button id="nappi">Tervehti</button>
+        <script>
+            document.querySelector("#nappi").onclick = () => {
+                alert("Nappia painettiin!")
+            }
+        ${closeScript}
+    </body>
+</html>`
+			);
+		</script>
+		</div>
+
+		<p>Canvas-esimerkki:</p>
+
+		<div class="example">
+		<script>
+			addEditor(
+`<!doctype HTML>
+<html>
+    <head>
+        <meta charset="utf8">
+        <style>
+            canvas { background-color: lightyellow; }
+        </style>
+    </head>
+    <body>
+        <canvas id="kangas"></canvas>
+        <script>
+            const kangas = document.querySelector("#kangas")
+            const ctx = kangas.getContext("2d")
+            
+            let päällä = false
+            
+            kangas.onmousedown = event => {
+                päällä = true
+            }
+            
+            kangas.onmouseup = event => {
+                päällä = false
+            }
+            
+            kangas.onmousemove = event => {
+                if (päällä) {
+                    ctx.beginPath()
+                    ctx.moveTo(0, 0)
+                    ctx.lineTo(event.offsetX, event.offsetY)
+                    ctx.stroke()
+                }
+            }
+        ${closeScript}
+    </body>
+</html>`
+			);
+		</script>
+		</div>
+	</div>
+</body>
+</html>
