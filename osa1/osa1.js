@@ -1,3 +1,5 @@
-document.querySelector('button').onclick = function(){
-    alert("heiii");
+onload = () => {
+	document.querySelector("#helpButton1").onclick = function(){
+	    alert("heiii");
+	}
 }

@@ -1,0 +1,37 @@
+
+.editor-side {
+	padding-right: 1rem;
+}
+
+.editor {
+}
+
+.toolbar {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 0.33rem;
+	padding: 2px;
+	background-color: #ebebeb;
+}
+
+.toolbar > button {
+}
+
+.example {
+	border: 1px solid gray;
+	border-radius: 0.5rem;
+	padding: 1rem;
+}
+
+.left {
+	grid-column: 1;
+}
+
+.right {
+	grid-column: 2;
+}
+
+.split-screen {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
