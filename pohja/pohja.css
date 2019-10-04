@@ -1,4 +1,30 @@
 
+body {
+	margin: 0;
+}
+
+.header {
+	background-color: #ef3f3f;
+	padding: 1rem;
+	font-family: sans-serif;
+	color: #efefef;
+}
+
+.header a {
+	color: #efefef;
+}
+
+nav::before {
+	content: '😀';
+	font-family: initial;
+}
+
+.content {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	padding-bottom: 1rem;
+}
+
 .editor-side {
 	padding-right: 1rem;
 }
