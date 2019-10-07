@@ -21,12 +21,101 @@
 	
 	<div class="content">
 		<h1>Ensimmäinen osa</h1>
-		<h2>Tervetuloa ohjelmoimaan!</h2>
-		<p>Tällä kurssilla opettelemme JavaScript-ohjelmointikieltä ja HTML.</p>
-		<h2>HTML:n alkeet</h2>
-		<p>Jotain tägeistä...</p>
-		<img src="html.png">
+		<h2>Johdanto</h2>
+		<p>Tervetuloa ohjelmoimaan!</p>
+		
+		<h2>Hötömölön alkeet</h2>
+		<p>
+			HTML tulee englannin kielen sanoista <i>HyperText Markup Language</i> eli suomeksi hypertekstin merkintäkieli.
+			Hyperteksti tarkoittaa tekstiä, jossa on linkkejä (sana hyper on kreikkaa ja tarkoittaa "yli", hyperteksti tarkoittaa siis "tekstin yli").
+			Suurin osa nettisivuista sisältää hypertekstiä.
+			Jotta tietokone osaa lisätä tekstiin linkkejä, sille on kerrottava, missä kohdissa tekstiä linkit ovat.
+			Tätä varten on kehitetty hypertekstin merkintäkieli, jossa linkkejä merkitään sanojen ympärille asetettavilla tägeillä.
+			HTML:ssä on myös muita tägejä, joilla voi <b>lihavoittaa</b> ja <i>kursivoida</i> tekstiä sekä tehdä muita asioita, joita opimme.
+		</p>
+		<p>
+			Alla on esimerkki HTML-koodista, jossa on sekä lihavoitettu sana että linkki.
+		</p>
+		<script>codeExample(`<b>Tässä</b> tekstissä on <a href="https://helsinki.fi">linkki</a>.`);</script>
+		<p>
+			Nettiselain näyttää koodin näin:
+		</p>
+		<div class="result"><b>Tässä</b> tekstissä on <a href="helsinki.fi">linkki</a>.</div>
+		<p>
+			Tägi koostuu nimestä, joka on ympäröity kulmasuluilla.
+			Useista tägeistä on kaksi versiota: aloittava ja lopettava versio.
+			Esimerkiksi tägi <code>&lt;b&gt;</code> aloittaa lihavoinnin ja <code>&lt;/b&gt;</code> lopettaa sen.
+			HTML:ssä tavallisen tekstien seassa olevilla tageilla voidaan merkitä erilaisia asioita. Alla on lista yleisimmistä tägeistä.
+		</p>
+		<table>
+			<caption>Yleisimmät tägit</caption>
+			<tr><th>Aloittava tägi</th><th>Lopettava tägi</th><th>Selitys</th></tr>
+			<tr><td><code>&lt;b&gt;</code></td><td><code>&lt;/b&gt;</code></td><td><b>Lihavointi</b></td></tr>
+			<tr><td><code>&lt;i&gt;</code></td><td><code>&lt;/i&gt;</code></td><td><i>Kursivointi</i></td></tr>
+			<tr><td><code>&lt;s&gt;</code></td><td><code>&lt;/s&gt;</code></td><td><s>Yliviivaus</s></td></tr>
+			<tr><td><code>&lt;a href="osoite"&gt;</code></td><td><code>&lt;/a&gt;</code></td><td><a href="#">Linkki</a></td></tr>
+			<tr><td><code>&lt;br&gt;</code></td><td>ei ole</td><td>Rivinvaihto</td></tr>
+		</table>
+		
 		<h3>Tehtävä 1</h3>
+		<p>
+			Lisää tekstiin tägejä. Kokeile lihavoitusta, kursiivia ja yliviivausta. Lisää myös rivinvaihto johonkin kohtaan.
+			Älä poista tekstin alussa olevaa <code>&lt;!doctype HTML&gt;</code>-tägiä.
+			Saat nettiselaimen näyttämään tekemäsi muutokset painamalla <img src="lippuKuvake.png">-nappia.
+		</p>
+		<div class="example">
+		<script>
+			addEditor(
+`<!doctype HTML>
+Tässä on tavallista tekstiä. Siihen voi lisätä erilaisia muotoiluja.`
+			);
+		</script>
+		</div>
+		
+		<h2>HTML:n osiot</h2>
+		<p>
+			HTML-tägeillä merkittyä tekstiä sanotaan <b>asiakirjaksi</b>.
+			Nettiselaimen näyttämää merkittyä tekstiä sanotaan body-osioksi.
+			On monia muitakin osioita.
+			Koko asiakirjan sanotaan olevan html-osion sisällä.
+			Head-osio sisältää lisätietoa asiakirjasta ja tiedostosta.
+			Script-osiot sisältävät JavaScript-komentosarjoja, joita käsittelemme myöhemmissä luvuissa.
+		</p>
+		<p>
+			Kuten muotoiluilla, myös osioilla on jokaisella aloittava ja lopettava tägi.
+			Alla olevassa taulukossa on yleisten osioiden tägit.
+		</p>
+		<table>
+			<caption>Yleisimmät osiot</caption>
+			<tr><th>Aloittava tägi</th><th>Lopettava tägi</th><th>Selitys</th></tr>
+			<tr><td><code>&lt;html&gt;</code></td><td><code>&lt;/html&gt;</code></td><td>Merkitsee koko asiakirjaa. Tägit on laitettava tiedoston alkuun ja loppuun.</td></tr>
+			<tr><td><code>&lt;head&gt;</code></td><td><code>&lt;/head&gt;</code></td><td>Sisältää lisätietoa asiakirjasta, kuten merkistön ja esimerkiksi nettisivun tapauksessa  sivun otsikon.</td></tr>
+			<tr><td><code>&lt;body&gt;</code></td><td><code>&lt;/body&gt;</code></td><td>Sisältää asiakirjan varsinaisen sisällön, eli sivulla näkyvän tekstin, kuvat ja komentosarjat.</td></tr>
+			<tr><td><code>&lt;script&gt;</code></td><td><code>&lt;/script&gt;</code></td><td>Sisältää komentosarjan. Script-osiot ovat joko head- tai body-osion alaosioita.</td></tr>
+			<tr><td><code>&lt;style&gt;</code></td><td><code>&lt;/style&gt;</code></td><td>Sisältää lisätietoa siitä, minkä värisinä ja kokoisina eri tägit näytetään. Style-osio on head-osion alaosio.</td></tr>
+		</table>
+		<p>
+			Osiot näyttävät tältä kirjoitettuna koodina:
+		</p>
+		<script>codeExample(
+`<!doctype HTML>
+<html>
+	<head>
+		<meta charset="utf8">
+	</head>
+	<body>
+		Tässä on verkkosivun näyttämää tekstiä.
+	</body>
+</html>`
+		);</script>
+		<p>
+			On tärkeää, että osiot ovat tässä järjestyksessä ja että ne on aloitettu ja lopetettu oikeissa kohdissa.
+			Html-osio alkaa asiakirjan alussa ja loppuu sen lopussa.
+			Sen sisällä on ensin head-osio ja sitten body-osio.
+		</p>
+		
+		<h2>Roskaa</h2>
+		<img src="html.png">
 		<p>Kirjoita <code>alert("")</code> komennon sisälle nimesi ja paina kuvaketta <img src="lippuKuvake.png"> .</p>
 		<div class="example">
 		<script>

@@ -1,29 +1,74 @@
 
 let editorCounter = 0;
-function addEditor(value) {
-	let number = editorCounter++;
-	document.write(`
-	<div class="split-screen">
-		<div class="left editor-side">
-			<div class="toolbar"><button id="update${number}">🏴</button></div>
-			<div class="editor" id="editor${number}"></div>
-		</div>
-		<iframe class="right result" id="result${number}"></iframe>
-	</div>`);
+function addEditor(value, readOnly) {
+	const number = editorCounter++;
+	if (readOnly) {
+		document.write(`
+		<div class="split-screen">
+			<div class="editor editor-side" id="editor${number}"></div>
+			<div class="right result-side">
+				<iframe class="result" id="result${number}"></iframe>
+			</div>
+		</div>`);
+	} else {
+		document.write(`
+		<div class="split-screen">
+			<div class="left editor-side">
+				<div class="toolbar"><button id="update${number}">🏴</button></div>
+				<div class="editor" id="editor${number}"></div>
+			</div>
+			<div class="right result-side">
+				<iframe class="result" id="result${number}"></iframe>
+			</div>
+		</div>`);
+	}
 	const editor = ace.edit(`editor${number}`);
 	editor.setTheme("ace/theme/eclipse");
 	editor.session.setMode("ace/mode/html");
-	editor.setOption("useSoftTabs", true);
-	editor.setOption("cursorStyle", "slim");
-	editor.setOption("maxLines", "100");
+	editor.setOptions({
+		useSoftTabs: true,
+		cursorStyle: "slim",
+		maxLines: 100,
+		enableBasicAutocompletion: true,
+		enableLiveAutocompletion: false,
+		showGutter: !readOnly,
+		behavioursEnabled: false,
+	});
+	editor.setReadOnly(readOnly);
+	
+	editor.setValue(value);
+	editor.clearSelection();
 	
 	const update = () => {
-		document.querySelector(`#result${number}`).src = "data:text/html;charset=latin1," + escape(editor.getValue());
+		const iframe = document.querySelector(`#result${number}`);
+		iframe.src = "data:text/html;charset=latin1," + escape(editor.getValue());
+		
+		// FIXME
+		//iframe.style.height = iframe.contentWindow.document.body.scrollHeight + "px";
 	};
 	
-	//editor.session.on("change", update);
-	document.querySelector(`#update${number}`).onclick = update;
-	//document.querySelector(`#result${number}`).src = "data:text/html;charset=latin1," + escape(value);
+	if (readOnly) {
+		update();
+	} else {
+		document.querySelector(`#update${number}`).onclick = update;
+		//editor.session.on("change", update);
+	}
+}
+function codeExample(value) {
+	const number = editorCounter++;
+	document.write(`
+	<div class="editor" id="editor${number}"></div>
+	`);
+	const editor = ace.edit(`editor${number}`);
+	editor.setReadOnly(true);
+	editor.setTheme("ace/theme/eclipse");
+	editor.session.setMode("ace/mode/html");
+	editor.setOptions({
+		useSoftTabs: true,
+		cursorStyle: "slim",
+		maxLines: 100,
+		showGutter: false,
+	});
 	editor.setValue(value);
 	editor.clearSelection();
 }
