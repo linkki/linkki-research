@@ -6,8 +6,7 @@
 	<link href="../pohja/pohja.css" rel="stylesheet" type="text/css">
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" type="text/javascript" charset="utf-8"></script>
-
-	<script src="osa2.js"></script>
+	<script src="../pohja/pohja.js"></script>
 </head>
 <body>
     <div><h1>Osa 2. - Jäsän alkeet</h1>
@@ -37,10 +36,50 @@ aluksi oudoilta, mutta niiden merkitys selvenee, kun niitä käyttää. </p>
 </html>`
 			);
 		</script>
-        </div>
-        
-        <h3>Tehtävä XX2</h3>
-        <p>*Tee toinen tehtävä tähän*</p>
-        
+		</div>
+		<div><p>Tässä tehtävässä käytettiin, "alert"-komentoa. Se kertoo Jäsälle,
+				että pitää tulostaa näytölle ruutu ja kirjoittaa siihen tekstiä. Teksti annetaan komennolle parametrina. 
+        <h3>Tehtävä 2.2</h3>
+		<p>*Tee toinen tehtävä tähän*</p>
+		<div class="example">
+				<script>
+					addEditor(
+		`<!doctype HTML>
+		<html>
+			<head>
+				<meta csharset="utf8">
+			</head>
+			<body>
+				<script>
+					onload = () => {
+						let syote = prompt("");
+						alert(syote);
+					}
+				${closeScript}
+			</body>
+		</html>`
+					);
+				</script>
+
+				<h3>Tehtävä 2.3</h3>
+<p>Kolmas tehtävä</p>
+				<div class="example">
+					<script>
+						addEditor(
+			`<!doctype HTML>
+			<html>
+				<head>
+					<meta charset="utf8">
+				</head>
+				<body>
+					<script>
+						onload = () => {
+							window.prompt('');
+						}
+					${closeScript}
+				</body>
+			</html>`
+						);
+					</script>
 </body>
 </html>
