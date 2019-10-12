@@ -32,6 +32,7 @@ function addEditor(value, readOnly) {
 		enableBasicAutocompletion: true,
 		enableLiveAutocompletion: false,
 		showGutter: !readOnly,
+		highlightActiveLine: !readOnly,
 		behavioursEnabled: false,
 	});
 	editor.setReadOnly(readOnly);
@@ -68,6 +69,7 @@ function codeExample(value) {
 		cursorStyle: "slim",
 		maxLines: 100,
 		showGutter: false,
+		highlightActiveLine: false,
 	});
 	editor.setValue(value);
 	editor.clearSelection();

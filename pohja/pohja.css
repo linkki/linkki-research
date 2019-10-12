@@ -7,6 +7,8 @@ body {
 }
 
 table {
+	margin-left: auto;
+	margin-right: auto;
 	border-collapse: collapse;
 }
 
@@ -37,12 +39,35 @@ nav::before {
 	padding-bottom: 1rem;
 }
 
+.content > h2 {
+	border: 2px solid #ef3f3f;
+	border-radius: 1em;
+	padding-left: 0.5rem;
+	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;
+}
+
+.content > h3 {
+	border-bottom: 2px dotted #ef3f3f;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;
+}
+
+.content > p {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
 .infobox {
+	max-width: 20rem;
 	border: 1px solid gray;
 	border-radius: 0.5rem;
-	float: left;
+	float: right;
+	margin-left: 1rem;
 	padding: 1rem;
-	background-color: #feadad;
+	background-color: #e99494;
 }
 
 .editor-side {
@@ -69,6 +94,7 @@ nav::before {
 	border: 2px ridge black;
 	width: 100%;
 	padding: 1rem;
+	height: 100%;
 }
 
 
@@ -76,6 +102,21 @@ nav::before {
 	border: 1px solid gray;
 	border-radius: 0.5rem;
 	padding: 1rem;
+	margin-top: 1rem;
+}
+
+.example > h3 {
+	margin-top: 0;
+}
+
+.task > h3::before {
+	content: '✏️';
+	margin-right: 1rem;
+}
+
+.extra > h3::before {
+	content: '🔍';
+	margin-right: 1rem;
 }
 
 .left {
