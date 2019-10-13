@@ -56,10 +56,14 @@
 		</div>
 
 		<p>
-			Ensimmäisessä tehtävässä käytettiin komentoa <code>alert("")</code>. <code>alert("")</code> komento on JavaScriptin tuntema komento. Kaikki komennot,
-			joita haluamme JavaScriptin tunnistavan annetaan <code>&lt;script&gt;</code> tagien sisälle, kuten myös edellisessä tehtävässä tehtiin.
-			Lisäksi haluamme kertoa, että kirjoitetut JavaScript komennot suoritetaan heti kun sivu lataa. Siksi meidän tulee lisätä 
-			<code>&lt;script&gt;</code> tagien sisälle myös <code>onload = () =>{}</code>. Tälläistä komentoa kutsutaan lohkoksi, sillä siinä on 
+			Ensimmäisessä tehtävässä käytettiin komentoa <code>alert("")</code>. <code>alert("")</code> 
+			komento on JavaScriptin tuntema komento. Kaikki komennot,
+			joita haluamme JavaScriptin tunnistavan annetaan <code>&lt;script&gt;</code> 
+			tagien sisälle, kuten myös edellisessä tehtävässä tehtiin.
+			Lisäksi haluamme kertoa, että kirjoitetut JavaScript komennot suoritetaan heti 
+			kun sivu lataa. Siksi meidän tulee lisätä 
+			<code>&lt;script&gt;</code> tagien sisälle myös <code>onload = () =>{}</code>. 
+			Tälläistä komentoa kutsutaan lohkoksi, sillä siinä on 
 			kaksi aaltosulkua {}, jotka muodostavat yhdessä lohkon, jonka sisälle voimme kirjoittaa komentoja.
 		</p>
 		<p>
@@ -90,66 +94,215 @@
 	</body>
 </html>`
 );</script>
+
 		</div>
+		<div class="example task">
+			<h3>Tehtävä 2.3</h3>
+			<p>
+				Kirjoita ohjelma, joka tulostaa "JavaScript on kivaa."
+			</p>
+			
+			<script>
+				addEditor(
+	`<!doctype HTML>
+	<html>
+		<head>
+			<meta charset="utf8">
+		</head>
+		<body>
+			<script>
+			${closeScript}
+		</body>
+	</html>`
+	);</script>
+	
+			</div>
 		<p>
-			Ensimmäinen komento, jonka opettelimme on <code>alert("")</code>-komento. Tällä komennolla voimme tulostaa tekstiä ikkunoissa ruudulle. 
-			Komento <code>alert("")</code> saa parametrina merkkijonon. Tämä on ohjelmoijan käyttämää kieltä. Puhumme parametreista, kun haluamme
-			antaa jonkinlaista tietoa ohjelmalle. Merkkijono tarkoittaa tekstimuotoista tietoa. Esimerkiksi tälle sivulle 
-			kirjoitettu teksti on merkkijono tyyppistä tietoa. Tekstimuotoinen syöte eli merkkijono parametri, annetaan komennolle kirjoittamalla se
+			Ensimmäinen komento, jonka opettelimme on <code>alert("")</code>-komento.
+			 Tällä komennolla voimme tulostaa tekstiä ikkunoissa ruudulle. 
+			Komento <code>alert("")</code> saa parametrina merkkijonon. 
+			Tämä on ohjelmoijan käyttämää kieltä. Puhumme parametreista, kun haluamme
+			antaa jonkinlaista tietoa ohjelmalle. Merkkijono tarkoittaa tekstimuotoista tietoa. 
+			Esimerkiksi tälle sivulle kirjoitettu teksti on merkkijono tyyppistä tietoa. 
+			Tekstimuotoinen syöte eli merkkijono parametri, annetaan komennolle kirjoittamalla se
 			lainausmerkkien sisälle.
 		</p>
-		<h2>Uusi komento <code>prompt("");</code></h2>
-
-		<div class="example task">
-		<h3>Tehtävä 2.3</h3>
+		<h2>Uusi komento <code>prompt();</code></h2>
 		<p>
-			*Tee toinen tehtävä tähän*
+			Nyt osaamme tulostaa tietoa. Opetellaan seuraavaksi, miten voimme myös kysyä käyttäjältä <i>syöteen</i>. 
+			Syöte on tietoa, jota tietokone osaa käsitellä. Esimerkiksi, kun kirjoitat JavaScript ohjelmia 
+			näppäimistöllä annat koko ajan syötteenä tietokoneelle tietoa kirjoittamistasi merkeistä näppäimistön avulla.
 		</p>
-		<script>
-			addEditor(
-`<!doctype HTML>
-<html>
-	<head>
-		<meta csharset="utf8">
-	</head>
-	<body>
-		<script>
-			onload = () => {
-				let syote = prompt("");
-				alert("Hei, "+syote);
-			}
-		${closeScript}
-	</body>
-</html>`
-		);</script>
-		</div>
-
-		<div class="example task">
-		<h3>Tehtävä 2.3</h3>
 		<p>
-			Kolmas tehtävä
+			Syötteen kysymyinen tapahtuu <code>prompt()</code> komennolla.
 		</p>
-		<script>
-			addEditor(
-`<!doctype HTML>
-<html>
-	<head>
-		<meta charset="utf8">
-	</head>
-	<body>
-		<button>hello!</button>
-		<script>
-			onload = () => {
-				let button =  document.querySelector('button');
-				button.onclick = function() {
-					alert('Hello');
+		<div class="example task">
+			<h3>Esimerkki 2.1</h3>
+			<p>
+				Tähän ohjelmaan on kirjoitettu <code>prompt()</code>-komento. Kokeile, mitä tapahtuu, kun klikkaat lippukuvaketta.
+			</p>
+			<script>
+				addEditor(
+	`<!doctype HTML>
+	<html>
+		<head>
+			<meta charset="utf8">
+		</head>
+		<body>
+			<script>
+				onload = () => {
+					prompt();
 				}
-			}
-		${closeScript}
-	</body>
-</html>`
-		);</script>
+			${closeScript}
+		</body>
+	</html>`
+			);</script>
+			</div>
+		
+		<p>
+			<code>prompt()</code>-komento avaa ikkunan, jossa on teksti kenttä johon voi kirjoittaa tekstiä.
+			Kun klikkaa "Hyväksy"-painiketta, niin JavaScript lukee syötteen. Pelkällä komennolla
+			emme kuitenkaan saa vielä syötettyä tietoa käyttöön. Meidän tulee tallettaa se muuttujaan.
+		</p>
+		<div class="example task">
+			<h3>Tehtävä 2.5</h3>
+			<p>
+				Kirjoita <code>prompt()</code>-komento oikeaan kohtaan koodissa.
+			</p>
+			<script>
+				addEditor(
+	`<!doctype HTML>
+	<html>
+		<head>
+			<meta charset="utf8">
+		</head>
+		<body>
+			<script>
+				onload = () => {
+				}
+			${closeScript}
+		</body>
+	</html>`
+			);</script>
 		</div>
+
+		<p>
+			<code>prompt();</code>-komennolle voidaan antaa parametri samalla tavalla, kuin 
+			<code>alert();</code>-komennolle. Tällöin komentoon lisätään sulkeiden sisään lainausmerkit,
+			joiden sisään kirjoitetaan haluttu parametri. Komento siis näyttää silloin <code>prompt("");</code> tältä. 
+		</p>
+		<div class="example task">
+		<h3>Tehtävä 2.6</h3> 
+		<p>
+			Kirjoita ohjelmaan komento, joka saa parametriksi "Mikä sinun nimesi on?". Käyttäjä voi 
+			antaa syötteenä nimensä. Käytätkö <code>prompt()</code> vai <code>alert()</code> komentoa?
+		</p>
+		<script>
+				addEditor(
+	`<!doctype HTML>
+		<html>
+			<head>
+				<meta charset="utf8">
+			</head>
+			<body>
+				<script>
+					onload = () => {
+
+					}
+				${closeScript}
+					</body>
+		</html>`
+			);</script>
+			</div>
+			
+		<p>
+			Jotta voimme tehdä käyttäjän antamalla syötteellä jotain, täytyy se tallentaa ohjelman käyttöön. 
+			Ohjelmoidessa tieto tallennetaan <i>muuttujiin</i>. Ne ovat ohjelmoinnin peruspalikoita ja niitä tulet 
+			käyttämään paljon.
+		</p>	
+		<p>
+			Muuttuja voi olla mitä vain! Sen tyyppi määräytyy sen perusteella, minkälaista tietoa 
+			siihen talletetaan. Ensin muuttuja täytyy esitellä ohjelmalle. Tämä esittely on aina muotoa 
+			<code>let muuttujanNimi = ""</code>, jossa lainausmerkkeihin tulee muuttujalle annettava parametri.
+			Tätä muuttujaa kutsuttaisiin käyttämällä <code>muuttujanNimi</code> koodissa.
+		</p>
+
+		<div class="example task">
+			<h3>Esimerkki 2.3</h3>
+			<p>
+				Tässä on ohjelma, joka kysyy käyttäjältä nimen ja tulostaa sen jälkeen tervehdyksen.
+			</p>
+			<script>
+				addEditor(
+	`<!doctype HTML>
+	<html>
+		<head>
+			<meta charset="utf8">
+		</head>
+		<body>
+			<script>
+				onload = () => {
+					let syote = prompt("");
+					alert("Hei, "+syote);
+				}
+			${closeScript}
+		</body>
+	</html>`
+		);</script>
+		<p>
+
+		</p>
+		</div>
+		<div class="example task">
+				<h3>Esimerkki 2.3</h3>
+				<p>
+					Tässä on ohjelma, joka kysyy käyttäjältä nimen ja tulostaa sen jälkeen tervehdyksen.
+				</p>
+				<script>
+					addEditor(
+		`<!doctype HTML>
+		<html>
+			<head>
+				<meta charset="utf8">
+			</head>
+			<body>
+				<script>
+					onload = () => {
+						let syote = prompt("");
+						alert("Hei, "+syote);
+					}
+				${closeScript}
+			</body>
+		</html>`
+			);</script>
+			</div>	
+			
+		<div class="example task">
+			<h3>Tehtävä 2.7</h3>
+			<p>
+				Kolmas tehtävä
+			</p>
+			<script>
+				addEditor(
+		`<!doctype HTML>
+		<html>
+			<head>
+				<meta charset="utf8">
+			</head>
+			<body>
+				<button>hello!</button>
+				<script>
+				onload = () => {
+					let button =  document.querySelector('button');
+					button.onclick = function() {
+						alert('Hello');
+						}
+					}
+				${closeScript}
+				</body>
+			</html>`
+			);</script>
+			</div>
 	</div>
 </body>
 </html>
