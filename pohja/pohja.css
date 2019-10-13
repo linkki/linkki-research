@@ -33,10 +33,19 @@ nav::before {
 	font-family: initial;
 }
 
+nav {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1200px;
+}
+
 .content {
 	padding-left: 1rem;
 	padding-right: 1rem;
 	padding-bottom: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1200px;
 }
 
 .content > h2 {
