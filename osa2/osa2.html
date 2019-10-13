@@ -249,8 +249,34 @@
 		</body>
 	</html>`
 		);</script>
-		</div>
+		<p>
 
+		</p>
+		</div>
+		<div class="example task">
+				<h3>Esimerkki 2.3</h3>
+				<p>
+					Tässä on ohjelma, joka kysyy käyttäjältä nimen ja tulostaa sen jälkeen tervehdyksen.
+				</p>
+				<script>
+					addEditor(
+		`<!doctype HTML>
+		<html>
+			<head>
+				<meta charset="utf8">
+			</head>
+			<body>
+				<script>
+					onload = () => {
+						let syote = prompt("");
+						alert("Hei, "+syote);
+					}
+				${closeScript}
+			</body>
+		</html>`
+			);</script>
+			</div>	
+			
 		<div class="example task">
 			<h3>Tehtävä 2.7</h3>
 			<p>
