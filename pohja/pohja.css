@@ -4,6 +4,7 @@
 
 body {
 	margin: 0;
+	font-size: large;
 }
 
 table {
@@ -78,7 +79,7 @@ nav {
 	float: right;
 	margin-left: 1rem;
 	padding: 1rem;
-	background-color: #e99494;
+	background-color: #ffdada;
 }
 
 .editor-side {
