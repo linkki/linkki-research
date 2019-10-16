@@ -1,0 +1,119 @@
+<!--- Tein tästä osiosta oman version.
+Tää sisältää kommenteina mun omia huomioita alkuperäisestä versiosta.
+En sano, että tää olis parempi tai mitään ja sen takia tää onki vaa toinen versio osasta 1-->
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+	<meta charset="utf8">
+	<title>Jäsäkurssi - Osa 1 v.2</title>
+	<link href="../pohja/pohja.css" rel="stylesheet" type="text/css">
+		
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../pohja/pohja.js"></script>
+	<script src="osa1.js"></script>
+</head>
+	<body>
+	
+	<div class="header">
+		<nav>
+			Jäsää lapsille
+			· <a href="../osa1/osa1.html">Osa 1</a>
+			· <a href="../osa2/osa2.html">Osa 2</a>
+		</nav>
+	</div>
+	
+	<div class="content">
+		<h1>Ensimmäinen osa</h1>
+		<!-- Lähtisin tässä osassa liikkeelle enemmän 
+		minimalistisesti niistä tarpeista, mitä meillä 
+	on JS kirjotusta varten. Eli kävisin vain tehokkaasti perus teksti 
+jutut ja painikkeet läpi. Näillä melkein pääsemme jo alkuu JSssä.
+En usko, että lapsilla on kiinnostusta niinkään HTMLllän koodaamiseen.
+Se on aika tylsää ja siinä ei tapahdu mitään.
+Toisaalta, jos käytämme Laaksosen ohjetta ja tehdään sitä
+tosi simppeliä koodia, niin olisi ehkä parempi vain aloittaa jäsällä?-->
+
+<h2>Johdanto</h2>
+		<p>Tervetuloa ohjelmoimaan!</p>
+		<table>
+			<caption>Symbolit</caption>
+			<tr><th>Symboli</th><th>Selitys</th></tr>
+			<tr><td>✏️</td><td>Ohjelmointitehtävä</td></tr>
+			<tr><td>💡</td><td>Vinkki</td></tr>
+			<tr><td>❗</td><td>Tärkeä ohje</td></tr>
+			<tr><td>🔍</td><td>Lisätietoa</td></tr>
+		</table>
+		
+		<h2>Hötömölön alkeet</h2>
+		<p>
+			Aloitetaan HTML kielen harjoittelu. 
+			HTML on nettisivuilla käytetty kieli. 
+			Sillä voi tuottaa sisältöä sivulle. 
+			Meille se toimii pohjana, jonka avulla saamme ohjelmamme toimimaan.
+		</p>
+		<p>
+			Internet-sivut on kirjoitettu HTML kielellä. 
+			Voimme lisätä sivulle tekstiä, kuvia ja painikkeita 
+			käyttämällä tageja. Tagit ovat komentoja internet-selaimelle. 
+
+		</p>
+	<div class="example task">
+		<h3>Tehtävä 1.1</h3>
+		<p>
+			Tekstiä sijoitetaan <code>&lt;p&gt;</code> tagien sisälle.
+		</p>
+		<script>
+			addEditor(
+	`<!doctype HTML>
+		<p>Tässä on tekstia sivulla.</p>`
+			);
+		</script>
+	</div>
+	<div class="example task">
+			<h3>Tehtävä 1.2</h3>
+			<p>
+				
+			</p>
+			<script>
+				addEditor(
+		`<!doctype HTML>
+			<p><b>Tässä on tekstia sivulla.</b></p>`
+				);
+			</script>
+		</div>
+
+		<!-- Alkuperäisessä versiossa on aika paljon teksitä
+		en usko, että lapsia kauheasti kiinnostaa noin paljon
+	tekstin ominaisuudet ja sen muokattavuus.-->
+	<!-- En tiedä onko tarpeellista opettaa css:ssää.
+	Itse en laittaisi-->
+	<div class="example task">
+			<h3>Tehtävä 1.3</h3>
+			<p>
+				Tekstin väriä voi vaihtaa.
+			</p>
+			<script>
+				addEditor(
+		`<!doctype HTML>
+			<p><font color ="red">Tässä on tekstia sivulla.</font></p>`
+				);
+			</script>
+	</div>
+
+	<h2>Painikkeet</h2>	
+	<div class="example task">
+			<h3>Tehtävä 1.3</h3>
+			<p>
+				Tekstin väriä voi vaihtaa.
+			</p>
+			<script>
+				addEditor(
+		`<!doctype HTML>
+			<button><b>Painike</b></button>`
+				);
+			</script>
+	</div>
+	</div>
+</body>
+</html>
