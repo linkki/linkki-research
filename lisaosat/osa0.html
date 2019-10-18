@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+	<meta charset="utf8">
+	<title>Jäsäkurssi - Osa 1</title>
+	<link href="../pohja/pohja.css" rel="stylesheet" type="text/css">
+		
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../pohja/pohja.js"></script>
+	<script src="osa1.js"></script>
+</head>
+	<body>
+	
+	<div class="header">
+		<nav>
+			Jäsää lapsille
+			· <a href="../osa1/osa1.html">Osa 1</a>
+			· <a href="../osa2/osa2.html">Osa 2</a>
+		</nav>
+	</div>
+	
+	<div class="content">
+		<h1>Ensimmäinen osa</h1>
+		<h2>Johdanto</h2>
+		<p>Tervetuloa ohjelmoimaan!</p>
+		<table>
+			<caption>Symbolit</caption>
+			<tr><th>Symboli</th><th>Selitys</th></tr>
+			<tr><td>✏️</td><td>Ohjelmointitehtävä</td></tr>
+			<tr><td>💡</td><td>Vinkki</td></tr>
+			<tr><td>❗</td><td>Tärkeä ohje</td></tr>
+			<tr><td>🔍</td><td>Lisätietoa</td></tr>
+		</table>
+		
+		<h2>Hötömölön alkeet</h2>
+		<p>
+			<!--- Tästä voidi tehdä kuvan-->
+			HTML tulee englannin kielen sanoista <i>HyperText Markup Language</i> eli suomeksi hypertekstin merkintäkieli.
+			Hyperteksti tarkoittaa tekstiä, jossa on linkkejä (sana hyper on kreikkaa ja tarkoittaa "yli", hyperteksti tarkoittaa siis "tekstin yli").
+			Suurin osa nettisivuista sisältää hypertekstiä.
+			Jotta tietokone osaa lisätä tekstiin linkkejä, sille on kerrottava, missä kohdissa tekstiä linkit ovat.
+			Tätä varten on kehitetty hypertekstin merkintäkieli, jossa linkkejä merkitään sanojen ympärille asetettavilla tägeillä.
+			HTML:ssä on myös muita tägejä, joilla voi <b>lihavoittaa</b> ja <i>kursivoida</i> tekstiä sekä tehdä muita asioita, joita opimme.
+		</p>
+		<p>
+			Alla on esimerkki HTML-koodista, jossa on sekä lihavoitettu sana että linkki.
+		</p>
+		<script>codeExample(`<b>Tässä</b> tekstissä on <a href="https://helsinki.fi">linkki</a>.`);</script>
+		<p>
+			Nettiselain näyttää koodin näin:
+		</p>
+		<div class="result"><b>Tässä</b> tekstissä on <a href="helsinki.fi">linkki</a>.</div>
+		<p>
+			Tägi koostuu nimestä, joka on ympäröity kulmasuluilla.
+			Useista tägeistä on kaksi versiota: aloittava ja lopettava versio.
+			Esimerkiksi tägi <code>&lt;b&gt;</code> aloittaa lihavoinnin ja <code>&lt;/b&gt;</code> lopettaa sen.
+			HTML:ssä tavallisen tekstien seassa olevilla tageilla voidaan merkitä erilaisia asioita. Alla on lista yleisimmistä tägeistä.
+		</p>
+		<table>
+			<caption>Yleisimmät tägit</caption>
+			<tr><th>Aloittava tägi</th><th>Lopettava tägi</th><th>Selitys</th></tr>
+			<tr><td><code>&lt;b&gt;</code></td><td><code>&lt;/b&gt;</code></td><td><b>Lihavointi</b></td></tr>
+			<tr><td><code>&lt;i&gt;</code></td><td><code>&lt;/i&gt;</code></td><td><i>Kursivointi</i></td></tr>
+			<tr><td><code>&lt;s&gt;</code></td><td><code>&lt;/s&gt;</code></td><td><s>Yliviivaus</s></td></tr>
+			<tr><td><code>&lt;a href="osoite"&gt;</code></td><td><code>&lt;/a&gt;</code></td><td><a href="#">Linkki</a></td></tr>
+			<tr><td><code>&lt;br&gt;</code></td><td>ei ole</td><td>Rivinvaihto</td></tr>
+		</table>
+		
+		<div class="example task">
+		<h3>Tehtävä 1.1</h3>
+		<p>
+			Lisää tekstiin tägejä. Kokeile lihavoitusta, kursiivia ja yliviivausta. Lisää myös rivinvaihto johonkin kohtaan.
+			Älä poista tekstin alussa olevaa <code>&lt;!doctype HTML&gt;</code>-tägiä.
+			Saat nettiselaimen näyttämään tekemäsi muutokset painamalla <img src="../pohja/lippukuvake.png">-nappia.
+		</p>
+		<script>
+			addEditor(
+`<!doctype HTML>
+Tässä on tavallista tekstiä. Siihen voi lisätä erilaisia muotoiluja.`
+			);
+		</script>
+		</div>
+		
+		<h2>HTML:n osiot</h2>
+		<div class="infobox extra">
+			<h3>&lt;!doctype HTML&gt;</h3>
+			<p>
+				Kuten olet huomannut, kaikissa tehtävissä koodin alussa on <code>&lt;!doctype HTML&gt;</code>-tägi.
+				Tällä tällä tägillä asetetaan <b>asiakirjan tyypiksi</b> (englanniksi <emph>document type</emph>) HTML.
+				Samantyyppisillä tägeillä voisi asettaa asiakirjan tyypiksi myös jonkin muun kielen, kuten XML:n tai XHTML:n.
+				Emme käsittele näitä kieliä tässä oppaassa.
+			</p>
+		</div>
+		<p>
+			HTML-tägeillä merkittyä tekstiä sanotaan <b>asiakirjaksi</b>.
+			Nettiselaimen käyttäjälle näyttämää tekstiä sanotaan <b>body-osioksi</b>.
+			On monia muitakin osioita.
+			Koko asiakirjan sanotaan olevan <b>html-osion</b> sisällä.
+			<b>Head-osio</b> sisältää lisätietoa asiakirjasta ja tiedostosta.
+			<b>Script-osiot</b> sisältävät JavaScript-komentosarjoja, joita käsittelemme myöhemmissä luvuissa.
+		</p>
+		<p>
+			Kuten muotoiluilla, myös osioilla on jokaisella aloittava ja lopettava tägi.
+			Alla olevassa taulukossa on yleisten osioiden tägit.
+		</p>
+		<table>
+			<caption>Yleisimmät osiot</caption>
+			<tr><th>Aloittava tägi</th><th>Lopettava tägi</th><th>Selitys</th></tr>
+			<tr><td><code>&lt;html&gt;</code></td><td><code>&lt;/html&gt;</code></td><td>Merkitsee koko asiakirjaa. Tägit on laitettava tiedoston alkuun ja loppuun.</td></tr>
+			<tr><td><code>&lt;head&gt;</code></td><td><code>&lt;/head&gt;</code></td><td>Sisältää lisätietoa asiakirjasta, kuten merkistön ja esimerkiksi nettisivun tapauksessa  sivun otsikon.</td></tr>
+			<tr><td><code>&lt;body&gt;</code></td><td><code>&lt;/body&gt;</code></td><td>Sisältää asiakirjan varsinaisen sisällön, eli sivulla näkyvän tekstin, kuvat ja komentosarjat.</td></tr>
+			<tr><td><code>&lt;script&gt;</code></td><td><code>&lt;/script&gt;</code></td><td>Sisältää komentosarjan. Script-osiot ovat joko head- tai body-osion alaosioita.</td></tr>
+			<tr><td><code>&lt;style&gt;</code></td><td><code>&lt;/style&gt;</code></td><td>Sisältää lisätietoa siitä, minkä värisinä ja kokoisina eri tägit näytetään. Style-osio on head-osion alaosio.</td></tr>
+		</table>
+		<p>
+			Osiot näyttävät tältä kirjoitettuna koodina:
+		</p>
+		<script>codeExample(
+`<!doctype HTML>
+<html>
+	<head>
+		<meta charset="utf8">
+	</head>
+	<body>
+		Tässä on verkkosivulla näyttämää tekstiä.
+	</body>
+</html>`
+		);</script>
+		<p>
+			❗On tärkeää, että osiot ovat tässä järjestyksessä ja että ne on aloitettu ja lopetettu oikeissa kohdissa.
+			Html-osio alkaa asiakirjan alussa ja loppuu sen lopussa.
+			Sen sisällä on ensin head-osio ja sitten body-osio.
+		</p>
+		
+		<h3>Head-osio</h3>
+		<p>
+			Head-osio sisältää lisätietoa asiakirjasta.
+			Nettiselain ei näytä head-osion sisältöä suoraan käyttäjälle, mutta osion sisältö vaikuttaa sivuun epäsuorasti.
+			Tärkein head-osion sisällä käytettävä tägi on <b><code>&lt;meta charset="utf8"&gt;</code>-tägi</b>,
+			jonka asetetaan sivun käyttämä merkistö UTF-8:ksi.
+			UTF-8 on maailman käytetyin merkistö.
+			Merkistöllä tarkoitetaan tapaa, jolla merkit on koodattu numeroiksi tietokoneen muistissa.
+			Jos merkistö on väärin, erikoismerkit ja ääkköset näkyvät väärin, esimerkiksi sana "sähkö" saattaa näkyä muodossa "sÃ¤hkÃ¶".
+			Tämän vuoksi on hyvin tärkeää, että merkistö asetetaan aina head-osiossa oikein.
+			(Huom! Tämän oppaan tehtävät ja esimerkit eivät tue muita merkistöjä kuin UTF-8:a.
+			Et siis voi valitettavasti kokeilla niissä, miltä eri merkistöt näyttävät.)
+		</p>
+		<p>
+			Toinen head-osion sisällä oleva yleinen tägi on <b><code>&lt;style&gt;</code>-tägi</b>, jossa määritellään asiakirjan tyylejä.
+			Tyyleillä tarkoitetaan ulkonäköön liittyviä asioita, kuten fonttia, tekstin kokoa, riviväliä, tekstin ja taustan väriä sekä sivun asettelua.
+			Emme käsittele tyylejä tarkasti tässä oppaassa, mutta niitä saattaa näkyä joissakin esimerkeissä, jotta sivun ulkoasu olisi selvempi.
+			Alla on esimerkki tyylimäärittelystä, jossa <code>&lt;b&gt;</code>-tägin väri asetetaan punaiseksi.
+		</p>
+		<script>
+			addEditor(
+`<!doctype HTML>
+<html>
+	<head>
+		<meta charset="utf8">
+		<style>
+			b {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		Tässä on <b>punaista tekstiä</b>.
+	</body>
+</html>`, true
+			);
+		</script>
+		
+		<h2>Lisää tägejä</h2>
+		
+		<h3>Kappalejaot</h3>
+		<p>
+			Kappalejaon lisäämiseksi tekstiin on merkittävä kappaleiden rajat.
+			Kappaleiden alkuun lisätään <code>&lt;p&gt;</code>-tägi ja loppuun <code>&lt;/p&gt;</code>-tägi.
+			Tägien ansiosta nettiselain osaa lisätä tyhjän rivin kappaleiden alkuun ja loppuun.
+			Alla olevassa esimerkissä kuvitteelliseen tutkielmatiivistelmään on merkitty kappaleet.
+		</p>
+		<script>
+			addEditor(
+`<!doctype HTML>
+<html>
+	<head>
+		<meta charset="utf8">
+	</head>
+	<body>
+		<p>
+			Työn tavoitteena oli selvittää, millainen on suomalaisen
+			nyky-yhteiskunnan mielikuva, joka kuvaa suomalaisten
+			suhtautumista maahanmuuttoon. Työn teoreettisena viitekehyksenä
+			oli sosiaalinen konstruktionismi. Tutkimuksen aineistona
+			käytettiin kahta Helsingin Sanomien aineistoa vuosilta 2010-2012.
+			Tutkimusaineistoon sisältyi neljä uutisartikkelia: Helsingin
+			Sanomat, Iltalehti, Turun Sanomat sekä Aamulehti.
+		</p>
+
+		<p>
+			Tutkimuksen teoriapohjassa käsiteltiin maahanmuuttoa sosiaalisena
+			ilmiönä, erityisesti diskurssien ja diskurssien käsitteitä,
+			joita käsitteiden avulla pyritään ymmärtämään. Jaoin diskurssit
+			diskursseihin rakentuviksi kategorioiksi, joita ovat kielelliset,
+			symboliset ja sosiaaliset diskursiiviset kategoriat. Diskurssien
+			avulla etsin vastauksia siihen, mitä mediassa tapahtuu,
+			minkälaista median rooli on diskurssien välittäjinä ja mitä
+			merkityksiä niillä tuotetaan. Lisäksi tarkastelin, millaisia
+			diskursseja lukijat rakentavat diskursseista.
+		</p>
+
+		<p>
+			Tutkimuksen perusteella voidaan todeta, että diskurssit
+			ovat olennainen osa nykyjournalismia ja maaseudun kehittämistä.
+			Maaseudulle kaivataan uusia materiaaleja, joilla voidaan
+			vaikuttaa nuorten hyvinvointiin. Maaseudun kehittämisen
+			kannalta tärkeää on myös se, että maaseudun kehittämisestä
+			pyritään tekemään konkreettista ja hyvinvoivaa. Maaseudun
+			kehittämisen kannalta tärkeitä diskursseja ovat muun muassa
+			kieli ja sukupuoli.
+		</p>
+
+	</body>
+</html>`, true
+			);
+		</script>
+		
+		<h3>Otsikot</h3>
+		<p>
+			Myös otsikoita varten on tägejä. Yleensä sivulla on yksi yläotsikko, jonka alla on alaotsikkoja.
+			Myös alaotsikkojen alla voi tarvittaessa olle vielä pienempiä alaotsikkoja.
+			Suurin mahdollinen otsikko on <code>&lt;h1&gt;</code>-otsikko,
+			siitä seuraava on <code>&lt;h2&gt;</code>-otsikko, sitten <code>&lt;h3&gt;</code>-otsikko ja niin edelleen.
+			Myös otsikot pitää muista päättää lopettavalla tägillä.
+		</p>
+		<script>
+			addEditor(
+`<!doctype HTML>
+<html>
+	<head>
+		<meta charset="utf8">
+	</head>
+	<body>
+		<h1>HTML:ssä on otsikoita</h1>
+		
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+			sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+		</p>
+		
+		<h2>Myös alaotsikoita tuetaan</h2>
+		
+		<p>
+			Dolor sed viverra ipsum nunc aliquet bibendum enim.
+		</p>
+		
+		<h3>Ala-alaotsikot ovat myös tuettuja</h3>
+		
+		<p>
+			In massa tempor nec feugiat.
+			Nunc aliquet bibendum enim facilisis gravida.
+		</p>
+		
+		<h2>Vielä yksi alaotsikko</h2>
+		
+		<p>
+			Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper.
+			Amet luctus venenatis lectus magna fringilla.
+		</p>
+
+	</body>
+</html>`, true
+			);
+		</script>
+
+		<div class="example task">
+		<h3>Tehtävä 1.2</h3>
+		<p>
+			Ohessa on tiivistelmä eräästä kuvitteellisesta psykoterapiaan liittyvästä tutkimuksesta.
+			Muuta tiivistelmää siten, että <code>&lt;b&gt;</code>-tägien sijasta käytetään
+			<code>&lt;h1&gt;</code>- ja <code>&lt;h2&gt;</code>-tägejä.
+			Lisäksi poista <code>&lt;br&gt;</code>-tägit ja korvaa ne oikein merkityillä <code>&lt;p&gt;</code>-tägeillä.
+		</p>
+		<script>
+			addEditor(
+`<!doctype HTML>
+<html>
+	<head>
+		<meta charset="utf8">
+	</head>
+	<body>
+		<b>SUOMALAINEN PSYKOTERAPIAIDENTITEETTI JA SEN ULOTTUVUUDET</b>
+		<br>
+		<br>
+		Tutkielmassa tarkastellaan psykoterapiaidentiteettiä Suomessa,
+		erityisesti Suomessa sekä vertaillaan eri hoitomuotoja
+		keskenään. Tutkielmassa tarkastellaan myös, miten psykoterapiat
+		vaikuttavat työolosuhteisiin ja miten ne liittyvät toisiinsa.
+		Lisäksi tutkitaan, millaisia kokemuksia psykoterapiamenetelmillä
+		on eri hoitomuotojen esiintymisestä.
+		<br>
+		<br>
+		Tutkielma perustuu vuosien 2007 ja 2015 aikana kerättyyn
+		kyselyaineistoon, joka sisältää 3259 lomakevastausta. Tutkielman
+		teoreettinen viitekehys perustuu psykoterapiatutkimuksen
+		lähtökohtiin ja aikaisempiin tutkimuksiin ja teorioihin.
+		<br>
+		<br>
+		<b>Tutkimuskysymykset</b>
+		<br>
+		<br>
+		Tutkielman tutkimusongelma on seuraava: 1. Millaisia ovat
+		psykoterapiaidentiteettien erilaiset ulottuvuudet ja miten ne
+		eroavat toisistaan? 2. Millaisiin tapoihin ja keinoihin
+		psykoterapiat ovat yhteydessä? 3. Miten kokemukset ja käsitykset
+		eroavat toisistaan?
+		<br>
+		<br>
+		<b>Tutkimusaineisto</b>
+		<br>
+		<br>
+		Tutkielman aineisto koostuu psykoterapian tekijöiden ja
+		työntekijöistä kerätystä kyselyaineistosta (n=87) sekä
+		psykoterapeutin haastatteluista. Kyselyaineiston
+		analyysimenetelmänä on sisällönanalyysi, jonka avulla
+		aineistosta on saatu ymmärrystä ja tulkintoja.
+		<br>
+		<br>
+		<b>Psykoterapia hoitomuotona</b>
+		<br>
+		<br>
+		Psykoterapiat ovat luotettavia ja hyvin erilaisia kuin
+		psykoterapiat ja työnjako. Ne ovat moniulotteisia ilmiöitä,
+		jotka muodostavat palveluita, jotka eivät ole suoraan
+		mitattavissa. Psykoterapiat ovat luonteeltaan moniulotteisia. Ne
+		ovat osa sosiaalista todellisuutta ja nykyajan
+		toimintaympäristöä, jossa vuorovaikutus ja vuorovaikutus ovat
+		olennaisia. Psykoterapian menetelmä on moniulotteinen, mutta se
+		perustuu yleensä havainnointiin ja haastatteluihin.
+		Psykoterapiassa on monia menetelmiä, joiden avulla ymmärrystä ja
+		tietoa voidaan käyttää asenteiden ja intuitiivisuuden
+		tunnistamiseen.
+	</body>
+</html>`
+			);
+		</script>
+		</div>
+		
+		<h3>Yhteenveto tägeistä</h3>
+		<table>
+			<caption>Opitut tägit</caption>
+			<tr><th>Aloittava tägi</th><th>Lopettava tägi</th><th>Selitys</th></tr>
+			<tr><td><code>&lt;b&gt;</code></td><td><code>&lt;/b&gt;</code></td><td><b>Lihavointi</b></td></tr>
+			<tr><td><code>&lt;i&gt;</code></td><td><code>&lt;/i&gt;</code></td><td><i>Kursivointi</i></td></tr>
+			<tr><td><code>&lt;s&gt;</code></td><td><code>&lt;/s&gt;</code></td><td><s>Yliviivaus</s></td></tr>
+			<tr><td><code>&lt;a href="osoite"&gt;</code></td><td><code>&lt;/a&gt;</code></td><td><a href="#">Linkki</a></td></tr>
+			<tr><td><code>&lt;br&gt;</code></td><td>ei ole</td><td>Rivinvaihto</td></tr>
+			<tr><td><code>&lt;p&gt;</code></td><td><code>&lt;/p&gt;</code></td><td><p>Kappale</p></td></tr>
+			<tr><td><code>&lt;h1&gt;</code></td><td><code>&lt;/h1&gt;</code></td><td><h1>Yläotsikko</h1></td></tr>
+			<tr><td><code>&lt;h2&gt;</code></td><td><code>&lt;/h2&gt;</code></td><td><h2>Alaotsikko</h2></td></tr>
+			<tr><td><code>&lt;h3&gt;</code></td><td><code>&lt;/h3&gt;</code></td><td><h3>Pienempi alaotsikko</h3></td></tr>
+			<tr><td><code>&lt;h4&gt;</code></td><td><code>&lt;/h4&gt;</code></td><td><h4>Vielä pienempi alaotsikko</h3></td></tr>
+		</table>
+
+		<h2>Painikkeet</h2>
+		<p>
+			Painikkeista tapahtuu sivulla asioista, joista tapahtuu asioita. 
+			Seuraavassa osiossa opimme tekemään näitä toiminnallisuuksia, mutta opetellaan ensin tekemään 
+			painikkeita.
+		</p>
+		<script>
+			addEditor(
+`<!doctype HTML>
+<html>
+	<head>
+		<meta charset="utf8">
+	</head>
+	<body>
+		<button>asdasdsad</button>
+	</body>
+</html>`, true
+			);
+		</script>
+		<p>
+			Painikkeet tosiaan ei itsessään tee mitään. Haluamme tehdä niille toiminnallisuutta. 
+			Sen voimme niille antaa JavaScriptillä. 
+		</p>
+</body>
+</html>
