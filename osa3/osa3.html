@@ -2,7 +2,7 @@
 <html lang="fi">
 <head>
 	<meta charset="utf8">
-	<title>Jäsäkurssi - Osa 2</title>
+	<title>Jäsäkurssi - Osa 3</title>
 	<link href="../pohja/pohja.css" rel="stylesheet" type="text/css">
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" type="text/javascript" charset="utf-8"></script>
@@ -20,8 +20,174 @@
 	</div>
 
 	<div class="content">
-		<h1>Osa 3. - Nyt alkaa tapahtumaan</h1>
+        <h1>Osa 3. - Nyt alkaa tapahtumaan</h1>
+        <h2>3.1 Tapahtumat</h2>
+			<p>
+                Puhumme tapahtumista, kun teemme jotakin ja tämän jälkeen tapahtuu jotakin muuta.
+                Esimerkiksi jos ankka uisi lammen läpi vanhan rouvan luokse ja tämän jälkeen rouva antaisi ankalle leipää, 
+                voisimme sanoa, että tapahtuma ankka ui lammen läpi johti tapahtumaan rouva antaa ankalle leipää.
+            </p>
+            <p>
+                Tietokoneella esimerkiksi hiiren klikkaus on tapahtuma. 
+                Ohjelmassa voimme kuunnella, milloin hiirtä klikataan ja sen jälkeen toteuttaa jonkun toisen tapahtuman. 
+                Esimerkiksi voimme klikata tekstiä, jonka jälkeen meille tulee alert() ikkuna.
+            </p>
+            
+            <div class="codebox example">
+                    <h3>Esimerkki 3.1</h3>
+                    <script>
+                        addEditor(
+`<!doctype HTML>
+<p>
+    Klikkaa minua.
+</p>
+<script>
+    const teksti = document.querySelector('p')
+    teksti.onclick = function() {
+        alert("Hello")
+    }
+${closeScript}`, true
+                    );</script>
+        </div>
+        <p>
+            Nyt koodissa alkaa olla jo pituutta. 
+            Käydään seuraavaksi läpi pala palalta, mitä koodissa oikein tapahtuu.
+        </p>
+        <ol>
+            <li> Ensin laitamme ohjelman alkuosaan HTML-koodia.
+            <script>codeExample(
+`<p>
+    Klikkaa minua.
+</p>`
+            );</script>
+            Koodissa on käytetty HTML:n teksti-tägiä &lt;p&gt;, jonka sisälle on kirjoitettu merkkijono "Klikkaa minua.".
+            <li> Seuraavaksi tulee tuttuakin tutumpi &lt;script&gt;-tägi.
+            <script>codeExample(
+`<script>
+    //...            
+${closeScript}`
+            );</script>
+            &lt;p&gt;-tägejen rajaamaa aluetta kannattaa ajatella kokonaisuutena.
+            Tutkitaan seuraavassa kohdassa, mitä tägien sisällä oleva koodi tekee.
+            <li> Luodaan muuttuja ja haetaan <code>querySelector</code>-komento muuttujan arvoksi HTML-koodista löytyvä <code>&lt;p&gt;</code>-tägein sisällä oleva merkkijono.
+                <script>codeExample(
+`const teksti = document.querySelector('p')`
+                );</script>
+                Koodissa asetamme muuttujan <code>teksti</code> arvoksi sen, 
+                mitä <code>&lt;p&gt;</code>-tägien välistä haetaan. 
+                Itse hakemisen hoitaa komento <code>document.querySelector()</code>.
+                Alussa oleva <code>document</code> tarkoittaa, että viittaamme HTML-dokumenttiin. 
+                Itse komento <code>querySelector</code> saa parametrikseen <code>'p'</code>, joka tarkoittaa, että haemme HTML-tiedostosta <code>&lt;p&gt;</code>-tägien sisältämät merkkijonot.
+            <!--Pahasti kesken-->
+            </ol>
+        <p>
+            Ensin täytyy siis luoda jokin objekti HTML-koodilla. 
+            Tämän jälkeen voimme luoda tätä objektia vastaavan muuttujan JavaScriptillä. 
+            Tämän jälkeen luomme <b>kuuntelijan</b>, joka odottaa, milloin tekstiä klikataan. 
+            Kun tekstiä klikataan kerromme, että haluamme toteuttaa komennon <code>alert()</code>. 
+        </p>
 
-	</div>
+        <div class="codebox example">
+                <h3>Esimerkki 3.2</h3>
+                <p>
+                    Tekstiä klikkaamalla teksti vaihtuu.
+                </p>
+                <script>
+                    addEditor(
+`<!doctype HTML>
+<p id = teksti>hello!<p>
+<script>
+    const teksti = document.querySelector("#teksti")
+    teksti.onclick = function() {
+        teksti.textContent = "Moikka moi!"
+    }
+${closeScript}`, true
+                );</script>
+            </div>
+
+        <p>
+            Jotta voimme muokata tekstiä, joka on jo asetettu sivulle kerran tarvitaan komentoa <code>textContent</code>. 
+            Kun kutsumme tätä komentoa, voimme vaihtaa haetun muuttujan arvon. 
+            Edellisessä esimerkissä vaihdoimme tekstin merkkijonoksi "Moikka moi!".
+        </p>
+        <h3>Opitut komennot</h3>
+        <table>
+                <caption>Opitut komennot</caption>
+                <tr>
+                    <th>Komento
+                    <th style="width: 300px;">Esimerkki
+                    <th>Selitys
+                <tr>
+                    <td><code>alert()</code>
+                    <td><script>codeExample(`alert("Kissat ovat kivoja") `, "javascript");</script>
+                    <td>Näyttää käyttäjälle merkkijonon
+                <tr>
+                    <td><code>prompt()</code>
+                    <td><script>codeExample(`prompt("Mikä sinun nimesi on?") `, "javascript");</script>
+                    <td>Kysyy käyttäjältä merkkijonon
+                <tr>
+                    <td><code>const</code>
+                    <td><script>codeExample(`const viesti = "Hauska tavata"` + "\n" + `const syöte = prompt("Nimesi?") `, "javascript");</script>
+                    <td>Luo uuden muuttujan
+            </table>
+
+    <h2>3.2 Painikkeet</h2>
+		<div class="codebox example">
+			<h3>Esimerkki 3.3</h3>
+			<p>
+				Napista tapahtuu alert.
+			</p>
+			<script>
+				addEditor(
+`<!doctype HTML>
+<button id=nappi>hello!</button>
+<script>
+	const nappi = document.querySelector("#nappi")
+	nappi.onclick = function() {
+		alert("Hello")
+	}
+${closeScript}`, true
+			);</script>
+			</div>
+
+            <div class="codebox example">
+                <h3>Esimerkki 3.4</h3>
+                <p>
+                    Napista vaihtuu teksti.
+                </p>
+                <script>
+                    addEditor(
+`<!doctype HTML>
+<p id = teksti>hello!<p>
+<button id=nappi>Vaihda tekstiä</button>
+<script>
+    const teksti = document.querySelector("#teksti")
+    nappi.onclick = function() {
+        teksti.textContent = "Moikka moi!"
+    }
+${closeScript}`, true
+                );</script>
+            </div>
+
+            <div class="codebox example">
+                <h3>Esimerkki 3.5</h3>
+                <p>
+                    Kuvan vaihtaminen.
+                </p>
+                <script>
+                    addEditor(
+ //ei toimi
+`<!doctype HTML>
+<img src="html.png">
+<button id=nappi>Vaihda kuvaa</button>
+<script>
+    const kuva = document.querySelector('img')
+    nappi.onclick = function() {
+        kuva.setAttribute ('src','javascript.png');
+    }
+${closeScript}`, true
+                );</script>
+            </div>
+        </div>
 </body>
 </html>

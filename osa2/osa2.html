@@ -32,7 +32,7 @@
 			Komennot kertovat JavaScriptin kääntäjälle, mitä haluamme tehdä.
 			Komennot voivat tuntua aluksi oudoilta, mutta niiden merkitys selvenee, kun niitä käyttää. 
 		</p>
-		<div class="example task">
+		<div class="codebox task">
 		<h3>Tehtävä 2.1</h3>
 		<p>
 			Kirjoita <code>alert()</code>-komennon sisälle lainausmerkkien (<code>""</code>) väliin nimesi ja paina kuvaketta <img src="../pohja/lippukuvake.png">.
@@ -62,7 +62,7 @@
 		<p>
 			Olemme siis nyt oppineet, minne HTML-tiedostossa kirjoitetaan JavaScript-komennot.
 		</p>
-		<div class="example task">
+		<div class="codebox task">
 		<h3>Tehtävä 2.2</h3>
 		<p>
 			Kirjoita <code>alert("Heipä hei!")</code>-komento oikeaan kohtaan koodissa.
@@ -83,7 +83,7 @@
 );</script>
 
 		</div>
-		<div class="example task">
+		<div class="codebox task">
 			<h3>Tehtävä 2.3</h3>
 			<p>
 				Kirjoita ohjelma, joka tulostaa "JavaScript on kivaa".
@@ -122,7 +122,7 @@
 		<p>
 			Syötteen kysymyinen tapahtuu <code>prompt()</code> komennolla.
 		</p>
-		<div class="example">
+		<div class="codebox">
 			<h3>Esimerkki 2.a</h3>
 			<p>
 				Tähän ohjelmaan on kirjoitettu <code>prompt()</code>-komento. Kokeile, mitä tapahtuu, kun klikkaat lippukuvaketta.
@@ -149,7 +149,7 @@
 			Pelkällä komennolla emme kuitenkaan saa vielä syötettyä tietoa käyttöön.
 			Meidän tulee tallettaa se muuttujaan.
 		</p>
-		<div class="example task">
+		<div class="codebox task">
 			<h3>Tehtävä 2.4</h3>
 			<p>
 				Kirjoita <code>prompt()</code>-komento oikeaan kohtaan koodissa.
@@ -174,7 +174,7 @@
 			Tällöin komentoon lisätään sulkeiden sisään lainausmerkit, joiden sisään kirjoitetaan haluttu teksti.
 			Komento siis näyttää silloin tältä: <code>prompt("")</code>. 
 		</p>
-		<div class="example task">
+		<div class="codebox task">
 		<h3>Tehtävä 2.5</h3> 
 		<p>
 			Kirjoita ohjelmaan komento, joka saa parametriksi tekstin "Mikä sinun nimesi on?".
@@ -224,7 +224,7 @@ alert(viesti) `,
 			<code>viesti</code> on siis nimi merkkijonolle "Kissat ovat kivoja!".
 		</p>
 
-		<div class="example">
+		<div class="codebox">
 			<h3>Esimerkki 2.b</h3>
 			<p>
 				Tässä on ohjelma, joka kysyy käyttäjältä nimen ja tulostaa sen jälkeen tervehdyksen.
@@ -287,32 +287,7 @@ alert(viesti) `,
 				<td>Luo uuden muuttujan
 		</table>
 		
-		<h2>Roskaa</h2>
-			
-		<div class="example task">
-			<h3>Tehtävä 2.7</h3>
-			<p>
-				Kolmas tehtävä
-			</p>
-			<script>
-				addEditor(
-`<!doctype HTML>
-<html>
-	<head>
-		<meta charset="utf8">
-	</head>
-	<body>
-		<button id=nappi>hello!</button>
-		<script>
-			const nappi = document.querySelector("#nappi")
-			nappi.onclick = function() {
-				alert("Hello")
-			}
-		${closeScript}
-	</body>
-</html>`
-			);</script>
-			</div>
+		
 	</div>
 </body>
 </html>

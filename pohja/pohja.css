@@ -111,16 +111,22 @@ nav {
 }
 
 
-.example {
+.codebox {
 	border: 1px solid gray;
 	border-radius: 0.5rem;
 	padding: 1rem;
 	margin-top: 1rem;
 }
 
-.example > h3 {
+.codebox > h3 {
 	margin-top: 0;
 }
+
+.example > h3::before {
+	content: '📜';
+	margin-right: 1rem;
+}
+
 
 .task > h3::before {
 	content: '✏️';
