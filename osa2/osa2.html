@@ -21,9 +21,29 @@
 
 	<div class="content">
 		<h1>Osa 2. - JavaScriptin alkeet</h1>
-		<h2>Mikä ihmeen JavaScript?</h2>
+		<h2>2.1 HTML ja tägit</h2>
 		<p>
-			Ensimmäisessa osassa harjoittelimme tekemään tavallisen HTML-sivun. Nyt aloitamme tutustumisen JavaScriptiin.
+			HTML-kieli on suunniteltu kertomaan verkkoselaimelle, mitä asioita sivulla näkyy.
+			HTML-kielellä kirjoitettu teksti sisältää tavallisen tekstin seassa <b>tägejä</b>.
+			Tägit muuttavat sitä, miten teksti näkyy.
+		</p>
+		<div class="codebox example">
+		<h3>Esimerkki</h3>
+		<script>
+			addEditor(
+`<!doctype HTML>
+Tässä on <b>tummennettu</b> sana.`
+			, true);</script>
+		</div>
+		<p>
+			Yllä olevassa esimerkissä on kolme tägiä: <code>&lt;!doctype HTML&gt;</code>, <code>&lt;b&gt;</code> ja <code>&lt;/b&gt;</code>.
+			Ensimmäinen tägi kertoo selaimelle, että koodi on juuri HTML-kieltä.
+			Tummennus toimii näin: <code>&lt;b&gt;</code> kertoo selaimelle, että sen pitää aloittaa tummentaminen
+			ja <code>&lt;/b&gt;</code> taas, että sen pitää lopettaa tummentaminen.
+		</p>
+		<h2>2.2 Mikä ihmeen JavaScript?</h2>
+		<p>
+			Nyt aloitamme tutustumisen JavaScriptiin.
 			JavaScriptiä käytetään yhdessä HTML-kielen kanssa. JavaScriptillä kirjoitetaan erityisiä komentosarjoja (skriptejä), joilla voidaan saada 
 			tapahtumia aikaan sivulla.
 		</p>
@@ -92,16 +112,16 @@ ${closeScript}`
 			Merkkijono tarkoittaa tekstimuotoista tietoa.
 			Merkkijonoparametri annetaan komennolle kirjoittamalla sen lainausmerkkien sisälle.
 		</p>
-		<h2>Uusi komento <code>prompt()</code></h2>
+		<h2>2.3 Uusi komento <code>prompt()</code></h2>
 		<p>
 			Nyt osaamme tulostaa tietoa. Opetellaan seuraavaksi, miten voimme myös kysyä käyttäjältä <i>syöteen</i>. 
 			Syöte on tietoa, jota tietokone osaa käsitellä. Esimerkiksi, kun kirjoitat JavaScript-ohjelmia 
 			näppäimistöllä annat koko ajan syötteenä tietokoneelle tietoa kirjoittamistasi merkeistä näppäimistön avulla.
 		</p>
 		<p>
-			Syötteen kysymyinen tapahtuu <code>prompt()</code> komennolla.
+			Syötteen kysymyinen tapahtuu <code>prompt()</code>-komennolla.
 		</p>
-		<div class="codebox">
+		<div class="codebox example">
 			<h3>Esimerkki 2.a</h3>
 			<p>
 				Tähän ohjelmaan on kirjoitettu <code>prompt()</code>-komento. Kokeile, mitä tapahtuu, kun klikkaat lippukuvaketta.
@@ -182,14 +202,15 @@ alert(viesti) `,
 			<code>viesti</code> on siis nimi merkkijonolle "Kissat ovat kivoja!".
 		</p>
 
-		<div class="codebox">
+		<div class="codebox example">
 			<h3>Esimerkki 2.b</h3>
 			<p>
 				Tässä on ohjelma, joka kysyy käyttäjältä nimen ja tulostaa sen jälkeen tervehdyksen.
 			</p>
 			<script>
 				addEditor(
-`<script>
+`<!doctype HTML>
+<script>
 	const syöte = prompt("Nimesi on?")
 	alert("Hei, " + syöte)
 ${closeScript}`
@@ -215,7 +236,7 @@ ${closeScript}`
 			<li>Lopulta <code>alert()</code> komento näyttää käyttäjälle merkkijonon "Hei, Ankka".
 		</ol>
 		
-		<h2>Yhteenveto komennoista</h2>
+		<h2>2.4 Yhteenveto komennoista</h2>
 		
 		<table>
 			<caption>Opitut komennot</caption>
