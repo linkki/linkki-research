@@ -55,7 +55,7 @@ function addEditor(value, readOnly) {
 		//editor.session.on("change", update);
 	}
 }
-function codeExample(value, lang) {
+function codeExample(value, lang, small) {
 	const number = editorCounter++;
 	document.write(`
 	<div class="editor" id="editor${number}"></div>
@@ -70,7 +70,7 @@ function codeExample(value, lang) {
 		maxLines: 100,
 		showGutter: false,
 		highlightActiveLine: false,
-		fontSize: "large",
+		fontSize: small ? "small" : "large",
 	});
 	editor.renderer.$cursorLayer.element.style.display = "none"
 	editor.setValue(value);
