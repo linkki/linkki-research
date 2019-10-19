@@ -40,16 +40,9 @@
 		<script>
 			addEditor(
 `<!doctype HTML>
-<html>
-	<head>
-		<meta charset="utf8">
-	</head>
-	<body>
-		<script>
-			alert("");
-		${closeScript}
-	</body>
-</html>`
+<script>
+	alert("");
+${closeScript}`
 			);</script>
 		</div>
 
@@ -70,16 +63,9 @@
 		<script>
 			addEditor(
 `<!doctype HTML>
-<html>
-	<head>
-		<meta charset="utf8">
-	</head>
-	<body>
-		<script>
-		${closeScript}
-	</body>
-</html>`
-);</script>
+<script>
+${closeScript}`
+		);</script>
 
 		</div>
 		<div class="example task">
@@ -91,15 +77,8 @@
 			<script>
 				addEditor(
 `<!doctype HTML>
-<html>
-	<head>
-		<meta charset="utf8">
-	</head>
-	<body>
-		<script>
-		${closeScript}
-	</body>
-</html>`
+<script>
+${closeScript}`
 			);</script>
 	
 			</div>
@@ -129,16 +108,9 @@
 			<script>
 				addEditor(
 `<!doctype HTML>
-<html>
-	<head>
-		<meta charset="utf8">
-	</head>
-	<body>
-		<script>
-			prompt()
-		${closeScript}
-	</body>
-</html>`
+<script>
+	prompt()
+${closeScript}`
 			);</script>
 			</div>
 		
@@ -156,15 +128,8 @@
 			<script>
 				addEditor(
 `<!doctype HTML>
-<html>
-	<head>
-		<meta charset="utf8">
-	</head>
-	<body>
-		<script>
-		${closeScript}
-	</body>
-</html>`
+<script>
+${closeScript}`
 			);</script>
 		</div>
 
@@ -183,15 +148,8 @@
 		<script>
 				addEditor(
 `<!doctype HTML>
-<html>
-	<head>
-		<meta charset="utf8">
-	</head>
-	<body>
-		<script>
-		${closeScript}
-	</body>
-</html>`
+<script>
+${closeScript}`
 			);</script>
 			</div>
 			
@@ -230,18 +188,10 @@ alert(viesti) `,
 			</p>
 			<script>
 				addEditor(
-`<!doctype HTML>
-<html>
-	<head>
-		<meta charset="utf8">
-	</head>
-	<body>
-		<script>
-			const syöte = prompt("Nimesi on?")
-			alert("Hei, " + syöte)
-		${closeScript}
-	</body>
-</html>`
+`<script>
+	const syöte = prompt("Nimesi on?")
+	alert("Hei, " + syöte)
+${closeScript}`
 		);</script>
 		</div>
 		
@@ -257,7 +207,7 @@ alert(viesti) `,
 			Operaattori toimii näin:
 		</p>
 		<ol>
-			<li>Oletetaan, että käyttäjä antoi nimekseen "Ankka".
+			<li>Kuvitellaan, että käyttäjä antoi nimekseen "Ankka".
 			<li>Tällöin <code>syöte</code> viittaa merkkijonoon <code>"Ankka"</code>.
 			<li>Siispä <code>"Hei, " + syöte</code> on sama asia kuin <code>"Hei, " + "Ankka"</code>.
 			<li><code>+</code>-operaattori yhdistää kaksi merkkijonoa ja lopputulos on <code>"Hei, Ankka"</code>.
