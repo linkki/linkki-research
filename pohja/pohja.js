@@ -70,7 +70,9 @@ function codeExample(value, lang) {
 		maxLines: 100,
 		showGutter: false,
 		highlightActiveLine: false,
+		fontSize: "large",
 	});
+	editor.renderer.$cursorLayer.element.style.display = "none"
 	editor.setValue(value);
 	editor.clearSelection();
 }
