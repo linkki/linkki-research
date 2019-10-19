@@ -1,6 +1,6 @@
 
 let editorCounter = 0;
-function addEditor(value, readOnly) {
+function addEditor(value, readOnly, lang) {
 	const number = editorCounter++;
 	if (readOnly) {
 		document.write(`
@@ -24,7 +24,7 @@ function addEditor(value, readOnly) {
 	}
 	const editor = ace.edit(`editor${number}`);
 	editor.setTheme("ace/theme/eclipse");
-	editor.session.setMode("ace/mode/html");
+	editor.session.setMode("ace/mode/" + (lang || "html"));
 	editor.setOptions({
 		useSoftTabs: true,
 		cursorStyle: "slim",
