@@ -175,8 +175,7 @@ ${closeScript}`, true
                 );</script>
             </div>
 
-            <img src="kuva1.png">
-            <img src="kuva2.png">
+            
 
             <div class="codebox example">
                 <h3>Esimerkki 3.5</h3>
@@ -185,14 +184,14 @@ ${closeScript}`, true
                 </p>
                 <script>
                     addEditor(
- //ei toimi
+ 
 `<!doctype HTML>
-<img src="html.png">
+<img src="https://linkki.github.io/linkki-research/osa3/kuva1.png">
 <button id=nappi>Vaihda kuvaa</button>
 <script>
     const kuva = document.querySelector('img')
-    nappi.onclick = function() {
-        kuva.setAttribute ('src','javascript.png');
+    nappi.onclick = () => {
+        kuva.setAttribute ('src','https://linkki.github.io/linkki-research/osa3/kuva2.png');
     }
 ${closeScript}`, true
                 );</script>
