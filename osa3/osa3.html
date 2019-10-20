@@ -38,55 +38,56 @@
                     <script>
                         addEditor(
 `<!doctype HTML>
-<p>
+<p id = teksti>
     Klikkaa minua.
 </p>
 <script>
-    const teksti = document.querySelector('p')
-    teksti.onclick = function() {
+    teksti.onclick = () => {
         alert("Hello")
     }
 ${closeScript}`, true
                     );</script>
         </div>
         <p>
-            Nyt koodissa alkaa olla jo pituutta. 
             Käydään seuraavaksi läpi pala palalta, mitä koodissa oikein tapahtuu.
         </p>
         <ol>
             <li> Ensin laitamme ohjelman alkuosaan HTML-koodia.
             <script>codeExample(
-`<p>
+`<p id = teksti>
     Klikkaa minua.
 </p>`
             );</script>
-            Koodissa on käytetty HTML:n teksti-tägiä &lt;p&gt;, jonka sisälle on kirjoitettu merkkijono "Klikkaa minua.".
+            Koodissa on käytetty HTML:n tuttua teksti-tägiä &lt;p&gt;, jonka sisälle on kirjoitettu merkkijono "Klikkaa minua.". 
+            Tällä kertaa tägille on kuitenkin annettu tunniste eli <b>id</b>. 
+            Tunnisteen arvoksi on asetettu "teksti". 
+            Tämä tarkoittaa, että olemme antaneet tälle teksti-tägille &lt;p&gt; nimeksi "teksti".
             <li> Seuraavaksi tulee tuttuakin tutumpi &lt;script&gt;-tägi.
             <script>codeExample(
 `<script>
     //...            
 ${closeScript}`
             );</script>
-            &lt;p&gt;-tägejen rajaamaa aluetta kannattaa ajatella kokonaisuutena.
+            &lt;script&gt;-tägejen rajaamaa aluetta kannattaa ajatella kokonaisuutena.
             Tutkitaan seuraavassa kohdassa, mitä tägien sisällä oleva koodi tekee.
-            <li> Luodaan muuttuja ja haetaan <code>querySelector</code>-komento muuttujan arvoksi HTML-koodista löytyvä <code>&lt;p&gt;</code>-tägein sisällä oleva merkkijono.
+            <li> Tarkastellaan seuraavaksi koodilohkoa:
                 <script>codeExample(
-`const teksti = document.querySelector('p')`
+`teksti.onclick = () => {
+    //...
+}`
                 ,"javascript");</script>
-                Koodissa asetamme muuttujan <code>teksti</code> arvoksi sen, 
-                mitä <code>&lt;p&gt;</code>-tägien välistä haetaan. 
-                Itse hakemisen hoitaa komento <code>document.querySelector()</code>.
-                Alussa oleva <code>document</code> tarkoittaa, että viittaamme HTML-dokumenttiin. 
-                Itse komento <code>querySelector</code> saa parametrikseen <code>'p'</code>, joka tarkoittaa, että haemme HTML-tiedostosta <code>&lt;p&gt;</code>-tägien sisältämät merkkijonot.
-            <!--Pahasti kesken-->
+            Annoimme edellisessä kohdassa id-tunnisteen &lt;p&gt;-lohkolle. 
+            Käytämme nyt tätä tunnistetta ja kutsumme tälle tunnistetulle muuttujallee komentoa <code>.onclick</code>. 
+            Tämä kertoo meille, että odotamme klikkausta tunnistetulle "teksti"-osalle. 
+            Huomasithan lohkorakenteen? 
+            Kirjoitamme lohkon sisälle sen, mitä haluamme tapahtuvan, kun tunnistettua kohtaa klikataan.  
+            <li> Lohkon sisältä löydämme edellisestä osasta tutun komennon.
+            <script>codeExample(
+`alert("Hello")`
+            ,"javascript");</script>
+            Tämä komento toimii, kuten tavallinenkin <code>alert()</code>-komento.
+            Olemme vain sijoittanut sen tapahtuman sisään.
             </ol>
-        <p>
-            Ensin täytyy siis luoda jokin objekti HTML-koodilla. 
-            Tämän jälkeen voimme luoda tätä objektia vastaavan muuttujan JavaScriptillä. 
-            Tämän jälkeen luomme <b>kuuntelijan</b>, joka odottaa, milloin tekstiä klikataan. 
-            Kun tekstiä klikataan kerromme, että haluamme toteuttaa komennon <code>alert()</code>. 
-        </p>
-
         <div class="codebox example">
                 <h3>Esimerkki 3.2</h3>
                 <p>
@@ -95,7 +96,7 @@ ${closeScript}`
                 <script>
                     addEditor(
 `<!doctype HTML>
-<p id = teksti>hello!<p>
+<p id = teksti>Klikkaa minua.<p>
 <script>
     const teksti = document.querySelector("#teksti")
     teksti.onclick = function() {
@@ -115,16 +116,20 @@ ${closeScript}`, true
                 <caption>Opitut komennot</caption>
                 <tr>
                     <th>Komento
-                    <th style="width: 300px;">Esimerkki
+                    <th style="width: 450px;">Esimerkki
                     <th>Selitys
                 <tr>
-                    <td><code>alert()</code>
-                    <td><script>codeExample(`alert("Kissat ovat kivoja") `, "javascript", true);</script>
-                    <td>Näyttää käyttäjälle merkkijonon
+                    <td><code>document.querySelector()</code>
+                    <td><script>codeExample(`const teksti = document.querySelector("#teksti") `, "javascript", true);</script>
+                    <td>Hakee HTML-tiedostosta tietoa.
                 <tr>
-                    <td><code>prompt()</code>
-                    <td><script>codeExample(`prompt("Mikä sinun nimesi on?") `, "javascript", true);</script>
-                    <td>Kysyy käyttäjältä merkkijonon
+                    <td><code>.onclick = () = {}</code>
+                    <td><script>codeExample(
+`teksti.onclick = () => {
+    alert("Hello")
+}`
+                    , "javascript", true);</script>
+                    <td>Odottaa käyttäjältä klikkausta asetettuun muuttujaan.
                 <tr>
                     <td><code>const</code>
                     <td><script>codeExample(`const viesti = "Hauska tavata"` + "\n" + `const syöte = prompt("Nimesi?") `, "javascript", true);</script>
