@@ -22,19 +22,17 @@
 	<div class="content">
         <h1>Osa 3. - Nyt alkaa tapahtumaan</h1>
         <h2>3.1 Tapahtumat</h2>
-			<p>
-                Puhumme tapahtumista, kun teemme jotakin ja tämän jälkeen tapahtuu jotakin muuta.
-                Esimerkiksi jos ankka uisi lammen läpi vanhan rouvan luokse ja tämän jälkeen rouva antaisi ankalle leipää, 
-                voisimme sanoa, että tapahtuma ankka ui lammen läpi johti tapahtumaan rouva antaa ankalle leipää.
-            </p>
             <p>
-                Tietokoneella esimerkiksi hiiren klikkaus on tapahtuma. 
-                Ohjelmassa voimme kuunnella, milloin hiirtä klikataan ja sen jälkeen toteuttaa jonkun toisen tapahtuman. 
-                Esimerkiksi voimme klikata tekstiä, jonka jälkeen meille tulee alert() ikkuna.
+                Kun klikkaat hiirellä tietokoneen näyttöä, saat aikaan tapahtuman.
+                Me ohjelmoijina voimme päättää, mitä tälläisessä tapahtumassa tapahtuu.
+                Aloitamme omien tapahtumien ohjelmoinnin luomalla tekstikappaleen ohjelmaamme, 
+                jota klikkaamalla suoritamme <code>alert()</code>-komennon.
             </p>
-            
             <div class="codebox example">
                     <h3>Esimerkki 3.1</h3>
+                    <p>
+                        Tekstiä klikkaamalla suoritetaan <b>tapahtuma</b>. 
+                    </p>
                     <script>
                         addEditor(
 `<!doctype HTML>
@@ -43,7 +41,7 @@
 </p>
 <script>
     teksti.onclick = () => {
-        alert("Hello")
+        alert("Onnittelut, klikkasit oikeaa paikkaa.")
     }
 ${closeScript}`, true
                     );</script>
@@ -88,6 +86,72 @@ ${closeScript}`
             Tämä komento toimii, kuten tavallinenkin <code>alert()</code>-komento.
             Olemme vain sijoittanut sen tapahtuman sisään.
             </ol>
+
+            <div class="codebox task">
+                    <h3>Tehtävä 3.1a</h3>
+                    <p>Kirjoita ohjelmaan koodi, jolla <code>alert()</code> komennolla tulostetaan "Ankat uivat lammessa."</p>
+                    <script>
+                        addEditor(
+`<!doctype HTML>
+<p id = teksti>
+    Missä ankat uivat?
+</p>
+teksti.onclick = () => {
+}
+<script>
+${closeScript}`
+                    );</script>
+        </div>
+
+        <div class="codebox task">
+                <h3>Tehtävä 3.1b</h3>
+                <p>Kirjoita ohjelmaan koodi, jolla <code>alert()</code> komennolla tulostetaan "Höyhenpeite on myös vettähylkivä."</p>
+                <script>
+                    addEditor(
+`<!doctype HTML>
+<p id = teksti>
+    Ankkojen höyhenpeite on pehmeä.
+</p>
+<script>
+${closeScript}`
+                );</script>
+    </div>
+
+    <div class="codebox task">
+            <h3>Tehtävä 3.1c</h3>
+            <p>Kirjoita ohjelmaan &lt;p&gt;-tägien sisälle teksti "Koodiankat ovat keltaisia.".
+                Anna tägeille tunnisteeksi "teksti".
+                Lisää tunnisteeseen viittaus <code>onclick</code>-komentoon oikeaan kohtaan.
+            </p>
+            <script>
+                addEditor(
+`<!doctype HTML>
+<p>
+    Saammeko tekstin toimimaan tapahtumana?
+</p>
+<script>
+    .onclick = () => {
+        alert("Onnittelut, osasit luoda oikean id-tunnuksen.")
+    }
+${closeScript}`
+            );</script>
+</div>
+
+<div class="codebox task">
+        <h3>Tehtävä 3.1HAASTE</h3>
+        <p>Kirjoita ohjelmaan &lt;p&gt;-tägien sisälle teksti "Koodiankat auttavat ihmisiä ohjelmoinnissa.".
+            Anna tägeille tunnisteeksi "teksti".
+            Lisää <code>onclick</code>-komento ja kirjoita sen sisälle <code>alert()</code>-komento, 
+            joka tulostaa tekstin "Koodiankat ovat söpöjä.".
+        </p>
+        <script>
+            addEditor(
+`<!doctype HTML>
+<script>
+${closeScript}`
+        );</script>
+</div>
+
         <div class="codebox example">
                 <h3>Esimerkki 3.2</h3>
                 <p>
@@ -98,21 +162,21 @@ ${closeScript}`
 `<!doctype HTML>
 <p id = teksti>Klikkaa minua.<p>
 <script>
-    const teksti = document.querySelector("#teksti")
-    teksti.onclick = function() {
-        teksti.textContent = "Moikka moi!"
-    }
 ${closeScript}`, true
                 );</script>
             </div>
 
         <p>
             Jotta voimme muokata tekstiä, joka on jo asetettu sivulle kerran tarvitaan komentoa <code>textContent</code>. 
-            Kun kutsumme tätä komentoa, voimme vaihtaa haetun muuttujan arvon. 
-            Edellisessä esimerkissä vaihdoimme tekstin merkkijonoksi "Moikka moi!".
+            Edellisessä esimerkissä koodi <code>teksti.textContent = "Moikka moi!"</code> kutsuu tätä komentoa "teksti"-tunnisteille.
+            Yhtäsuuruusmerkeillä (=) asetamme tämän "teksti"-tunnistetun kohdan arvoksi merkkijonon "Moikka moi!".
         </p>
         
         <h3>Opitut komennot</h3>
+        <p>
+            Opimme tässä osassa muuttamaan tapahtumien avulla HTML-sivulla olevien objektien sisältöä. 
+            Kerrataan vielä, mitä komentoja opimme.
+        </p>
         <table>
                 <caption>Opitut komennot</caption>
                 <tr>
@@ -120,21 +184,23 @@ ${closeScript}`, true
                     <th style="width: 450px;">Esimerkki
                     <th>Selitys
                 <tr>
-                    <td><code>document.querySelector()</code>
-                    <td><script>codeExample(`const teksti = document.querySelector("#teksti") `, "javascript", true);</script>
-                    <td>Hakee HTML-tiedostosta tietoa.
+                    <td><code>.onclick = () = {}</code>
+                    <td><script>codeExample(`<p id = teksti> Tällä tekstillä on 
+                    tunnisteena "teksti"</p>`, "javascript", true);</script>
+                    <td>Tunnistaa HTML-koodissa olevat tägit
                 <tr>
                     <td><code>.onclick = () = {}</code>
                     <td><script>codeExample(
 `teksti.onclick = () => {
-    alert("Hello")
+ //...
 }`
                     , "javascript", true);</script>
                     <td>Odottaa käyttäjältä klikkausta asetettuun muuttujaan.
                 <tr>
-                    <td><code>const</code>
-                    <td><script>codeExample(`const viesti = "Hauska tavata"` + "\n" + `const syöte = prompt("Nimesi?") `, "javascript", true);</script>
-                    <td>Luo uuden muuttujan
+                    <td><code>textContent</code>
+                    <td><script>codeExample(
+                `teksti.textContent = "Moikka moi!`, "javascript", true);</script>
+                    <td>Vaihtaa id-tunnistetun muuttujan arvon.
             </table>
 
     <h2>3.2 Painikkeet</h2>
