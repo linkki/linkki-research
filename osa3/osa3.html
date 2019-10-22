@@ -18,7 +18,8 @@
 		· <a href="../osa3/osa3.html">Osa 3</a>
 	</nav>
 	</div>
-
+<!-- Pitäsköhän käsitteitäki varten olla joku listaus systeemi.
+        Miten tehtäviä pitäs sijotella?-->
 	<div class="content">
         <h1>Osa 3. - Nyt alkaa tapahtumaan</h1>
         <h2>3.1 Tapahtumat</h2>
@@ -52,7 +53,7 @@ ${closeScript}`, true
         <ol>
             <li> Ensin laitamme ohjelman alkuosaan HTML-koodia.
             <script>codeExample(
-`<p id = teksti>
+`<p id = teksti >
     Klikkaa minua.
 </p>`
             );</script>
@@ -60,12 +61,13 @@ ${closeScript}`, true
             Tällä kertaa tägille on kuitenkin annettu tunniste eli <b>id</b>. 
             Tunnisteen arvoksi on asetettu "teksti". 
             Tämä tarkoittaa, että olemme antaneet tälle teksti-tägille &lt;p&gt; nimeksi "teksti".
+            
             <li> Seuraavaksi tulee tuttuakin tutumpi &lt;script&gt;-tägi.
-            <script>codeExample(
+            <p><script>codeExample(
 `<script>
     //...            
 ${closeScript}`
-            );</script>
+            );</script></p>
             &lt;script&gt;-tägejen rajaamaa aluetta kannattaa ajatella kokonaisuutena.
             Tutkitaan seuraavassa kohdassa, mitä tägien sisällä oleva koodi tekee.
             <li> Tarkastellaan seuraavaksi koodilohkoa:
@@ -145,7 +147,9 @@ ${closeScript}`
             joka tulostaa tekstin "Koodiankat ovat söpöjä.".
         </p>
         <script>
-            addEditor(
+            addEditor
+            
+            (
 `<!doctype HTML>
 <script>
 ${closeScript}`
@@ -184,9 +188,12 @@ ${closeScript}`, true
                     <th style="width: 450px;">Esimerkki
                     <th>Selitys
                 <tr>
-                    <td><code>.onclick = () = {}</code>
-                    <td><script>codeExample(`<p id = teksti> Tällä tekstillä on 
-                    tunnisteena "teksti"</p>`, "javascript", true);</script>
+                    <td><code>id = teksti </code>
+                    <td><script>codeExample(`
+<p id = teksti> 
+    Tällä tekstillä on tunnisteena "teksti"
+</p>`
+                    , "javascript", true);</script>
                     <td>Tunnistaa HTML-koodissa olevat tägit
                 <tr>
                     <td><code>.onclick = () = {}</code>
@@ -204,45 +211,100 @@ ${closeScript}`, true
             </table>
 
     <h2>3.2 Painikkeet</h2>
+    <p>
+        Tekstin lisäksi voimme tehdä painikkeita. 
+        Kuten <button>tämä.</button>
+        Tästä painikkeesta ei vielä kuitenkaan tapahdu mitään.
+        JavaScriptillä saamme painikkeesta tapahtumia aikaiseksi.
+    </p>
+    <p>
+        Ensin painike täytyy luoda. 
+        Tämä onnistuu kirjoittamalla <code>&lt;button&gt;tämä.&lt;/button&gt;</code>. 
+    </p>
+    <p>
+        Tämän jälkeen luomme toiminnalisuuden painikkeelle <code>&lt;script&gt;&lt;/script&gt;</code> lohkon sisälle. 
+    </p>
 		<div class="codebox example">
 			<h3>Esimerkki 3.3</h3>
 			<p>
-				Napista tapahtuu alert.
+				Painikkeesta tapahtuu alert().
 			</p>
 			<script>
 				addEditor(
 `<!doctype HTML>
-<button id=nappi>hello!</button>
+<button id=nappi>Klikkaa tästä.</button>
 <script>
-	const nappi = document.querySelector("#nappi")
-	nappi.onclick = function() {
-		alert("Hello")
+	nappi.onclick = () =>  {
+		alert("Nappia painettiin.")
 	}
 ${closeScript}`, true
 			);</script>
-			</div>
-
+            </div>
+            <p>
+                Kutsumme siis tällä kertaa <code>.onclick</code> komentoa <code>&lt;button&gt;</code> objektille, 
+                jolle olemme antaneet id-tunnisteeksi "nappi".
+                Toiminnallisuus näyttää hyvin samalta, kuin edellisessä osiossa teimme tekstin muuuttamisen kanssa.
+            </p>
+            <p>
+                Tehdään seuraavaksi ohjelma, joka käyttää kahta erilaista id-tunnistettua HTML-objektia. 
+            </p>
             <div class="codebox example">
                 <h3>Esimerkki 3.4</h3>
                 <p>
-                    Napista vaihtuu teksti.
+                    Painiketta <code>&lt;button&gt;</code> painettaessa suoritetaan komento <code>nappi.onclick</code>. 
                 </p>
-                <script>
-                    addEditor(
+                <script>                addEditor(
 `<!doctype HTML>
 <p id = teksti>hello!<p>
 <button id=nappi>Vaihda tekstiä</button>
 <script>
-    const teksti = document.querySelector("#teksti")
-    nappi.onclick = function() {
+    nappi.onclick = () =>  {
         teksti.textContent = "Moikka moi!"
     }
 ${closeScript}`, true
                 );</script>
             </div>
 
-            
+            <div class="codebox task">
+                    <h3>Tehtävä 3.2.1a</h3>
+                    <p>
+                        Kirjoita ohjelma, joka tulostaa näytölle "Kikkasit painiketta."</p>
+                    <script>
+                        addEditor(
+`<!doctype HTML>
+<button id=nappi>Klikkaa minua</button>
+nappi.onclick = () => {
+}
+<script>
+${closeScript}`
+                    );</script>
+        </div>
 
+        <div class="codebox task">
+                <h3>Tehtävä 3.2.1a</h3>
+                <p>
+                    Kirjoita ohjelma, joka tulostaa näytölle "Kikkasit painiketta."</p>
+                <script>
+                    addEditor(
+`<!doctype HTML>
+<button id=nappi>Klikkaa minua</button>
+nappi.onclick = () => {
+}
+<script>
+${closeScript}`
+                );</script>
+    </div>
+    
+            <p>
+                Osaamme luoda objekteja, tapahtumia ja kuuntelijoita. Osaamme siis tehdä jo aika paljon kaikenlaista. 
+            </p>
+            <p>
+                Lopuksi tehdään vähän haastavampi esimerkki. 
+                Seuraavassa esimerkissä kirjoitamme ohjelman, 
+                joka painiketta painamalla vaihtaa kuvaa. 
+                Tätä tehtävää varten meidän tulee vaihtaa kuvan lähde eli <code>src</code>.
+                Kuvan lähde on url-osoite.
+            </p>
             <div class="codebox example">
                 <h3>Esimerkki 3.5</h3>
                 <p>
@@ -252,12 +314,11 @@ ${closeScript}`, true
                     addEditor(
  
 `<!doctype HTML>
-<img src="https://linkki.github.io/linkki-research/osa3/kuva1.png">
+<img id=kuva src="https://linkki.github.io/linkki-research/osa3/kuva1.png">
 <button id=nappi>Vaihda kuvaa</button>
 <script>
-    const kuva = document.querySelector('img')
     nappi.onclick = () => {
-        kuva.setAttribute ('src','https://linkki.github.io/linkki-research/osa3/kuva2.png');
+        kuva.setAttribute('src','https://linkki.github.io/linkki-research/osa3/kuva2.png')
     }
 ${closeScript}`, true
                 );</script>
