@@ -18,8 +18,9 @@
 		· <a href="../osa3/osa3.html">Osa 3</a>
 	</nav>
 	</div>
-<!-- Pitäsköhän käsitteitäki varten olla joku listaus systeemi.
-        Miten tehtäviä pitäs sijotella?-->
+<!--Pitäsköhän käsitteitäki varten olla joku listaus systeemi.
+    Miten tehtäviä pitäs sijotella?
+    Voikohan HTML-painikkeita jne kutsua objekteiksi?-->
 	<div class="content">
         <h1>Osa 3. - Nyt alkaa tapahtumaan</h1>
         <h2>3.1 Tapahtumat</h2>
@@ -281,20 +282,43 @@ ${closeScript}`
         </div>
 
         <div class="codebox task">
-                <h3>Tehtävä 3.2.1a</h3>
+                <h3>Tehtävä 3.2.1b</h3>
                 <p>
-                    Kirjoita ohjelma, joka tulostaa näytölle "Kikkasit painiketta."</p>
+                   Lisää ohjelmaan id-tunnisteet painikkeella.
+                   Huomaa, että id-tunniste tulee antaa myös <code>.onclick</code>-metodille.
+                </p>
                 <script>
                     addEditor(
 `<!doctype HTML>
-<button id=nappi>Klikkaa minua</button>
-nappi.onclick = () => {
+<button>Klikkaa minua</button>
+.onclick = () => {
+    alert("Hyvää työtä!")
 }
 <script>
 ${closeScript}`
                 );</script>
     </div>
     
+    <div class="codebox task">
+        <h3>Tehtävä 3.2.1c</h3>
+        <p>
+            Tässä tehtävässä vaihdetaan <code>&lt;p id=teksti&gt;</code>-objektin tekstiä.
+            Lisää komento, joka vaihtaa <code>&lt;p id=teksti&gt;</code>-objektin tekstin tekstiksi "Onnistuin!".
+        </p>
+        <script>
+            addEditor(
+`<!doctype HTML>
+<p id=teksti>
+    Onnistutko vaihtamaan tämän tekstin?
+<p>
+<button id=nappi>Vaihda tekstiä</button>
+<script>
+    nappi.onclick = () =>  {
+    }
+${closeScript}`, true
+        );</script>
+    </div>
+
             <p>
                 Osaamme luoda objekteja, tapahtumia ja kuuntelijoita. Osaamme siis tehdä jo aika paljon kaikenlaista. 
             </p>
