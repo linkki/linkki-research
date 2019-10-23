@@ -2,7 +2,7 @@
 <html lang="fi">
 <head>
 	<meta charset="utf-8">
-	<title>Jäsäkurssi - Osa 3</title>
+	<title>Jäsäkurssi - Osa 4</title>
 	<link href="../pohja/pohja.css" rel="stylesheet" type="text/css">
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
@@ -27,5 +27,52 @@
 
 <p>
 	Tässä osassa tutustumme <b>kankaisiin</b> ja niille piirtämiseen.
-	Kankaat ovat erikoisia alueita sivulla, joihin voimme piirtää JavaScript-komennoilla viivoja.
+	Kankaat ovat erikoisia alueita sivulla, joihin voimme piirtää JavaScript-komennoilla kuvioita.
+</p>
+
+<div class="codebox example">
+	<h3>Esimerkki</h3>
+	<p>Kangas, jolle on piirretty musta neliö.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas id = kangas style = background-color:beige;>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillRect(10, 10, 50, 50)
+${closeScript}`, true
+		);
+	</script>
+</div>
+
+<p>
+	Yllä olevassa esimerkissä määrittelemme, että sivulla on kangas <code>&lt;canvas&gt;</code>-tägillä.
+	Kankaalla on id "<code>kangas</code>", jotta voimme viitata siihen JavaScript-koodissa.
+	Kankaalla on myös taustaväri beige (eräs vaaleanruskean sävy), jotta se erottuu sivun valkoisesta taustasta.
+	Älä välitä, jos et ymmärrä miten taustavärikoodi toimii.
+</p>
+
+<p>
+	Canvas-tägin alla on JavaScript-koodia, jossa tapahtuu seuraavaa:
+</p>
+<ol>
+	<li>
+	Luomme <code>piirtäjä</code>-muuttujan, joka on nimi kankaan "kontekstille".
+	Konteksti on tarkoittaa tässä tapauksessa sitä JavaScriptin osaa, jota käytetään kuvioiden piirtämiseen näytölle.
+	<script>codeExample(
+`const piirtäjä = kangas.getContext("2d") `
+	, "javascript");</script>
+	<li>
+	Piirrämme kankaalle suorakulmion piirtäjän avulla <code>fillRect</code>-komennon avulla.
+	<code>fillRect</code> on lyhenne englannin sanoista "fill rectangle" eli "täytä suorakulmio".
+	Komennon nimen jälkeen tulee sulkeissa neljä parametria, jotka kertovat missä kohtaa suorakulmio on ja minkä kokoinen se on.
+	<script>codeExample(
+`piirtäjä.fillRect(10, 10, 50, 50) `
+	, "javascript");</script>
+</ol>
+
+<h2>Koordinaatisto</h2>
+
+<p>
+	Jotta osaisimme käyttää <code>fillRect</code>-komentoa, meidän on opeteltava ensin, miten tietokone ymmärtää sijainteja ja kokoja lukuina.
 </p>
