@@ -108,6 +108,7 @@ nav {
 	width: 100%;
 	padding: 1rem;
 	height: 100%;
+	min-height: 220px;
 }
 
 
@@ -135,6 +136,11 @@ nav {
 
 .extra > h3::before {
 	content: '🔍';
+	margin-right: 1rem;
+}
+
+.note > h3::before {
+	content: '❗';
 	margin-right: 1rem;
 }
 

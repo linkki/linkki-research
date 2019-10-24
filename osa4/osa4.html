@@ -36,7 +36,9 @@
 	<script>
 		addEditor(
 `<!doctype HTML>
-<canvas id = kangas style = background-color:beige;>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
 <script>
 	const piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillRect(10, 10, 50, 50)
@@ -71,8 +73,98 @@ ${closeScript}`, true
 	, "javascript");</script>
 </ol>
 
-<h2>Koordinaatisto</h2>
+<h2>4.1 Koordinaatisto</h2>
 
 <p>
 	Jotta osaisimme käyttää <code>fillRect</code>-komentoa, meidän on opeteltava ensin, miten tietokone ymmärtää sijainteja ja kokoja lukuina.
 </p>
+
+<p>
+	Tietokoneen näyttö koostuu koneesta riippuen sadoista tuhansista tai jopa miljoonista <b>pikseleistä</b>.
+	Yksi pikseli on hyvin pieni piste, jolla on jokin väri.
+	Näytöllä pikselit on järjestetty riveihin, joita on satoja päällekkäin.
+</p>
+
+<p>
+	Jotta voimme vaihtaa jonkun tietyn pikselin väriä, meidän on kerrottava tietokoneelle, mitä pikseliä haluamme muuttaa.
+	Tämä tehdään antamalla tietokoneelle tieto siitä, kuinka mones pikselirivin pikseli pikseli on ja kuinka mones pikselirivi on kyseessä.
+	Tätä tietoa sanotaan pikselin <b>koordinaateiksi</b>.
+	Tarkemmin pikselin <b>X-koordinaatti</b> kertoo, kuinka mones pikseli pikseli on omalla rivillään.
+	<b>Y-koordinaatti</b> taas kertoo, kuinka mones pikselirivi on kyseessä.
+</p>
+
+<p>
+	Ohjelmoinnissa asioiden laskeminen aloitetaan usein nollasta eikä yhdestä.
+	Myös pikselirivin ensimmäistä pikseliä sanotaan "pikseliksi 0" ja ensimmäistä pikseliriviä "riviksi 0".
+	Aivan ensimmäisen pikselin (joka on näytön vasemmassa ylänurkassa) X-koordinaatti on siis 0 ja Y-koordinaatti 0.
+	Tätä pikseliä sanotaan näytön <b>origoksi</b>.
+</p>
+
+<blockquote>
+	<b>❗ Huom!</b> Koulussa matematiikassa koordinaatiston Y-koordinaatit kasvavat <em>ylöspäin</em>, eli suurempi Y tarkoittaa korkeammalla olevaa pistettä.
+	Ohjelmoinnissa Y kuitenkin kasvaa <em>alaspäin</em>, eli suurempi Y tarkoittaa, että piste on alempana. Tämä johtuu historiallisista syistä.
+</blockquote>
+
+<div class="codebox">
+	<h3>Koordinaatit kankaalla</h3>
+	<p>
+		Vie hiiri kankaan päälle nähdäksesi hiiren sijainnin esitettynä koordinaatteina.
+		Tämän kankaan leveys on 300 pikseliä ja korkeus 150 pikseliä.
+	</p>
+	<canvas
+		id = koordinaattityökalu
+		style = background-color:beige;
+		width = 300
+		height = 150
+	></canvas>
+	<script>{
+		function viiva(x1, y1, x2, y2) {
+			piirtäjä.beginPath();
+			piirtäjä.moveTo(x1, y1);
+			piirtäjä.lineTo(x2, y2);
+			piirtäjä.stroke();
+		}
+		const piirtäjä = koordinaattityökalu.getContext("2d");
+		koordinaattityökalu.onmousemove = tapahtuma => {
+			const x = tapahtuma.offsetX;
+			const y = tapahtuma.offsetY;
+			piirtäjä.clearRect(0, 0, 300, 150);
+			piirtäjä.strokeStyle = 'darkred'
+			viiva(0, y, 300, y);
+			viiva(x, 0, x, 150);
+			piirtäjä.fillText(y, 1, y+10);
+			piirtäjä.fillText(x, x+1, 150);
+			piirtäjä.fillText("X: " + x + ", Y: " + y, 15, 20);
+		};
+	}</script>
+</div>
+
+<h2>4.2 <code>fillRect</code>-komento</h2>
+
+<p>
+	Voimme käyttää <code>fillRect</code>-komentoa piirtääksemme suorakulmioita näytölle.
+	Komennolla on neljä parametria.
+	Ne ovat järjestyksessä: X, Y, leveys pikseleinä, korkeus pikseleinä.
+</p>
+
+<script>codeExample(`piirtäjä.fillRect(x, y, leveys, korkeus) `, "javascript");</script>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.2a</h3>
+	<p>
+		Muuta <code>fillRect</code>-komennon koordinaatteja siten, että neliö on kankaan oikean reunan keskellä.
+		Voit käyttää yllä olevaa <i>Koordinaatit kankaalla</i> -työkalua sopivien koordinaattien löytämiseksi.
+	</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillRect(10, 10, 50, 50)
+${closeScript}`
+		);
+	</script>
+</div>
