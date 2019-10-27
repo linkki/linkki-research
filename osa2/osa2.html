@@ -46,7 +46,8 @@ Tässä on <b>tummennettu</b> sana.`
 		<h2>2.2 Mikä ihmeen JavaScript?</h2>
 		<p>
 			Nyt aloitamme tutustumisen JavaScriptiin.
-			JavaScriptiä käytetään yhdessä HTML-kielen kanssa. JavaScriptillä kirjoitetaan erityisiä komentosarjoja (skriptejä), joilla voidaan saada 
+			JavaScriptiä käytetään yhdessä HTML-kielen kanssa. 
+			JavaScriptillä kirjoitetaan erityisiä komentosarjoja (skriptejä), joilla voidaan saada 
 			tapahtumia aikaan sivulla.
 		</p>
 		<p>
@@ -126,7 +127,8 @@ ${closeScript}`
 		<div class="codebox example">
 			<h3>Esimerkki 2.a</h3>
 			<p>
-				Tähän ohjelmaan on kirjoitettu <code>prompt()</code>-komento. Kokeile, mitä tapahtuu, kun klikkaat lippukuvaketta.
+				Tähän ohjelmaan on kirjoitettu <code>prompt()</code>-komento. 
+				Kokeile, mitä tapahtuu, kun klikkaat lippukuvaketta.
 			</p>
 			<script>
 				addEditor(
@@ -141,8 +143,10 @@ ${closeScript}`
 			<code>prompt()</code>-komento avaa ikkunan, jossa on tekstikenttä, johon voi kirjoittaa tekstiä.
 			Kun klikkaa "Hyväksy"-painiketta, JavaScript lukee syötteen.
 			Pelkällä komennolla emme kuitenkaan saa vielä syötettyä tietoa käyttöön.
-			Meidän tulee tallettaa se muuttujaan.
+			Meidän tulee tallettaa se muuttujaan. 
+			Tutkitaan vielä vähän prompt()-komentoa ja tutustutaan sen jälkeen muuttujiin. 
 		</p>
+
 		<div class="codebox task">
 			<h3>Tehtävä 2.4</h3>
 			<p>
@@ -159,12 +163,26 @@ ${closeScript}`
 		<p>
 			<code>prompt()</code>-komennolle voidaan antaa parametri samalla tavalla kuin <code>alert()</code>-komennolle.
 			Tällöin komentoon lisätään sulkeiden sisään lainausmerkit, joiden sisään kirjoitetaan haluttu teksti.
-			Komento siis näyttää silloin tältä: <code>prompt("")</code>. 
 		</p>
+
+		<div class="codebox example">
+			<h3>Esimerkki 2.b</h3>
+			<p>
+				Ohjelmassa olevalle <code>prompt()</code>-komennolle on annettu parametrina merkkijono "Mikä sinun nimesi on?".
+			</p>
+			<script>
+				addEditor(
+`<!doctype HTML>
+<script>
+	prompt("Mikä sinun nimesi on?")
+${closeScript}`
+			);</script>
+			</div>
+
 		<div class="codebox task">
 		<h3>Tehtävä 2.5</h3> 
 		<p>
-			Kirjoita ohjelmaan komento, joka saa parametriksi tekstin "Mikä sinun nimesi on?".
+			Kirjoita ohjelmaan komento, joka saa parametriksi merkkijonon "Mikä sinun ikäsi on?".
 			Käyttäjä voi antaa syötteenä nimensä.
 			Käytätkö <code>prompt()</code>- vai <code>alert()</code>-komentoa?
 		</p>
@@ -238,7 +256,37 @@ ${closeScript}`
 			<li><code>+</code>-operaattori yhdistää kaksi merkkijonoa ja lopputulos on <code>"Hei, Ankka"</code>.
 			<li>Lopulta <code>alert()</code> komento näyttää käyttäjälle merkkijonon "Hei, Ankka".
 		</ol>
-		
+
+		<div class="codebox task">
+			<h3>Tehtävä 2.9</h3> 
+			<p>
+				Kysy käyttäjältä, mikä on hänen lempivärinsä. 
+				Tulosta vastaus <code>"Lempivärisi on "+syöte</code>.
+			</p>
+			<script>
+					addEditor(
+`<!doctype HTML>
+<script>
+${closeScript}`
+				);</script>
+			</div>
+
+		<div class="codebox task">
+			<h3>Tehtävä 2.9</h3> 
+			<p>
+				Kysy käyttäjältä, mikä on hänen lempieläin. 
+				Kysy käyttäjältä, miten vanha käyttäjä on.
+				Muista tallettaa vastaukset omiin muuttujiinsa.  
+				Tulosta lopuksi vastaus <code>"Lempivärisi on "+syöte + ". Ja olet " + X + " vuotta vahna." </code>.
+			</p>
+			<script>
+				addEditor(
+`<!doctype HTML>
+<script>
+${closeScript}`
+						);</script>
+					</div>
+
 		<h2>2.4 Yhteenveto komennoista</h2>
 		
 		<table>

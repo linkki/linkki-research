@@ -22,7 +22,8 @@
 	</div>
 <!--Pitäsköhän käsitteitäki varten olla joku listaus systeemi.
     Miten tehtäviä pitäs sijotella?
-    Voikohan HTML-painikkeita jne kutsua objekteiksi?-->
+    Voikohan HTML-painikkeita jne kutsua objekteiksi?
+    Pitäs varmaan olla joku debuggeri kirjoitusvirheille.-->
 	<div class="content">
         <h1>Osa 3. - Nyt alkaa tapahtumaan</h1>
         <h2>3.1 Tapahtumat</h2>
@@ -60,10 +61,11 @@ ${closeScript}`, true
     Klikkaa minua.
 </p>`
             );</script>
-            Koodissa on käytetty HTML:n tuttua teksti-tägiä &lt;p&gt;, jonka sisälle on kirjoitettu merkkijono "Klikkaa minua.". 
-            Tällä kertaa tägille on kuitenkin annettu tunniste eli <b>id</b>. 
-            Tunnisteen arvoksi on asetettu "teksti". 
-            Tämä tarkoittaa, että olemme antaneet tälle teksti-tägille &lt;p&gt; nimeksi "teksti".
+            Koodissa on käytetty teksti-tägiä &lt;p&gt;, jonka sisälle on kirjoitettu merkkijono "Klikkaa minua.".
+            Käytämme tälläistä <code>&lt;p&gt;</code>-tägiä, sillä haluamme antaa <b>id-tunnisteen</b> merkkijonolle "Klikkaa minua".
+            Tunniste asetetaan tägin sisälle kirjoittamalla <code>id = teksti</code>.
+            Kun olemme antaneet sivulla näkyvälle merkkijonolle id-tunnisteen, 
+            pääsemme siihen käsiksi myös JavaScriptillä.
             
             <li> Seuraavaksi tulee tuttuakin tutumpi &lt;script&gt;-tägi.
             <p><script>codeExample(
@@ -80,7 +82,7 @@ ${closeScript}`
 }`
                 ,"javascript");</script>
             Annoimme edellisessä kohdassa id-tunnisteen &lt;p&gt;-lohkolle. 
-            Käytämme nyt tätä tunnistetta ja kutsumme tälle tunnistetulle muuttujallee komentoa <code>.onclick</code>. 
+            Käytämme nyt tätä tunnistetta ja kutsumme tälle tunnistetulle muuttujalle komentoa <code>.onclick</code>. 
             Tämä kertoo meille, että odotamme klikkausta tunnistetulle "teksti"-osalle. 
             Huomasithan lohkorakenteen? 
             Kirjoitamme lohkon sisälle sen, mitä haluamme tapahtuvan, kun tunnistettua kohtaa klikataan.  
@@ -167,8 +169,12 @@ ${closeScript}`
                 <script>
                     addEditor(
 `<!doctype HTML>
-<p id = teksti>Klikkaa minua.<p>
+<p id = teksti>Klikkaa minua.</p>
 <script>
+    teksti.onclick = () => {
+        teksti.textContent = "Moikka moi!"    
+    }
+    
 ${closeScript}`, true
                 );</script>
             </div>
@@ -271,7 +277,7 @@ ${closeScript}`, true
             <div class="codebox task">
                     <h3>Tehtävä 3.2.1a</h3>
                     <p>
-                        Kirjoita ohjelma, joka tulostaa näytölle "Kikkasit painiketta."</p>
+                        Kirjoita ohjelma, joka tulostaa näytölle "Klikkasit painiketta."</p>
                     <script>
                         addEditor(
 `<!doctype HTML>
@@ -286,7 +292,7 @@ ${closeScript}`
         <div class="codebox task">
                 <h3>Tehtävä 3.2.1b</h3>
                 <p>
-                   Lisää ohjelmaan id-tunnisteet painikkeella.
+                   Lisää ohjelmaan id-tunniste painikkeelle.
                    Huomaa, että id-tunniste tulee antaa myös <code>.onclick</code>-metodille.
                 </p>
                 <script>
@@ -322,9 +328,10 @@ ${closeScript}`, true
     </div>
 
             <p>
-                Osaamme luoda objekteja, tapahtumia ja kuuntelijoita. Osaamme siis tehdä jo aika paljon kaikenlaista. 
+                Osaamme luoda objekteja, tapahtumia ja kuuntelijoita. 
+                Osaamme siis tehdä jo aika paljon kaikenlaista. 
             </p>
-            <p>
+ <!--           <p>
                 Lopuksi tehdään vähän haastavampi esimerkki. 
                 Seuraavassa esimerkissä kirjoitamme ohjelman, 
                 joka painiketta painamalla vaihtaa kuvaa. 
@@ -349,6 +356,7 @@ ${closeScript}`, true
 ${closeScript}`, true
                 );</script>
             </div>
+-->            
         </div>
 </body>
 </html>
