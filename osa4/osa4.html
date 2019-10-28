@@ -129,7 +129,7 @@ ${closeScript}`, true
 			const x = tapahtuma.offsetX;
 			const y = tapahtuma.offsetY;
 			piirtäjä.clearRect(0, 0, 300, 150);
-			piirtäjä.strokeStyle = 'darkred'
+			piirtäjä.strokeStyle = "darkred"
 			viiva(0, y, 300, y);
 			viiva(x, 0, x, 150);
 			piirtäjä.fillText(y, 1, y+10);
@@ -149,6 +149,103 @@ ${closeScript}`, true
 
 <script>codeExample(`piirtäjä.fillRect(x, y, leveys, korkeus) `, "javascript");</script>
 
+<p>
+	Neliöstä voi myös tehdä eri värisen.
+	Tähän käytämme <code>fillStyle</code>-komentoa.
+</p>
+
+<div class="codebox example">
+	<h3>Esimerkki</h3>
+	<p>Kangas, jolle on piirretty punainen neliö.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillStyle = "red"
+	piirtäjä.fillRect(10, 10, 50, 50)
+${closeScript}`, true
+		);
+	</script>
+</div>
+
+<p>
+	<code>fillStyle</code> käskee piirtäjää piirtämään tietyllä värillä.
+	Väri kirjoitetaan englanniksi lainausmerkkien sisään.
+</p>
+
+<script>codeExample(`piirtäjä.fillStyle = "green" `, "javascript");</script>
+
+<p>
+	Tässä joitakin englanninkielisiä värien nimiä:
+</p>
+
+<table>
+	<caption>Värejä englanniksi</caption>
+	<thead>
+	<tr>
+		<th>Väri
+		<th>Englanniksi
+		<th>Suomksi
+	<tbody>
+	<tr>
+		<td style="background-color: white;">
+		<td>white
+		<td>valkoinen
+	<tr>
+		<td style="background-color: beige;">
+		<td>beige
+		<td>beige
+	<tr>
+		<td style="background-color: gray;">
+		<td>gray
+		<td>harmaa
+	<tr>
+		<td style="background-color: black;">
+		<td>black
+		<td>musta
+	<tr>
+		<td style="background-color: cyan;">
+		<td>cyan
+		<td>syaani
+	<tr>
+		<td style="background-color: blue;">
+		<td>blue
+		<td>sininen
+	<tr>
+		<td style="background-color: violet;">
+		<td>violet
+		<td>violetti
+	<tr>
+		<td style="background-color: red;">
+		<td>red
+		<td>punainen
+	<tr>
+		<td style="background-color: brown;">
+		<td>brown
+		<td>ruskea
+	<tr>
+		<td style="background-color: orange;">
+		<td>orange
+		<td>oranssi
+	<tr>
+		<td style="background-color: yellow;">
+		<td>yellow
+		<td>keltainen
+	<tr>
+		<td style="background-color: green;">
+		<td>green
+		<td>vihreä
+</table>
+
+<p>
+	Useimpien värien eteen voi lisätä sanan "dark" tarkoittamaan tummaa ja "light" tarkoittamaan vaaleaa.
+	Esimerkiksi "lightgreen" on vaaleanvihreä ja "darkblue" tummansininen.
+</p>
+
 <div class="codebox task">
 	<h3>Tehtävä 4.2a</h3>
 	<p>
@@ -165,6 +262,91 @@ ${closeScript}`, true
 	const piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillRect(10, 10, 50, 50)
 ${closeScript}`
+		);
+	</script>
+</div>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.2b</h3>
+	<p>
+		Piirrä kankaan alareunaan sininen neliö.
+	</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+${closeScript}`
+		);
+	</script>
+</div>
+
+<h3>Useita neliöitä</h3>
+
+<p>
+	Kankaalle voi piirtää useita neliöitä kirjoittamalla monta <code>fillRect</code>-komentoa.
+	<code>fillStyle</code>-komentoa käytetään vasta, kun piirtäjän väri muuttuu.
+</p>
+
+<div class="codebox example">
+	<h3>Esimerkki</h3>
+	<p>Kangas, jolle on piirretty kaksi punaista ja kaksi sinistä neliötä.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillStyle = "red"
+	piirtäjä.fillRect(10, 10, 50, 50)
+	piirtäjä.fillRect(80, 10, 50, 50)
+	piirtäjä.fillStyle = "blue"
+	piirtäjä.fillRect(10, 80, 50, 50)
+	piirtäjä.fillRect(80, 80, 50, 50)
+${closeScript}`, true
+		);
+	</script>
+</div>
+
+<h2>4.3 Polut</h2>
+
+
+
+<h2>4.? <code>setInterval</code> ja animaatiot</h2>
+
+<p>
+	Jos haluamme tehdä pelejä tai animaatioita, meidän on saatava neliöt liikkumaan.
+	Miten tämä tapahtuu?
+	Vastaus on JavaScriptin <code>setInterval</code>-komento.
+	<code>setInterval</code> toistaa sille annettuja komentoja ikuisesti annetulla nopeudella.
+</p>
+
+<div class="codebox example">
+	<h3>Esimerkki</h3>
+	<p>Neliö liikkuu kankaalla.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillStyle = "red"
+
+	let aika = 0
+
+	setInterval(() => {
+		aika += 0.01
+		piirtäjä.clearRect(0, 0, 300, 150)
+		piirtäjä.fillRect(Math.cos(aika)*20+125, Math.sin(aika)*20+50, 50, 50)
+	}, 10)
+${closeScript}`, true
 		);
 	</script>
 </div>
