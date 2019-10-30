@@ -315,7 +315,192 @@ ${closeScript}`, true
 
 <h2>4.3 Polut</h2>
 
+<p>
+	JavaScriptin avulla voi piirtää monia muitakin asioita kuin suorakulmioita.
+	Monimutkaisemmat asiat tehdään yleensä <b>polkujen</b> avulla.
+	Polun piirtäminen muistuttaa kynällä piirtämistä.
+	Kerromme eri komentojen avulla piirtäjälle, miten kynää liikutetaan paperilla.
+	Tärkeimmät komennot on alla olevassa taulukossa.
+</p>
+		
+<table>
+	<caption>Polkukomennot</caption>
+	<tr>
+		<th style="width: 150px;">Komento
+		<th style="width: 250px;">Esimerkki
+		<th>Selitys
+	<tr>
+		<td><code>.strokeStyle</code>
+		<td><script>codeExample(`piirtäjä.strokeStyle = "red" `, "javascript", true);</script>
+		<td>Kertoo minkä värisellä kynällä polku piirretään
+	<tr>
+		<td><code>.beginPath()</code>
+		<td><script>codeExample(`piirtäjä.beginPath() `, "javascript", true);</script>
+		<td>Kertoo piirtäjälle, että aloitamme polun piirtämisen ("ota kynä esiin")
+	<tr>
+		<td><code>.moveTo(x, y)</code>
+		<td><script>codeExample(`piirtäjä.moveTo(10, 10) `, "javascript", true);</script>
+		<td>Käskee piirtäjää siirtämään kynän annettuihin koordinaatteihin <i>koskettamatta paperia</i>
+	<tr>
+		<td><code>.lineTo(x, y)</code>
+		<td><script>codeExample(`piirtäjä.lineTo(50, 50) `, "javascript", true);</script>
+		<td>Käskee piirtäjää vetämään kynän annettuihin koordinaatteihin niin, että <i>kynä koskettaa paperia</i>
+	<tr>
+		<td><code>.stroke()</code>
+		<td><script>codeExample(`piirtäjä.stroke() `, "javascript", true);</script>
+		<td>Kertoo piirtäjälle, että lopetamme polun piirtämisen
+</table>
 
+<div class="codebox example">
+	<h3>Esimerkki</h3>
+	<p>Kangas, jolle on piirretty raksi.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.strokeStyle = "red"
+	
+	piirtäjä.beginPath()
+	
+	piirtäjä.moveTo(10, 10)
+	piirtäjä.lineTo(50, 50)
+	
+	piirtäjä.moveTo(10, 50)
+	piirtäjä.lineTo(50, 10)
+	
+	piirtäjä.stroke()
+${closeScript}`, true
+		);
+	</script>
+</div>
+
+<p>
+	Esimerkki toimii siis näin:
+</p>
+
+<ol>
+	<li>
+	Ensin kerromme, että haluamme aloittaa polun piirtämisen:
+	<script>codeExample(`piirtäjä.beginPath() `, "javascript");</script>
+	<li>
+	Seuraavaksi käskemme siirtämään kynän koordinaatteihin (10, 10), eli vasempaan ylänurkkaan.
+	<script>codeExample(`piirtäjä.moveTo(10, 10) `, "javascript");</script>
+	<li>
+	Siirrämme kynän paperia pitkin piirtämällä koordinaatteihin (50, 50), eli oikeaan alanurkkaan.
+	<script>codeExample(`piirtäjä.lineTo(10, 10) `, "javascript");</script>
+	<li>
+	Sitten teemme saman eri nurkkien kanssa:
+	siirrämme kynän koskematta paperiin kohtaan (10, 50) ja piirrämme viivan kohtaan (50, 10).
+	<script>codeExample(`piirtäjä.moveTo(10, 50)` + "\n" + `piirtäjä.lineTo(50, 10) `, "javascript");</script>
+	<li>
+	Lopuksi lopetamme polun piirtämisen <code>stroke()</code>-komennolla.
+	<script>codeExample(`piirtäjä.stroke() `, "javascript");</script>
+</ol>
+
+<blockquote>
+	<b>❗ Huom!</b> <code>fillRect()</code>-komennon väri määritetään <code>fillStyle</code>-komennolla.
+	<code>stroke()</code>-komennon väri määritetään <code>strokeStyle</code>:llä.
+</blockquote>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.3a</h3>
+	<p>Muuta koordinaatteja siten, että raksi on koko kankaan kokoinen. Etsi sopivat koordinaatit <i>koordinaatit kankaalla</i>-työkalulla.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.strokeStyle = "red"
+	
+	piirtäjä.beginPath()
+	
+	piirtäjä.moveTo(10, 10)
+	piirtäjä.lineTo(50, 50)
+	
+	piirtäjä.moveTo(10, 50)
+	piirtäjä.lineTo(50, 10)
+	
+	piirtäjä.stroke()
+${closeScript}`, true
+		);
+	</script>
+</div>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.3b</h3>
+	<p>Lisää <code>moveTo()</code>- ja <code>lineTo</code>-komentoja siten, että kankaalla näkyy ainakin kolme eri viivaa.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.strokeStyle = "red"
+	
+	piirtäjä.beginPath()
+	
+	
+	
+	piirtäjä.stroke()
+${closeScript}`
+		);
+	</script>
+</div>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.3c</h3>
+	<p>Lisää <code>moveTo()</code>- ja <code>lineTo</code>-komentoja piirtäksesi kolmion.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.strokeStyle = "red"
+	
+	piirtäjä.beginPath()
+	
+	
+	
+	piirtäjä.stroke()
+${closeScript}`
+		);
+	</script>
+</div>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.3d</h3>
+	<p>Lisää <code>moveTo()</code>- ja <code>lineTo</code>-komentoja piirtäksesi talon (neliöstä ja kolmiosta).</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.strokeStyle = "red"
+	
+	piirtäjä.beginPath()
+	
+	
+	
+	piirtäjä.stroke()
+${closeScript}`
+		);
+	</script>
+</div>
 
 <h2>4.? <code>setInterval</code> ja animaatiot</h2>
 
