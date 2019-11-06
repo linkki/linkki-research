@@ -156,3 +156,8 @@ nav {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
+
+li {
+	margin:0 0 10px 0;   
+ }
+

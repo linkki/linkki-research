@@ -57,43 +57,60 @@ ${closeScript}`, true
         <ol>
             <li> Ensin laitamme ohjelman alkuosaan HTML-koodia.
             <script>codeExample(
-`<p id = teksti >
+`
+<p id = teksti >
     Klikkaa minua.
-</p>`
+</p>
+`
             );</script>
-            Koodissa on käytetty teksti-tägiä &lt;p&gt;, jonka sisälle on kirjoitettu merkkijono "Klikkaa minua.".
-            Käytämme tälläistä <code>&lt;p&gt;</code>-tägiä, sillä haluamme antaa <b>id-tunnisteen</b> merkkijonolle "Klikkaa minua".
+            Koodissa on käytetty teksti-tägiä <code>&lt;p&gt;</code>, 
+            jonka sisälle on kirjoitettu merkkijono "Klikkaa minua.".
+            Käytämme tälläistä <code>&lt;p&gt;</code>-tägiä, 
+            sillä haluamme antaa <b>id-tunnisteen</b> merkkijonolle "Klikkaa minua".
             Tunniste asetetaan tägin sisälle kirjoittamalla <code>id = teksti</code>.
             Kun olemme antaneet sivulla näkyvälle merkkijonolle id-tunnisteen, 
             pääsemme siihen käsiksi myös JavaScriptillä.
             
             <li> Seuraavaksi tulee tuttuakin tutumpi &lt;script&gt;-tägi.
             <p><script>codeExample(
-`<script>
+`
+<script>
     //...            
-${closeScript}`
+${closeScript}
+`
             );</script></p>
             &lt;script&gt;-tägejen rajaamaa aluetta kannattaa ajatella kokonaisuutena.
             Tutkitaan seuraavassa kohdassa, mitä tägien sisällä oleva koodi tekee.
+
             <li> Tarkastellaan seuraavaksi koodilohkoa:
                 <script>codeExample(
-`teksti.onclick = () => {
+`
+teksti.onclick = () => {
     //...
-}`
+}
+`
                 ,"javascript");</script>
-            Annoimme edellisessä kohdassa id-tunnisteen &lt;p&gt;-lohkolle. 
-            Käytämme nyt tätä tunnistetta ja kutsumme tälle tunnistetulle muuttujalle komentoa <code>.onclick</code>. 
+            Annoimme edellisessä kohdassa id-tunnisteen <code>&lt;p&gt;</code>-lohkolle. 
+            Käytämme nyt annettua tunnistetta ja kutsumme tunnistetulle muuttujalle komentoa <code>.onclick</code>. 
             Tämä kertoo meille, että odotamme klikkausta tunnistetulle "teksti"-osalle. 
             Huomasithan lohkorakenteen? 
             Kirjoitamme lohkon sisälle sen, mitä haluamme tapahtuvan, kun tunnistettua kohtaa klikataan.  
             <li> Lohkon sisältä löydämme edellisestä osasta tutun komennon.
             <script>codeExample(
-`alert("Hello")`
+`
+alert("Hello")
+`
             ,"javascript");</script>
             Tämä komento toimii, kuten tavallinenkin <code>alert()</code>-komento.
             Olemme vain sijoittanut sen tapahtuman sisään.
             </ol>
 
+            <div class="codebox extra">
+                <h3>Id-tunniste</h3>
+                Id-tunniste annetaan HTML-koodille. 
+                Käytämme id-tunnistetta HTML-koodin ja JavaScript-koodin väliseen komminukaatioon. 
+                Kun käytämme id-tunnistetta HTML-koodissa voimme <b>viitata</b> siihen JavaScript-koodissa. 
+            </div>
             <div class="codebox task">
                     <h3>Tehtävä 3.1a</h3>
                     <p>Kirjoita ohjelmaan koodi, jolla <code>alert()</code> komennolla tulostetaan "Ankat uivat lammessa."</p>
@@ -103,9 +120,9 @@ ${closeScript}`
 <p id = teksti>
     Missä ankat uivat?
 </p>
+<script>
 teksti.onclick = () => {
 }
-<script>
 ${closeScript}`
                     );</script>
         </div>
@@ -197,7 +214,7 @@ ${closeScript}`, true
                     <th style="width: 450px;">Esimerkki
                     <th>Selitys
                     <tr>
-                    <td>&lt;p&gt;</code>
+                    <td><code>&lt;p&gt;</code>
 <td><script>codeExample(`
 <p> 
     Hei maailma!
@@ -290,9 +307,9 @@ ${closeScript}`, true
                         addEditor(
 `<!doctype HTML>
 <button id=nappi>Klikkaa minua</button>
+<script>
 nappi.onclick = () => {
 }
-<script>
 ${closeScript}`
                     );</script>
         </div>
@@ -331,7 +348,7 @@ ${closeScript}`
 <script>
     nappi.onclick = () =>  {
     }
-${closeScript}`, true
+${closeScript}`
         );</script>
     </div>
 

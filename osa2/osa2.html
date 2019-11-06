@@ -1,3 +1,6 @@
+<!--
+	Pitäskö tää osa jakaa osiin.
+-->
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -29,11 +32,6 @@
 			HTML-kielellä kirjoitettu teksti sisältää tavallisen tekstin seassa <b>tägejä</b>.
 			Tägit muuttavat sitä, miten teksti näkyy.
 		</p>
-	<!---	<p>
-			Verkkoselaimelle kerrotaan HTML-kielellä, 
-			mitä sisältöä sen tulee näyttää käyttäjälle, eli sinulle. 
-
-		</p>-->
 		<div class="codebox example">
 		<h3>Esimerkki</h3>
 		<script>
@@ -114,12 +112,22 @@ ${closeScript}`
 		<p>
 			Ensimmäinen komento, jonka opettelimme on <code>alert()</code>-komento.
 			Tällä komennolla voimme tulostaa tekstiä ikkunoissa ruudulle.
-			Komento <code>alert()</code> saa <b>parametrina</b> merkkijonon.
+			Komento <code>alert()</code> saa <b>parametrina</b> merkkijonon eli sanan tai lauseen.
 			Tämä on ohjelmoijan käyttämää kieltä.
-			Puhumme parametreista, kun haluamme antaa jonkinlaista tietoa komennolle.
-			Merkkijono tarkoittaa tekstimuotoista tietoa.
-			Merkkijonoparametri annetaan komennolle kirjoittamalla sen lainausmerkkien sisälle.
+
 		</p>
+		<div class="extra">
+			<h3>Parametri</h3>
+			<p>
+				Puhumme parametreista, kun haluamme antaa jonkinlaista tietoa komennolle. 
+				Toisinaan haluamme antaa komennoille tietoa, 
+				sillä haluamme antaa komennoille lisää työkaluja. 
+				Näiden työkalujen avulla komento voi tehdä tehtävänsä tehokkaammin.
+			</p>
+		</div>
+		<!--Otin tästä pois selityksen parametrin tyypistä.
+		Tiedon tyyppi sopii varmaan paremmin käsiteltäväksi muuttujien yhteyteen.-->
+
 		<h2>2.3 Uusi komento <code>prompt()</code></h2>
 		<p>
 			Nyt osaamme tulostaa tietoa. Opetellaan seuraavaksi, miten voimme myös kysyä käyttäjältä <i>syöteen</i>. 
@@ -146,8 +154,8 @@ ${closeScript}`
 		
 		<p>
 			<code>prompt()</code>-komento avaa ikkunan, jossa on tekstikenttä, johon voi kirjoittaa tekstiä.
-			Kun klikkaa "Hyväksy"-painiketta, JavaScript lukee syötteen.
-			Pelkällä komennolla emme kuitenkaan saa vielä syötettyä tietoa käyttöön.
+			Kun klikkaa "Hyväksy"-painiketta, JavaScript <b>lukee</b> syötteen.
+			Pelkästään lukemalla emme kuitenkaan saa vielä tietoa käyttöön.
 			Meidän tulee tallettaa se muuttujaan. 
 			Tutkitaan vielä vähän prompt()-komentoa ja tutustutaan sen jälkeen muuttujiin. 
 		</p>
@@ -169,11 +177,11 @@ ${closeScript}`
 			<code>prompt()</code>-komennolle voidaan antaa parametri samalla tavalla kuin <code>alert()</code>-komennolle.
 			Tällöin komentoon lisätään sulkeiden sisään lainausmerkit, joiden sisään kirjoitetaan haluttu teksti.
 		</p>
-
+<!--Pitäisikö esimerkkien olla enemmän tehtävien kaltaisia, vai onkohan nämä tälläiset esimerkit ihan kelvollisia.-->
 		<div class="codebox example">
 			<h3>Esimerkki 2.b</h3>
 			<p>
-				Ohjelmassa olevalle <code>prompt()</code>-komennolle on annettu parametrina merkkijono "Mikä sinun nimesi on?".
+				Ohjelmassa olevalle <code>prompt()</code>-komennolle on annettu parametrina "Mikä sinun nimesi on?".
 			</p>
 			<script>
 				addEditor(
@@ -185,10 +193,11 @@ ${closeScript}`
 			</div>
 
 		<div class="codebox task">
+			<!--Pitäskö tehtävistä tehdä enemmän saman tyyppisiä, kuin lopussa on? -->
 		<h3>Tehtävä 2.5</h3> 
 		<p>
 			Kirjoita ohjelmaan komento, joka saa parametriksi merkkijonon "Mikä sinun ikäsi on?".
-			Käyttäjä voi antaa syötteenä nimensä.
+			Käyttäjä voi antaa syötteenä ikänsä.
 			Käytätkö <code>prompt()</code>- vai <code>alert()</code>-komentoa?
 		</p>
 		<script>
@@ -198,24 +207,39 @@ ${closeScript}`
 ${closeScript}`
 			);</script>
 		</div>
+
 		<h2>Muuttujat</h2>
 			
 		<p>
-			Jotta voimme tehdä käyttäjän antamalla syötteellä jotain, täytyy se tallentaa ohjelman käyttöön. 
+			Jotta voimme tehdä käyttäjän antamalla syötteellä jotain, 
+			täytyy se tallentaa ohjelman käyttöön. 
 			Ohjelmoidessa tieto tallennetaan <b>muuttujiin</b>.
 			Ne ovat ohjelmoinnin peruspalikoita ja niitä tulet käyttämään paljon.
-		</p>	
+		</p>
+		<div class="extra">
+			<!--No tälle pitäs tehdä jotain.-->
+			<h3>Muuttuja</h3>
+			Muuttujiin tallennetaan tietoa. 
+			Muttujille voidaan antaa nimi. 
+			Muuttujia voidaan käyttää uudelleen.
+		</div>	
 		<p>
 			Muuttuja tapa antaa tiedolle nimi.
 			Myöhemmin meidän ei tarvitse laskea tai kysyä tietoa uudestaan, vaan voimme käyttää muuttujaa.
-			JavaScriptissä muuttuja luodaan yleensä <code>const</code>-komennolla.
-			Alla on esimerkki muuttujien käytöstä <code>alert()</code>-komennon kanssa ja muistutus siitä, miltä komento näyttää ilman muuttujia.
+			Luomme muuttujan <code>const</code>-komennolla.
+			Alla on esimerkki muuttujien käytöstä <code>alert()</code>-komennon kanssa ja muistutus siitä, 
+			miltä komento näyttää ilman muuttujia.
 		</p>
 		
 		<script>codeExample(
-`alert("Kissat ovat kivoja!")
+`// Tässä on alert()-komento, 
+// jolle annetaan parametrina "Kissat ovat kivoja!".
+alert("Kissat ovat kivoja!")
 
+// Tässä talletetaan ensin "Kissat ovat kivoja!" muuttujaan.
 const viesti = "Kissat ovat kivoja!"
+// Annamme nyt edellisellä rivillä 
+// olevan muuttujan parametrina alert()-komennolle.
 alert(viesti) `,
 		"javascript");</script>
 		
@@ -265,8 +289,8 @@ ${closeScript}`
 		<div class="codebox task">
 			<h3>Tehtävä 2.9</h3> 
 			<p>
-				Kysy käyttäjältä, mikä on hänen lempivärinsä. 
-				Tulosta vastaus <code>"Lempivärisi on "+syöte</code>.
+				Pyydä käyttäjältä syötteenä hedelmä. 
+				Tulosta vastaus <code>hedelmä + "ovat ankkojen suosikki ruoka."</code>.
 			</p>
 			<script>
 					addEditor(
@@ -279,10 +303,11 @@ ${closeScript}`
 		<div class="codebox task">
 			<h3>Tehtävä 2.9</h3> 
 			<p>
-				Kysy käyttäjältä, mikä on hänen lempieläin. 
-				Kysy käyttäjältä, miten vanha käyttäjä on.
+				Pyydä käyttäjältä ensin syötteenä eläin. 
+				Kun käyttäjältä on pyydetty syötteenä eläin, 
+				niin pyydä tämän jälkeen häneltä syötteenä väri. 
 				Muista tallettaa vastaukset omiin muuttujiinsa.  
-				Tulosta lopuksi vastaus <code>"Lempivärisi on "+syöte + ". Ja olet " + X + " vuotta vahna." </code>.
+				Tulosta lopuksi vastaus <code>väri + " " + eläin </code>.
 			</p>
 			<script>
 				addEditor(
