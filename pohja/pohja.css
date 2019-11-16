@@ -161,3 +161,32 @@ li {
 	margin:0 0 10px 0;   
  }
 
+.dialog {
+	top: 10px;
+	position: fixed;
+	width: 100%;
+	max-width: 900px;
+	background-color: white;
+	margin-left: calc((100vw - 900px) / 2);
+	border: 1px solid black;
+	z-index: 100;
+	padding: 1rem;
+}
+
+.dialog > h2 {
+	border: none;
+}
+
+#folderContent table {
+	width: 100%;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+#folderContent button {
+	border: none;
+	background: none;
+	font-family: monospace;
+	text-decoration: underline;
+	cursor: pointer;
+}
