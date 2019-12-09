@@ -134,6 +134,11 @@ nav {
 	margin-right: 1rem;
 }
 
+span.task::before, p.task::before {
+	content: '✏️';
+	margin-right: 0.5rem;
+}
+
 .extra > h3::before {
 	content: '🔍';
 	margin-right: 1rem;

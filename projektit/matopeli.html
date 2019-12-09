@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+	<meta charset="utf-8">
+	<title>Jäsäkurssi - Matopeli</title>
+	<link href="../pohja/pohja.css" rel="stylesheet" type="text/css">
+		
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js"></script>
+	<script src="../pohja/pohja.js"></script>
+</head>
+	<body>
+
+	<div class="header">
+	<nav>
+		Jäsää lapsille
+	</nav>
+	</div>
+
+	<div class="content">
+
+<h1>Matopeli</h1>
+
+<canvas width = 800
+        height = 600
+        id = kangas
+        style = background-color:beige;></canvas>
+<script>
+
+const piirtäjä = kangas.getContext("2d")
+
+const mato = {
+	X: 100,
+	Y: 100,
+	suunta: "oikea",
+	häntä: [],
+	aikaaKasvamiseen: 5,
+}
+
+// Pidetään hiiren koordinaatit ajan tasalla
+document.onkeydown = event => {
+	if (event.key == "ArrowUp") { mato.suunta = "ylös" }
+	if (event.key == "ArrowDown") { mato.suunta = "alas" }
+	if (event.key == "ArrowLeft") { mato.suunta = "vasen" }
+	if (event.key == "ArrowRight") { mato.suunta = "oikea" }
+}
+
+function piirrä() {
+	// Tyhjennetään ruutu
+	piirtäjä.clearRect(0, 0, 800, 600)
+	
+	// Piirretään pää
+	piirtäjä.fillStyle = "blue"
+	piirtäjä.fillRect(mato.X, mato.Y, 100, 100)
+	
+	// Piirretään häntä
+	piirtäjä.fillStyle = "green"
+	for (const hännänPala of mato.häntä) {
+		piirtäjä.fillRect(hännänPala.X, hännänPala.Y, 100, 100)
+	}
+	
+	// Pituusteksti
+	piirtäjä.fillStyle = "black"
+	piirtäjä.fillText("Pituus: " + mato.häntä.length, 10, 20)
+	
+	// Pyydetään selainta piirtämään samat asiat kohta uudestaan
+	requestAnimationFrame(piirrä)
+}
+requestAnimationFrame(piirrä)
+
+// Liikutetaan matoa ikuisessa silmukassa
+setInterval(() => {
+	// Lisätään hännän eteen pala
+	mato.häntä.splice(0, 0, { X: mato.X, Y: mato.Y })
+	
+	// Vähennetään kasvamisen ajastinta
+	mato.aikaaKasvamiseen -= 1
+	
+	if (mato.aikaaKasvamiseen > 0) {
+		// Poistetaan hännän viimeinen pala
+		mato.häntä.length -= 1
+	} else {
+		// Häntää ei poisteta, eli mato kasvaa
+		mato.aikaaKasvamiseen = 5
+	}
+	
+	// Liikutetaan päätä
+	if (mato.suunta == "ylös") { mato.Y -= 100 }
+	if (mato.suunta == "alas") { mato.Y += 100 }
+	if (mato.suunta == "vasen") { mato.X -= 100 }
+	if (mato.suunta == "oikea") { mato.X += 100 }
+	
+	// Tarkistetaan osuma reunaan
+	if (mato.X < 0 || mato.X >= 800 || mato.Y < 0 || mato.Y >= 600) {
+		// Poistetaan häntä
+		mato.häntä.length = 0
+		
+		// Siirretään alkuun
+		mato.X = 100
+		mato.Y = 100
+		mato.suunta = "oikea"
+	}
+	
+	// Tarkistetaan osuma hännän osiin
+	for (const hännänPala of mato.häntä) {
+		if (mato.X == hännänPala.X && mato.Y == hännänPala.Y) {
+			mato.häntä.length = 0
+			mato.X = 100
+			mato.Y = 100
+			mato.suunta = "oikea"
+			break
+		}
+	}
+}, 400)
+</script>
+
+<h2>Ohjeet</h2>
+
+<h3>Alkuvalmistelut</h3>
+
+<p class=task>Kopioi aloituspohja (kankaan kokoa ja väriä voi muuttaa halutessaan:</p>
+<script>codeExample(`<!doctype HTML>
+
+<canvas width = 800
+        height = 600
+        style = background-color:beige;></canvas>
+
+<script>
+
+${closeScript}`, "html");</script>
+
+<p class=task>Määrittele piirtäjä-muuttuja piirtämistä varten:</p>
+<script>codeExample(`const piirtäjä = kangas.getContext("2d") `, "javascript");</script>
+
+<h3>Mato-hahmo</h3>
+
+</div>
