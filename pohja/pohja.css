@@ -195,3 +195,7 @@ li {
 	text-decoration: underline;
 	cursor: pointer;
 }
+
+.duckimg {
+	float: right;
+}
