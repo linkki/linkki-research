@@ -1,61 +1,88 @@
-<!doctype HTML>
-<table>
-    <tr>
-        <td> <button id=nappi1></button> </td>
-        <td> <button id=nappi2></button> </td>
-        <td> <button id=nappi3></button> </td>
-    </tr>
-    <tr>
-        <td> <button id=nappi4></button> </td>
-        <td> <button id=nappi5></button> </td>
-        <td> <button id=nappi6></button> </td>
-    </tr>
-    <tr>
-        <td> <button id=nappi7></button> </td>
-        <td> <button id=nappi8></button> </td>
-        <td> <button id=nappi9></button> </td>
-    </tr>
-</table>
-<script>
-    vuoro = "X"
-    nappi1.onclick = () => {
-        pelaaMerkki(document.getElementById('nappi1'))
+<!DOCTYPE html>
+<html lang="fi">
 
-    }
-    nappi2.onclick = () => {
-        pelaaMerkki(document.getElementById('nappi2'))
-    }
-    nappi3.onclick = () => {
-        pelaaMerkki(document.getElementById('nappi3'))
-    }
-    nappi4.onclick = () => {
-        pelaaMerkki(document.getElementById('nappi4'))
-    }
-    nappi5.onclick = () => {
-        pelaaMerkki(document.getElementById('nappi5'))
-    }
-    nappi6.onclick = () => {
-        pelaaMerkki(document.getElementById('nappi6'))
-    }
-    nappi7.onclick = () => {
-        pelaaMerkki(document.getElementById('nappi7'))
-    }
-    nappi8.onclick = () => {
-        pelaaMerkki(document.getElementById('nappi8'))
-    }
-    nappi9.onclick = () => {
-        pelaaMerkki(document.getElementById('nappi9'))
-    }
-    const pelaaMerkki = function pelivuoro(painike) {
-        if (painike.innerText === "") {
-            if (vuoro === "X") {
-                painike.innerText = "X"
-                vuoro = "0"
-            } else {
-                painike.innerText = "0"
-                vuoro = "X"
+<head>
+    <meta charset="utf-8">
+    <title>Jäsäkurssi - Ristinolla</title>
+    <link href="../pohja/pohja.css" rel="stylesheet" type="text/css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js"></script>
+    <script src="../pohja/pohja.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <nav>
+            Jäsää lapsille
+        </nav>
+    </div>
+
+    <div class="content">
+
+        <h1>Ristinolla</h1>
+
+        <table id=taulukko>
+            <tr>
+                <td> <button id=nappi1 style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id=nappi2 style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id=nappi3 style="width: 50px; height: 50px;"></button> </td>
+            </tr>
+            <tr>
+                <td> <button id=nappi4 style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id=nappi5 style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id=nappi6 style="width: 50px; height: 50px;"></button> </td>
+            </tr>
+            <tr>
+                <td> <button id=nappi7 style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id=nappi8 style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id=nappi9 style="width: 50px; height: 50px;"></button> </td>
+            </tr>
+        </table>
+        <script>
+            vuoro = "X"
+            nappi1.onclick = () => {
+                pelaaMerkki(document.getElementById('nappi1'))
             }
-        }
+            nappi2.onclick = () => {
+                pelaaMerkki(document.getElementById('nappi2'))
+            }
+            nappi3.onclick = () => {
+                pelaaMerkki(document.getElementById('nappi3'))
+            }
+            nappi4.onclick = () => {
+                pelaaMerkki(document.getElementById('nappi4'))
+            }
+            nappi5.onclick = () => {
+                pelaaMerkki(document.getElementById('nappi5'))
+            }
+            nappi6.onclick = () => {
+                pelaaMerkki(document.getElementById('nappi6'))
+            }
+            nappi7.onclick = () => {
+                pelaaMerkki(document.getElementById('nappi7'))
+            }
+            nappi8.onclick = () => {
+                pelaaMerkki(document.getElementById('nappi8'))
+            }
+            nappi9.onclick = () => {
+                pelaaMerkki(document.getElementById('nappi9'))
+            }
+            const pelaaMerkki = function pelivuoro(painike) {
+                if (painike.innerText === "") {
+                    if (vuoro === "X") {
+                        painike.innerText = "X"
+                        vuoro = "0"
+                    } else {
+                        painike.innerText = "0"
+                        vuoro = "X"
+                    }
+                }
 
-    }
-</script>
+            }
+            
+        </script>
+        <h2>Ohjeet</h2>
+    </div>
+</body>
