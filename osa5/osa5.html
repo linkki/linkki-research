@@ -9,7 +9,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js"></script>
 	<script src="../pohja/pohja.js"></script>
 </head>
-	<body>
+<body>
 
 	<div class="header">
 	<nav>
@@ -17,13 +17,79 @@
 		· <a href="../osa1/osa1.html">Osa 1</a>
 		· <a href="../osa2/osa2.html">Osa 2</a>
 		· <a href="../osa3/osa3.html">Osa 3</a>
-        · <a href="../osa4/osa4.html">Osa 4</a>
-        · <a href="../projektit/projektit.html">Projektit</a>
+		· <a href="../osa4/osa4.html">Osa 4</a>
+		· <a href="../osa5/osa5.html">Osa 5</a>
+		· <a href="../projektit/projektit.html">Projektit</a>
 	</nav>
 	</div>
 	<div class="content">
-        <h1>Osa 5. - Funktiot ja objektit</h1>
-  
-        </div>
+<h1>Osa 5 - Funktiot</h1>
+
+<p>
+<b>Funktio</b> eli aliohjelma ohjelmoijien käyttämä sana kasalle koodia, joka voidaan suorittaa aina tarvittaessa.
+Funktion koodia ei siis suoriteta heti, vaan vasta joskus myöhemmin.
+Olemme jo nähneet funktioita osassa 3, jossa loimme tapahtumakäsittelijöitä.
+Ne ovat eräs esimerkki funktiosta.
+
+<p>
+Funktioita käytetään JavaScriptissä monilla eri tavoilla ja ne voivat näyttää erilaisilta.
+Yleisesti ottaen funktiot voi jakaa kahteen luokkaan: <b>nuolifunktoihin</b>, jotka tunnistaa nuolesta <code>=&gt;</code>, ja
+<b>avainsanafunktioihin</b>, jotka tunnistaa avainsanasta <code>function</code>.
+
+<p>
+Alla on esimerkkejä erilaisista funktiosta, joihin tutustumme tässä luvussa.
+
+<script>codeExample(
+`// Tapahtumakäsittelijä:
+
+teksti.onclick = () => {
+    alert("Hei siellä!")
+}
+
+// Ajastin:
+
+setTimeout(() => {
+    alert("Yllätys!")
+}, 5000)
+
+// Toistettu funktio:
+
+setInterval(() => {
+    alert("Hei taas!")
+}, 5000)
+
+// Nimetty funktio:
+
+function liikutaYlös() {
+    hahmo.y -= 1
+}
+
+// Piirtofunktio:
+
+function piirrä() {
+    piirtäjä.clearRect(0, 0, 300, 150)    
+    piirtäjä.fillRect(hahmo.x, hahmo.y, 10, 10)
+
+    requestAnimationFrame(piirrä)
+}
+requestAnimationFrame(piirrä)
+`,"javascript");</script>
+
+<div class="codebox question">
+	<h3>Kysymys 5.1</h3>
+	<p>
+		Mitkä yllä olevista funktioista ovat nuolifunktiota ja mitkä avainsanafunktioita?
+	</p>
+</div>
+
+<h2>Tapahtumäkäsittelijät – kertaus</h2>
+
+<h2>Ajastimet ja toistetut funktiot</h2>
+
+<h2>Nimetyt funktiot</h2>
+
+<h2>Piirtosilmukka ja päivityssilmukka</h2>
+
+</div>
 </body>
 </html>
