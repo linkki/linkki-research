@@ -128,6 +128,10 @@ nav {
 	margin-right: 1rem;
 }
 
+.question > h3::before {
+	content: '❓';
+	margin-right: 1rem;
+}
 
 .task > h3::before {
 	content: '✏️';

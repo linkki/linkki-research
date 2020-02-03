@@ -43,33 +43,34 @@
         <script>
             vuoro = "X"
             nappi1.onclick = () => {
-                pelaaMerkki(document.getElementById('nappi1'))
+                pelaaMerkki(nappi1)
             }
             nappi2.onclick = () => {
-                pelaaMerkki(document.getElementById('nappi2'))
+                pelaaMerkki(nappi2)
             }
             nappi3.onclick = () => {
-                pelaaMerkki(document.getElementById('nappi3'))
+                pelaaMerkki(nappi3)
             }
             nappi4.onclick = () => {
-                pelaaMerkki(document.getElementById('nappi4'))
+                pelaaMerkki(nappi4)
             }
             nappi5.onclick = () => {
-                pelaaMerkki(document.getElementById('nappi5'))
+                pelaaMerkki(nappi5)
             }
             nappi6.onclick = () => {
-                pelaaMerkki(document.getElementById('nappi6'))
+                pelaaMerkki(nappi6)
             }
             nappi7.onclick = () => {
-                pelaaMerkki(document.getElementById('nappi7'))
+                pelaaMerkki(nappi7)
             }
             nappi8.onclick = () => {
-                pelaaMerkki(document.getElementById('nappi8'))
+                pelaaMerkki(nappi8)
             }
             nappi9.onclick = () => {
-                pelaaMerkki(document.getElementById('nappi9'))
+                pelaaMerkki(nappi9)
             }
-            const pelaaMerkki = function pelivuoro(painike) {
+
+            function pelaaMerkki(painike) {
                 if (painike.innerText === "") {
                     if (vuoro === "X") {
                         painike.innerText = "X"
@@ -81,9 +82,21 @@
                 }
 
             }
-            
+
         </script>
         <h2>Ohjeet</h2>
-        
+        <p> Aloitetaan luomalla runko ristinollan painikkeita varten. Kopioi seuraava koodi. </p>
+
+        <p>Jotta voimme muokata painikkeiden tekstiä tulee meidän luoda jokaiselle painikkeelle oma kuutelija,
+            joka odottaa sitä, että painiketta klikataan.</p>
+
+        <p> Haluamme myös tietää, onko pelaajan X vai pelaajan O vuoro. Saamme tämän selville luomalla muuttujan,
+            johon talletetaan tieto kunkin pelaajan vuorosta. </p>
+
+        <p>Kirjoitetaan funktio, joka hoitaa painikkeen tekstin vaihtamisen. Haluamme painikkeisiin
+            seuraavanlaisen toiminnallisuuden:</p>
+
+        <p>Jos painikkeessa ei ole vielä tekstiä, niin asetamme sen tekstiksi sen kumman pelaajan vuoro on.
+            Haluamme samalla vaihtaa pelaajan vuoroa.</p>
     </div>
 </body>
