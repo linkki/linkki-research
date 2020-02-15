@@ -46,6 +46,12 @@ function siirräKohti(hahmo1, hahmo2, nopeus) {
 
 const piirtäjä = kangas.getContext("2d")
 
+const imgduck = new Image()
+imgduck.src = "../img/pixelwalker.webp"
+
+const imgfox = new Image()
+imgfox.src = "../img/pixelfox.kra-autosave.webp"
+
 // Määritellään hahmot
 const hiiri = {
 	X: 0,
@@ -55,6 +61,7 @@ const pelaaja = {
 	X: 100,
 	Y: 100,
 	pisteet: 0,
+        kuva: new Image().src = "../img/pixelwalker.webp"
 }
 const vihollinen = {
 	X: 400,
@@ -63,6 +70,7 @@ const vihollinen = {
 const aarre = {
 	X: Math.random()*800,
 	Y: Math.random()*600,
+        kuva: new Image().src = "../img/pixelfox.kra-autosave.webp"
 }
 
 // Pidetään hiiren koordinaatit ajan tasalla
@@ -79,12 +87,14 @@ function piirrä() {
 	piirtäjä.fillText("Pisteet: " + pelaaja.pisteet, 10, 20)
 	
 	// Piirretään pelaajahahmo
-	piirtäjä.fillStyle = "blue"
-	piirtäjä.fillRect(pelaaja.X-50, pelaaja.Y-50, 100, 100)
+	//piirtäjä.fillStyle = "blue"
+	//piirtäjä.fillRect(pelaaja.X-50, pelaaja.Y-50, 100, 100)
+        piirtäjä.drawImage(imgduck, pelaaja.X-32, pelaaja.Y-32)
 	
 	// Piirretään vihollishahmo
-	piirtäjä.fillStyle = "red"
-	piirtäjä.fillRect(vihollinen.X-50, vihollinen.Y-50, 100, 100)
+	//piirtäjä.fillStyle = "red"
+	//piirtäjä.fillRect(vihollinen.X-50, vihollinen.Y-50, 100, 100)
+        piirtäjä.drawImage(imgfox, vihollinen.X-32, vihollinen.Y-32)
 	
 	// Piirretään aarrehahmo
 	piirtäjä.fillStyle = "green"
@@ -105,14 +115,14 @@ setInterval(() => {
 	// Tarkistetaan osuma aarteeseen
 	if (etäisyys(pelaaja, aarre) < 100) {
 		pelaaja.pisteet += 1
-		while (etäisyys(pelaaja, aarre) < 100) {
+		while (etäisyys(pelaaja, aarre) < 50) {
 			aarre.X = Math.random()*800
 			aarre.Y = Math.random()*600
 		}
 	}
 	
 	// Tarkistetaan osuma viholliseen
-	if (etäisyys(pelaaja, vihollinen) < 100) {
+	if (etäisyys(pelaaja, vihollinen) < 50) {
 		pelaaja.pisteet = 0
 		pelaaja.X = 100
 		pelaaja.Y = 100
