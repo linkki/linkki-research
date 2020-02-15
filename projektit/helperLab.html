@@ -83,7 +83,7 @@
             }
 
             function aloitaAlusta() {
-                pelaaja.X = 50
+                pelaaja.X = 50 
                 pelaaja.Y = 100
                 pelaaja.taulukkoX = 2
                 pelaaja.taulukkoY = 4
@@ -136,32 +136,32 @@
             }
 
             const laatikko1 = {
-                X: 50,
-                Y: 50,
-                taulukkoX: 2,
-                taulukkoY: 2,
+                X: 50,//
+                Y: 50,//
+                taulukkoX: 2,//
+                taulukkoY: 2,//
                 maali: false
             }
 
             const laatikko2 = {
-                X: 125,
-                Y: 75,
-                taulukkoX: 5,
-                taulukkoY: 3,
+                X: 125,//
+                Y: 75,//
+                taulukkoX: 5,//
+                taulukkoY: 3,//
                 maali: false
             }
             const laatikko3 = {
-                X: 200,
-                Y: 75,
-                taulukkoX: 8,
-                taulukkoY: 3,
+                X: 200,//
+                Y: 75,//
+                taulukkoX: 8,//
+                taulukkoY: 3,//
                 maali: false
             }
             const laatikko4 = {
-                X: 275,
-                Y: 50,
-                taulukkoX: 11,
-                taulukkoY: 2,
+                X: 275,//
+                Y: 50,//
+                taulukkoX: 11,//
+                taulukkoY: 2,//
                 maali: false
             }
 
@@ -302,26 +302,26 @@
                 }
             }
 
-            function piirrä() {
+            function piirrä() {//
 
-                piirtäjä.clearRect(0, 0, 25 * 17, 25 * 6)
-                for (let y = 0; y < 6; y++) {
-                    for (let x = 0; x < 17; x++) {
-                        if (kartta[y][x] === 1) {
-                            piirtäjä.fillStyle = "grey"
-                            piirtäjä.fillRect(25 * x, 25 * y, 25, 25)
+                piirtäjä.clearRect(0, 0, 25 * 17, 25 * 6)//
+                for (let y = 0; y < 6; y++) {//
+                    for (let x = 0; x < 17; x++) {//
+                        if (kartta[y][x] === 1) {//
+                            piirtäjä.fillStyle = "grey"//
+                            piirtäjä.fillRect(25 * x, 25 * y, 25, 25)//
                         }
-                        if (kartta[y][x] === 2) {
-                            piirtäjä.fillStyle = "yellow"
-                            piirtäjä.fillRect(25 * x, 25 * y, 25, 25)
+                        if (kartta[y][x] === 2) {//
+                            piirtäjä.fillStyle = "yellow"//
+                            piirtäjä.fillRect(25 * x, 25 * y, 25, 25)//
                         }
-                        if (kartta[y][x] === 3) {
-                            piirtäjä.fillStyle = "blue"
-                            piirtäjä.fillRect(25 * x, 25 * y, 25, 25)
+                        if (kartta[y][x] === 3) {//
+                            piirtäjä.fillStyle = "blue"//
+                            piirtäjä.fillRect(25 * x, 25 * y, 25, 25)//
                         }
-                        if (kartta[y][x] === 4) {
-                            piirtäjä.fillStyle = "green"
-                            piirtäjä.fillRect(25 * x, 25 * y, 25, 25)
+                        if (kartta[y][x] === 4) {//
+                            piirtäjä.fillStyle = "green"//
+                            piirtäjä.fillRect(25 * x, 25 * y, 25, 25)//
                         }
                     }
                 }
@@ -358,86 +358,6 @@
             }
             requestAnimationFrame(piirrä)
         </script>
-
-        <div class="note">
-            <h3>Huom</h3>
-            <p>
-                Tämä peli on erityisen haastava toteuttaa. Olethan harjoitellut tarpeeksi!
-            </p>
-        </div>
-        <h2>Alkuvalmistelut</h2>
-        <p>Peli piirretään canvas alustalle, jonka koko on 425x150.
-            Canvas alueen tunnisteeksi asetetaan "kangas" ja sen taustaväri on valkoinen.
-            Lisätään myös painike, jolla pelin voi aloittaa alusta.
-            Painikkeelle annetaan id.
-            Voit toteuttaa canvaksen itse tai kopioida alla olevan pohjan.
-            <script>codeExample(`<!doctype HTML>
-
-                <canvas width = 425
-                        height = 150
-                        style = background-color:white;></canvas>
-
-                <button id=aloitaAlustaBtn>Aloita alusta.</button>
-                
-                <script>
-                
-                ${closeScript}`, "html");</script>
-        </p>
-        <h2>Pelikentän piirtäminen</h2>
-        <h3>Pelialueen tila talletetaan taulukkoon</h3>
-
-        <p>
-            Pelikentän tilaa ylläpidetään 2-ulotteisessa taulukossa. 
-            Taulukon leveys on 17 ja korkeus 6. 
-            Aseta taulukon arvot niin, että 
-            <ul>
-                <li>Arvo 0 vastaa tyhjää tilaa</li>
-                <li>Arvo 1 vastaa seinää</li>
-                <li>Arvo 2 vastaa palkintoa</li>
-                <li>Arvo 3 vastaa liikuteltavaa laatikkoa</li>
-            </ul>
-            <table>
-                <tr>
-                    <td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td><td>2</td><td>3</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>2</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
-                </tr>
-            </table>
-        </p>
-
-        <h3>Pelialueen piirtäminen</h3>
-        <p>Pelikenttä piirretään tuttuun tapaan <code>piirrä()</code> funktiolla.
-
-            
-            Jos taulukon alkiossa on arvo 1, niin pelikentälle piirretään harmaa neliö,
-            joka on 25 pikseliä korkea ja 25 pikseliä leveä.
-            Taulukossa alkion arvo 2 kertoo, että siinä on siirrettävä laatikko
-            ja arvo 3 tarkoittaa, että kohdassa on maali.
-            Nämä palikat ovat saman kokoisia, kuin seinä neliöt.
-            Maali ruudun väri on keltainen ja siirrettävän laatikon väri on sininen.
-            Talleta taulukko muuttujaan kenttä ja piirrä canvakseen kuva taulukon perusteella.
-            Haluamme päivittää canvaksen kuvaa, joten muista myös laittaa canvaksen tyhjentävä komento.
-        </p>
-        <p>Pelaajasta ei pidetä kirjaa taulukossa.</p>
-        <p>
-            Haluamme päästä nopeasti käsiksi erityisesti liikkuvien laatikoiden sijaintiin,
-            joten haluamme tallentaa niistä tärkeimmäit tiedot objekteihin.
-            Tälläiset tiedot ovat
-            <ul>
-                <li>laatikon sijainti taulukossa</li>
-                <li>laatikon sijainti canvas alueella</li>
-            </ul>
-            Luo tarvittavat objektit ja taaleta niihin siirreltävien laatikoiden taulukon X ja Y koordinaatit,
-            sekä kankaalla olevat X ja Y koordinaatit.
-        </p>
-
-        <h2>Pelihahmon liikkuminen</h2>
-        <h2>Laatikoiden siirtäminen</h2>
-        <h2>Pelin voittaminen (ja loput)</h2>
 
     </div>
 </body>

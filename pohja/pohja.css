@@ -152,6 +152,12 @@ span.task::before, p.task::before {
 	content: '❗';
 	margin-right: 1rem;
 }
+.note {
+	border: 1px solid red;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	margin-top: 1rem;
+}
 
 .left {
 	grid-column: 1;

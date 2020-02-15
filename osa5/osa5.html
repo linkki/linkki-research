@@ -2,7 +2,7 @@
 <html lang="fi">
 <head>
 	<meta charset="utf-8">
-	<title>Jäsäkurssi - Osa 3</title>
+	<title>Jäsäkurssi - Osa 5</title>
 	<link href="../pohja/pohja.css" rel="stylesheet" type="text/css">
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
@@ -13,13 +13,13 @@
 
 	<div class="header">
 	<nav>
-		Jäsää lapsille
-		· <a href="../osa1/osa1.html">Osa 1</a>
-		· <a href="../osa2/osa2.html">Osa 2</a>
-		· <a href="../osa3/osa3.html">Osa 3</a>
-		· <a href="../osa4/osa4.html">Osa 4</a>
-		· <a href="../osa5/osa5.html">Osa 5</a>
-		· <a href="../projektit/projektit.html">Projektit</a>
+			Jäsää lapsille
+			· <a href="../osa1/osa1.html">Osa 1</a>
+			· <a href="../osa2/osa2.html">Osa 2</a>
+			· <a href="../osa3/osa3.html">Osa 3</a>
+			· <a href="../osa4/osa4.html">Osa 4</a>
+			· <a href="../osa5/osa5.html">Osa 5</a>
+			· <a href="../projektit/projektit.html">Projektit</a>
 	</nav>
 	</div>
 	<div class="content">
@@ -84,11 +84,373 @@ requestAnimationFrame(piirrä)
 
 <h2>Tapahtumäkäsittelijät – kertaus</h2>
 
+<p>
+Tutustuimme tapahtumakäsittelijöihin jo luvussa 3.
+Ne ovat funktioita, jotka suoritetaan kun jotain tiettyä tapahtuu.
+Esimerkiksi napin painaminen ja hiiren liikuttaminen ovat tapahtumia.
+
+<div class="codebox example">
+	<h3>Esimerkki 5.2</h3>
+	<p>
+	Tapahtumakäsittelijä näyttää ilmoituksen, kun tekstiä klikataan.
+	<script>
+		addEditor(
+`<!doctype HTML>
+<p id = teksti>Klikkaa tästä!</p>
+<script>
+	teksti.onclick = e => {
+		alert("Hei siellä!")
+	}
+${closeScript}`
+		);
+	</script>
+</div>
+
+<p>
+TODO: listaa tässä eri tapahtumakäsittelijöitä
+
+<p>
+TODO: Tehtävä, jossa napin painaminen aiheuttaa jotain
+
 <h2>Ajastimet ja toistetut funktiot</h2>
+
+<p>
+Seuraava funktiotyyppi johon tutustumme on <b>ajastetut funktiot</b>.
+Ajastettu funktio suoritetaan, kun tietty määrä aikaa on kulunut.
+JavaScriptissä ajastetun funktion luomiseen käytetään <code>setTimeout</code>-komentoa.
+
+<p>
+<code>setTimeout</code>-komento näyttää seuraavanlaiselta:
+
+<script>codeExample(
+`setTimeout(() => {
+    
+}, 5000)
+`,"javascript");</script>
+
+<p>
+Aika, jonka kuluttua funktio suoritetaan, on aivan komennon lopussa.
+Aika ilmoitetaan <b>millisekunteina</b> eli sekunnin tuhannesosina.
+1 000 millisekuntia on yksi sekunti, 5 000 on viisi sekuntia ja niin edelleen.
+Yksi minuutti on 60 000 millisekuntia.
+
+<div class="codebox example">
+	<h3>Esimerkki 5.3</h3>
+	<p>
+	Ajastettu funktio, joka suoritetaan 5 sekunnin kuluttua.
+	<script>
+		addEditor(
+`<!doctype HTML>
+<script>
+	setTimeout(() => {
+		alert("Yllätys!")
+	}, 5000)
+${closeScript}`
+		);
+	</script>
+</div>
+
+<p>
+Ajastetun funktion voi laittaa tapahtumakäsittelijän sisälle, jolloin se suoritetaan tietyn ajan kuluttua tapahtumasta:
+
+<div class="codebox example">
+	<h3>Esimerkki 5.4</h3>
+	<p>
+	Ajastettu funktio tapahtumakäsittelijän sisällä. Mitä tapahtuu, jos klikkaat tekstiä uudestaan ennen viestin ilmestymistä?
+	<script>
+		addEditor(
+`<!doctype HTML>
+<p id = teksti>Klikkaa tästä!</p>
+<script>
+	teksti.onclick = e => {
+		setTimeout(() => {
+			alert("Hei taas!")
+		}, 5000)
+	}
+${closeScript}`
+		);
+	</script>
+</div>
+
+<p>
+TODO: Tehtävä, jossa tekstiä voi klikata vasta tietyn ajan jälkeen
+
+<p>
+TODO: Tehtävä, jossa on kaksi sisäkkäistä setTimeoutia
+
+<p>
+TODO: Esimerkki toistetusta funktiosta. Mitä esimerkissä pitäisi olla? Alerttien toistaminen tuntuu vähän tyhmältä.
 
 <h2>Nimetyt funktiot</h2>
 
-<h2>Piirtosilmukka ja päivityssilmukka</h2>
+<p>
+Olemme nyt käsitelleet funktioita, jotka suoritetaan automaattisesti joko silloin, kun jotain tapahtuu, tai tietyn ajan päästä.
+Monesti on kuitenkin hyödyllistä tehdä funktio, joka pitää suorittaa manuaalisesti komennolla.
+Koska tällaisilla funktioilla pitää olla nimi, kutsumme näitä funktioita <b>nimetyiksi funktioiksi</b>.
+Alla on esimerkki nimetystä funktiosta.
+
+<div class="codebox example">
+	<h3>Esimerkki 5.5</h3>
+	<p>
+	Nimetty funktio, joka suoritetaan heti, 5 s kuluttua ja kun tekstiä painetaan.
+	<script>
+		addEditor(
+`<!doctype HTML>
+<p id = teksti>Klikkaa tästä!</p>
+<script>
+	function yllätys() {
+		alert("Yllätys!")
+	}
+
+	yllätys()
+
+	setTimeout(() => {
+		yllätys()
+	}, 5000)
+
+	teksti.onclick = () => {
+		yllätys()
+	}
+${closeScript}`
+		);
+	</script>
+</div>
+
+<p>
+Nimetty funktio suoritetaan kirjoittamalla funktion nimi ja sulut.
+Toisin kuin muuntyyppisiä funktioita, sitä ei suoritetaan missään automaattisesti.
+
+<p>
+Tärkein syy miksi nimettyjä funktioita käytetään on koodin kopioimisen välttäminen.
+Jos haluamme tehdä saman asian useassa eri kohdassa, on kätevää, että asian koodi on funktion sisällä,
+ja eri kohdissa mainitaan vain funktion nimi.
+
+<p>
+TODO: Tehtävä, mikä?
+
+<h3>Parametrit</h3>
+
+<p>
+Nimetylle funktiolle voi antaa <b>parametreja</b>.
+Parametrit ovat muuttujia, joiden avulla funktiolle voi kertoa asioita.
+Alla on esimerkki, jossa parametrin avulla voimme näyttää ylimääräisen viestin käyttäjälle.
+
+<div class="codebox example">
+	<h3>Esimerkki 5.5</h3>
+	<p>
+	Nimetty funktio, joka suoritetaan heti, 5 s kuluttua ja kun tekstiä painetaan.
+	<script>
+		addEditor(
+`<!doctype HTML>
+<p id = teksti>Klikkaa tästä!</p>
+<script>
+	function yllätys(viesti) {
+		alert("Yllätys " + viesti + "!")
+	}
+
+	yllätys("ekan kerran")
+
+	setTimeout(() => {
+		yllätys("taas")
+	}, 5000)
+
+	teksti.onclick = () => {
+		yllätys("klikatessa")
+	}
+${closeScript}`
+		);
+	</script>
+</div>
+
+<p>
+TODO: Tehtävä, mikä?
+
+<h3>Paluuarvo</h3>
+
+<p>
+TODO
+
+<h2>Oliot, piirtosilmukka ja päivityssilmukka</h2>
+
+<p>
+Nyt tutustumme funktioiden käyttämiseen pelien teossa.
+Useimmissa peleissä on kaksi tärkeää funktiota: <b>piirtosilmukka</b> ja <b>päivityssilmukka</b>.
+Nämä molemmat ovat ikuisia silmukoita:
+piirtosilmukka piirtää ikuisesti uudestaan näytöllä näkyvät asiat ja
+päivityssilmukka päivittää tietokoneen muistia.
+Ne ovat hieman erilaisia, koska ne suoritetaan vähän eri aikoihin.
+
+<h3>Oliot</h3>
+
+<p>
+Ennen kuin voimme tutustua silmukoihin, tutustutaan siihen miten tietokoneen muisti toimii
+(muuten emme osaisi päivittää muistia päivityssilmukassa).
+JavaScriptissä muisti koostuu <b>olioista</b>.
+Kaikki arvot ovat olioita: luvut, merkkijonot, jopa funktiot.
+Yleensä sanalla olio kuitenkin viitataan <b>avain-arvopareja</b> sisältäviin olioihin.
+Näitä käytetään esimerkiksi pelihahmojen kuvaamiseen.
+Alla on esimerkki.
+
+<script>codeExample(
+`const hahmo = {
+	X: 200,
+	Y: 100,
+	väri: "green",
+} `,"javascript");</script>
+
+<p>
+Yllä luomme muuttujan <code>hahmo</code>, joka on nimi oliolle, jonka luomme.
+Itse oliota merkitään aaltosuluilla (<code>{</code> ja <code>}</code>).
+Sulkujen välissä on avain-arvopareja, joista jokaisessa on aluksi <b>avain</b> (X, Y, väri) ja sitten arvo (200, 100, "green").
+On tärkeää muistaa kaksoispisteet ja pilkut oikeissa kohdissa.
+
+<p>
+Olio on siis tietopaketti, johon on tallennettu useita eri tietoja.
+Voimme käyttää näitä tietoja <b>pisteoperaattorilla</b>, joka vastaa suomen kielen genetiiviä.
+Esimerkiksi jos haluamme puhua hahmon väristä, sanomme <code>hahmo.väri</code>.
+
+<div class="codebox example">
+	<h3>Esimerkki 5.6</h3>
+	<p>
+	Hahmon värin näyttäminen käyttäjälle.
+	<script>
+		addEditor(
+`<!doctype HTML>
+<script>
+	const hahmo = {
+		X: 20,
+		Y: 10,
+		väri: "green",
+	}
+
+	alert("Hahmon väri on: " + hahmo.väri)
+${closeScript}`
+		);
+	</script>
+</div>
+
+<p>
+Oliota voi muokata. Tällöin käytämme sekä pisteoperaattoria että yhtäsuuruusoperaattoria.
+Alla on esimerkki, jossa asetamme hahmon väriksi punaisen.
+
+<script>codeExample(
+`hahmo.väri = "red"`,"javascript");</script>
+
+<p>
+Huomaa, että oliota luotaessa avaimen ja arvon välissä on kaksoispiste.
+Olemassa olevaa oliota muokatessa avaimen ja arvon välissä on yhtäsuuruusmerkki.
+
+<p>
+TODO: Tehtävä, jossa luodaan hahmo-olio ja piirretään se kankaalle. Toinen, jossa muokataan hahmo-oliota ja piirretään se kankaalle
+
+<h3>Piirtosilmukka</h3>
+
+<p>
+Piirtosilmukka on funktio, joka suoritetaan aina, kun selain haluaa piirtää näytöllä näkyvät asiat uudestaan.
+Sitä käytetään pelissä hahmojen piirtämiseen näytölle.
+Yleensä funktion sisällä tehdään ainakin kaksi asiaa:
+tyhjennetään ruutu vanhoista asioista ja piirretään uudet asiat.
+
+<p>
+Alla on esimerkki silmukasta, jolla voimme piirtää hahmon näytölle neliönä.
+
+<script>codeExample(
+`function piirrä() {
+	// Tyhjennetään ruutu
+	piirtäjä.clearRect(0, 0, kangas.width, kangas.height)
+	
+	// Piirretään hahmo
+	piirtäjä.fillStyle = hahmo.väri
+	piirtäjä.fillRect(hahmo.X, hahmo.Y, 10, 10)
+	
+	// Pyydetään selainta piirtämään samat asiat kohta uudestaan
+	requestAnimationFrame(piirrä)
+}
+
+// Pyydetään selainta piirtämään asiat ensimmäisen kerran
+requestAnimationFrame(piirrä) `,"javascript");</script>
+
+<p>
+Pohjimmiltaan piirtosilmukka on nimetty funktio.
+Käytämme <code>requestAnimationFrame</code>-komentoa kertoaksemme selaimelle,
+että haluamme käyttää <code>piirrä</code>-funktiota piirtääksemme asioita näytölle.
+Selain suorittaa funktion silloin, kun on sen mielestä sopiva hetki.
+Komento on koodissa kahdesti.
+Se suoritetaan ensimmäisen kerran viimeisellä rivillä heti funktion luomisen jälkeen.
+(Itse funktion koodia ei suoriteta ennen kuin selain niin päättää.)
+Lisäksi se suoritetaan aina funktion suorittamisen jälkeen.
+Näin funktiota suoritetaan ikuisesti: aina suorittamisen jälkeen pyydämme selainta suorittamaan sen uudestaan.
+
+<h3>Päivityssilmukka</h3>
+
+<p>
+Päivityssilmukka on funktio, jossa päivitämme ohjelman muistissa olevia asioita, kuten hahmojen sijainteja ja pistemäärää.
+
+<p>
+Piirtosilmukka suoritetaan siis silloin, kun selain itse haluaa.
+Selain päättää niin sanotun FPS:n (kuinka monta kertaa näyttö päivitetään sekunnissa) itse.
+Päivityssilmukka taas suoritetaan yleensä tietyin väliajoin, jotta asiat tapahtuvat pelissä jatkuvasti yhtä nopeasti.
+Käytämme tähän jo aiemmin mainittua <code>setInterval</code>-komentoa.
+
+<p>
+Alla on esimerkki päivityssilmukasta, joka siirtää hahmoa eteenpäin kasvattamalla X-koordinaattia.
+Silmukka suoritetaan 0,1 sekunnin välein.
+
+<script>codeExample(
+`setInterval(() => {
+	hahmo.X += 1
+}, 100) `,"javascript");</script>
+
+<p>
+Esimerkit yhdistettynä:
+
+<div class="codebox example">
+	<h3>Esimerkki 5.7</h3>
+	<p>
+	Liikkuva hahmo.
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const hahmo = {
+		X: 20,
+		Y: 10,
+		väri: "green",
+	}
+
+	const piirtäjä = kangas.getContext("2d")
+
+	function piirrä() {
+		// Tyhjennetään ruutu
+		piirtäjä.clearRect(0, 0, kangas.width, kangas.height)
+		
+		// Piirretään hahmo
+		piirtäjä.fillStyle = hahmo.väri
+		piirtäjä.fillRect(hahmo.X, hahmo.Y, 10, 10)
+		
+		// Pyydetään selainta piirtämään samat asiat kohta uudestaan
+		requestAnimationFrame(piirrä)
+	}
+
+	// Pyydetään selainta piirtämään asiat ensimmäisen kerran
+	requestAnimationFrame(piirrä)
+
+	setInterval(() => {
+		hahmo.X += 1
+	}, 100)
+${closeScript}`
+		);
+	</script>
+</div>
+
+<p>
+TODO: Tehtävä: Laatikon liikuttaminen nuolinäppäimillä
+
+<p>
+TODO: Tehtävä/projekti: Kilpa-ajo, jossa yksi laatikko liikkuu kun nappia painetaan ja toinen liikkuu hitaasti itsestään. Kumpi pääsee toiseen reunaan ensin?
 
 </div>
 </body>
