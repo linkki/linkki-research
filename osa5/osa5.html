@@ -112,7 +112,7 @@ TODO: listaa tässä eri tapahtumakäsittelijöitä
 <p>
 TODO: Tehtävä, jossa napin painaminen aiheuttaa jotain
 
-<h2>Ajastimet ja toistetut funktiot</h2>
+<h2>Ajastimet</h2>
 
 <p>
 Seuraava funktiotyyppi johon tutustumme on <b>ajastetut funktiot</b>.
@@ -178,8 +178,38 @@ TODO: Tehtävä, jossa tekstiä voi klikata vasta tietyn ajan jälkeen
 <p>
 TODO: Tehtävä, jossa on kaksi sisäkkäistä setTimeoutia
 
+<h2>Toistetut funktiot</h2>
+
 <p>
-TODO: Esimerkki toistetusta funktiosta. Mitä esimerkissä pitäisi olla? Alerttien toistaminen tuntuu vähän tyhmältä.
+<b>Toistettu funktio</b> muistuttaa muuten ajastettua funktiota, mutta suoritetaan yhden kerran sijasta loputtomasti tietyllä tahdilla.
+Esimerkiksi 1 000 ms:n välein toistettava funktio suoritetaan aina sekunnin välein:
+
+<script>codeExample(
+`setInterval(() => {
+	
+}, 1000)
+`,"javascript");</script>
+
+<div class="codebox example">
+	<h3>Esimerkki 5.5</h3>
+	<p>
+	Toistettu funktio, joka lisää rivejä tekstiin. Käytämme komentoa <code>.textContent +=</code>, joka lisää loppuun uutta tekstiä.
+	<script>
+		addEditor(
+`<!doctype HTML>
+<p id = teksti>Ensimmäinen lause on tässä.</p>
+<script>
+	setInterval(() => {
+		teksti.textContent += " Tässä on uusi lause!"
+	}, 2000)
+${closeScript}`
+		);
+	</script>
+</div>
+
+<p>
+Toistetut funktiot ovat hyvin tärkeitä peleissä, joissa usein halutaan, että asioita tapahtuu uudestaan ja uudestaan tietyin väliajoin.
+Tämän luvun lopussa käsittelemme <i>päivityssilmukoita</i>, jotka ovat tällaisia pelissä käytettäviä toistettuja funktioita.
 
 <h2>Nimetyt funktiot</h2>
 
@@ -190,7 +220,7 @@ Koska tällaisilla funktioilla pitää olla nimi, kutsumme näitä funktioita <b
 Alla on esimerkki nimetystä funktiosta.
 
 <div class="codebox example">
-	<h3>Esimerkki 5.5</h3>
+	<h3>Esimerkki 5.6</h3>
 	<p>
 	Nimetty funktio, joka suoritetaan heti, 5 s kuluttua ja kun tekstiä painetaan.
 	<script>
@@ -236,7 +266,7 @@ Parametrit ovat muuttujia, joiden avulla funktiolle voi kertoa asioita.
 Alla on esimerkki, jossa parametrin avulla voimme näyttää ylimääräisen viestin käyttäjälle.
 
 <div class="codebox example">
-	<h3>Esimerkki 5.5</h3>
+	<h3>Esimerkki 5.7</h3>
 	<p>
 	Nimetty funktio, joka suoritetaan heti, 5 s kuluttua ja kun tekstiä painetaan.
 	<script>
@@ -310,7 +340,7 @@ Voimme käyttää näitä tietoja <b>pisteoperaattorilla</b>, joka vastaa suomen
 Esimerkiksi jos haluamme puhua hahmon väristä, sanomme <code>hahmo.väri</code>.
 
 <div class="codebox example">
-	<h3>Esimerkki 5.6</h3>
+	<h3>Esimerkki 5.8</h3>
 	<p>
 	Hahmon värin näyttäminen käyttäjälle.
 	<script>
@@ -405,7 +435,7 @@ Silmukka suoritetaan 0,1 sekunnin välein.
 Esimerkit yhdistettynä:
 
 <div class="codebox example">
-	<h3>Esimerkki 5.7</h3>
+	<h3>Esimerkki 5.9</h3>
 	<p>
 	Liikkuva hahmo.
 	<script>
