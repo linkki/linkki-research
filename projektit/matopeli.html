@@ -78,7 +78,7 @@ requestAnimationFrame(piirrä)
 // Liikutetaan matoa ikuisessa silmukassa
 setInterval(() => {
 	// Lisätään hännän eteen pala
-	mato.häntä.splice(0, 0, { X: mato.X, Y: mato.Y })
+	mato.häntä.unshift({ X: mato.X, Y: mato.Y })
 	
 	// Vähennetään kasvamisen ajastinta
 	mato.aikaaKasvamiseen -= 1
@@ -225,7 +225,7 @@ requestAnimationFrame(piirrä) `, "javascript")</script>
 
 <p>Kun madon pää liikkuu, lisätään hännän osa siihen, missä pää oli aiemmin. Se onnistuu seuraavalla komennolla:</p>
 
-<script>codeExample(`mato.häntä.splice(0, 0, { X: mato.X, Y: mato.Y }) `, "javascript");</script>
+<script>codeExample(`mato.häntä.unshift({ X: mato.X, Y: mato.Y }) `, "javascript");</script>
 
 <p class=task>
 	Lisää komento <code>setInterval</code>-silmukkaan <i>ennen</i> <code>if</code>-lauseita.
