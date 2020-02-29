@@ -112,7 +112,7 @@ ${closeScript}
 
 <p>
 <code>.pop()</code> poistaa alkion listan lopusta.
-Poistettu arvoa voi käyttää
+Poistetun arvon voi tallettaa tarvittaessa muuttujaan.
 
 <script>addEditor(
 `<script>
@@ -132,14 +132,18 @@ ${closeScript}
 Komennon nimi tulee siitä, että jokaista listan alkiota ikään kuin siirretään yksi taaksepäin (ja ensimmäinen alkio katoaa).
 Se alkio, joka oli aiemmin <code>luvut[1]</code> on nyt <code>luvut[0]</code>.
 
+<p>
+Kuten <code>.pop()</code>-komennon kanssa, poistetun arvon voi tallettaa muuttujaan.
+
 <script>addEditor(
 `<script>
 	var luvut = [1, 2, 3]
 
-	luvut.shift()
+	var ensimmäinen = luvut.shift()
 
 	alert(luvut)
 	alert(luvut[0])
+	alert(ensimmäinen)
 ${closeScript}
 `);</script>
 
@@ -164,3 +168,44 @@ ${closeScript}
 <p>
 JavaScriptissä on omat komennot listan alkuun ja loppuun lisäämiselle ja poistamiselle.
 Listan keskelle lisäämiseen ja poistamiseen on kuitenkin vain yksi komento, <code>.splice()</code>.
+
+<h3>Tehtäviä</h3>
+
+<p>
+TODO: Tehtävä, jossa listaan lisätään ja siitä poistetaan arvoja
+
+<p>
+TODO: Tehtävä, jossa luodaan lista, lisätään siihen arvoja, ja iteroidaan sitä
+
+<p>
+TODO: Kysymys/monivalinta, jossa kysytään miltä lista näyttää operaatioiden jälkeen
+
+<h2>Oliolista</h2>
+
+<p>
+Tähän mennessä listat ovat sisältäneet lukuja.
+Peleissä listoihin kuitenkin halutaan usein tallettaa hahmoja tai muita olioita.
+
+<p>
+Olion voi lisätä listaan samalla tavalla kuin luvunkin käyttämällä sopivaa komentoa, esimerkiksi <code>.push()</code>-komentoa:
+
+<script>codeExample(
+`var hahmot = []
+hahmot.push({
+	X: 0,
+	Y: 0,
+})
+`,"javascript");</script>
+
+<p>
+Kun oliolistaan on lisätty haluttu määrä olioita, se voidaan käydä läpi <code>for of</code> -silmukalla:
+
+<script>codeExample(
+`for (var hahmo of hahmot) {
+	piirtädä.drawRect(hahmo.X, hahmo.Y, 100, 100)
+}
+`,"javascript");</script>
+
+<p>
+Silmukassa muuttuja <code>hahmo</code> on väliaikainen nimi nyt käsittelyssä olevalle oliolle.
+Aina kun silmukka ottaa seuraavan olion käsittelyyn, muuttujakin muutetaan viittaamaan siihen.
