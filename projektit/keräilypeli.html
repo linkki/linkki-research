@@ -53,6 +53,25 @@ function siirräKohti(hahmo1, hahmo2, nopeus) {
 
 const piirtäjä = kangas.getContext("2d")
 
+// laitetaan kuvan silotus pois päältä
+// koska hahmojen kuvat ovat pixelarttia
+piirtäjä.imageSmoothingEnabled = false;
+piirtäjä.mozImageSmoothingEnabled = false;
+piirtäjä.webkitImageSmoothingEnabled = false;
+piirtäjä.msImageSmoothingEnabled = false;
+
+//const imgs = "https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img"
+const imgs = "../img"
+
+const ankkakuva = new Image()
+ankkakuva.src = imgs + "/pixelwalker.webp"
+
+const kettukuva = new Image()
+kettukuva.src = imgs + "/pixelfox-save3.webp"
+
+const kalakuva = new Image()
+kalakuva.src = imgs + "/kala.webp"
+
 // Määritellään hahmot
 const hiiri = {
 	X: 0,
@@ -62,14 +81,17 @@ const pelaaja = {
 	X: 100,
 	Y: 100,
 	pisteet: 0,
+        kuva: ankkakuva,
 }
 const vihollinen = {
 	X: 400,
 	Y: 400,
+        kuva: kettukuva,
 }
 const aarre = {
 	X: Math.random()*800,
 	Y: Math.random()*600,
+        kuva: kalakuva,
 }
 
 // Pidetään hiiren koordinaatit ajan tasalla
@@ -86,16 +108,16 @@ function piirrä() {
 	piirtäjä.fillText("Pisteet: " + pelaaja.pisteet, 10, 20)
 	
 	// Piirretään pelaajahahmo
-	piirtäjä.fillStyle = "blue"
-	piirtäjä.fillRect(pelaaja.X-50, pelaaja.Y-50, 100, 100)
+        // spriten koko on 64 x 64 pikseliä
+        piirtäjä.drawImage(pelaaja.kuva, pelaaja.X-32, pelaaja.Y-32)
 	
 	// Piirretään vihollishahmo
-	piirtäjä.fillStyle = "red"
-	piirtäjä.fillRect(vihollinen.X-50, vihollinen.Y-50, 100, 100)
+        // spriten koko on 64 x 64 pikseliä
+        piirtäjä.drawImage(vihollinen.kuva, vihollinen.X-32, vihollinen.Y-32)
 	
 	// Piirretään aarrehahmo
-	piirtäjä.fillStyle = "green"
-	piirtäjä.fillRect(aarre.X-50, aarre.Y-50, 100, 100)
+        // spriten koko on 32 x 32 pikseliä
+        piirtäjä.drawImage(aarre.kuva, aarre.X-16, aarre.Y-16)
 	
 	// Pyydetään selainta piirtämään samat asiat kohta uudestaan
 	requestAnimationFrame(piirrä)
@@ -110,16 +132,18 @@ setInterval(() => {
 	siirräKohti(vihollinen, pelaaja, 0.5)
 	
 	// Tarkistetaan osuma aarteeseen
-	if (etäisyys(pelaaja, aarre) < 100) {
+        // (64 + 16)/2 = 40 tuntuu hyvältä etäisyydeltä kokeilemalla
+	if (etäisyys(pelaaja, aarre) < 40) {
 		pelaaja.pisteet += 1
-		while (etäisyys(pelaaja, aarre) < 100) {
+		while (etäisyys(pelaaja, aarre) < 40) {
 			aarre.X = Math.random()*800
 			aarre.Y = Math.random()*600
 		}
 	}
 	
 	// Tarkistetaan osuma viholliseen
-	if (etäisyys(pelaaja, vihollinen) < 100) {
+        // (64 + 32)/2 = 48 tuntuu hyvältä etäisyydeltä kokeilemalla
+	if (etäisyys(pelaaja, vihollinen) < 48) {
 		pelaaja.pisteet = 0
 		pelaaja.X = 100
 		pelaaja.Y = 100
