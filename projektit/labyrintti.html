@@ -397,6 +397,7 @@
                 <li>Arvo 2 vastaa palkintoa</li>
                 <li>Arvo 3 vastaa liikuteltavaa laatikkoa</li>
             </ul>
+            Taulukon arvot ovat siis seuraavanlaiset
             <table>
                 <tr>
                     <td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
@@ -405,25 +406,57 @@
                     <td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
                 </tr>
                 <tr>
-                    <td>1</td><td>2</td><td>3</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>2</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
+                    <td>1</td><td>2</td><td>3</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>2</td><td>3</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>0</td><td>1</td><td>2</td><td>3</td><td>0</td><td>2</td><td>3</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
                 </tr>
             </table>
+            Talleta taulukko muuttujaan <b>kenttä</b>.
         </p>
 
         <h3>Pelialueen piirtäminen</h3>
-        <p>Pelikenttä piirretään tuttuun tapaan <code>piirrä()</code> funktiolla.
+        <p>Pelikenttä piirretään <code>piirrä()</code> funktiolla. 
+            Funktion sisällä käydään kenttä taulukkoa läpi. 
+            Kun tarkastelemme taulukon alkioita yksi kerrallaan, 
+            niin haluamme piirtää kankaalle ruutuja.</p>
+        <p>Jokainen ruutu on 25 pikseliä leveä ja 25 pikseliä korkea. </p>
 
-            
-            Jos taulukon alkiossa on arvo 1, niin pelikentälle piirretään harmaa neliö,
-            joka on 25 pikseliä korkea ja 25 pikseliä leveä.
-            Taulukossa alkion arvo 2 kertoo, että siinä on siirrettävä laatikko
-            ja arvo 3 tarkoittaa, että kohdassa on maali.
-            Nämä palikat ovat saman kokoisia, kuin seinä neliöt.
-            Maali ruudun väri on keltainen ja siirrettävän laatikon väri on sininen.
-            Talleta taulukko muuttujaan kenttä ja piirrä canvakseen kuva taulukon perusteella.
-            Haluamme päivittää canvaksen kuvaa, joten muista myös laittaa canvaksen tyhjentävä komento.
+        <li>
+            <ul>Jos taulukon alkiossa on arvo 1, niin pelikentälle piirretään harmaa ruutu.</ul>
+            <ul>Taulukossa alkion arvo 2 kertoo, että siinä on siirrettävä laatikko. 
+                Ruudun väri on tällöin sininen.
+            </ul>
+            <ul>Alkion arvo 3 tarkoittaa, että kohdassa on maali ruutu. 
+                Maali ruutua vastaava ruutu on väriltään keltainen.
+            </ul>
+        </li>
+        <p>
+            Jokainen laatikko on 25 pikselin etäisyydellä toisistaan, 
+            joten piirretään ne kertomalla taulukon indeksejä luvulla 25.
         </p>
-        <p>Pelaajasta ei pidetä kirjaa taulukossa.</p>
+        <p>TODO: lisää kuva labyrintistä ilman pelaajaa.</p>
+        <p>Muista laittaa piirto funktion alkuun piirtoalueen tyhjentävä komento.</p>
+        <br>
+        <h3>Pelaajan piirtäminen</h3>
+        <p>Pelaaja piirretään piirto funktion sisällä, kuten kenttäkin. 
+            Pelaajan sijainnista ei kuitenkaan pidetä kirjaa taulukossa. 
+            Pelaajan sijainnista tulee kuitenkin pitää kirjaa jollakin tavalla. 
+            Pidetään pelaajan sijainnista kirjaa luomalla pelaajasta objekti. 
+            Luo oliomuuttuja pelaaja, jolla on ominaisuudet X ja Y. 
+            Näiden ominaisuuksien on tarkoitus pitää kirjaa pelaajan sijainnista. 
+            Pelaajan X-sijainti on aluksi 25*2=50 ja Y-sijainti on 25*4=100.
+        </p>
+        <p>Kun pelaajasta on luotu oliomuuttuja, 
+            niin pelaaja piirretään piirto funktiossa. 
+            Asetetaan pelaajan väri punaiseksi ja piirretään se 25*25 ruutuna pelaaja oliomuuttujan X ja Y sijainteihin.
+        </p>
         <p>
             Haluamme päästä nopeasti käsiksi erityisesti liikkuvien laatikoiden sijaintiin,
             joten haluamme tallentaa niistä tärkeimmäit tiedot objekteihin.
@@ -432,7 +465,7 @@
                 <li>laatikon sijainti taulukossa</li>
                 <li>laatikon sijainti canvas alueella</li>
             </ul>
-            Luo tarvittavat objektit ja taaleta niihin siirreltävien laatikoiden taulukon X ja Y koordinaatit,
+            Luo tarvittavat objektit ja talleta niihin siirreltävien laatikoiden taulukon X ja Y koordinaatit,
             sekä kankaalla olevat X ja Y koordinaatit.
         </p>
 
