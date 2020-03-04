@@ -616,18 +616,124 @@
 
         <h2>Laatikoiden siirtäminen</h2>
 
-     Jokaisella kerralla kun mitä tahansa näppäintä painetaan, 
-     tulee tarkistaa osuuko pelaaja johonkin laatikkoon. 
-     Aina kuin näppäintä painetaan käydään jokainen laatikko läpi laatikot-listassa.  
-     Tehdään tämän for-loopin sisälle laatikoille tarvittava toiminnallisuus neljässä osassa. 
-   
-     <h3>Pelaaja liikuttaa laatikkoa</h3>
-     
-     <h3>Estetään laatikon karkaaminen pelikentältä</h3>
+        Jokaisella kerralla kun mitä tahansa näppäintä painetaan,
+        tulee tarkistaa osuuko pelaaja johonkin laatikkoon.
+        Aina kuin näppäintä painetaan käydään jokainen laatikko läpi laatikot-listassa.
+        Tehdään tämän for-loopin sisälle laatikoille tarvittava toiminnallisuus neljässä osassa.
 
-     <h3>Liikutetaan laatikko maaliin</h3>
-     
-     <h3>Liikutetaan laatikko pois maalista</h3>
+        <h3>Pelaaja liikuttaa laatikkoa</h3>
+        <p>Kun pelaaja osuu laatikkoon,
+            niin laatikon on tarkoitus liikkua.
+            Ensimmäisena haluamme tarkistaa jokaisen laatikon kohdalla,
+            onko pelaajan ja laatikon etäisyys pienempi kuin 25.
+            Lisätään koodiin siis etäisyys-funktio,
+            joka saa parametrikseen kaksi hahmoa.
+            Käytetään etäisyys funktiota jos-lauseessa,
+            jossa tarkastelemme,
+            onko etäisyys pienempi kuin 25.
+        </p>
+        <p>Kun etäisyys on pienempi kuin 25,
+            niin tiedämme,
+            että pelaaja osuu johonkin laatikkoon.
+            Pelaajan osuessa laatikkoon liikutetaan laatikkoa oikeaan suuntaan.
+            Pelaajan on tarkoitus työntää laatikkoa pois itsestään.
+            Otetaan ensin selvää neljällä if-lauseella,
+            mihin suuntaan pelaaja on liikkumassa.
+            Kun tiedämme mihin suuntaan pelaaja liikkuu,
+            voimme liikuttaa laatikkoa sen perusteeella.
+        </p>
+        <p>Tehdään laatikon liikuttamista varten oma funktio.
+            Annetaan funktiolle nimeksi laatikkoLiiku.
+            laatikkoLiiku saa parametrikseen suunnan,
+            mihin haluamme liikuttaa laatikkoa ja laatikon, jota haluamme liikuttaa.
+            Funktiossa asetamme laatikon nykyisen sijainnin arvoksi kartassa 0 eli merkkaamme sen tyhjäksi.
+            Tämän jälkeen laatikkoa siirretään parametrina annetun suunnan perusteella joko ylös, alas, vasemmalle tai
+            oikealle.
+            Voimme käyttää tapausten tarkastelussa else-if rakennetta.
+            If-else rakenteessa vähennetään tai lisätään laatikon X tai Y arvoon 25 riippuen mihin suuntaan laatikko
+            liikkuu.
+            Tämän lisäksi if-else lohkojen sisällä muutamme laatikon taulukkoX tai taulukkoY sijaintia lisäämällä tai
+            vähentämällä arvosta 1.
+            Lopuksi if-else lohkon jälkeen muutamme kartan alkion arvoa uusilla laatikon taulukkoX ja taulukkoY arvoilla
+            niin,
+            että uudessa sijainnissa on arvo 3.
+        </p>
+        <p>Jokaiselle suunnalle toteutetaan sama toiminnallisuus.</p>
+        <p>Vinkki: kannattaa ensin saada yksi suunta toimimaan.</p>
+        <h3>Estetään laatikon karkaaminen pelikentältä</h3>
+        <p>Haluamme estää laatikon menemästä seinien läpi. 
+            Käytetään tähän tarkasteluun osuuko-funktiota. 
+            Annetaan osuuko-funktiolle parametreina tyhjä, laatikko ja suunta johon pelaaja on liikkumassa. 
+            Jos osuuko funktio palauttaa tosi-arvon, 
+            niin laatikkoa voi liikuttaa pelaajan suuntaan. 
+            Muutoin laatikko tai pelaaja ei voi liikkua. 
+            TODO: Kuva pelaajasta ja laatikosta jumissa. 
+        </p>
+        <p>Refaktoroi koodi niin, 
+            että laatikkoLiiku funktiota kutsutaan vain jos osuuko-funktio kertoo, 
+            että olemme siirtämässä laatikkoa tyhjään kohtaan. 
+            Muutoin peru pelaajan liikkuminen asettamalla pelaajan sijainti taulukossa ja kankaalla nuolinäppäimella liikkumisen vastaiseksi.  
+        </p>
+
+        <h3>Liikutetaan laatikko maaliin</h3>
+        <p>Huomaamme, että on kahdellaisia paikkoja, jossa laatikko voi sijaita. 
+            Laatikko voi olla joko pelikentän tyhjällä alueella tai maalialueella. 
+            Kun laatikko osuu maalialueelle myös sen väri vaihtuu. 
+            Merkataan kartassa maalissa olevaa arretta arvolla 4. 
+        </p>
+        <p>Tehdään maaliin asettamista varten oma funktio. 
+            Annetaan funktiolle nimeksi asetaMaaliin. 
+            asetaMaalii funktiolle annetaan parametreiksi laatikko, 
+            joka on osumassa maali neliöön. 
+            Funktion tarkoitus on merkata karttaan laatikon alkion arvoksi 4.
+        </p>
+        <p>asetaMaaliin-funktio ei osaa tarkistaa, 
+            onko laatikko oikeasti maalissa. 
+            Sen tehtävä on ainoastaan asettaa laatikko maaliin. 
+            Näin ollen meidän täytyy tarkistaa ennen funktion kutsumista, 
+            onko laatikko maalissa.
+        </p>
+        <p>Refaktoroidaan koodia niin, 
+            että lisätään osuuko laatikko tyhjään tarkastelun lisäksi tarkastelu siitä, 
+            että osuuko laatikko maaliin. 
+            Käytämme tarkasteluun else-if rakennetta. 
+            Tarkastellaan jälleen osuuko-funktiolla, 
+            osuuko laatikko maaliin. 
+            Annetaan tällä kertaa funktiolle parametreina palkinto, laatikko, jota käsitellään ja suunta, johon laatikko on liikkumassa eli pelaajan suunta. 
+            Lisätään laatikolle oliomuuttujan maali. 
+        </p>
+        <p>Lisätään myös funktiolle laatikkoLiiku tieto siitä, 
+            että onko laatikko maalissa. 
+            Lisätään siis laatikkoLiiku-funktiolle parametri olikoMaalissa. 
+            Nyt laatikkoLiiku funktiolla on kolme parametria suunta, laatikko ja olikoMaalissa. 
+            olikoMaalissa parametri kertoo, onko liikutettava laatikko maalissa. 
+            Lisätän funktion alkuun tarkastelu eli jos ehto. 
+            Jos olikoMaalissa on tosi, 
+            niin asetetaan kartan alkion arvoksi maalin arvo eli arvo 2. 
+            Muutoin asetamme alkion arvoksi 0, kuten ennenkin.
+        </p>
+        <p>Tip: Haluamme siis asettaa alkion arvoksi, 
+            josta pelaaja poistaa, sen arvon joka siinä olikin. 
+        </p>
+        <p>Nyt laatikon liikkumista, 
+            kun osutaan tyhjään on muutettava niin, 
+            että tarkastelemme ennen laatikon liikuttamista oliko laatikko maalissa. 
+            Tarkastelun voi toteuttaa if-else rakenteen avulla siten, 
+            että ennen kuin laatikkoa liikutetaan tarkastellaan, 
+            oliko laatikon maali-muuttujan arvo tosi. 
+            Jos maali-muuttujan arvo on tosi, niin 
+            annamme laatikkoLiiku funktion parametreiksi suunnan, laatikon ja "true"-arvon. 
+            Lisäksi asetetaan laatikon maali muuttujan arvoksi "false". 
+            Muution liikutetaan laatikkoa kuten tavallisesti, mutta annetaan funktiolle parametriksi "false".
+        </p>
+        <p>
+            Jos laatikko osuu maaliin, niin liikutamme laatikkoa. 
+            Laatikon liikuttamisessa annamme kolmanneksi parametriksi "false", 
+            sillä laatikko ei ole siirtymässä pois maalista. 
+            Lisäksi haluamme merkata laatikon maali muuttujan arvoksi true ja käyttää aseta maaliin funktiota. 
+        </p>
+
+        <h3>Liikutetaan laatikko pois maalista</h3>
 
         <h2>Pelin voittaminen (ja loput)</h2>
 
