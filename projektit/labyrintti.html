@@ -32,7 +32,7 @@
         <button id=aloitaAlustaBtn>Aloita alusta.</button>
 
         <script>
-            debug = true
+            debug = false
 
             function etäisyys(hahmo1, hahmo2) {
                 const dx = hahmo1.X - hahmo2.X
@@ -616,11 +616,18 @@
 
         <h2>Laatikoiden siirtäminen</h2>
 
-        <p> Jokaisella kerralla, 
-            kun (mitä tahansa) näppäintä painetaan, haluamme myös tarkastella laatikoita. 
-        Itseasiassa haluamme tarkastella jokaista laatikkoa, sillä emme tiedä, mihin laatikkoon pelaaja on seuraavaksi osumassa. 
-        Siksi haluamme käydä laatikot läpi listassa aina kuin jotakin painiketta painetaan. 
-        </p>
+     Jokaisella kerralla kun mitä tahansa näppäintä painetaan, 
+     tulee tarkistaa osuuko pelaaja johonkin laatikkoon. 
+     Aina kuin näppäintä painetaan käydään jokainen laatikko läpi laatikot-listassa.  
+     Tehdään tämän for-loopin sisälle laatikoille tarvittava toiminnallisuus neljässä osassa. 
+   
+     <h3>Pelaaja liikuttaa laatikkoa</h3>
+     
+     <h3>Estetään laatikon karkaaminen pelikentältä</h3>
+
+     <h3>Liikutetaan laatikko maaliin</h3>
+     
+     <h3>Liikutetaan laatikko pois maalista</h3>
 
         <h2>Pelin voittaminen (ja loput)</h2>
 
