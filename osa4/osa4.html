@@ -76,6 +76,22 @@ ${closeScript}`, true
 	, "javascript");</script>
 </ol>
 
+<div class="codebox task">
+	<h3>Tehtävä</h3>
+	<p>Lisää ohjelmaan koodi, jossa piirretään kankaalle neliö, 
+		jonka parametrit ovat (0,0,30,30).
+	</p>
+	<script>
+	addEditor(
+`<!doctype HTML>
+<canvas id=kangas>
+	<canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+${closeScript}`
+	);</script>
+</div>
+
 <h2>4.1 Koordinaatisto</h2>
 
 <p>
@@ -95,7 +111,7 @@ ${closeScript}`, true
 	Tarkemmin pikselin <b>X-koordinaatti</b> kertoo, kuinka mones pikseli pikseli on omalla rivillään.
 	<b>Y-koordinaatti</b> taas kertoo, kuinka mones pikselirivi on kyseessä.
 </p>
-
+TODO: Havainne kuva.
 <p>
 	Ohjelmoinnissa asioiden laskeminen aloitetaan usein nollasta eikä yhdestä.
 	Myös pikselirivin ensimmäistä pikseliä sanotaan "pikseliksi 0" ja ensimmäistä pikseliriviä "riviksi 0".

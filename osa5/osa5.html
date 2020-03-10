@@ -27,7 +27,7 @@
 <h1>Osa 5 - Funktiot</h1>
 
 <p>
-<b>Funktio</b> eli aliohjelma ohjelmoijien käyttämä sana kasalle koodia, joka voidaan suorittaa aina tarvittaessa.
+<b>Funktio</b> eli aliohjelma ohjelmoijien käyttämä sana kasalle koodia, joka voidaan suorittaa tarvittaessa.
 Funktion koodia ei siis suoriteta heti, vaan vasta joskus myöhemmin.
 Olemme jo nähneet funktioita osassa 3, jossa loimme tapahtumakäsittelijöitä.
 Ne ovat eräs esimerkki funktiosta.
@@ -83,6 +83,7 @@ requestAnimationFrame(piirrä)
 	</p>
 </div>
 
+
 <h2>Tapahtumäkäsittelijät – kertaus</h2>
 
 <p>
@@ -112,6 +113,61 @@ TODO: listaa tässä eri tapahtumakäsittelijöitä
 
 <p>
 TODO: Tehtävä, jossa napin painaminen aiheuttaa jotain
+<div class="codebox task">
+	<h3>Tehtävä</h3>
+	<p>Lisää painikkeelle kuuntelija. 
+		Kun painiketta klikataan, niin tulosta <code>alert()</code>> komennolla "Klikkasit painiketta."</p>
+	<script>
+	addEditor(
+`<!doctype HTML>
+<button id = painike>
+Missä ankat uivat?
+</button>
+<script>
+${closeScript}`
+	);</script>
+</div>
+
+
+<div class="codebox task">
+	<h3>Tehtävä</h3>
+	<p>Täydennä ohjelmaa niin, että kun käyttäjä painaa näppäintä "a", 
+		niin tulostuu <code>alert()</code> komennolla "Ankka aivasti avaruudessa.".
+	</p>
+	<script>
+	addEditor(
+`<!doctype HTML>
+<script>
+	document.onkeydown = event => {
+		if(event.key == "a"){
+
+		}
+}
+${closeScript}`
+	);</script>
+</div>
+<div class="codebox task">
+	<h3>Tehtävä</h3>
+	<p>
+		Täydennä ohjelmaa niin, että kun käyttäjä klikkaa painiketta, niin neliön väri vaihtuu punaiseksi. 
+		Neliön väri vaihtuu, kun piirrät sen päälle uuden neliön, joka on erivärinen.
+	</p>
+	<script>
+	addEditor(
+`<!doctype HTML>
+<canvas id=kangas>
+	<canvas>
+		<br>
+		<button>
+		Vaihda väriä.	
+		</button>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillRect(10, 10, 50, 50)
+	
+${closeScript}`
+	);</script>
+</div>
 
 <h2>Ajastimet</h2>
 
@@ -149,6 +205,23 @@ Yksi minuutti on 60 000 millisekuntia.
 ${closeScript}`
 		);
 	</script>
+</div>
+
+<div class="codebox task">
+	<h3>Tehtävä</h3>
+	<p>Tee ohjelma, joka vaihtaa neliön väriä kahden sekunnin kuluttua keltaiseksi. 
+		Muista, että neliön väri vaihtuu, kun sen päälle piirretään uusi eri värinen neliö.
+	</p>
+	<script>
+	addEditor(
+`<!doctype HTML>
+<canvas id=kangas>
+	<canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillRect(10, 10, 50, 50)
+${closeScript}`
+	);</script>
 </div>
 
 <p>
