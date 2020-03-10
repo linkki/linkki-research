@@ -123,6 +123,7 @@ TODO: Tehtävä, jossa napin painaminen aiheuttaa jotain
 <button id = painike>
 Missä ankat uivat?
 </button>
+
 <script>
 ${closeScript}`
 	);</script>
@@ -146,6 +147,7 @@ ${closeScript}`
 ${closeScript}`
 	);</script>
 </div>
+
 <div class="codebox task">
 	<h3>Tehtävä</h3>
 	<p>
@@ -155,12 +157,12 @@ ${closeScript}`
 	<script>
 	addEditor(
 `<!doctype HTML>
-<canvas id=kangas>
-	<canvas>
-		<br>
-		<button>
-		Vaihda väriä.	
-		</button>
+<canvas id=kangas></canvas>
+<br>
+<button>
+	Vaihda väriä.	
+</button>
+
 <script>
 	const piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillRect(10, 10, 50, 50)
@@ -216,7 +218,7 @@ ${closeScript}`
 	addEditor(
 `<!doctype HTML>
 <canvas id=kangas>
-	<canvas>
+<canvas>
 <script>
 	const piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillRect(10, 10, 50, 50)
