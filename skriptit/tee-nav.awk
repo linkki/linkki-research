@@ -1,6 +1,6 @@
 BEGIN {
     nav="\t\t\tJäsää lapsille";
-    for (i=1;i<=6;i++) {
+    for (i=1;i<=7;i++) {
         nav = nav "\n\t\t\t· <a href=\"../osa" i "/osa" i ".html\">Osa " i "</a>";
     }
     nav = nav "\n\t\t\t· <a href=\"../projektit/projektit.html\">Projektit</a>";

@@ -2,14 +2,14 @@
 <html lang="fi">
 <head>
 	<meta charset="utf-8">
-	<title>Jäsäkurssi - Osa 5</title>
+	<title>Jäsäkurssi - Osa 4</title>
 	<link href="../pohja/pohja.css" rel="stylesheet" type="text/css">
 		
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js"></script>
 	<script src="../pohja/pohja.js"></script>
 </head>
-<body>
+	<body>
 
 	<div class="header">
 	<nav>
@@ -20,500 +20,23 @@
 			· <a href="../osa4/osa4.html">Osa 4</a>
 			· <a href="../osa5/osa5.html">Osa 5</a>
 			· <a href="../osa6/osa6.html">Osa 6</a>
+			· <a href="../osa7/osa7.html">Osa 7</a>
 			· <a href="../projektit/projektit.html">Projektit</a>
 	</nav>
 	</div>
+
 	<div class="content">
-<h1>Osa 5 - Funktiot</h1>
+
+<h1>Osa 4 – Maalia kankaalle</h1>
 
 <p>
-<b>Funktio</b> eli aliohjelma ohjelmoijien käyttämä sana kasalle koodia, joka voidaan suorittaa tarvittaessa.
-Funktion koodia ei siis suoriteta heti, vaan vasta joskus myöhemmin.
-Olemme jo nähneet funktioita osassa 3, jossa loimme tapahtumakäsittelijöitä.
-Ne ovat eräs esimerkki funktiosta.
-
-<p>
-Funktioita käytetään JavaScriptissä monilla eri tavoilla ja ne voivat näyttää erilaisilta.
-Yleisesti ottaen funktiot voi jakaa kahteen luokkaan: <b>nuolifunktoihin</b>, jotka tunnistaa nuolesta <code>=&gt;</code>, ja
-<b>avainsanafunktioihin</b>, jotka tunnistaa avainsanasta <code>function</code>.
-
-<p>
-Alla on esimerkkejä erilaisista funktiosta, joihin tutustumme tässä luvussa.
-
-<script>codeExample(
-`// Tapahtumakäsittelijä:
-
-teksti.onclick = () => {
-    alert("Hei siellä!")
-}
-
-// Ajastin:
-
-setTimeout(() => {
-    alert("Yllätys!")
-}, 5000)
-
-// Toistettu funktio:
-
-setInterval(() => {
-    alert("Hei taas!")
-}, 5000)
-
-// Nimetty funktio:
-
-function liikutaYlös() {
-    hahmo.y -= 1
-}
-
-// Piirtofunktio:
-
-function piirrä() {
-    piirtäjä.clearRect(0, 0, 300, 150)    
-    piirtäjä.fillRect(hahmo.x, hahmo.y, 10, 10)
-
-    requestAnimationFrame(piirrä)
-}
-requestAnimationFrame(piirrä)
-`,"javascript");</script>
-
-<div class="codebox question">
-	<h3>Kysymys 5.1</h3>
-	<p>
-		Mitkä yllä olevista funktioista ovat nuolifunktiota ja mitkä avainsanafunktioita?
-	</p>
-</div>
-
-
-<h2>Tapahtumäkäsittelijät – kertaus</h2>
-
-<p>
-Tutustuimme tapahtumakäsittelijöihin jo luvussa 3.
-Ne ovat funktioita, jotka suoritetaan kun jotain tiettyä tapahtuu.
-Esimerkiksi napin painaminen ja hiiren liikuttaminen ovat tapahtumia.
+	Tässä osassa tutustumme <b>kankaisiin</b> ja niille piirtämiseen.
+	Kankaat ovat erikoisia alueita sivulla, joihin voimme piirtää JavaScript-komennoilla kuvioita.
+</p>
 
 <div class="codebox example">
-	<h3>Esimerkki 5.2</h3>
-	<p>
-	Tapahtumakäsittelijä näyttää ilmoituksen, kun tekstiä klikataan.
-	<script>
-		addEditor(
-`<!doctype HTML>
-<p id = teksti>Klikkaa tästä!</p>
-<script>
-	teksti.onclick = e => {
-		alert("Hei siellä!")
-	}
-${closeScript}`
-		);
-	</script>
-</div>
-
-<p>
-TODO: listaa tässä eri tapahtumakäsittelijöitä
-
-<p>
-TODO: Tehtävä, jossa napin painaminen aiheuttaa jotain
-<div class="codebox task">
-	<h3>Tehtävä</h3>
-	<p>Lisää painikkeelle kuuntelija. 
-		Kun painiketta klikataan, niin tulosta <code>alert()</code>> komennolla "Klikkasit painiketta."</p>
-	<script>
-	addEditor(
-`<!doctype HTML>
-<button id = painike>
-Missä ankat uivat?
-</button>
-
-<script>
-${closeScript}`
-	);</script>
-</div>
-
-
-<div class="codebox task">
-	<h3>Tehtävä</h3>
-	<p>Täydennä ohjelmaa niin, että kun käyttäjä painaa näppäintä "a", 
-		niin tulostuu <code>alert()</code> komennolla "Ankka aivasti avaruudessa.".
-	</p>
-	<script>
-	addEditor(
-`<!doctype HTML>
-<script>
-	document.onkeydown = event => {
-		if(event.key == "a"){
-
-		}
-}
-${closeScript}`
-	);</script>
-</div>
-
-<div class="codebox task">
-	<h3>Tehtävä</h3>
-	<p>
-		Täydennä ohjelmaa niin, että kun käyttäjä klikkaa painiketta, niin neliön väri vaihtuu punaiseksi. 
-		Neliön väri vaihtuu, kun piirrät sen päälle uuden neliön, joka on erivärinen.
-	</p>
-	<script>
-	addEditor(
-`<!doctype HTML>
-<canvas id=kangas></canvas>
-<br>
-<button>
-	Vaihda väriä.	
-</button>
-
-<script>
-	const piirtäjä = kangas.getContext("2d")
-	piirtäjä.fillRect(10, 10, 50, 50)
-	
-${closeScript}`
-	);</script>
-</div>
-
-<h2>Ajastimet</h2>
-
-<p>
-Seuraava funktiotyyppi johon tutustumme on <b>ajastetut funktiot</b>.
-Ajastettu funktio suoritetaan, kun tietty määrä aikaa on kulunut.
-JavaScriptissä ajastetun funktion luomiseen käytetään <code>setTimeout</code>-komentoa.
-
-<p>
-<code>setTimeout</code>-komento näyttää seuraavanlaiselta:
-
-<script>codeExample(
-`setTimeout(() => {
-    
-}, 5000)
-`,"javascript");</script>
-
-<p>
-Aika, jonka kuluttua funktio suoritetaan, on aivan komennon lopussa.
-Aika ilmoitetaan <b>millisekunteina</b> eli sekunnin tuhannesosina.
-1 000 millisekuntia on yksi sekunti, 5 000 on viisi sekuntia ja niin edelleen.
-Yksi minuutti on 60 000 millisekuntia.
-
-<div class="codebox example">
-	<h3>Esimerkki 5.3</h3>
-	<p>
-	Ajastettu funktio, joka suoritetaan 5 sekunnin kuluttua.
-	<script>
-		addEditor(
-`<!doctype HTML>
-<script>
-	setTimeout(() => {
-		alert("Yllätys!")
-	}, 5000)
-${closeScript}`
-		);
-	</script>
-</div>
-
-<div class="codebox task">
-	<h3>Tehtävä</h3>
-	<p>Tee ohjelma, joka vaihtaa neliön väriä kahden sekunnin kuluttua keltaiseksi. 
-		Muista, että neliön väri vaihtuu, kun sen päälle piirretään uusi eri värinen neliö.
-	</p>
-	<script>
-	addEditor(
-`<!doctype HTML>
-<canvas id=kangas>
-<canvas>
-<script>
-	const piirtäjä = kangas.getContext("2d")
-	piirtäjä.fillRect(10, 10, 50, 50)
-${closeScript}`
-	);</script>
-</div>
-
-<p>
-Ajastetun funktion voi laittaa tapahtumakäsittelijän sisälle, jolloin se suoritetaan tietyn ajan kuluttua tapahtumasta:
-
-<div class="codebox example">
-	<h3>Esimerkki 5.4</h3>
-	<p>
-	Ajastettu funktio tapahtumakäsittelijän sisällä. Mitä tapahtuu, jos klikkaat tekstiä uudestaan ennen viestin ilmestymistä?
-	<script>
-		addEditor(
-`<!doctype HTML>
-<p id = teksti>Klikkaa tästä!</p>
-<script>
-	teksti.onclick = e => {
-		setTimeout(() => {
-			alert("Hei taas!")
-		}, 5000)
-	}
-${closeScript}`
-		);
-	</script>
-</div>
-
-<p>
-TODO: Tehtävä, jossa tekstiä voi klikata vasta tietyn ajan jälkeen
-
-<p>
-TODO: Tehtävä, jossa on kaksi sisäkkäistä setTimeoutia
-
-<h2>Toistetut funktiot</h2>
-
-<p>
-<b>Toistettu funktio</b> muistuttaa muuten ajastettua funktiota, mutta suoritetaan yhden kerran sijasta loputtomasti tietyllä tahdilla.
-Esimerkiksi 1 000 ms:n välein toistettava funktio suoritetaan aina sekunnin välein:
-
-<script>codeExample(
-`setInterval(() => {
-	
-}, 1000)
-`,"javascript");</script>
-
-<div class="codebox example">
-	<h3>Esimerkki 5.5</h3>
-	<p>
-	Toistettu funktio, joka lisää rivejä tekstiin. Käytämme komentoa <code>.textContent +=</code>, joka lisää loppuun uutta tekstiä.
-	<script>
-		addEditor(
-`<!doctype HTML>
-<p id = teksti>Ensimmäinen lause on tässä.</p>
-<script>
-	setInterval(() => {
-		teksti.textContent += " Tässä on uusi lause!"
-	}, 2000)
-${closeScript}`
-		);
-	</script>
-</div>
-
-<p>
-Toistetut funktiot ovat hyvin tärkeitä peleissä, joissa usein halutaan, että asioita tapahtuu uudestaan ja uudestaan tietyin väliajoin.
-Tämän luvun lopussa käsittelemme <i>päivityssilmukoita</i>, jotka ovat tällaisia pelissä käytettäviä toistettuja funktioita.
-
-<h2>Nimetyt funktiot</h2>
-
-<p>
-Olemme nyt käsitelleet funktioita, jotka suoritetaan automaattisesti joko silloin, kun jotain tapahtuu, tai tietyn ajan päästä.
-Monesti on kuitenkin hyödyllistä tehdä funktio, joka pitää suorittaa manuaalisesti komennolla.
-Koska tällaisilla funktioilla pitää olla nimi, kutsumme näitä funktioita <b>nimetyiksi funktioiksi</b>.
-Alla on esimerkki nimetystä funktiosta.
-
-<div class="codebox example">
-	<h3>Esimerkki 5.6</h3>
-	<p>
-	Nimetty funktio, joka suoritetaan heti, 5 s kuluttua ja kun tekstiä painetaan.
-	<script>
-		addEditor(
-`<!doctype HTML>
-<p id = teksti>Klikkaa tästä!</p>
-<script>
-	function yllätys() {
-		alert("Yllätys!")
-	}
-
-	yllätys()
-
-	setTimeout(() => {
-		yllätys()
-	}, 5000)
-
-	teksti.onclick = () => {
-		yllätys()
-	}
-${closeScript}`
-		);
-	</script>
-</div>
-
-<p>
-Nimetty funktio suoritetaan kirjoittamalla funktion nimi ja sulut.
-Toisin kuin muuntyyppisiä funktioita, sitä ei suoritetaan missään automaattisesti.
-
-<p>
-Tärkein syy miksi nimettyjä funktioita käytetään on koodin kopioimisen välttäminen.
-Jos haluamme tehdä saman asian useassa eri kohdassa, on kätevää, että asian koodi on funktion sisällä,
-ja eri kohdissa mainitaan vain funktion nimi.
-
-<p>
-TODO: Tehtävä, mikä?
-
-<h3>Parametrit</h3>
-
-<p>
-Nimetylle funktiolle voi antaa <b>parametreja</b>.
-Parametrit ovat muuttujia, joiden avulla funktiolle voi kertoa asioita.
-Alla on esimerkki, jossa parametrin avulla voimme näyttää ylimääräisen viestin käyttäjälle.
-
-<div class="codebox example">
-	<h3>Esimerkki 5.7</h3>
-	<p>
-	Nimetty funktio, joka suoritetaan heti, 5 s kuluttua ja kun tekstiä painetaan.
-	<script>
-		addEditor(
-`<!doctype HTML>
-<p id = teksti>Klikkaa tästä!</p>
-<script>
-	function yllätys(viesti) {
-		alert("Yllätys " + viesti + "!")
-	}
-
-	yllätys("ekan kerran")
-
-	setTimeout(() => {
-		yllätys("taas")
-	}, 5000)
-
-	teksti.onclick = () => {
-		yllätys("klikatessa")
-	}
-${closeScript}`
-		);
-	</script>
-</div>
-
-<p>
-TODO: Tehtävä, mikä?
-
-<h3>Paluuarvo</h3>
-
-<p>
-TODO
-
-<h2>Oliot, piirtosilmukka ja päivityssilmukka</h2>
-
-<p>
-Nyt tutustumme funktioiden käyttämiseen pelien teossa.
-Useimmissa peleissä on kaksi tärkeää funktiota: <b>piirtosilmukka</b> ja <b>päivityssilmukka</b>.
-Nämä molemmat ovat ikuisia silmukoita:
-piirtosilmukka piirtää ikuisesti uudestaan näytöllä näkyvät asiat ja
-päivityssilmukka päivittää tietokoneen muistia.
-Ne ovat hieman erilaisia, koska ne suoritetaan vähän eri aikoihin.
-
-<h3>Oliot</h3>
-
-<p>
-Ennen kuin voimme tutustua silmukoihin, tutustutaan siihen miten tietokoneen muisti toimii
-(muuten emme osaisi päivittää muistia päivityssilmukassa).
-JavaScriptissä muisti koostuu <b>olioista</b>.
-Kaikki arvot ovat olioita: luvut, merkkijonot, jopa funktiot.
-Yleensä sanalla olio kuitenkin viitataan <b>avain-arvopareja</b> sisältäviin olioihin.
-Näitä käytetään esimerkiksi pelihahmojen kuvaamiseen.
-Alla on esimerkki.
-
-<script>codeExample(
-`const hahmo = {
-	X: 200,
-	Y: 100,
-	väri: "green",
-} `,"javascript");</script>
-
-<p>
-Yllä luomme muuttujan <code>hahmo</code>, joka on nimi oliolle, jonka luomme.
-Itse oliota merkitään aaltosuluilla (<code>{</code> ja <code>}</code>).
-Sulkujen välissä on avain-arvopareja, joista jokaisessa on aluksi <b>avain</b> (X, Y, väri) ja sitten arvo (200, 100, "green").
-On tärkeää muistaa kaksoispisteet ja pilkut oikeissa kohdissa.
-
-<p>
-Olio on siis tietopaketti, johon on tallennettu useita eri tietoja.
-Voimme käyttää näitä tietoja <b>pisteoperaattorilla</b>, joka vastaa suomen kielen genetiiviä.
-Esimerkiksi jos haluamme puhua hahmon väristä, sanomme <code>hahmo.väri</code>.
-
-<div class="codebox example">
-	<h3>Esimerkki 5.8</h3>
-	<p>
-	Hahmon värin näyttäminen käyttäjälle.
-	<script>
-		addEditor(
-`<!doctype HTML>
-<script>
-	const hahmo = {
-		X: 20,
-		Y: 10,
-		väri: "green",
-	}
-
-	alert("Hahmon väri on: " + hahmo.väri)
-${closeScript}`
-		);
-	</script>
-</div>
-
-<p>
-Oliota voi muokata. Tällöin käytämme sekä pisteoperaattoria että yhtäsuuruusoperaattoria.
-Alla on esimerkki, jossa asetamme hahmon väriksi punaisen.
-
-<script>codeExample(
-`hahmo.väri = "red"`,"javascript");</script>
-
-<p>
-Huomaa, että oliota luotaessa avaimen ja arvon välissä on kaksoispiste.
-Olemassa olevaa oliota muokatessa avaimen ja arvon välissä on yhtäsuuruusmerkki.
-
-<p>
-TODO: Tehtävä, jossa luodaan hahmo-olio ja piirretään se kankaalle. Toinen, jossa muokataan hahmo-oliota ja piirretään se kankaalle
-
-<h3>Piirtosilmukka</h3>
-
-<p>
-Piirtosilmukka on funktio, joka suoritetaan aina, kun selain haluaa piirtää näytöllä näkyvät asiat uudestaan.
-Sitä käytetään pelissä hahmojen piirtämiseen näytölle.
-Yleensä funktion sisällä tehdään ainakin kaksi asiaa:
-tyhjennetään ruutu vanhoista asioista ja piirretään uudet asiat.
-
-<p>
-Alla on esimerkki silmukasta, jolla voimme piirtää hahmon näytölle neliönä.
-
-<script>codeExample(
-`function piirrä() {
-	// Tyhjennetään ruutu
-	piirtäjä.clearRect(0, 0, kangas.width, kangas.height)
-	
-	// Piirretään hahmo
-	piirtäjä.fillStyle = hahmo.väri
-	piirtäjä.fillRect(hahmo.X, hahmo.Y, 10, 10)
-	
-	// Pyydetään selainta piirtämään samat asiat kohta uudestaan
-	requestAnimationFrame(piirrä)
-}
-
-// Pyydetään selainta piirtämään asiat ensimmäisen kerran
-requestAnimationFrame(piirrä) `,"javascript");</script>
-
-<p>
-Pohjimmiltaan piirtosilmukka on nimetty funktio.
-Käytämme <code>requestAnimationFrame</code>-komentoa kertoaksemme selaimelle,
-että haluamme käyttää <code>piirrä</code>-funktiota piirtääksemme asioita näytölle.
-Selain suorittaa funktion silloin, kun on sen mielestä sopiva hetki.
-Komento on koodissa kahdesti.
-Se suoritetaan ensimmäisen kerran viimeisellä rivillä heti funktion luomisen jälkeen.
-(Itse funktion koodia ei suoriteta ennen kuin selain niin päättää.)
-Lisäksi se suoritetaan aina funktion suorittamisen jälkeen.
-Näin funktiota suoritetaan ikuisesti: aina suorittamisen jälkeen pyydämme selainta suorittamaan sen uudestaan.
-
-<h3>Päivityssilmukka</h3>
-
-<p>
-Päivityssilmukka on funktio, jossa päivitämme ohjelman muistissa olevia asioita, kuten hahmojen sijainteja ja pistemäärää.
-
-<p>
-Piirtosilmukka suoritetaan siis silloin, kun selain itse haluaa.
-Selain päättää niin sanotun FPS:n (kuinka monta kertaa näyttö päivitetään sekunnissa) itse.
-Päivityssilmukka taas suoritetaan yleensä tietyin väliajoin, jotta asiat tapahtuvat pelissä jatkuvasti yhtä nopeasti.
-Käytämme tähän jo aiemmin mainittua <code>setInterval</code>-komentoa.
-
-<p>
-Alla on esimerkki päivityssilmukasta, joka siirtää hahmoa eteenpäin kasvattamalla X-koordinaattia.
-Silmukka suoritetaan 0,1 sekunnin välein.
-
-<script>codeExample(
-`setInterval(() => {
-	hahmo.X += 1
-}, 100) `,"javascript");</script>
-
-<p>
-Esimerkit yhdistettynä:
-
-<div class="codebox example">
-	<h3>Esimerkki 5.9</h3>
-	<p>
-	Liikkuva hahmo.
+	<h3>Esimerkki</h3>
+	<p>Kangas, jolle on piirretty musta neliö.</p>
 	<script>
 		addEditor(
 `<!doctype HTML>
@@ -521,43 +44,514 @@ Esimerkit yhdistettynä:
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
-	const hahmo = {
-		X: 20,
-		Y: 10,
-		väri: "green",
-	}
-
 	const piirtäjä = kangas.getContext("2d")
-
-	function piirrä() {
-		// Tyhjennetään ruutu
-		piirtäjä.clearRect(0, 0, kangas.width, kangas.height)
-		
-		// Piirretään hahmo
-		piirtäjä.fillStyle = hahmo.väri
-		piirtäjä.fillRect(hahmo.X, hahmo.Y, 10, 10)
-		
-		// Pyydetään selainta piirtämään samat asiat kohta uudestaan
-		requestAnimationFrame(piirrä)
-	}
-
-	// Pyydetään selainta piirtämään asiat ensimmäisen kerran
-	requestAnimationFrame(piirrä)
-
-	setInterval(() => {
-		hahmo.X += 1
-	}, 100)
-${closeScript}`
+	piirtäjä.fillRect(10, 10, 50, 50)
+${closeScript}`, true
 		);
 	</script>
 </div>
 
 <p>
-TODO: Tehtävä: Laatikon liikuttaminen nuolinäppäimillä
+	Yllä olevassa esimerkissä määrittelemme, että sivulla on kangas <code>&lt;canvas&gt;</code>-tägillä.
+	Kankaalla on id "<code>kangas</code>", jotta voimme viitata siihen JavaScript-koodissa.
+	Kankaalla on myös taustaväri beige (eräs vaaleanruskean sävy), jotta se erottuu sivun valkoisesta taustasta.
+	Älä välitä, jos et ymmärrä miten taustavärikoodi toimii.
+</p>
 
 <p>
-TODO: Tehtävä/projekti: Kilpa-ajo, jossa yksi laatikko liikkuu kun nappia painetaan ja toinen liikkuu hitaasti itsestään. Kumpi pääsee toiseen reunaan ensin?
+	Canvas-tägin alla on JavaScript-koodia, jossa tapahtuu seuraavaa:
+</p>
+<ol>
+	<li>
+	Luomme <code>piirtäjä</code>-muuttujan, joka on nimi kankaan "kontekstille".
+	Konteksti on tarkoittaa tässä tapauksessa sitä JavaScriptin osaa, jota käytetään kuvioiden piirtämiseen näytölle.
+	<script>codeExample(
+`const piirtäjä = kangas.getContext("2d") `
+	, "javascript");</script>
+	<li>
+	Piirrämme kankaalle suorakulmion piirtäjän avulla <code>fillRect</code>-komennon avulla.
+	<code>fillRect</code> on lyhenne englannin sanoista "fill rectangle" eli "täytä suorakulmio".
+	Komennon nimen jälkeen tulee sulkeissa neljä parametria, jotka kertovat missä kohtaa suorakulmio on ja minkä kokoinen se on.
+	<script>codeExample(
+`piirtäjä.fillRect(10, 10, 50, 50) `
+	, "javascript");</script>
+</ol>
 
+<div class="codebox task">
+	<h3>Tehtävä</h3>
+	<p>Lisää ohjelmaan koodi, jossa piirretään kankaalle neliö, 
+		jonka parametrit ovat (0,0,30,30).
+	</p>
+	<script>
+	addEditor(
+`<!doctype HTML>
+<canvas id=kangas>
+	<canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+${closeScript}`
+	);</script>
 </div>
-</body>
-</html>
+
+<h2>4.1 Koordinaatisto</h2>
+
+<p>
+	Jotta osaisimme käyttää <code>fillRect</code>-komentoa, meidän on opeteltava ensin, miten tietokone ymmärtää sijainteja ja kokoja lukuina.
+</p>
+
+<p>
+	Tietokoneen näyttö koostuu koneesta riippuen sadoista tuhansista tai jopa miljoonista <b>pikseleistä</b>.
+	Yksi pikseli on hyvin pieni piste, jolla on jokin väri.
+	Näytöllä pikselit on järjestetty riveihin, joita on satoja päällekkäin.
+</p>
+
+<p>
+	Jotta voimme vaihtaa jonkun tietyn pikselin väriä, meidän on kerrottava tietokoneelle, mitä pikseliä haluamme muuttaa.
+	Tämä tehdään antamalla tietokoneelle tieto siitä, kuinka mones pikselirivin pikseli pikseli on ja kuinka mones pikselirivi on kyseessä.
+	Tätä tietoa sanotaan pikselin <b>koordinaateiksi</b>.
+	Tarkemmin pikselin <b>X-koordinaatti</b> kertoo, kuinka mones pikseli pikseli on omalla rivillään.
+	<b>Y-koordinaatti</b> taas kertoo, kuinka mones pikselirivi on kyseessä.
+</p>
+TODO: Havainne kuva.
+<p>
+	Ohjelmoinnissa asioiden laskeminen aloitetaan usein nollasta eikä yhdestä.
+	Myös pikselirivin ensimmäistä pikseliä sanotaan "pikseliksi 0" ja ensimmäistä pikseliriviä "riviksi 0".
+	Aivan ensimmäisen pikselin (joka on näytön vasemmassa ylänurkassa) X-koordinaatti on siis 0 ja Y-koordinaatti 0.
+	Tätä pikseliä sanotaan näytön <b>origoksi</b>.
+</p>
+
+<blockquote>
+	<b>❗ Huom!</b> Koulussa matematiikassa koordinaatiston Y-koordinaatit kasvavat <em>ylöspäin</em>, eli suurempi Y tarkoittaa korkeammalla olevaa pistettä.
+	Ohjelmoinnissa Y kuitenkin kasvaa <em>alaspäin</em>, eli suurempi Y tarkoittaa, että piste on alempana. Tämä johtuu historiallisista syistä.
+</blockquote>
+
+<div class="codebox">
+	<h3>Koordinaatit kankaalla</h3>
+	<p>
+		Vie hiiri kankaan päälle nähdäksesi hiiren sijainnin esitettynä koordinaatteina.
+		Tämän kankaan leveys on 300 pikseliä ja korkeus 150 pikseliä.
+	</p>
+	<canvas
+		id = koordinaattityökalu
+		style = background-color:beige;
+		width = 300
+		height = 150
+	></canvas>
+	<script>{
+		function viiva(x1, y1, x2, y2) {
+			piirtäjä.beginPath();
+			piirtäjä.moveTo(x1, y1);
+			piirtäjä.lineTo(x2, y2);
+			piirtäjä.stroke();
+		}
+		const piirtäjä = koordinaattityökalu.getContext("2d");
+		koordinaattityökalu.onmousemove = tapahtuma => {
+			const x = tapahtuma.offsetX;
+			const y = tapahtuma.offsetY;
+			piirtäjä.clearRect(0, 0, 300, 150);
+			piirtäjä.strokeStyle = "darkred"
+			viiva(0, y, 300, y);
+			viiva(x, 0, x, 150);
+			piirtäjä.fillText(y, 1, y+10);
+			piirtäjä.fillText(x, x+1, 150);
+			piirtäjä.fillText("X: " + x + ", Y: " + y, 15, 20);
+		};
+	}</script>
+</div>
+
+<h2>4.2 <code>fillRect</code>-komento</h2>
+
+<p>
+	Voimme käyttää <code>fillRect</code>-komentoa piirtääksemme suorakulmioita näytölle.
+	Komennolla on neljä parametria.
+	Ne ovat järjestyksessä: X, Y, leveys pikseleinä, korkeus pikseleinä.
+</p>
+
+<script>codeExample(`piirtäjä.fillRect(x, y, leveys, korkeus) `, "javascript");</script>
+
+<p>
+	Neliöstä voi myös tehdä eri värisen.
+	Tähän käytämme <code>fillStyle</code>-komentoa.
+</p>
+
+<div class="codebox example">
+	<h3>Esimerkki</h3>
+	<p>Kangas, jolle on piirretty punainen neliö.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillStyle = "red"
+	piirtäjä.fillRect(10, 10, 50, 50)
+${closeScript}`, true
+		);
+	</script>
+</div>
+
+<p>
+	<code>fillStyle</code> käskee piirtäjää piirtämään tietyllä värillä.
+	Väri kirjoitetaan englanniksi lainausmerkkien sisään.
+</p>
+
+<script>codeExample(`piirtäjä.fillStyle = "green" `, "javascript");</script>
+
+<p>
+	Tässä joitakin englanninkielisiä värien nimiä:
+</p>
+
+<table>
+	<caption>Värejä englanniksi</caption>
+	<thead>
+	<tr>
+		<th>Väri
+		<th>Englanniksi
+		<th>Suomksi
+	<tbody>
+	<tr>
+		<td style="background-color: white;">
+		<td>white
+		<td>valkoinen
+	<tr>
+		<td style="background-color: beige;">
+		<td>beige
+		<td>beige
+	<tr>
+		<td style="background-color: gray;">
+		<td>gray
+		<td>harmaa
+	<tr>
+		<td style="background-color: black;">
+		<td>black
+		<td>musta
+	<tr>
+		<td style="background-color: cyan;">
+		<td>cyan
+		<td>syaani
+	<tr>
+		<td style="background-color: blue;">
+		<td>blue
+		<td>sininen
+	<tr>
+		<td style="background-color: violet;">
+		<td>violet
+		<td>violetti
+	<tr>
+		<td style="background-color: red;">
+		<td>red
+		<td>punainen
+	<tr>
+		<td style="background-color: brown;">
+		<td>brown
+		<td>ruskea
+	<tr>
+		<td style="background-color: orange;">
+		<td>orange
+		<td>oranssi
+	<tr>
+		<td style="background-color: yellow;">
+		<td>yellow
+		<td>keltainen
+	<tr>
+		<td style="background-color: green;">
+		<td>green
+		<td>vihreä
+</table>
+
+<p>
+	Useimpien värien eteen voi lisätä sanan "dark" tarkoittamaan tummaa ja "light" tarkoittamaan vaaleaa.
+	Esimerkiksi "lightgreen" on vaaleanvihreä ja "darkblue" tummansininen.
+</p>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.2a</h3>
+	<p>
+		Muuta <code>fillRect</code>-komennon koordinaatteja siten, että neliö on kankaan oikean reunan keskellä.
+		Voit käyttää yllä olevaa <i>Koordinaatit kankaalla</i> -työkalua sopivien koordinaattien löytämiseksi.
+	</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillRect(10, 10, 50, 50)
+${closeScript}`
+		);
+	</script>
+</div>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.2b</h3>
+	<p>
+		Piirrä kankaan alareunaan sininen neliö.
+	</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+${closeScript}`
+		);
+	</script>
+</div>
+
+<h3>Useita neliöitä</h3>
+
+<p>
+	Kankaalle voi piirtää useita neliöitä kirjoittamalla monta <code>fillRect</code>-komentoa.
+	<code>fillStyle</code>-komentoa käytetään vasta, kun piirtäjän väri muuttuu.
+</p>
+
+<div class="codebox example">
+	<h3>Esimerkki</h3>
+	<p>Kangas, jolle on piirretty kaksi punaista ja kaksi sinistä neliötä.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillStyle = "red"
+	piirtäjä.fillRect(10, 10, 50, 50)
+	piirtäjä.fillRect(80, 10, 50, 50)
+	piirtäjä.fillStyle = "blue"
+	piirtäjä.fillRect(10, 80, 50, 50)
+	piirtäjä.fillRect(80, 80, 50, 50)
+${closeScript}`, true
+		);
+	</script>
+</div>
+
+<h2>4.3 Polut</h2>
+
+<p>
+	JavaScriptin avulla voi piirtää monia muitakin asioita kuin suorakulmioita.
+	Monimutkaisemmat asiat tehdään yleensä <b>polkujen</b> avulla.
+	Polun piirtäminen muistuttaa kynällä piirtämistä.
+	Kerromme eri komentojen avulla piirtäjälle, miten kynää liikutetaan paperilla.
+	Tärkeimmät komennot on alla olevassa taulukossa.
+</p>
+		
+<table>
+	<caption>Polkukomennot</caption>
+	<tr>
+		<th style="width: 150px;">Komento
+		<th style="width: 250px;">Esimerkki
+		<th>Selitys
+	<tr>
+		<td><code>.strokeStyle</code>
+		<td><script>codeExample(`piirtäjä.strokeStyle = "red" `, "javascript", true);</script>
+		<td>Kertoo minkä värisellä kynällä polku piirretään
+	<tr>
+		<td><code>.beginPath()</code>
+		<td><script>codeExample(`piirtäjä.beginPath() `, "javascript", true);</script>
+		<td>Kertoo piirtäjälle, että aloitamme polun piirtämisen ("ota kynä esiin")
+	<tr>
+		<td><code>.moveTo(x, y)</code>
+		<td><script>codeExample(`piirtäjä.moveTo(10, 10) `, "javascript", true);</script>
+		<td>Käskee piirtäjää siirtämään kynän annettuihin koordinaatteihin <i>koskettamatta paperia</i>
+	<tr>
+		<td><code>.lineTo(x, y)</code>
+		<td><script>codeExample(`piirtäjä.lineTo(50, 50) `, "javascript", true);</script>
+		<td>Käskee piirtäjää vetämään kynän annettuihin koordinaatteihin niin, että <i>kynä koskettaa paperia</i>
+	<tr>
+		<td><code>.stroke()</code>
+		<td><script>codeExample(`piirtäjä.stroke() `, "javascript", true);</script>
+		<td>Kertoo piirtäjälle, että lopetamme polun piirtämisen
+</table>
+
+<div class="codebox example">
+	<h3>Esimerkki</h3>
+	<p>Kangas, jolle on piirretty raksi.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.strokeStyle = "red"
+	
+	piirtäjä.beginPath()
+	
+	piirtäjä.moveTo(10, 10)
+	piirtäjä.lineTo(50, 50)
+	
+	piirtäjä.moveTo(10, 50)
+	piirtäjä.lineTo(50, 10)
+	
+	piirtäjä.stroke()
+${closeScript}`, true
+		);
+	</script>
+</div>
+
+<p>
+	Esimerkki toimii siis näin:
+</p>
+
+<ol>
+	<li>
+	Ensin kerromme, että haluamme aloittaa polun piirtämisen:
+	<script>codeExample(`piirtäjä.beginPath() `, "javascript");</script>
+	<li>
+	Seuraavaksi käskemme siirtämään kynän koordinaatteihin (10, 10), eli vasempaan ylänurkkaan.
+	<script>codeExample(`piirtäjä.moveTo(10, 10) `, "javascript");</script>
+	<li>
+	Siirrämme kynän paperia pitkin piirtämällä koordinaatteihin (50, 50), eli oikeaan alanurkkaan.
+	<script>codeExample(`piirtäjä.lineTo(10, 10) `, "javascript");</script>
+	<li>
+	Sitten teemme saman eri nurkkien kanssa:
+	siirrämme kynän koskematta paperiin kohtaan (10, 50) ja piirrämme viivan kohtaan (50, 10).
+	<script>codeExample(`piirtäjä.moveTo(10, 50)` + "\n" + `piirtäjä.lineTo(50, 10) `, "javascript");</script>
+	<li>
+	Lopuksi lopetamme polun piirtämisen <code>stroke()</code>-komennolla.
+	<script>codeExample(`piirtäjä.stroke() `, "javascript");</script>
+</ol>
+
+<blockquote>
+	<b>❗ Huom!</b> <code>fillRect()</code>-komennon väri määritetään <code>fillStyle</code>-komennolla.
+	<code>stroke()</code>-komennon väri määritetään <code>strokeStyle</code>:llä.
+</blockquote>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.3a</h3>
+	<p>Muuta koordinaatteja siten, että raksi on koko kankaan kokoinen. Etsi sopivat koordinaatit <i>koordinaatit kankaalla</i>-työkalulla.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.strokeStyle = "red"
+	
+	piirtäjä.beginPath()
+	
+	piirtäjä.moveTo(10, 10)
+	piirtäjä.lineTo(50, 50)
+	
+	piirtäjä.moveTo(10, 50)
+	piirtäjä.lineTo(50, 10)
+	
+	piirtäjä.stroke()
+${closeScript}`
+		);
+	</script>
+</div>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.3b</h3>
+	<p>Lisää <code>moveTo()</code>- ja <code>lineTo</code>-komentoja siten, että kankaalla näkyy ainakin kolme eri viivaa.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.strokeStyle = "red"
+	
+	piirtäjä.beginPath()
+	
+	
+	
+	piirtäjä.stroke()
+${closeScript}`
+		);
+	</script>
+</div>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.3c</h3>
+	<p>Lisää <code>moveTo()</code>- ja <code>lineTo</code>-komentoja piirtäksesi kolmion.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.strokeStyle = "red"
+	
+	piirtäjä.beginPath()
+	
+	
+	
+	piirtäjä.stroke()
+${closeScript}`
+		);
+	</script>
+</div>
+
+<div class="codebox task">
+	<h3>Tehtävä 4.3d</h3>
+	<p>Lisää <code>moveTo()</code>- ja <code>lineTo</code>-komentoja piirtäksesi talon (neliöstä ja kolmiosta).</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.strokeStyle = "red"
+	
+	piirtäjä.beginPath()
+	
+	
+	
+	piirtäjä.stroke()
+${closeScript}`
+		);
+	</script>
+</div>
+
+<h2>4.? <code>setInterval</code> ja animaatiot</h2>
+
+<p>
+	Jos haluamme tehdä pelejä tai animaatioita, meidän on saatava neliöt liikkumaan.
+	Miten tämä tapahtuu?
+	Vastaus on JavaScriptin <code>setInterval</code>-komento.
+	<code>setInterval</code> toistaa sille annettuja komentoja ikuisesti annetulla nopeudella.
+</p>
+
+<div class="codebox example">
+	<h3>Esimerkki</h3>
+	<p>Neliö liikkuu kankaalla.</p>
+	<script>
+		addEditor(
+`<!doctype HTML>
+<canvas
+	id = kangas
+	style = background-color:beige;></canvas>
+<script>
+	const piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillStyle = "red"
+
+	let aika = 0
+
+	setInterval(() => {
+		aika += 0.01
+		piirtäjä.clearRect(0, 0, 300, 150)
+		piirtäjä.fillRect(Math.cos(aika)*20+125, Math.sin(aika)*20+50, 50, 50)
+	}, 10)
+${closeScript}`, true
+		);
+	</script>
+</div>
