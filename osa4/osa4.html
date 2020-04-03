@@ -43,7 +43,7 @@
             jolloin haluamme ohjelman toimivan tietyllä tavalla tilanteesta riippuen.
             Näissä tilanteissa käytämme ehto-lauseita.
         </p>
-        <h2>Ehto-lause</h2>
+        <h2><u>Jos</u> minulla on karkkia <u>niin</u> voin syödä karkkia.</h2>
         <p>
             Ehto-lause on muotoa <code>if (ehto)</code>.
             Kun ehto toteutuu,
@@ -54,15 +54,17 @@
     if(minulla on karkkia){
         voin syödä karkkia
     }
-    if(minulla ei ole karkkia){
-        en voi syödä karkkia
-    }
     </pre></code>
+
+    <p>Tietokone ei kuitenkaan ymmärrä tätä koodia ihan tälläisenään. 
+        Tutkitaan JavaScriptillä kirjoitettua esimerkkiä, jonka tietokonekkin ymmärtää. 
+    </p>
         <!--Voisko saada suoritus napin esimerkkiin.-->
         <div class="codebox example">
             <h3>Esimerkki</h3>
             <p>
-                Asetamme muutujan pähkinät arvoksi 8. Mitä ohjelma tulostaa?
+                Asetamme muutujan pähkinät arvoksi 5. Mitä ohjelma tulostaa? 
+                Mitä jos pähkinöitä on 8 tai 9?
             </p>
             <script>
                 addEditor(
@@ -106,6 +108,10 @@ ${closeScript}`, true
 
         </div>
 
+        <h2><u>Jos</u> minulla on karkkia <u>niin</u> voin syödä karkkia.<u>Muuten</u> syön jäätelöä.</h2>
+        <p>
+            Jos minulla on karkkia, mutta en kerro mitä teen, jos minulla
+        </p>
 
         <div class="codebox example">
             <h3>Esimerkki</h3>
