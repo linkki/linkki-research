@@ -47,49 +47,77 @@
         <p>
             Ehto-lause on muotoa <code>if (ehto)</code>.
             Kun ehto toteutuu,
-            suoritetaan koodi <code>{ }</code> lohkon sisältä. 
-            <code>If</code>-lohkon jälkeen voimme laittaa <code>else</code>-lohkon. 
-            Tällöin <code>else</code>-lohkon sisällä oleva koodi suoritetaan, 
-            kun <code>if</code>-lohkon ehto ei toteudu.
+            suoritetaan koodi <code>{ }</code> lohkon sisältä.
+            Edellisen kohdan esimerkki voitaisiin siis kirjoittaa muodossa
         </p>
-<!--Voisko saada suoritus napin esimerkkikkin.-->
+        <code><pre>
+    if(minulla on karkkia){
+        voin syödä karkkia
+    }
+    if(minulla ei ole karkkia){
+        en voi syödä karkkia
+    }
+    </pre></code>
+        <!--Voisko saada suoritus napin esimerkkiin.-->
         <div class="codebox example">
             <h3>Esimerkki</h3>
             <p>
-                <b>Jos</b> tekstissä lukee "Klikkaa minua.", 
-                <b>niin</b> teksti vaihtuu tekstiksi "Moikka moi!".
-                <b>Muutoin</b> teksti vaihtuu tekstiksi "Klikkaa minua.". 
+                Asetamme muutujan pähkinät arvoksi 8. Mitä ohjelma tulostaa?
             </p>
             <script>
                 addEditor(
                     `<!doctype HTML>
 <script>
     const pähkinät = 5
-        if(pähkinät === 5){
-	        alert("Pähkinöitä on viisi.")
-        }
-        if(pähkinät === 8){
-            alert("Pähkinöitä on kahdeksan.")
-        }
-        if(pähkinät === 0){
-            alert("Pähkinöitä ei ole ollenkaan.")
-        }
+    if(pähkinät === 5){
+	    alert("Pähkinöitä on viisi.")
+    }
+    if(pähkinät === 8){
+        alert("Pähkinöitä on kahdeksan.")
+    }
+    if(pähkinät === 0){
+        alert("Pähkinöitä ei ole ollenkaan.")
+    }
     
 ${closeScript}`, true
                 );</script>
         </div>
 
+        <div class="codebox task">
+            <h3>Tehtävä 2.2</h3>
+            <p>
+                Täydennä jos-ehtoja niin, että nimi tulostuu oikein.
+            </p>
+
+            <script>
+                addEditor(
+                    `<!doctype HTML>
+    <script>
+        const ekaNimi = "Bella"
+        const tokaNimi = "Anton"
+        if(){
+            alert("Hei Bella!")
+        }
+        if(){
+            alert("Hei Anton!")
+        }
+    ${closeScript}`
+                );</script>
+
+        </div>
+
+
         <div class="codebox example">
             <h3>Esimerkki</h3>
             <p>
-                Esimerkissä on kuuntelija, 
-                joka odottaa, 
-                milloin tekstiä klikataan. 
-                Kun tekstiä on klikattu, tarkastamme ehto-lauseella, 
-                mitä tekstissä lukee. 
-                <b>Jos</b> tekstissä lukee "Klikkaa minua.", 
+                Esimerkissä on kuuntelija,
+                joka odottaa,
+                milloin tekstiä klikataan.
+                Kun tekstiä on klikattu, tarkastamme ehto-lauseella,
+                mitä tekstissä lukee.
+                <b>Jos</b> tekstissä lukee "Klikkaa minua.",
                 <b>niin</b> teksti vaihtuu tekstiksi "Moikka moi!".
-                <b>Muutoin</b> teksti vaihtuu tekstiksi "Klikkaa minua.". 
+                <b>Muutoin</b> teksti vaihtuu tekstiksi "Klikkaa minua.".
             </p>
             <script>
                 addEditor(
