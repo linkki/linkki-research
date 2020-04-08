@@ -31,19 +31,19 @@
 
         <h2>Mitä ovat ehto-lauseet?</h2>
         <p>
-            Jos sinulla on iso kasa karkkia,
-            niin voit syödä karkkia.
-            Kuitenkin jos olet syönyt kaikki karkkisi,
-            et voi enää syödä karkkia.
-            On siis olemassa tilanteita,
-            jossa käyttäydyt eri tavoin.
+            Jos Almalla on enemmän kuin 5 pähkinää, niin hän voi jakaa ne ystävänsä Brunon kanssa.
+            Jakaako Alma pähkinät Brunon kanssa, jos hänellä on 10 pähkinää?
+            Entäs jos hänellä on 2 pähkinää?
+            <b>Ehdon</b> "Jos Almalla on enemmän kuin 5 pähkinää, niin hän jakaa pähkinät" perusteella ensimmäisessä
+            tapauksessa Alma jakaa pähkinät Brunon kanssa.
+            Kahden pähkinän tapauksessa näin kuitenkaan ei ole.
         </p>
         <p>
-            Myös tietokone ohjelmissa on tilanteita,
-            jolloin haluamme ohjelman toimivan tietyllä tavalla tilanteesta riippuen.
-            Näissä tilanteissa käytämme ehto-lauseita.
+            Almalla oli ehto, jonka perusteella hän toimi tietyllä tavalla.
+            Seuraavaksi tutustumme,
+            miten voimme antaa tietokoneella samanlaisia ehtoja.
         </p>
-        <h2><u>Jos</u> minulla on karkkia <u>niin</u> voin syödä karkkia.</h2>
+        <h2><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa.</h2>
         <p>
             Ehto-lause on muotoa <code>if (ehto)</code>.
             Kun ehto toteutuu,
@@ -51,38 +51,148 @@
             Edellisen kohdan esimerkki voitaisiin siis kirjoittaa muodossa
         </p>
         <code><pre>
-    if(minulla on karkkia){
-        voin syödä karkkia
+    if(almanPähkinät > 5){
+        brunonPähkinät = almanPähkinät/2
+        almanPähkinät = almanPähkinät/2
     }
     </pre></code>
 
-    <p>Tietokone ei kuitenkaan ymmärrä tätä koodia ihan tälläisenään. 
-        Tutkitaan JavaScriptillä kirjoitettua esimerkkiä, jonka tietokonekkin ymmärtää. 
-    </p>
-        <!--Voisko saada suoritus napin esimerkkiin.-->
+        <p>Tietokone ei kuitenkaan ymmärrä tätä koodia ihan tälläisenään.
+            Tutkitaan JavaScriptillä kirjoitettua esimerkkiä, jonka tietokonekkin ymmärtää.
+        </p>
         <div class="codebox example">
             <h3>Esimerkki</h3>
             <p>
-                Asetamme muutujan pähkinät arvoksi 5. Mitä ohjelma tulostaa? 
-                Mitä jos pähkinöitä on 8 tai 9?
+                Tässä esimerkissä Almalla on aluksi 10 pähkinää.
             </p>
             <script>
                 addEditor(
                     `<!doctype HTML>
 <script>
-    const pähkinät = 5
-    if(pähkinät === 5){
-	    alert("Pähkinöitä on viisi.")
-    }
-    if(pähkinät === 8){
-        alert("Pähkinöitä on kahdeksan.")
-    }
-    if(pähkinät === 0){
-        alert("Pähkinöitä ei ole ollenkaan.")
+    almanPähkinät = 10
+    brunonPähkinät = 0
+    if (almanPähkinät > 5) {
+        brunonPähkinät = almanPähkinät/2
+        almanPähkinät = almanPähkinät/2
+        alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
     }
     
-${closeScript}`, true
+${closeScript}`
                 );</script>
+        </div>
+
+        <div class="codebox task">
+            <h3>Tehtävä</h3>
+            <p>
+                Almalle ei ole annettu lainkaan pähkinöitä!
+                Korjaa koodia niin, että Almalla on 2 pähkinää.
+                Tulostaako ohjelma mitään?
+            </p>
+            <script>
+                addEditor(
+                    `<!doctype HTML>
+<script>
+    almanPähkinät = 
+    brunonPähkinät = 0
+    if (almanPähkinät > 5) {
+        brunonPähkinät = almanPähkinät/2
+        almanPähkinät = almanPähkinät/2
+        alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
+    }
+    
+${closeScript}`
+                );</script>
+        </div>
+
+        <p>
+            Ehto-lauseesta on erityisesti hyötyä silloin kun saamamme syöte ei ole aina sama.
+        </p>
+        <div class="codebox example">
+            <h3>Esimerkki</h3>
+            <p>
+                Miksi syötteellä 3 Bruno ei saa pähkinöitä, mutta syötteellä 7 hän saa.
+            </p>
+            <script>
+                addEditor(
+                    `<!doctype HTML>
+<script>
+    pähkinät = prompt("Kuinka monta pähkinää?")
+    brunonPähkinät = 0
+    alert("Pähkinöitä on " + pähkinät + " kappaletta.")
+    if (pähkinät > 5) {
+        brunonPähkinät = pähkinät/2
+        pähkinät = pähkinät/2
+        alert("Bruno saa " + brunonPähkinät + " pähkinää ja pähkinöitä jää jäljelle " + pähkinät)
+    }
+    
+${closeScript}`
+                );</script>
+        </div>
+
+        <div class="extra">
+            <h3>Vertailu</h3>
+
+            <p>
+                Matematiikasta tuttuja vertailuoperaattoreita ovat pienempi <code>&lt;</code>, suurempi
+                <code>&gt;</code> ja yhtäsuuri <code>&equals;</code>.
+                Ohjelmoinnissa käytettään lähes samoja operaattoreita!
+            </p>
+            <p>
+                Numeroiden kokoa voidaan vertailla pienempi ja suurempi kuin merkeillä tavallisesti.
+            </p>
+            <div class="codebox example">
+          
+                <script>
+                    addEditor(
+                        `<!doctype HTML>
+    <script>
+        if (6 > 3) {
+            alert("Kuusi on suurempaa kuin kolme.")
+        }
+        if (2 < 7) {
+            alert("Kaksi on pienempää kuin seitsemän.")
+        }
+        if (5 < 3) {
+            alert("Viisi on pienempää kuin kolme.")
+        }
+    ${closeScript}`
+                    );</script>
+            </div>
+
+            <p>
+                Usein ohjelmissa halaumme tietää, onko kaksi asiaa täsmälleen samat.
+                Tämä onnistuu JavaScriptissä käyttämällä kolmoisyhtäsuuruutta <code>===</code>.
+                Kolmoisyhtäsuuruus käy merkkijonojen ja numeroiden vertailuun.
+            </p>
+            <div class="codebox example">
+          
+                <script>
+                    addEditor(
+                        `<!doctype HTML>
+    <script>
+        if ("ankka" === "ankka") {
+            alert("ankka on sama asia kuin ankka.")
+        }
+        if ("Ankka" === "ankka") {
+            alert("Ankka on sama asia kuin ankka")
+        }
+        if (5 === 5) {
+            alert("5 = 5")
+        }
+        if (5 === 2) {
+            alert("5 = 2")
+        }
+    ${closeScript}`
+                    );</script>
+            </div>
+
+            <div class = "note">
+                <h3>"ankka" === "Ankka"</h3>
+                Huomasithan, että edellisessä esimerkissä isolla kirjoitettu Ankka ei ollut sama asia kuin pienellä kirjoitettu ankka. 
+                Tässä tuleekin olla erityisen tarkkana. 
+                JavaScript on <b>case sensitive</b> eli sen mielestä isolla ja pienellä kirjoitetut sanat ovat erilaisia.
+            </div>
+
         </div>
 
         <div class="codebox task">
@@ -95,8 +205,8 @@ ${closeScript}`, true
                 addEditor(
                     `<!doctype HTML>
     <script>
-        const ekaNimi = "Bella"
-        const tokaNimi = "Anton"
+        ekaNimi = "Bella"
+        tokaNimi = "Anton"
         if(){
             alert("Hei Bella!")
         }
@@ -108,7 +218,28 @@ ${closeScript}`, true
 
         </div>
 
-        <h2><u>Jos</u> minulla on karkkia <u>niin</u> voin syödä karkkia.<u>Muuten</u> syön jäätelöä.</h2>
+        <div class="codebox task">
+            <h3>Tehtävä</h3>
+            <p>
+                Täydennä jos-ehtoa niin, että jos muuttujan brunonPähkinät on pienempää kuin 2, niin Bruno saa lisää pähkinöitä.
+            </p>
+
+            <script>
+                addEditor(
+                    `<!doctype HTML>
+    <script>
+        brunonPähkinät = Number(prompt("Kuinka monta pähkinää Brunolla on?"))
+        if(){
+            pähkinät = Number(prompt("Kuinka monta pähkinää Brunolle annetaan?"))
+            brunonPähkinät += pähkinät
+        }
+        alert("Brunolla on " + brunonPähkinät + " pähkinää.")
+    ${closeScript}`
+                );</script>
+
+        </div>
+
+        <h2><u>Jos</u> minulla on karkkia <u>niin</u> voin syödä karkkia. <u>Muuten</u> syön jäätelöä.</h2>
         <p>
             Jos minulla on karkkia, mutta en kerro mitä teen, jos minulla
         </p>
