@@ -239,10 +239,49 @@ ${closeScript}`
 
         </div>
 
-        <h2><u>Jos</u> minulla on karkkia <u>niin</u> voin syödä karkkia. <u>Muuten</u> syön jäätelöä.</h2>
+        <h2><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa. <u>Muuten</u> Bruno saa 2 pähkinää.</h2>
         <p>
-            Jos minulla on karkkia, mutta en kerro mitä teen, jos minulla
+            Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkinät Brunon kanssa. 
+            Mitä jos Almalla on alle 5 pähkinää? 
+            Tällöin Bruno ei saa yhtään pähkinää. 
+            Tälläinen tilanne on Brunon mielestä epäreilu ja hän joutuu katselemaan vierestä, 
+            kun Alma syö pähkinöitä. 
+            Voimme kuitenkin määritellä, 
+            että Bruno saa lohdutus palkinnoksi 3  pähkinää. 
         </p>
+        <code><pre>
+            if(almanPähkinät > 5){
+                brunonPähkinät = almanPähkinät/2
+                almanPähkinät = almanPähkinät/2
+            } else {
+                brunonPähkinät = 2
+            }
+            </pre></code>
+
+            <div class="codebox example">
+                <h3>Esimerkki</h3>
+                <p>
+                    Tässä esimerkissä Almalla on aluksi 2 pähkinää. 
+                    Kuinka monta pähkinää Brunolla on?
+                </p>
+                <script>
+                    addEditor(
+                        `<!doctype HTML>
+    <script>
+        almanPähkinät = 2
+        brunonPähkinät = 0
+        if (almanPähkinät > 5) {
+            brunonPähkinät = almanPähkinät/2
+            almanPähkinät = almanPähkinät/2
+        } else {
+            brunonPähkinät = 2
+        }
+        alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
+        
+    ${closeScript}`
+                    );</script>
+            </div>
+    
 
         <div class="codebox example">
             <h3>Esimerkki</h3>
@@ -256,7 +295,7 @@ ${closeScript}`
                 <b>niin</b> teksti vaihtuu tekstiksi "Moikka moi!".
                 <b>Muutoin</b> teksti vaihtuu tekstiksi "Klikkaa minua.".
             </p>
-            <script>
+<script>
                 addEditor(
                     `<!doctype HTML>
 <p id = teksti>
@@ -275,7 +314,41 @@ ${closeScript}`, true
                 );</script>
         </div>
 
+        <h2><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa. 
+            <u>Muuten jos</u> Almalla on yli 10 pähkinää hän antaa Brunolle 5 pähkinää ja pitää loput ise.
+             <u>Muuten</u> Bruno saa 2 pähkinää.</h2>
+
+
         <h2>Näppäimistön kuuntelija</h2>
+        <div class="codebox example">
+            <h3>Esimerkki</h3>
+            <p>
+            </p>
+<script>
+                addEditor(
+                    `<!doctype HTML>
+<p id = teksti>
+    Klikkaa minua.
+</p>
+<script>
+    document.onkeydown = event => {
+        if (event.key == "ArrowUp") {
+                   
+        }
+        if (event.key == "ArrowDown") {
+                   
+        }
+        if (event.key == "ArrowLeft") {
+                    
+        }
+        if (event.key == "ArrowRight") {
+                 
+        }
+    }
+    
+${closeScript}`, true
+                );</script>
+        </div>
     </div>
 </body>
 
