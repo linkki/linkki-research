@@ -43,7 +43,8 @@
             Seuraavaksi tutustumme,
             miten voimme antaa tietokoneella samanlaisia ehtoja.
         </p>
-        <h2><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa.</h2>
+        <h2>If</h2>
+        <p><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa.</p>
         <p>
             Ehto-lause on muotoa <code>if (ehto)</code>.
             Kun ehto toteutuu,
@@ -141,7 +142,7 @@ ${closeScript}`
                 Numeroiden kokoa voidaan vertailla pienempi ja suurempi kuin merkeillä tavallisesti.
             </p>
             <div class="codebox example">
-          
+
                 <script>
                     addEditor(
                         `<!doctype HTML>
@@ -165,7 +166,7 @@ ${closeScript}`
                 Kolmoisyhtäsuuruus käy merkkijonojen ja numeroiden vertailuun.
             </p>
             <div class="codebox example">
-          
+
                 <script>
                     addEditor(
                         `<!doctype HTML>
@@ -186,11 +187,13 @@ ${closeScript}`
                     );</script>
             </div>
 
-            <div class = "note">
+            <div class="note">
                 <h3>"ankka" === "Ankka"</h3>
-                Huomasithan, että edellisessä esimerkissä isolla kirjoitettu Ankka ei ollut sama asia kuin pienellä kirjoitettu ankka. 
-                Tässä tuleekin olla erityisen tarkkana. 
-                JavaScript on <b>case sensitive</b> eli sen mielestä isolla ja pienellä kirjoitetut sanat ovat erilaisia.
+                Huomasithan, että edellisessä esimerkissä isolla kirjoitettu Ankka ei ollut sama asia kuin pienellä
+                kirjoitettu ankka.
+                Tässä tuleekin olla erityisen tarkkana.
+                JavaScript on <b>case sensitive</b> eli sen mielestä isolla ja pienellä kirjoitetut sanat ovat
+                erilaisia.
             </div>
 
         </div>
@@ -221,7 +224,8 @@ ${closeScript}`
         <div class="codebox task">
             <h3>Tehtävä</h3>
             <p>
-                Täydennä jos-ehtoa niin, että jos muuttujan brunonPähkinät on pienempää kuin 2, niin Bruno saa lisää pähkinöitä.
+                Täydennä jos-ehtoa niin, että jos muuttujan brunonPähkinät on pienempää kuin 2, niin Bruno saa lisää
+                pähkinöitä.
             </p>
 
             <script>
@@ -239,15 +243,17 @@ ${closeScript}`
 
         </div>
 
-        <h2><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa. <u>Muuten</u> Bruno saa 2 pähkinää.</h2>
+        <h2>If-else</h2>
+        <p><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa. <u>Muuten</u>
+            Bruno saa 2 pähkinää.</p>
         <p>
-            Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkinät Brunon kanssa. 
-            Mitä jos Almalla on alle 5 pähkinää? 
-            Tällöin Bruno ei saa yhtään pähkinää. 
-            Tälläinen tilanne on Brunon mielestä epäreilu ja hän joutuu katselemaan vierestä, 
-            kun Alma syö pähkinöitä. 
-            Voimme kuitenkin määritellä, 
-            että Bruno saa lohdutus palkinnoksi 3  pähkinää. 
+            Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkinät Brunon kanssa.
+            Mitä jos Almalla on alle 5 pähkinää?
+            Tällöin Bruno ei saa yhtään pähkinää.
+            Tälläinen tilanne on Brunon mielestä epäreilu ja hän joutuu katselemaan vierestä,
+            kun Alma syö pähkinöitä.
+            Voimme kuitenkin määritellä,
+            että Bruno saa lohdutus palkinnoksi 3 pähkinää.
         </p>
         <code><pre>
             if(almanPähkinät > 5){
@@ -258,15 +264,15 @@ ${closeScript}`
             }
             </pre></code>
 
-            <div class="codebox example">
-                <h3>Esimerkki</h3>
-                <p>
-                    Tässä esimerkissä Almalla on aluksi 2 pähkinää. 
-                    Kuinka monta pähkinää Brunolla on?
-                </p>
-                <script>
-                    addEditor(
-                        `<!doctype HTML>
+        <div class="codebox example">
+            <h3>Esimerkki</h3>
+            <p>
+                Tässä esimerkissä Almalla on aluksi 2 pähkinää.
+                Kuinka monta pähkinää Brunolla on?
+            </p>
+            <script>
+                addEditor(
+                    `<!doctype HTML>
     <script>
         almanPähkinät = 2
         brunonPähkinät = 0
@@ -279,9 +285,9 @@ ${closeScript}`
         alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
         
     ${closeScript}`
-                    );</script>
-            </div>
-    
+                );</script>
+        </div>
+
 
         <div class="codebox example">
             <h3>Esimerkki</h3>
@@ -295,7 +301,7 @@ ${closeScript}`
                 <b>niin</b> teksti vaihtuu tekstiksi "Moikka moi!".
                 <b>Muutoin</b> teksti vaihtuu tekstiksi "Klikkaa minua.".
             </p>
-<script>
+            <script>
                 addEditor(
                     `<!doctype HTML>
 <p id = teksti>
@@ -314,9 +320,10 @@ ${closeScript}`, true
                 );</script>
         </div>
 
-        <h2><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa. 
+        <h2>If- else if - else</h2>
+        <p><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa.
             <u>Muuten jos</u> Almalla on yli 10 pähkinää hän antaa Brunolle 5 pähkinää ja pitää loput ise.
-             <u>Muuten</u> Bruno saa 2 pähkinää.</h2>
+            <u>Muuten</u> Bruno saa 2 pähkinää.</p>
 
 
         <h2>Näppäimistön kuuntelija</h2>
@@ -324,7 +331,7 @@ ${closeScript}`, true
             <h3>Esimerkki</h3>
             <p>
             </p>
-<script>
+            <script>
                 addEditor(
                     `<!doctype HTML>
 <p id = teksti>
