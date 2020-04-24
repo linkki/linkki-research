@@ -43,7 +43,7 @@
             Seuraavaksi tutustumme,
             miten voimme antaa tietokoneella samanlaisia ehtoja.
         </p>
-        <h2>If</h2>
+        <h2>Jos-niin ehto</h2>
         <p><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa.</p>
         <p>
             Ehto-lause on muotoa <code>if (ehto)</code>.
@@ -243,7 +243,7 @@ ${closeScript}`
 
         </div>
 
-        <h2>If-else</h2>
+        <h2>Jos muuten</h2>
         <p><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa. <u>Muuten</u>
             Bruno saa 2 pähkinää.</p>
         <p>
@@ -320,23 +320,59 @@ ${closeScript}`, true
                 );</script>
         </div>
 
-        <h2>If- else if - else</h2>
-        <p><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa.
+        <h2>Useamman ehdon käyttäminen</h2>
+        <p>
+            <u>Jos</u> Almalla on tasan 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa.
             <u>Muuten jos</u> Almalla on yli 10 pähkinää hän antaa Brunolle 5 pähkinää ja pitää loput ise.
-            <u>Muuten</u> Bruno saa 2 pähkinää.</p>
+            <u>Muuten</u> Bruno saa 2 pähkinää.
+        </p>
 
 
-        <h2>Näppäimistön kuuntelija</h2>
+        <code><pre>
+                if(almanPähkinät == 5){
+                    brunonPähkinät = almanPähkinät/2
+                    almanPähkinät = almanPähkinät/2
+                } else if (almanPähkinät > 10){
+                    almanPähkinät = almanPähkinät - 5;
+                    brunonPähkinät = brunonPähkinät + 5;
+                } else {
+                    brunonPähkinät = brunonPähkinät + 2;
+                }
+                </pre></code>
         <div class="codebox example">
             <h3>Esimerkki</h3>
             <p>
+                Tässä esimerkissä Almalla on aluksi 10 pähkinää.
             </p>
             <script>
                 addEditor(
                     `<!doctype HTML>
-<p id = teksti>
-    Klikkaa minua.
-</p>
+    <script>
+        almanPähkinät = 7
+        brunonPähkinät = 0
+
+        if (almanPähkinät == 5){
+            brunonPähkinät = almanPähkinät/2
+            almanPähkinät = almanPähkinät/2
+        } else if (almanPähkinät > 10){
+            almanPähkinät = almanPähkinät - 5
+            brunonPähkinät = brunonPähkinät + 5
+        } else {
+            brunonPähkinät = brunonPähkinät + 2
+        }
+
+        alert("Bruno saa " + brunonPähkinät + " pähkinää ja Alma saa " + almanPähkinät)
+        
+    ${closeScript}`
+                );</script>
+        </div>
+        <h2>Näppäimistön kuuntelija</h2>
+        <div class="codebox example">
+            <h3>Esimerkki</h3>
+
+            <script>
+                addEditor(
+                    `<!doctype HTML>
 <script>
     document.onkeydown = event => {
         if (event.key == "ArrowUp") {
@@ -356,6 +392,7 @@ ${closeScript}`, true
 ${closeScript}`, true
                 );</script>
         </div>
+
     </div>
 </body>
 
