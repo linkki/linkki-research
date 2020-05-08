@@ -334,7 +334,7 @@ ${closeScript}`, true
             Jos mikään if-ehdoista ei täyty, 
             niin silloin siirrytään else-lohkon koodiin.
         </p>
-        <p>Huomaa, että vain yksi if-ehsoita toteutetaan.</p>
+        <p>Huomaa, että vain yksi if-ehdoista toteutetaan.</p>
 
         <code><pre>
                 if(almanPähkinät == 5){
@@ -373,27 +373,88 @@ ${closeScript}`, true
         
     ${closeScript}`
                 );</script>
-        </div>
+        
+    
+    </div>
+    <p>Mitä eroa seuraavilla if-lauseilla on?</p>
+    <div class="codebox example">
+        <h3>Esimerkki</h3>
+        <p>
+        </p>
+        <script>
+            addEditor(
+                `<!doctype HTML>
+<p id = teksti>
+    Moi
+</p>
+<script>
+if(teksti.textContent === "Moi"){
+    alert("pöö")
+    teksti.textContent = "Heipä hei!"
+}
+if(teksti.textContent === "Heipä hei!"){
+    teksti.textContent = "Ankka"
+}
+${closeScript}`, 
+            );</script>
+    </div>
+    <div class="codebox example">
+        <h3>Esimerkki</h3>
+        <p>
+            
+        </p>
+        <script>
+            addEditor(
+                `<!doctype HTML>
+<p id = teksti>
+
+</p>
+<script>
+    if(teksti.textContent === ""){
+    teksti.textContent = "Heipä hei!"
+} else if (teksti.textContent === "Heipä hei!") {
+    teksti.textContent = "Ankka"
+}
+${closeScript}`, 
+            );</script>
+    </div>
         <h2>Näppäimistön kuuntelija</h2>
+
+        <p>Jotta voimme kuunnella näppäimistöä, 
+            meidän täytyy käyttää monia asioita, 
+            joita olemme tähän asti opetelleet. 
+            Ensinnäkin tarvitsemme <b>tapahtuman kuuntelijan</b>, 
+            joka kuuntelee selaimessa, 
+            milloin painiketta painetaan. 
+            Kun näppäimen painaminen tapahtuu, 
+            meidän tulee tarkastaa, 
+            mitä näppäintä painettiin. 
+        </p>
+
         <div class="codebox example">
             <h3>Esimerkki</h3>
-
+            <p>
+                
+            </p>
             <script>
                 addEditor(
-                    `<!doctype HTML>
+ `<!doctype HTML>
+  <p id = teksti>
+  </p>
 <script>
+    
     document.onkeydown = event => {
         if (event.key == "ArrowUp") {
-                   
+            teksti.textContent = "Ylös."
         }
         if (event.key == "ArrowDown") {
-                   
+            teksti.textContent = "Alas."
         }
         if (event.key == "ArrowLeft") {
-                    
+            teksti.textContent = "Vasemmalle."
         }
         if (event.key == "ArrowRight") {
-                 
+            teksti.textContent = "Oikealle."
         }
     }
     
