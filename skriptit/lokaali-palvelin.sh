@@ -12,6 +12,8 @@ main() {
     port="$1"
   fi
   
+  echo osoite:
+  echo http://localhost:"$port"/osa1/osa1.html
   python3 -m http.server --bind 127.0.0.1 "$port"
 }
 
