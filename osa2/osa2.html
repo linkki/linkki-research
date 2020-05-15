@@ -32,31 +32,67 @@
 		<h1>Osa 2. – JavaScriptin alkeet</h1>
 		<h2>2.1 HTML ja tägit</h2>
 		<p>
-			HTML-kieli on suunniteltu kertomaan verkkoselaimelle, mitä asioita sivulla näkyy.
-			HTML-kielellä kirjoitettu teksti sisältää tavallisen tekstin seassa <b>tägejä</b>.
-			Tägit muuttavat sitä, miten teksti näkyy.
+			HTML näyttää selaimessa sisällön. 
+			Esimerkiksi kuvat, teksti ja pelit näytetään verkkoselaimessa HTML:n avulla. 
+			HTML:ssä käytetään tägejä, joilla ilmaistaan, miltä haluamme sisällön näyttävän selaimessa. 
+		</p>
+		<p>
+			Jos haluamme näyttää tekstiä laitamme sen <code>&lt;p&gt;</code> tägien sisään. 
+			Kun haluamme, että teksti on lihavoitua laitamme sen ympärille vielä <code>&lt;b&gt;</code> tägit. 
+			Tägeille pitää myös kertoa, milloin lopettaa. 
+			Emmehän halua, että koko teksti on lihavoitua. 
+			Siksi laitamme tägin <code>&lt;/b&gt;</code> kertomaan, että lihavointi loppuu. 
+			Samoin lopetamme teksti osion käyttämällä <code>&lt;/p&gt;</code>-tägiä. 
+			Tämän jälkeen voimme esimerkiksi <code>&lt;button&gt;</code> tägillä luoda painikkeen. 
 		</p>
 		<div class="codebox example">
 		<h3>Esimerkki</h3>
+		<p>
+			Esimerkissä käytetään juuri oppimiamme tägejä kertomaan selaimelle, 
+			miltä verkkosivun pitää näyttää.
+		</p>
 		<script>
 			addEditor(
 `<!doctype HTML>
-Tässä on <b>tummennettu</b> sana.`
+<p>Tässä on <b>lihavoitu</b> sana.</p>
+<button>Painike</button>`
 			, true);</script>
 		</div>
+                <!--
+                -->
 		<div style="display: flex;">
                 <div>
 		<p>
-			Yllä olevassa esimerkissä on kolme tägiä: <code>&lt;!doctype HTML&gt;</code>, <code>&lt;b&gt;</code> ja <code>&lt;/b&gt;</code>.
-			Ensimmäinen tägi kertoo selaimelle, että koodi on juuri HTML-kieltä.
-			Tummennus toimii näin: <code>&lt;b&gt;</code> kertoo selaimelle, että sen pitää aloittaa tummentaminen
-			ja <code>&lt;/b&gt;</code> taas, että sen pitää lopettaa tummentaminen.
+			Kun verkkoselain tulkitse HTML-koodin, 
+			se poistaa tägit ja näyttää sisällön tägien perusteella muotoiltuna.
 		</p>
 		</div>
 		<div>
-                <img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/bold.webp"/>
+                <img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/bold-2.webp" height="500" width="500"/>
 		</div>
+                <!--
+                -->
 		</div>
+
+		<div class="codebox task">
+            <h3>Tehtävä</h3>
+            <p>
+				Täydennä tägien sisälle sopivat arvot. 
+				Ole tarkkana, joukossa on myös uusia tägejä!
+            </p>
+
+            <script>
+                addEditor(
+`<!doctype HTML>
+<p> Nimi: <b></b></p>
+<p> Ikä: <b></b></p>
+<p> Kotikaupunki <b></b></p>
+<p> Harrastan <i></i>.</p>
+<p> <u>Ensimmäinen tehtävä on tehty.</u> </p>`
+                );</script>
+
+        </div>
+
 		<h2>2.2 Mikä ihmeen JavaScript?</h2>
 		<div style="display: flex;">
 		<div>
@@ -74,7 +110,7 @@ Tässä on <b>tummennettu</b> sana.`
 		</p>
 		</div>
 		<div>
-                <img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/directions.webp">
+                <img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/kaaroja.webp">
 		</div>
 		</div>
 		<div class="codebox task">
@@ -270,7 +306,7 @@ alert(viesti) `,
 			Ilman lainausmerkkejä sanat ovat muuttujia tai komentoja.
 			<code>viesti</code> on siis nimi merkkijonolle "Kissat ovat kivoja!".
 		</p>
-                <img src="../img/const-box.webp" width="800" height="600"/>
+                <img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/muuttuja.webp" width="901" height="507"/>
 
 		<div class="codebox example">
 			<h3>Esimerkki 2.b</h3>

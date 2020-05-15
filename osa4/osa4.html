@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Jäsäkurssi - Osa 4</title>
+    <title>Jäsäkurssi - Osa 3</title>
     <link href="../pohja/pohja.css" rel="stylesheet" type="text/css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
@@ -27,9 +27,9 @@
         </nav>
     </div>
     <div class="content">
-        <h1>Osa 4. – Ehdot</h1>
+        <h1>Osa 4. - Ehdot</h1>
 
-        <h2>Mitä ovat ehtolauseet?</h2>
+        <h2>Mitä ovat ehto-lauseet?</h2>
         <p>
             Jos Almalla on enemmän kuin 5 pähkinää, niin hän voi jakaa ne ystävänsä Brunon kanssa.
             Jakaako Alma pähkinät Brunon kanssa, jos hänellä on 10 pähkinää?
@@ -41,24 +41,25 @@
         <p>
             Almalla oli ehto, jonka perusteella hän toimi tietyllä tavalla.
             Seuraavaksi tutustumme,
-            miten voimme antaa tietokoneelle samanlaisia ehtoja.
+            miten voimme antaa tietokoneella samanlaisia ehtoja.
         </p>
         <h2>Jos-niin ehto</h2>
-        <p><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää, <u>niin</u> Alma jakaa pähkinät Brunon kanssa.</p>
+        <p><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa.</p>
         <p>
-            Ehtolause on muotoa <code>if (ehto)</code>.
+            Ehto-lause on muotoa <code>if (ehto)</code>.
             Kun ehto toteutuu,
-            suoritetaan koodi <code>{ }</code>-lohkon sisältä.
+            suoritetaan koodi <code>{ }</code> lohkon sisältä.
             Edellisen kohdan esimerkki voitaisiin siis kirjoittaa muodossa
         </p>
-        <script>codeExample(
-`if(almanPähkinät > 5){
-    brunonPähkinät = almanPähkinät/2
-    almanPähkinät = almanPähkinät/2
-} `, "javascript");</script>
+        <code><pre>
+    if(almanPähkinät > 5){
+        brunonPähkinät = almanPähkinät/2
+        almanPähkinät = almanPähkinät/2
+    }
+    </pre></code>
 
         <p>Tietokone ei kuitenkaan ymmärrä tätä koodia ihan tälläisenään.
-            Tutkitaan JavaScriptillä kirjoitettua esimerkkiä, jonka tietokonekin ymmärtää.
+            Tutkitaan JavaScriptillä kirjoitettua esimerkkiä, jonka tietokonekkin ymmärtää.
         </p>
         <div class="codebox example">
             <h3>Esimerkki</h3>
@@ -105,7 +106,7 @@ ${closeScript}`
         </div>
 
         <p>
-            Ehtolauseesta on erityisesti hyötyä silloin kun saamamme syöte ei ole aina sama.
+            Ehto-lauseesta on erityisesti hyötyä silloin kun saamamme syöte ei ole aina sama.
         </p>
         <div class="codebox example">
             <h3>Esimerkki</h3>
@@ -133,12 +134,12 @@ ${closeScript}`
             <h3>Vertailu</h3>
 
             <p>
-                Matematiikasta tuttuja vertailuoperaattoreita ovat <i>pienempi kuin</i> <code>&lt;</code>, <i>suurempi kuin</i>
-                <code>&gt;</code> ja <i>yhtäsuuri kuin</i> <code>&equals;</code>.
+                Matematiikasta tuttuja vertailuoperaattoreita ovat pienempi <code>&lt;</code>, suurempi
+                <code>&gt;</code> ja yhtäsuuri <code>&equals;</code>.
                 Ohjelmoinnissa käytettään lähes samoja operaattoreita!
             </p>
             <p>
-                Numeroiden kokoa voidaan vertailla pienempi ja suurempi kuin -merkeillä tavallisesti.
+                Numeroiden kokoa voidaan vertailla pienempi ja suurempi kuin merkeillä tavallisesti.
             </p>
             <div class="codebox example">
 
@@ -188,9 +189,11 @@ ${closeScript}`
 
             <div class="note">
                 <h3>"ankka" === "Ankka"</h3>
-                Huomasithan, että edellisessä esimerkissä isolla kirjoitettu Ankka ei ollut sama asia kuin pienellä kirjoitettu ankka.
+                Huomasithan, että edellisessä esimerkissä isolla kirjoitettu Ankka ei ollut sama asia kuin pienellä
+                kirjoitettu ankka.
                 Tässä tuleekin olla erityisen tarkkana.
-                JavaScriptin mielestä isolla ja pienellä kirjoitetut sanat ovat erilaisia.
+                JavaScript on <b>case sensitive</b> eli sen mielestä isolla ja pienellä kirjoitetut sanat ovat
+                erilaisia.
             </div>
 
         </div>
@@ -198,7 +201,7 @@ ${closeScript}`
         <div class="codebox task">
             <h3>Tehtävä 2.2</h3>
             <p>
-                Täydennä if-lauseiden ehtoja niin, että nimi tulostuu oikein.
+                Täydennä jos-ehtoja niin, että nimi tulostuu oikein.
             </p>
 
             <script>
@@ -221,7 +224,7 @@ ${closeScript}`
         <div class="codebox task">
             <h3>Tehtävä</h3>
             <p>
-                Täydennä if-lauseen ehtoa niin, että jos muuttujan brunonPähkinät on pienempää kuin 2, niin Bruno saa lisää
+                Täydennä jos-ehtoa niin, että jos muuttujan brunonPähkinät on pienempää kuin 2, niin Bruno saa lisää
                 pähkinöitä.
             </p>
 
@@ -240,11 +243,9 @@ ${closeScript}`
 
         </div>
 
-        <h2>Jos-muuten</h2>
-        <p>
-            <u>Jos</u> Almalla on ennemmän kuin 5 pähkinää, <u>niin</u> Alma jakaa pähkinät Brunon kanssa.
-            <u>Muuten</u> Bruno saa 2 pähkinää.
-        </p>
+        <h2>Jos muuten</h2>
+        <p><u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa. <u>Muuten</u>
+            Bruno saa 2 pähkinää.</p>
         <p>
             Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkinät Brunon kanssa.
             Mitä jos Almalla on alle 5 pähkinää?
@@ -252,16 +253,16 @@ ${closeScript}`
             Tälläinen tilanne on Brunon mielestä epäreilu ja hän joutuu katselemaan vierestä,
             kun Alma syö pähkinöitä.
             Voimme kuitenkin määritellä,
-            että Bruno saa lohdutuspalkinnoksi 3 pähkinää.
+            että Bruno saa lohdutus palkinnoksi 3 pähkinää.
         </p>
-
-        <script>codeExample(
-`if(almanPähkinät > 5){
-    brunonPähkinät = almanPähkinät/2
-    almanPähkinät = almanPähkinät/2
-} else {
-    brunonPähkinät = 3
-} `, "javascript");</script>
+        <code><pre>
+            if(almanPähkinät > 5){
+                brunonPähkinät = almanPähkinät/2
+                almanPähkinät = almanPähkinät/2
+            } else {
+                brunonPähkinät = 2
+            }
+            </pre></code>
 
         <div class="codebox example">
             <h3>Esimerkki</h3>
@@ -279,7 +280,7 @@ ${closeScript}`
             brunonPähkinät = almanPähkinät/2
             almanPähkinät = almanPähkinät/2
         } else {
-            brunonPähkinät = 3
+            brunonPähkinät = 2
         }
         alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
         
@@ -291,11 +292,14 @@ ${closeScript}`
         <div class="codebox example">
             <h3>Esimerkki</h3>
             <p>
-                Esimerkissä on kuuntelija, joka odottaa, milloin tekstiä klikataan.
-                Kun tekstiä on klikattu, tarkastamme ehtolauseella, mitä tekstissä lukee.
-                <b>Jos</b> tekstissä lukee <code>"Klikkaa minua."</code>,
-                <b>niin</b> teksti vaihtuu tekstiksi <code>"Moikka moi!"</code>.
-                <b>Muutoin</b> teksti vaihtuu tekstiksi <code>"Klikkaa minua."</code>.
+                Esimerkissä on kuuntelija,
+                joka odottaa,
+                milloin tekstiä klikataan.
+                Kun tekstiä on klikattu, tarkastamme ehto-lauseella,
+                mitä tekstissä lukee.
+                <b>Jos</b> tekstissä lukee "Klikkaa minua.",
+                <b>niin</b> teksti vaihtuu tekstiksi "Moikka moi!".
+                <b>Muutoin</b> teksti vaihtuu tekstiksi "Klikkaa minua.".
             </p>
             <script>
                 addEditor(
@@ -318,8 +322,8 @@ ${closeScript}`, true
 
         <h2>Useamman ehdon käyttäminen</h2>
         <p>
-            <u>Jos</u> Almalla on tasan 5 pähkinää, <u>niin</u> Alma jakaa pähkinät Brunon kanssa.
-            <u>Muuten jos</u> Almalla on yli 10 pähkinää, hän antaa Brunolle 5 pähkinää ja pitää loput ise.
+            <u>Jos</u> Almalla on tasan 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa.
+            <u>Muuten jos</u> Almalla on yli 10 pähkinää hän antaa Brunolle 5 pähkinää ja pitää loput ise.
             <u>Muuten</u> Bruno saa 2 pähkinää.
         </p>
         <p>
@@ -369,31 +373,95 @@ ${closeScript}`, true
         
     ${closeScript}`
                 );</script>
-        </div>
+        
+    
+    </div>
+    <p>Mitä eroa seuraavilla if-lauseilla on?</p>
+    <div class="codebox example">
+        <h3>Esimerkki</h3>
+        <p>
+        </p>
+        <script>
+            addEditor(
+                `<!doctype HTML>
+<p id = teksti>
+</p>
+<script>
+    muuttuja = ""
+    if(muuttuja === ""){
+        teksti.textContent = "Heipä hei!"
+        muuttuja = "Heipä hei!"
+    }
+    if(muuttuja === "Heipä hei!"){
+        teksti.textContent = "Ankka"
+    }
+${closeScript}`, 
+            );</script>
+    </div>
+    <div class="codebox example">
+        <h3>Esimerkki</h3>
+        <p>
+            
+        </p>
+        <script>
+            addEditor(
+                `<!doctype HTML>
+<p id = teksti>
+
+</p>
+<script>
+    muuttuja = ""
+
+    if(muuttuja === ""){
+        teksti.textContent = "Heipä hei!"
+        muuttuja = "Heipä hei!"
+    } else if (muuttuja === "Heipä hei!") {
+        teksti.textContent = "Ankka"
+    }
+${closeScript}`, 
+            );</script>
+    </div>
         <h2>Näppäimistön kuuntelija</h2>
+
+        <p>Jotta voimme kuunnella näppäimistöä, 
+            meidän täytyy käyttää monia asioita, 
+            joita olemme tähän asti opetelleet. 
+            Ensinnäkin tarvitsemme <b>tapahtuman kuuntelijan</b>, 
+            joka kuuntelee selaimessa, 
+            milloin painiketta painetaan. 
+            Kun näppäimen painaminen tapahtuu, 
+            meidän tulee tarkastaa, 
+            mitä näppäintä painettiin. 
+        </p>
+
         <div class="codebox example">
             <h3>Esimerkki</h3>
-
+            <p>
+                
+            </p>
             <script>
                 addEditor(
-                    `<!doctype HTML>
+ `<!doctype HTML>
+  <p id = teksti>
+  </p>
 <script>
+    
     document.onkeydown = event => {
         if (event.key == "ArrowUp") {
-                   
+            teksti.textContent = "Ylös."
         }
         if (event.key == "ArrowDown") {
-                   
+            teksti.textContent = "Alas."
         }
         if (event.key == "ArrowLeft") {
-                    
+            teksti.textContent = "Vasemmalle."
         }
         if (event.key == "ArrowRight") {
-                 
+            teksti.textContent = "Oikealle."
         }
     }
     
-${closeScript}`, true
+${closeScript}`,
                 );</script>
         </div>
 

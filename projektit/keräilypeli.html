@@ -61,17 +61,17 @@ piirtäjä.mozImageSmoothingEnabled = false;
 piirtäjä.webkitImageSmoothingEnabled = false;
 piirtäjä.msImageSmoothingEnabled = false;
 
-//const imgs = "https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img"
-const imgs = "../img"
+// täytyy kirjoittaa ilman välilyöntejä '=' ympärillä: const imgs_src="polku/kuviin"
+const imgs_src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img"
 
 const ankkakuva = new Image()
-ankkakuva.src = imgs + "/pixelwalker.webp"
+ankkakuva.src = imgs_src + "/pixelwalker.webp"
 
 const kettukuva = new Image()
-kettukuva.src = imgs + "/pixelfox-save3.webp"
+kettukuva.src = imgs_src + "/pixelfox-save3.webp"
 
 const kalakuva = new Image()
-kalakuva.src = imgs + "/kala.webp"
+kalakuva.src = imgs_src + "/kala.webp"
 
 // Määritellään hahmot
 const hiiri = {
