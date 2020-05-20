@@ -1,0 +1,332 @@
+I"�'<h1>Keräilypeli</h1>
+
+<canvas width="800" height="600" id="kangas"></canvas>
+
+<script>
+
+// Apufunktio etäisyyden laskemiseen
+function etäisyys(hahmo1, hahmo2) {
+	const dx = hahmo1.X - hahmo2.X
+	const dy = hahmo1.Y - hahmo2.Y
+	return Math.sqrt(dx*dx + dy*dy)
+}
+
+// Apufunktio siirtämiseen
+function siirräKohti(hahmo1, hahmo2, nopeus) {
+	const dx = hahmo2.X - hahmo1.X
+	const dy = hahmo2.Y - hahmo1.Y
+	const e = etäisyys(hahmo2, hahmo1)
+	
+	hahmo1.X += dx/e*nopeus
+	hahmo1.Y += dy/e*nopeus
+}
+
+const piirtäjä = kangas.getContext("2d")
+
+// laitetaan kuvan silotus pois päältä
+// koska hahmojen kuvat ovat pixelarttia
+piirtäjä.imageSmoothingEnabled = false;
+piirtäjä.mozImageSmoothingEnabled = false;
+piirtäjä.webkitImageSmoothingEnabled = false;
+piirtäjä.msImageSmoothingEnabled = false;
+
+// täytyy kirjoittaa ilman välilyöntejä '=' ympärillä: const imgs_src="polku/kuviin"
+const imgs_src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img"
+
+const ankkakuva = new Image()
+ankkakuva.src = imgs_src + "/pixelwalker.webp"
+
+const kettukuva = new Image()
+kettukuva.src = imgs_src + "/pixelfox-save3.webp"
+
+const kalakuva = new Image()
+kalakuva.src = imgs_src + "/kala.webp"
+
+// Määritellään hahmot
+const hiiri = {
+	X: 0,
+	Y: 0,
+}
+const pelaaja = {
+	X: 100,
+	Y: 100,
+	pisteet: 0,
+        kuva: ankkakuva,
+}
+const vihollinen = {
+	X: 400,
+	Y: 400,
+        kuva: kettukuva,
+}
+const aarre = {
+	X: Math.random()*800,
+	Y: Math.random()*600,
+        kuva: kalakuva,
+}
+
+// Pidetään hiiren koordinaatit ajan tasalla
+kangas.onmousemove = event => {
+	hiiri.X = event.offsetX
+	hiiri.Y = event.offsetY
+}
+
+function piirrä() {
+	// Tyhjennetään ruutu
+	piirtäjä.clearRect(0, 0, 800, 600)
+	
+	piirtäjä.fillStyle = "black"
+	piirtäjä.fillText("Pisteet: " + pelaaja.pisteet, 10, 20)
+	
+	// Piirretään pelaajahahmo
+        // spriten koko on 64 x 64 pikseliä
+        piirtäjä.drawImage(pelaaja.kuva, pelaaja.X-32, pelaaja.Y-32)
+	
+	// Piirretään vihollishahmo
+        // spriten koko on 64 x 64 pikseliä
+        piirtäjä.drawImage(vihollinen.kuva, vihollinen.X-32, vihollinen.Y-32)
+	
+	// Piirretään aarrehahmo
+        // spriten koko on 32 x 32 pikseliä
+        piirtäjä.drawImage(aarre.kuva, aarre.X-16, aarre.Y-16)
+	
+	// Pyydetään selainta piirtämään samat asiat kohta uudestaan
+	requestAnimationFrame(piirrä)
+}
+
+// Pyydetään selainta piirtämään asiat ensimmäisen kerran
+requestAnimationFrame(piirrä)
+
+// Liikutetaan hahmoa ja vihollista (ikuisessa silmukassa)
+setInterval(() => {
+	siirräKohti(pelaaja, hiiri, 1)
+	siirräKohti(vihollinen, pelaaja, 0.5)
+	
+	// Tarkistetaan osuma aarteeseen
+        // (64 + 16)/2 = 40 tuntuu hyvältä etäisyydeltä kokeilemalla
+	if (etäisyys(pelaaja, aarre) < 40) {
+		pelaaja.pisteet += 1
+		while (etäisyys(pelaaja, aarre) < 40) {
+			aarre.X = Math.random()*800
+			aarre.Y = Math.random()*600
+		}
+	}
+	
+	// Tarkistetaan osuma viholliseen
+        // (64 + 32)/2 = 48 tuntuu hyvältä etäisyydeltä kokeilemalla
+	if (etäisyys(pelaaja, vihollinen) < 48) {
+		pelaaja.pisteet = 0
+		pelaaja.X = 100
+		pelaaja.Y = 100
+		vihollinen.X = 400
+		vihollinen.Y = 400
+	}
+}, 10)
+</script>
+
+<h2>Ohjeet</h2>
+
+<h3>Alkuvalmistelut</h3>
+
+<p class="task">Kopioi aloituspohja (kankaan kokoa ja väriä voi muuttaa halutessaan:</p>
+<script>codeExample(`<!doctype HTML>
+
+<canvas width = 800
+        height = 600
+        style = background-color:beige;></canvas>
+
+<script>
+
+${closeScript}`, "html");</script>
+
+<p class="task">Käytämme tehtävässä seuraavia funktioita kahden hahmon etäisyyden laskemiseen ja hahmon liikuttamiseen. Kopioi ne <code>&lt;script&gt;</code>-tägien väliin.</p>
+<script>codeExample(`// Apufunktio etäisyyden laskemiseen
+function etäisyys(hahmo1, hahmo2) {
+	const dx = hahmo1.X - hahmo2.X
+	const dy = hahmo1.Y - hahmo2.Y
+	return Math.sqrt(dx*dx + dy*dy)
+}
+
+// Apufunktio siirtämiseen
+function siirräKohti(hahmo1, hahmo2, nopeus) {
+	const dx = hahmo2.X - hahmo1.X
+	const dy = hahmo2.Y - hahmo1.Y
+	const e = etäisyys(hahmo2, hahmo1)
+	
+	hahmo1.X += dx/e*nopeus
+	hahmo1.Y += dy/e*nopeus
+}
+`, "javascript");</script>
+
+<p class="task">Määrittele piirtäjä-muuttuja piirtämistä varten:</p>
+<script>codeExample(`const piirtäjä = kangas.getContext("2d") `, "javascript");</script>
+
+<h3>Hahmojen muuttujat</h3>
+
+<p>Muistutuksena hahmo-olion ja sen sisältämät muuttujat luodaan näin:</p>
+
+<script>codeExample(`const pelaaja = {
+	X: 100,
+	Y: 100,
+	pisteet: 0,
+}
+`, "javascript");</script>
+
+<p>
+	<span class="task">Luo <code>pelaaja</code>, jolla on muuttujat <code>X</code>, <code>Y</code> ja <code>pisteet</code>.</span>
+	<span class="task">Lisäksi luo <code>hiiri</code>, joilla on vain <code>X</code> ja <code>Y</code>.</span>
+	Voit asettaa hahmojen X- ja Y-koordinaatit alussa miten haluat.
+</p>
+
+<p>
+	Hiiri-hahmon tarkoitus on olla siinä, missä hiiri on.
+	JavaScriptissä emme voi selvittää milloin vain, missä hiiri on, vaan saamme tietää hiiren sijainnin vain, kun se liikkuu.
+	Siirtämällä hiiri-hahmon kursorin päälle sen liikkuessa tiedämme aina, missä hiiri on.
+	<span class="task">Käytä seuraavaa koodia:</span>
+</p>
+
+<script>codeExample(`// Pidetään hiiren koordinaatit ajan tasalla
+kangas.onmousemove = event => {
+	hiiri.X = event.offsetX
+	hiiri.Y = event.offsetY
+}
+`, "javascript");</script>
+
+<h3>Piirtosilmukka</h3>
+
+<p class="task">Tee <code>piirrä</code>-funktiosta piirtosilmukka käyttäen <code>requestAnimationFrame</code>-funktiota:</p>
+
+<script>codeExample(`function piirrä() {
+	// Tyhjennetään ruutu
+	piirtäjä.clearRect(0, 0, 800, 600)
+	
+	/* Piirretään hahmot tässä */
+	
+	// Pyydetään selainta piirtämään samat asiat kohta uudestaan
+	requestAnimationFrame(piirrä)
+}
+
+// Pyydetään selainta piirtämään asiat ensimmäisen kerran
+requestAnimationFrame(piirrä)
+`, "javascript");</script>
+
+<p class="task">
+	Piirrä funktion sisällä pelaaja.
+	Pelaajan koordinaatit ovat <code>pelaaja.X</code> ja <code>pelaaja.Y</code>.
+	Voit piirtää joko neliön <code>fillRect</code>-komennolla tai kuvan <code>drawImage</code>-komennolla.
+</p>
+
+<p>
+	Hiiren kohdalle ei tarvitse piirtää mitään, näkyyhän siinä jo käyttöjärjestelmän oma kursori, mutta siihen voi halutessaan piirtää oman kuvan.
+</p>
+
+<p class="task">
+	Piirrä myös teksti <code>"Pisteet " + pelaaja.pisteet</code> näkymän yläreunaan. 
+</p>
+
+<p>
+	Kokeile nyt, toimiiko pelaajan piirtäminen. Pisteiden kohdalla pitäisi lukea tietysti 0.
+</p>
+
+<h3>Pelaajan liikuttaminen</h3>
+
+<p class="task">Tee <code>setInterval</code>-silmukka hahmojen liikuttamista varten:</p>
+
+<script>codeExample(`setInterval(() => {
+	
+	/* Tähän tulee liikuttamisen koodi */
+	
+})
+`, "javascript");</script>
+
+<p class="task">
+	Lisää komento hahmon liikuttamista varten.
+	Hahmoja liikutetaan alussa luodulla <code>siirräKohti</code>-funktiolla.
+	Aluksi meidän tarvitsee vain siirtää pelaajaa kohti hiirtä: <code>siirräKohti(pelaaja, hiiri, 1)</code>.
+	Lopun <code>1</code> kertoo, millä nopeudella pelaaja liikkuu, ja voit muuttaa sitä halutessasi.
+</p>
+
+<p>
+	Kokeile tässä vaiheessa, toimiiko peli ja hahmon liikuttaminen.
+</p>
+
+<h3>Aarre</h3>
+
+<p class="task">
+	Luo uusi hahmo-olio <code>aarre</code> samaan tapaan kuin <code>pelaaja</code> ja <code>hiiri</code> on luotu.
+	Aarteella on vain <code>X</code> ja <code>Y</code>.
+	Voit asettaa koordinaatit aluksi miten haluat.
+</p>
+
+<h3>Aarteeseen koskettaminen</h3>
+
+<p>
+	Käytämme alussa luotua <code>etäisyys</code>-funktiota tarkistaaksemme, miten lähellä olemme aarretta.
+	<span class="task">Tee <code>if</code>-lause, jonka ehto on <code>etäisyys(pelaaja, aarre) &lt; 100</code>:</span>
+</p>
+
+<script>codeExample(`if (etäisyys(pelaaja, aarre) < 100) {
+
+}
+`, "javascript");</script>
+
+<p class="task">
+	<code>if</code>-lauseen sisällä kasvata pelaajan pisteitä (<code>pelaaja.pisteet</code>) yhdellä.
+</p>
+
+<p class="task">
+	Haluamme arpoa aarteelle uuden sijainnin osuman jälkeen.
+	Käytämme siihen <code>Math.random()</code>-funktiota:
+</p>
+
+<script>codeExample(`aarre.X = Math.random()*800
+aarre.Y = Math.random()*600`, "javascript");</script>
+
+<p>
+	Kokeile nyt peliä.
+	Saatat huomata, että pistemäärä kasvaa joskus enemmällä kuin yhdellä.
+	Tämä johtuu siitä, että joskus aarteen uusi sijainti koskettaa myös pelaajaa, ja tästä tulee ylimääräinen piste.
+	Estääksemme tämän meidän on varmistettava, että uusi paikka ei kosketa pelaajaa.
+	Tämä on helpointa tehdä <code>while</code>-silmukalla, joka arpoo sijainnin uudestaan, kunnes etäisyys on tarpeeksi suuri.
+	<span class="task">Lisää silmukka sijainnin arpomisen ympärille:</span>
+</p>
+
+<script>codeExample(`while (etäisyys(pelaaja, aarre) < 100) {
+
+}
+`, "javascript");</script>
+
+<p>Kokeile taas, toimiiko peli.</p>
+
+<h3>Vihollinen</h3>
+
+<p>
+	Haluamme peliin vihollisen, joka jahtaa pelaajaa.
+	<span class="task">Tätä varten tee uusi hahmo-olio nimeltä <code>vihollinen</code>, jolla on vain <code>X</code> ja <code>Y</code>.</span>
+	Niiden alkuarvot kannattaa asettaa mahdollisimmat kauas pelaajan alkukoordinaateista, jotta peli ei ole liian vaikea.
+</p>
+
+<p>
+	<span class="task">Lisää <code>setInterval</code>-silmukan sisään komento vihollisen liikuttamiseksi hahmoa päin: <code>siirräKohti(vihollinen, pelaaja, 0.5)</code>.</span>
+	Nopeuden kannattaa olla pienempi kuin pelaajan nopeus, jotta viholliselta voi päästä karkuun.
+	Kokeile peliä ja eri nopeuksia ja koeta valita hyvä nopeus.
+</p>
+
+<p>
+	Lopuksi tarkistetaan, osuuko vihollinen pelaajaan.
+	<span class="task">Tehdään tätä varten samanlainen <code>if</code>-lause kuin aarteen osuman tarkistukseen, mutta tarkastetaankin pelaajan ja vihollisen välinen etäisyys.</span>
+	Ehtolauseen sisällä resetoi peli:
+</p>
+
+<ol>
+<li><span class="task">Aseta pelaajan X ja Y takaisin alkupisteeseen.</span>
+<li><span class="task">Aseta vihollisen X ja Y takaisin alkupisteseen.</span>
+<li><span class="task">Aseta pelaajan pisteet nollaan.</span>
+&lt;/ol&gt;
+
+<p>
+	Voit asettaa pisteet myös johonkin muuhun arvoon.
+	Ehkä tilanne ei olekaan täysi häviö, vaan pisteitä vain vähennetään jollain määrällä.
+	Voit muuttaa pelilogiikan mieleiseksesi.
+</p>
+</li></li></li></ol>
+:ET

@@ -1,0 +1,74 @@
+I"�	<h1 id="ristinolla">Ristinolla</h1>
+
+<table id="taulukko">
+            <tr>
+                <td> <button id="nappi1" style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id="nappi2" style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id="nappi3" style="width: 50px; height: 50px;"></button> </td>
+            </tr>
+            <tr>
+                <td> <button id="nappi4" style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id="nappi5" style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id="nappi6" style="width: 50px; height: 50px;"></button> </td>
+            </tr>
+            <tr>
+                <td> <button id="nappi7" style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id="nappi8" style="width: 50px; height: 50px;"></button> </td>
+                <td> <button id="nappi9" style="width: 50px; height: 50px;"></button> </td>
+            </tr>
+        </table>
+<script>
+vuoro = "X"
+nappi1.onclick = () => {
+    pelaaMerkki(nappi1)
+}
+nappi2.onclick = () => {
+    pelaaMerkki(nappi2)
+}
+nappi3.onclick = () => {
+    pelaaMerkki(nappi3)
+}
+nappi4.onclick = () => {
+    pelaaMerkki(nappi4)
+}
+nappi5.onclick = () => {
+   pelaaMerkki(nappi5)
+}
+nappi6.onclick = () => {
+    pelaaMerkki(nappi6)
+}
+nappi7.onclick = () => {
+    pelaaMerkki(nappi7)
+}
+nappi8.onclick = () => {
+    pelaaMerkki(nappi8)
+}
+nappi9.onclick = () => {
+    pelaaMerkki(nappi9)
+}
+function pelaaMerkki(painike) {
+    if (painike.innerText === "") {
+    if (vuoro === "X") {
+        painike.innerText = "X"
+        vuoro = "0"
+    } else {
+        painike.innerText = "0"
+        vuoro = "X"
+    }
+  }
+
+}
+
+</script>
+
+<h2>Ohjeet</h2>
+<p> Aloitetaan luomalla runko ristinollan painikkeita varten. Kopioi seuraava koodi. </p>
+
+<p>Jotta voimme muokata painikkeiden tekstiä tulee meidän luoda jokaiselle painikkeelle oma kuutelija, joka odottaa sitä, että painiketta klikataan.</p>
+
+<p> Haluamme myös tietää, onko pelaajan X vai pelaajan O vuoro. Saamme tämän selville luomalla muuttujan, johon talletetaan tieto kunkin pelaajan vuorosta. </p>
+
+<p>Kirjoitetaan funktio, joka hoitaa painikkeen tekstin vaihtamisen. Haluamme painikkeisiin seuraavanlaisen toiminnallisuuden:</p>
+
+<p>Jos painikkeessa ei ole vielä tekstiä, niin asetamme sen tekstiksi sen kumman pelaajan vuoro on. Haluamme samalla vaihtaa pelaajan vuoroa.</p>
+:ET

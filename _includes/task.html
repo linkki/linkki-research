@@ -1,0 +1,12 @@
+<div class="codebox task">
+    <h3>Tehtävä</h3>
+    <p>
+        {{ include.tehtava-ohje }}
+    </p>
+    <script>
+        addEditor(
+    `
+    {{ include.tehtava-koodi }}
+    `
+        );</script>
+    </div>

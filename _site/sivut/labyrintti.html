@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width; user-scalable=yes">
+    <title>JavaScript</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href=/js-materiaali/assets/css/main.css>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ext-language_tools.js"></script>
+    <script src=/js-materiaali/assets/js/main.js></script>
+</head>
+
+<body>
+
+    <nav class="nav">
+    <ol>
+        <li class="nav-obj"><a href=/js-materiaali/index>Etusivu</a></li>
+        
+        
+        
+        <li class="nav-obj"><a href="/js-materiaali/sisalto/osa-1/index.html">Osa 1</a></li>
+               
+        
+        
+        <li class="nav-obj"><a href="/js-materiaali/sisalto/osa-2/index.html">Osa 2</a></li>
+               
+        
+        
+        <li class="nav-obj"><a href="/js-materiaali/sisalto/osa-3/index.html">Osa 3</a></li>
+               
+        
+        
+        <li class="nav-obj"><a href="/js-materiaali/sisalto/osa-4/index.html">Osa 4</a></li>
+               
+        
+        
+        <li class="nav-obj"><a href="/js-materiaali/sisalto/osa-5/index.html">Osa 5</a></li>
+               
+        
+        
+        <li class="nav-obj"><a href="/js-materiaali/sisalto/osa-6/index.html">Osa 6</a></li>
+               
+        
+
+        
+        <li class="nav-obj"><a href="/js-materiaali/sivut/index.html">Projektit</a></li>
+        
+        <li class="nav-obj"><a href="/js-materiaali/sivut/ker%C3%A4ilypeli.html"></a></li>
+        
+        <li class="nav-obj"><a href="/js-materiaali/sivut/labyrintti.html"></a></li>
+        
+        <li class="nav-obj"><a href="/js-materiaali/sivut/matopeli.html"></a></li>
+        
+        <li class="nav-obj"><a href="/js-materiaali/sivut/ristinolla.html"></a></li>
+        
+        <li class="nav-obj"><a href="/js-materiaali/sivut/v%C3%A4istelypeli.html"></a></li>
+        
+    </ol>
+</nav>
+    <div class="header">
+    <h1>Labyrinttipeli</h1>
+</div>
+    <div class="content">
+    <h1 id="labyrinttipeli">Labyrinttipeli</h1>
+<canvas id="kangas" width="425" height="150"></canvas>
+<p><button id="aloitaAlustaBtn">Aloita alusta.</button></p>
+
+<script>
+    debug = false
+    function etäisyys(hahmo1, hahmo2) {
+        const dx = hahmo1.X - hahmo2.X
+        const dy = hahmo1.Y - hahmo2.Y
+        return Math.sqrt(dx * dx + dy * dy)
+    }
+    function laatikkoLiiku(suunta, laatikko, olikoMaalissa) {
+        if (olikoMaalissa) {
+            kartta[laatikko.taulukkoY][laatikko.taulukkoX] = 2
+        } else {
+            kartta[laatikko.taulukkoY][laatikko.taulukkoX] = 0
+        }
+        if (suunta === "ylös") {
+            laatikko.Y -= 25
+            laatikko.taulukkoY -= 1
+        } else if (suunta === "alas") {
+            laatikko.Y += 25
+            laatikko.taulukkoY += 1
+        } else if (suunta === "vasen") {
+            laatikko.X -= 25
+            laatikko.taulukkoX -= 1
+        } else if (suunta === "oikea") {
+            laatikko.X += 25
+            laatikko.taulukkoX += 1
+        }
+        kartta[laatikko.taulukkoY][laatikko.taulukkoX] = 3
+    }
+    function osuuko(mihinOsutaan, laatikko, suunta) {
+        if (suunta === "ylös") {
+            return kartta[laatikko.taulukkoY - 1][laatikko.taulukkoX] === mihinOsutaan
+        }
+        if (suunta === "alas") {
+            return kartta[laatikko.taulukkoY + 1][laatikko.taulukkoX] === mihinOsutaan
+        }
+        if (suunta === "vasen") {
+            return kartta[laatikko.taulukkoY][laatikko.taulukkoX - 1] === mihinOsutaan
+        }
+        if (suunta === "oikea") {
+            return kartta[laatikko.taulukkoY][laatikko.taulukkoX + 1] === mihinOsutaan
+        }
+    }
+    function asetaMaaliin(laatikko) {
+        kartta[laatikko.taulukkoY][laatikko.taulukkoX] = 4
+    }
+    function aloitaAlusta() {
+        pelaaja.X = 50
+        pelaaja.Y = 100
+        pelaaja.taulukkoX = 2
+        pelaaja.taulukkoY = 4
+        pelaaja.suunta = "oikea"
+        pelaaja.askeleet = 0
+        laatikko1.X = 50
+        laatikko1.Y = 50
+        laatikko1.taulukkoX = 2
+        laatikko1.taulukkoY = 2
+        laatikko1.maali = false
+        laatikko2.X = 125
+        laatikko2.Y = 75
+        laatikko2.taulukkoX = 5
+        laatikko2.taulukkoY = 3
+        laatikko2.maali = false
+        laatikko3.X = 200
+        laatikko3.Y = 75
+        laatikko3.taulukkoX = 8
+        laatikko3.taulukkoY = 3
+        laatikko3.maali = false
+        laatikko4.X = 275
+        laatikko4.Y = 50
+        laatikko4.taulukkoX = 11
+        laatikko4.taulukkoY = 2
+        laatikko4.maali = false
+        kartta = [
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1],
+            [1, 2, 3, 0, 0, 0, 1, 0, 0, 1, 2, 3, 0, 0, 0, 0, 1],
+            [1, 0, 0, 1, 2, 3, 0, 2, 3, 0, 0, 0, 1, 0, 0, 0, 1],
+            [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        ]
+        piirrä()
+    }
+    const piirtäjä = kangas.getContext("2d")
+    const pelaaja = {
+        X: 50,
+        Y: 100,
+        taulukkoX: 2,
+        taulukkoY: 4,
+        suunta: "oikea",
+        askeleet: 0
+    }
+    const laatikko1 = {
+        X: 50,
+        Y: 50,
+        taulukkoX: 2,
+        taulukkoY: 2,
+        maali: false
+    }
+    const laatikko2 = {
+        X: 125,
+        Y: 75,
+        taulukkoX: 5,
+        taulukkoY: 3,
+        maali: false
+    }
+    const laatikko3 = {
+        X: 200,
+        Y: 75,
+        taulukkoX: 8,
+        taulukkoY: 3,
+        maali: false
+    }
+    const laatikko4 = {
+        X: 275,
+        Y: 50,
+        taulukkoX: 11,
+        taulukkoY: 2,
+        maali: false
+    }
+    const laatikot = [laatikko1, laatikko2, laatikko3, laatikko4]
+    aloitaAlustaBtn.onclick = () => {
+        aloitaAlusta()
+    }
+    seinä = 1
+    tyhjä = 0
+    palkinto = 2
+    laatikko = 3
+    aloitaAlusta()
+    pelaajaLiikkui = false
+    document.onkeydown = event => {
+        if (event.key == "ArrowUp") {
+            event.preventDefault()
+            if ((!osuuko(seinä, pelaaja, "ylös")) || debug) {
+                pelaaja.suunta = "ylös"
+                pelaaja.Y -= 25
+                pelaaja.taulukkoY -= 1
+                pelaajaLiikkui = true
+            }
+        }
+        if (event.key == "ArrowDown") {
+            event.preventDefault()
+            if ((!osuuko(seinä, pelaaja, "alas")) || debug) {
+                pelaaja.suunta = "alas"
+                pelaaja.Y += 25
+                pelaaja.taulukkoY += 1
+                pelaajaLiikkui = true
+            }
+        }
+        if (event.key == "ArrowLeft") {
+            if ((!osuuko(seinä, pelaaja, "vasen")) || debug) {
+                pelaaja.suunta = "vasen"
+                pelaaja.X -= 25
+                pelaaja.taulukkoX -= 1
+                pelaajaLiikkui = true
+            }
+        }
+        if (event.key == "ArrowRight") {
+            if ((!osuuko(seinä, pelaaja, "oikea")) || debug) {
+                pelaaja.suunta = "oikea"
+                pelaaja.X += 25
+                pelaaja.taulukkoX += 1
+                pelaajaLiikkui = true
+            }
+        }
+        for (laatikko of laatikot) {
+            if (etäisyys(pelaaja, laatikko) < 25) {
+                if (pelaaja.suunta === "ylös") {
+                    if (osuuko(palkinto, laatikko, "ylös")) {
+                        laatikkoLiiku("ylös", laatikko, false)
+                        laatikko.maali = true
+                        asetaMaaliin(laatikko)
+                    } else if (osuuko(tyhjä, laatikko, "ylös")) {
+                        if (laatikko.maali) {
+                            laatikkoLiiku("ylös", laatikko, true)
+                            laatikko.maali = false
+                        } else {
+                            laatikkoLiiku("ylös", laatikko, false)
+                        }
+                    }
+                    else {
+                        pelaaja.Y += 25
+                        pelaaja.taulukkoY += 1
+                        pelaajaLiikkui = false
+                    }
+                }
+                if (pelaaja.suunta === "vasen") {
+                    if (osuuko(palkinto, laatikko, "vasen")) {
+                        laatikkoLiiku("vasen", laatikko, false)
+                        laatikko.maali = true
+                        asetaMaaliin(laatikko)
+                    } else if (osuuko(tyhjä, laatikko, "vasen")) {
+                        if (laatikko.maali) {
+                            laatikkoLiiku("vasen", laatikko, true)
+                            laatikko.maali = false
+                        } else {
+                            laatikkoLiiku("vasen", laatikko, false)
+                        }
+                    } else {
+                        pelaaja.X += 25
+                        pelaaja.taulukkoX += 1
+                        pelaajaLiikkui = false
+                    }
+                }
+                if (pelaaja.suunta === "oikea") {
+                    if (osuuko(palkinto, laatikko, "oikea")) {
+                        laatikkoLiiku("oikea", laatikko, false)
+                        laatikko.maali = true
+                        asetaMaaliin(laatikko)
+                    } else if (osuuko(tyhjä, laatikko, "oikea")) {
+                        if (laatikko.maali) {
+                            laatikkoLiiku("oikea", laatikko, true)
+                            laatikko.maali = false
+                        } else {
+                            laatikkoLiiku("oikea", laatikko, false)
+                        }
+                    } else {
+                        pelaaja.X -= 25
+                        pelaaja.taulukkoX -= 1
+                        pelaajaLiikkui = false
+                    }
+                }
+                if (pelaaja.suunta === "alas") {
+                    if (osuuko(palkinto, laatikko, "alas")) {
+                        laatikkoLiiku("alas", laatikko, false)
+                        laatikko.maali = true
+                        asetaMaaliin(laatikko)
+                    } else if (osuuko(tyhjä, laatikko, "alas")) {
+                        if (laatikko.maali) {
+                            laatikkoLiiku("alas", laatikko, true)
+                            laatikko.maali = false
+                        } else {
+                            laatikkoLiiku("alas", laatikko, false)
+                        }
+                    } else {
+                        pelaaja.Y -= 25
+                        pelaaja.taulukkoY -= 1
+                        pelaajaLiikkui = false
+                    }
+                }
+            }
+        }
+        if (pelaajaLiikkui) {
+            pelaaja.askeleet += 1
+        }
+    }
+    function piirrä() {
+        piirtäjä.clearRect(0, 0, 25 * 17, 25 * 6)
+        for (let y = 0; y < 6; y++) {
+            for (let x = 0; x < 17; x++) {
+                if (kartta[y][x] === 1) {
+                    piirtäjä.fillStyle = "grey"
+                    piirtäjä.fillRect(25 * x, 25 * y, 25, 25)
+                }
+                if (kartta[y][x] === 2) {
+                    piirtäjä.fillStyle = "yellow"
+                    piirtäjä.fillRect(25 * x, 25 * y, 25, 25)
+                }
+                if (kartta[y][x] === 3) {
+                    piirtäjä.fillStyle = "blue"
+                    piirtäjä.fillRect(25 * x, 25 * y, 25, 25)
+                }
+                if (kartta[y][x] === 4) {
+                    piirtäjä.fillStyle = "green"
+                    piirtäjä.fillRect(25 * x, 25 * y, 25, 25)
+                }
+            }
+        }
+        //piirretään pelaaja
+        piirtäjä.fillStyle = "red"
+        piirtäjä.fillRect(pelaaja.X, pelaaja.Y, 25, 25)
+        piirtäjä.font = '15px sans'
+        piirtäjä.fillStyle = "black"
+        piirtäjä.fillText("Askeleet: " + pelaaja.askeleet, 10, 20)
+        voitto = true
+        for (const laatikko of laatikot) {
+            if (!laatikko.maali) {
+                voitto = false
+            }
+        }
+        if (voitto) {
+            piirtäjä.fillStyle = "rgba(255, 255, 255, 0.5)";
+            piirtäjä.fillRect(0, 0, kangas.width, kangas.height);
+            piirtäjä.font = 'bold 40px sans'
+            piirtäjä.fillStyle = "black"
+            piirtäjä.fillText("Onneksi olkoon,", 25, 50)
+            piirtäjä.fillText("voitit pelin!", 50, 90)
+            piirtäjä.font = '25px sans'
+            piirtäjä.fillStyle = "black"
+            piirtäjä.fillText("Siirryit " + pelaaja.askeleet + " askelta.", 50, 125)
+            cancelAnimationFrame(piirrä)
+        } else {
+            requestAnimationFrame(piirrä)
+        }
+    }
+    requestAnimationFrame(piirrä)
+</script>
+
+<div class="note">
+<h3>Huom</h3>
+            <p>
+                Tämä peli on erityisen haastava toteuttaa. Olethan harjoitellut tarpeeksi!
+            </p>
+        </div>
+<h2>Alkuvalmistelut</h2>
+<p>Peli piirretään canvas alustalle, jonka koko on 425x150.
+Canvas alueen tunnisteeksi asetetaan "kangas" ja sen taustaväri on valkoinen.
+Lisätään myös painike, jolla pelin voi aloittaa alusta.
+Painikkeelle annetaan id.
+Voit toteuttaa canvaksen itse tai kopioida alla olevan pohjan.
+<script>codeExample(`<!doctype HTML>
+
+<canvas width = 425
+        height = 150
+        style = background-color:white;></canvas>
+
+<button id=aloitaAlustaBtn>Aloita alusta.</button>
+                
+<script>
+                
+${closeScript}`, "html");</script>
+</p>
+
+</div>
+    
+
+</body>
+
+</html>
