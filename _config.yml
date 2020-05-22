@@ -20,7 +20,7 @@
 
 title: JavaScript
 description: Helsingin yliopiston nuorille suunnattu JavaScript kurssi.
-baseurl: "/js-materiaali" # the subpath of your site, e.g. /blog
+baseurl: "/linkki-research" # the subpath of your site, e.g. /blog
 url: "https://linkki.github.io/linkki-research/" # the base hostname & protocol for your site, e.g. http://example.com
 
 plugins:
