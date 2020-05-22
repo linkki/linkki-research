@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&display=swap');
+
+html {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 18px;
+      line-height: 1.5;
+      color: #000000;
+      width: 100%;
+      overflow-x: hidden; 
+      background-image: url(https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/moi.webp);
+      background-position: right bottom;
+      background-size: 20rem;
+      background-repeat: no-repeat;
+      background-color: tan;
+      background-attachment: fixed;
+}
+
+.page-content {
+    background-color: white;
+}
+
+.nav {
+    border-bottom: 1px solid black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    z-index: 999;
+}
+
+.nav ol {
+    list-style-type: none;
+    padding-left: 0;
+    color:black;
+}
+
+nav a {
+    color: black;
+}
+
+nav a:hover {
+    color: maroon;
+}
+
+.nav-obj {
+    display: inline-block;
+    color: #000;
+    padding: 0 0.5em;
+}
+
+.nav-sub-obj {
+    display: block;
+    color: #000;
+    padding: 0 0 0.5em 2em;;
+}
+
+.header{
+    text-align: center;
+    padding: 5em 0 0 0;
+    top: 0;
+    width: 100%;
+    margin: 0 0 0 0;
+    left: 0px;
+    margin-left: 0;
+    font-size: 2rem;
+    color: black;
+}
+
+.content {
+    color: black;
+    background-color: rgba(245, 245, 245, 0.884);
+    height: 100%;
+    padding: 0em 2em 0em 2em;
+    max-width: 45rem;
+    margin: auto;
+}
+
+.content > h2 {
+	border: 2px solid #ef3f3f;
+	border-radius: 1em;
+	padding-left: 0.5rem;
+	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;
+}
+
+.content > h3 {
+	border-bottom: 2px dotted #ef3f3f;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;
+}
+
+.content > p {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+.infobox {
+	max-width: 20rem;
+	border: 1px solid gray;
+	border-radius: 0.5rem;
+	float: right;
+	margin-left: 1rem;
+	padding: 1rem;
+	background-color: #ffdada;
+}
+
+.editor-side {
+	padding-right: 1rem;
+}
+
+.toolbar {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 0.33rem;
+	padding: 2px;
+	background-color: #ebebeb;
+}
+
+.result {
+	border: 2px ridge black;
+	width: 100%;
+	height: 100%;
+	min-height: 220px;
+}
+
+.codebox {
+	border: 1px solid gray;
+	border-radius: 0.5rem;
+	padding: 1rem;
+    margin: auto;
+    background-color: white;
+    max-width: 45rem;
+}
+
+.codebox > h3 {
+	margin-top: 0;
+}
+
+.example > h3::before {
+	content: '📜';
+	margin-right: 1rem;
+}
+
+.question > h3::before {
+	content: '❓';
+	margin-right: 1rem;
+}
+
+.task > h3::before {
+	content: '✏️';
+	margin-right: 1rem;
+}
+
+span.task::before, p.task::before {
+	content: '✏️';
+	margin-right: 0.5rem;
+}
+
+.extra > h3::before {
+	content: '🔍';
+	margin-right: 1rem;
+}
+
+.note > h3::before {
+	content: '❗';
+	margin-right: 1rem;
+}
+.note {
+	border: 1px solid red;
+	border-radius: 0.5rem;
+	padding: 1rem;
+	margin-top: 1rem;
+}
+
+.left {
+	grid-column: 1;
+}
+
+.right {
+	grid-column: 2;
+}
+
+.split-screen {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+li {
+	margin:0 0 10px 0;   
+ }
+
+.dialog {
+	top: 10px;
+	position: fixed;
+	width: 100%;
+	max-width: 900px;
+	background-color: white;
+	margin-left: calc((100vw - 900px) / 2);
+	border: 1px solid black;
+	z-index: 100;
+	padding: 1rem;
+}
+
+.dialog > h2 {
+	border: none;
+}
+
+#folderContent table {
+	width: 100%;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+#folderContent button {
+	border: none;
+	background: none;
+	font-family: monospace;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.duckimg {
+	float: right;
+}
+
+
+@media screen and (max-width: 500px) {
+    .header {
+        height: 40%;
+    }
+}
+.traingifcontainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.gifframe800px {
+	border: 2px solid #ef3f3f;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+	width: 804px;
+        height: 404px;
+}
+
+.traingifcontainer .gifframe800px img {
+	image-rendering: crisp-edges;
+        width: 100%;
+        height: auto;
+}

@@ -1,0 +1,15 @@
+<nav class="nav">
+    <ol>
+        <li class="nav-obj"><a href={{ 'index'  | relative_url }}>Etusivu</a></li>
+        
+        {% for sivu in site.sisalto %}
+        {% if sivu.nav-title%}
+        <li class="nav-obj"><a href="{{ sivu.url | relative_url }}">{{ sivu.nav-title }}</a></li>
+        {% endif%}       
+        {% endfor %}
+
+        {% for sivu in site.sivut %}
+        <li class="nav-obj"><a href="{{ sivu.url | relative_url  }}">{{ sivu.nav-title }}</a></li>
+        {% endfor %}
+    </ol>
+</nav>
