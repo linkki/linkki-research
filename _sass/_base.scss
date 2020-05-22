@@ -233,3 +233,24 @@ li {
         height: 40%;
     }
 }
+.traingifcontainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.gifframe800px {
+	border: 2px solid #ef3f3f;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+	width: 804px;
+        height: 404px;
+}
+
+.traingifcontainer .gifframe800px img {
+	image-rendering: crisp-edges;
+        width: 100%;
+        height: auto;
+}
