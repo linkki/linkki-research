@@ -9,7 +9,7 @@ nav-title: Osa 1
 HTML näyttää selaimessa sisällön. Esimerkiksi kuvat, teksti ja pelit näytetään verkkoselaimessa HTML:n avulla. HTML:ssä käytetään tägejä, joilla ilmaistaan, miltä haluamme sisällön näyttävän selaimessa. 
 
 Jos haluamme näyttää tekstiä laitamme sen <code>&lgt;</code> tägien sisään. Kun haluamme, että teksti on lihavoitua laitamme sen ympärille vielä <code>&lt;b&gt;</code> tägit. Tägeille pitää myös kertoa, milloin lopettaa. Emmehän halua, että koko teksti on lihavoitua. Siksi laitamme tägin <code>&lt;/b&gt;</code> kertomaan, että lihavointi loppuu. Samoin lopetamme teksti osion käyttämällä <code>&ltgt;</code>-tägiä. Tämän jälkeen voimme esimerkiksi <code>&lt;button&gt;</code> tägillä luoda painikkeen. 
-		
+
 {% include example.html esimerkki-selitys='Esimerkissä käytetään juuri oppimiamme tägejä kertomaan selaimelle, miltä verkkosivun pitää näyttää.' esimerkki-koodi='
 <!doctype HTML>
 Tässä on <b>lihavoitu</b> sana.
