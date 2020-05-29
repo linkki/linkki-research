@@ -254,3 +254,11 @@ li {
         width: 100%;
         height: auto;
 }
+
+.question-form {
+	fieldset {
+		label {
+			display: block;
+		}
+	}
+}

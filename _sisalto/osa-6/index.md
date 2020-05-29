@@ -175,6 +175,40 @@ ${closeScript}
 </div>
 -->
 
+<h3>Kysymyksiä</h3>
+
+<div id="listafunktiot"></div>
+
+<script>createQuestionnaire({
+	id: "listafunktiot",
+	questions: [
+		{
+			text: "Mikä funktio poistaa listan lopusta?",
+			alternatives: [
+				{ text: "unshift" },
+				{ text: "shift" },
+				{ text: "pop", correct: true },
+			]
+		},
+		{
+			text: "Haluat muuttaa listan [3, 4, 7] listaksi [1, 3, 4, 7]. Mitä teet?",
+			alternatives: [
+				{ text: "lista.shift(1)" },
+				{ text: "lista.unshift(1)", correct: true },
+				{ text: "lista.push(1)" },
+			]
+		},
+		{
+			text: "Haluat muuttaa listan [1, 1, 1] listaksi [1, 1, 2]. Mitä teet?",
+			alternatives: [
+				{ text: "lista.shift(); lista.unshift(2)" },
+				{ text: "lista.pop(); lista.push(2)", correct: true },
+				{ text: "lista.push(2); lista.pop()" },
+			]
+		}
+	]
+})</script>
+
 <h3><code>splice</code></h3>
 
 <p>

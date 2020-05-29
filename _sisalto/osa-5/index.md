@@ -316,6 +316,40 @@ TODO: Tehtävä, mikä?
 
 TODO
 
+## Kysymyksiä
+
+<div id="listafunktiot"></div>
+
+<script>createQuestionnaire({
+	id: "listafunktiot",
+	questions: [
+		{
+			text: "Kuinka monta kertaa setTimeout-funktio suoritetaan?",
+			alternatives: [
+				{ text: "0 kertaa" },
+				{ text: "1 kerran", correct: true },
+				{ text: "Äärettömän monta kertaa" },
+			]
+		},
+		{
+			text: "Kuinka monta kertaa setInterval-funktio suoritetaan?",
+			alternatives: [
+				{ text: "0 kertaa" },
+				{ text: "1 kerran" },
+				{ text: "Äärettömän monta kertaa", correct: true },
+			]
+		},
+		{
+			text: "Kuinka monta kertaa onclick-funktio suoritetaan?",
+			alternatives: [
+				{ text: "Vain kerran, kun klikataan ensimmäisen kerran" },
+				{ text: "Kerran per jokainen klikkaus", correct: true },
+				{ text: "Sitä suoritetaan ikuisesti, kun hiiren nappi on pohjassa" },
+			]
+		}
+	]
+})</script>
+
 ## Oliot, piirtosilmukka ja päivityssilmukka
 
 Nyt tutustumme funktioiden käyttämiseen pelien teossa.
