@@ -226,3 +226,34 @@ function addDialog() {
 		closeDialog(undefined);
 	};
 }
+
+function createQuestionnaire(data) {
+	const state = {
+		questions: data.questions.map(_ => undefined)
+	}
+	const form = elem("form", {className: "question-form"}, [
+		...data.questions.map((q, i) => elem("fieldset", {}, [
+			elem("legend", {textContent: "Kysymys " + (i+1)}),
+			elem("b", {textContent: q.text}),
+			...q.alternatives.map((alt, j) => elem("label", {
+				textContent: alt.text, id: data.id + "-" + i + "-" + j + "-label"
+			}, [
+				elem("input", {
+					type: "radio",
+					name: data.id + "-" + i,
+					id: data.id + "-" + i + "-" + j,
+					onclick: () => {
+						document.getElementById(data.id + "-" + i + "-" + j + "-label").style.backgroundColor = alt.correct ? "green" : "red"
+						document.getElementsByName(data.id + "-" + i).forEach(e => e.disabled = true)
+						state.questions[i] = !!alt.correct
+						if (state.questions.every(i => typeof i === 'boolean')) {
+							const score = state.questions.filter(i => i).length
+							form.appendChild(elem("b", {textContent: "Tulos: " + score + "/" + data.questions.length}))
+						}
+					}
+				})
+			]))
+		]))
+	]);
+	document.getElementById(data.id).appendChild(form);
+}
