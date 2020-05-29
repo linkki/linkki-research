@@ -318,10 +318,10 @@ TODO
 
 ## Kysymyksiä
 
-<div id="listafunktiot"></div>
+<div id="funktiokysymykset"></div>
 
 <script>createQuestionnaire({
-	id: "listafunktiot",
+	id: "funktiokysymykset",
 	questions: [
 		{
 			text: "Kuinka monta kertaa setTimeout-funktio suoritetaan?",

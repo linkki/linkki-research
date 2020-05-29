@@ -177,10 +177,10 @@ ${closeScript}
 
 <h3>Kysymyksiä</h3>
 
-<div id="listafunktiot"></div>
+<div id="listafunktiokysymykset"></div>
 
 <script>createQuestionnaire({
-	id: "listafunktiot",
+	id: "listafunktiokysymykset",
 	questions: [
 		{
 			text: "Mikä funktio poistaa listan lopusta?",
