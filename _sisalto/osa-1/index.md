@@ -4,252 +4,393 @@ title: Osa 1
 nav-title: Osa 1
 ---
 # Osa 1 – JavaScriptin alkeet
-## 2.1 HTML ja tägit
-		
-HTML näyttää selaimessa sisällön. Esimerkiksi kuvat, teksti ja pelit näytetään verkkoselaimessa HTML:n avulla. HTML:ssä käytetään tägejä, joilla ilmaistaan, miltä haluamme sisällön näyttävän selaimessa. 
 
-Jos haluamme näyttää tekstiä laitamme sen <code>&lgt;</code> tägien sisään. Kun haluamme, että teksti on lihavoitua laitamme sen ympärille vielä <code>&lt;b&gt;</code> tägit. Tägeille pitää myös kertoa, milloin lopettaa. Emmehän halua, että koko teksti on lihavoitua. Siksi laitamme tägin <code>&lt;/b&gt;</code> kertomaan, että lihavointi loppuu. Samoin lopetamme teksti osion käyttämällä <code>&ltgt;</code>-tägiä. Tämän jälkeen voimme esimerkiksi <code>&lt;button&gt;</code> tägillä luoda painikkeen. 
+## 1.1 HTML ja tägit
 
-{% include example.html esimerkki-selitys='Esimerkissä käytetään juuri oppimiamme tägejä kertomaan selaimelle, miltä verkkosivun pitää näyttää.' esimerkki-koodi='
-<!doctype HTML>
-Tässä on <b>lihavoitu</b> sana.
-<button>Painike</button>
-'%}
-Kun verkkoselain tulkitse HTML-koodin, se poistaa tägit ja näyttää sisällön tägien perusteella muotoiltuna.
+Sinunhan piti ohjelmoida Javascriptiä, miksi tämän osan otsikko on _HTML ja tägit_. HTML on kieli, jolla erilaiset elementit näytetään ohjelmassa. Elementtejä ovat esimerkiksi teksti, kuva tai painike, jotka näkyvät ohjelmassa. HTML-elementit koodataan käyttämällä tägejä.
+
+Tutkitaan seuraavaksi, miten teksti-elementti koodataan ohjelmaan. Teksti-elementtiä käytetään, kun sivulla näytetään tesktiä. Tekstinä voidaan pitää mitä vain lauseen ja yhden kirjaimen välillä. Teksi elementti alkaa tägillä `<p>` ja loppuu tägiin `</p>`. Esimerkiksi lause "Mikä sinun nimesi on?" näyttää koodissa teksti-elementtinä `<p>Mikä sinun nimesi on?</p>`.
+
+Erilaisten elementtien muoto on aina sama. Ne alkavat jollakin tägillä ja loppuvat tägiin, jossa on mukana kauttamerkki - `/`. Tämä tarkoitta sitä, että kun ohjelmaan tehdään painike se kirjoitetaan `<button>` tägien sisälle ja painike-elementti koodissa on `<button>Painike</button>`. Huomaatko miten koodissa on taas aloitus ja lopetus tägit, vain tägien teksti vaihtuu?
+
+{%
+ include example.html
+
+ esimerkki-selitys='Esimerkki erilaisista HTML-elementeistä.'
+
+ esimerkki-koodi='<!doctype HTML>
+<p> Tervetuloa! </p>
+<button> Click me! </button>
+<p> Tekstiä voi kirjoittaa myös ilman <i>teksti-elementtiä.</i></p>
+Tällöin tekstiin ei voi viitata <b>JavaScript-koodista.</b>'
+%}
 
 <img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/bold-2.webp" height="500" width="500"/>
 
-<div class="codebox task">
-            <h3>Tehtävä</h3>
-            
-				Täydennä tägien sisälle sopivat arvot. 
-				Ole tarkkana, joukossa on myös uusia tägejä!
-            
+{% include task.html
 
-            <script>
-                addEditor(
-`<!doctype HTML>
- Nimi: <b></b>
- Ikä: <b></b>
- Kotikaupunki <b></b>
- Harrastan <i></i>.
- <u>Ensimmäinen tehtävä on tehty.</u> `
-                );</script>
-</div>
+tehtava-ohje='Täydennä tägien sisälle sopivat arvot.'
 
-## 2.2 Mikä ihmeen JavaScript?
-		
-Nyt aloitamme tutustumisen JavaScriptiin. JavaScriptiä käytetään yhdessä HTML-kielen kanssa. JavaScriptillä kirjoitetaan erityisiä komentosarjoja (skriptejä), joilla saadaan tapahtumia aikaan sivulla.
+tehtava-koodi='<!doctype HTML>
+Nimi: <b></b>
+Ikä: <b></b>
+Kotikaupunki <b></b>
+Harrastan <i></i>.
+<u>Ensimmäinen tehtävä on tehty.</u>'
+%}
 
-Aloitetaan JavaScriptin harjoittelu tutustumalla peruskomentoihin. Komennot kertovat JavaScriptin kääntäjälle, mitä haluamme tehdä. Komennot voivat tuntua aluksi oudoilta, mutta niiden merkitys selvenee, kun niitä käyttää. 
+## 1.2 Mikä ihmeen JavaScript?
+
+HTML-koodilla erilaiset HTML-elementit tulivat näkyviin ohjelmassa. JavaScript koodi kirjoitetaan myös HTML-elementin sisälle. JavaScript-elementti käyttää `<script>`-tägiä eli JavaScript koodi kirjoitetaan ympäristöön, joka alkaa tägillä `<script>` ja loppuu tägiin `</script>`. JavaScriptiä siis kirjoitetaan skripti-elementin sisälle, joka on `script`-tyyppinen HTML-elementti.
+
+```html
+<script>
+    //JavaScript koodi kirjoitetaa tänne
+</script>
+```
+
+Koska skripti-elementti on vain yhden tyyppinen HTML-elementti, myös muunlaisia HTML-elementtejä voidaan kirjoittaa ohjelmaan.
+
+{%
+ include example.html
+
+ esimerkki-selitys='HTML-elementtejä'
+
+ esimerkki-koodi='<!doctype HTML>
+<p> Tervetuloa! </p>
+<button> Click me! </button>
+<script>
+${closeScript}'
+%}
+
+Alussa mainittiin, että HTML-elementit saavat sisällön näkymään ohjelmassaa. Skripti-elementti on erityinen siinä mielessä, että se ei varsinaisesti tuo mitään näkyviin ohjelmaan. Skripti-elementtiin kirjoitetaan toiminnallisuutta, jota käytetään ohjelmassa.
+
+{% include tip.html
+vinkki='Ole tarkkana oletko kirjoittamassa JavaScript vai HTML-koodia.'
+%}
 
 <img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/kaaroja.webp">
 
-<div class="codebox task">
-	<h3>Tehtävä 2.1</h3>
-Kirjoita <code>alert()</code>-komennon sisälle lainausmerkkien (<code>""</code>) väliin nimesi ja paina lippu-kuvaketta.>.
-		<script>
-			addEditor(
-`<!doctype HTML>
+### Ensimmäinen komento `alert()`
+
+JavaScript komennolla `alert()` _tulostetaan_ tekstiä näytölle. Tulostettava teksti kirjoitetaan sulkujen sisään ja ympäröidään vielä lainausmerkeillä - `""`. Tulostus-komento kokonaisuudessaa on siis muotoa `alert("Heissulivei Maailma!")`. Laitetaan koodi vielä skripi-tägien sisälle ja saamme valmiiksi ensimmäisen JavaScript-ohjelman
+
+```html
+<script>
+    alert("Heissulivei Maailma!")
+</script>
+```
+{% include example.html
+esimerkki-selitys='alert()-komento'
+
+esimerkki-koodi='<!doctype HTML>
+<script>
+	alert("Heissulivei Maailma!")
+${closeScript}'
+%}
+
+{% include extra.html
+otsikko='&lt;p&gt; vs. alert()'
+vinkki='Aluksi näytimme ohjelmassa tekstiä käyttämällä HTML-koodin tekstielementtiä ja nyt teemme lähes saman asian JavaScrip-koodilla. Seuraavassa osassa selviää, onko tässä mitään järkeä.'
+%}
+
+{% include task.html
+
+tehtava-ohje='Täydennä <code>alert()</code>-komentoa niin, että se tulostaa nimesi näytölle.'
+
+tehtava-koodi='<!doctype HTML>
 <script>
 	alert("");
-${closeScript}`
-			);</script>
-		</div>
-Ensimmäisessä tehtävässä käytettiin <code>alert()</code>-komentoa. Kaikki komennot, joita haluamme JavaScriptin tunnistavan laitetaan <code>&lt;script&gt;</code>-tagien sisälle, kuten myös edellisessä tehtävässä tehtiin.
-		
-Olemme siis nyt oppineet, minne HTML-tiedostossa kirjoitetaan JavaScript-komennot.
-		
-<div class="codebox task">
-	<h3>Tehtävä 2.2</h3>
-Kirjoita <code>alert("Heipä hei!")</code>-komento oikeaan kohtaan koodissa.
+${closeScript}'
+%}
+
+{% include task.html
+
+tehtava-ohje='Kirjoita <code>alert("Heipä hei!")</code>-komento oikeaan kohtaan koodissa.'
+
+tehtava-koodi='<!doctype HTML>
 <script>
-addEditor(
-`<!doctype HTML>
+${closeScript}'
+%}
+
+{%
+include task.html
+
+tehtava-ohje='Kirjoita ohjelma, joka tulostaa "JavaScript on kivaa".'
+
+tehtava-koodi='<!doctype HTML>
 <script>
-${closeScript}`
-		);</script>
+${closeScript}'
+%}
+{%
+include task.html
 
-</div>
+tehtava-ohje='Kirjoita ohjelma, jossa on kaksi alert()-komentoa. Ensimmäinen alert()-komento tulostaa "Tervehdys ensimmäisestä komennosta!" ja toinen komento tulostaa "Tervehdys toisest komennosta!".'
 
-<div class="codebox task">
-	<h3>Tehtävä 2.3</h3>
-		Kirjoita ohjelma, joka tulostaa "JavaScript on kivaa".
+tehtava-koodi='<!doctype HTML>
 <script>
-				addEditor(
-`<!doctype HTML>
-<script>
-${closeScript}`
-			);</script>
-</div>
-		
-Ensimmäinen komento, jonka opettelimme on <code>alert()</code>-komento. Tällä komennolla voimme tulostaa tekstiä ikkunoissa ruudulle. Komento <code>alert()</code> saa <b>parametrina</b> merkkijonon eli sanan tai lauseen. Tämä on ohjelmoijan käyttämää kieltä.
+${closeScript}'
+%}
 
-<!-- Tee tästä ekstra -->
-### Parametri
-Puhumme parametreista, kun haluamme antaa jonkinlaista tietoa komennolle. Toisinaan haluamme antaa komennoille tietoa, sillä haluamme antaa komennoille lisää työkaluja. Näiden työkalujen avulla komento voi tehdä tehtävänsä tehokkaammin.
+{% include extra.html
+otsikko="Parametri"
+vinkki="Parametri on komennolle annettava arvo. Esimerkiksi <code>alert()</code>-komennolle annetaan parametrina sulkujen sisälle tuleva sisältö. Parametrien avulla annamme komennoille tietoa, jota ne voivat käyttää toiminnassaan."
+%}
 
-<!--Otin tästä pois selityksen parametrin tyypistä.
-Tiedon tyyppi sopii varmaan paremmin käsiteltäväksi muuttujien yhteyteen.-->
+## 1.3 Uusi komento `prompt()`
 
-## 2.3 Uusi komento <code>prompt()</code>
-		
-Nyt osaamme tulostaa tietoa. Opetellaan seuraavaksi, miten voimme myös kysyä käyttäjältä <i>syöteen</i>. Syöte on tietoa, jota tietokone osaa käsitellä. Esimerkiksi, kun kirjoitat JavaScript-ohjelmia näppäimistöllä annat koko ajan syötteenä tietokoneelle tietoa kirjoittamistasi merkeistä näppäimistön avulla.
-		
-Syötteen kysymyinen tapahtuu <code>prompt()</code>-komennolla.
-		
-<div class="codebox example">
-<h3>Esimerkki 2.a</h3>
-Tähän ohjelmaan on kirjoitettu <code>prompt()</code>-komento. 
-Kokeile, mitä tapahtuu, kun klikkaat lippukuvaketta.
-			
-			<script>
-				addEditor(
-`<!doctype HTML>
+{% include example.html
+esimerkki-selitys='Tähän ohjelmaan on kirjoitettu <code>prompt()</code>-komento. 
+Kokeile, mitä tapahtuu, kun klikkaat lippukuvaketta.'
+
+esimerkki-koodi='<!doctype HTML>
 <script>
 	prompt()
-${closeScript}`
-			);</script>
-</div>
-		
-<code>prompt()</code>-komento avaa ikkunan, jossa on tekstikenttä, johon voi kirjoittaa tekstiä. Kun klikkaa "Hyväksy"-painiketta, JavaScript <b>lukee</b> syötteen. Pelkästään lukemalla emme kuitenkaan saa vielä tietoa käyttöön. Meidän tulee tallettaa se muuttujaan. Tutkitaan vielä vähän prompt()-komentoa ja tutustutaan sen jälkeen muuttujiin. 
-		
-<div class="codebox task">
-<h3>Tehtävä 2.4</h3>
-Kirjoita <code>prompt()</code>-komento oikeaan kohtaan koodissa.
-<script>
-				addEditor(
-`<!doctype HTML>
-<script>
-${closeScript}`
-			);</script>
-</div>
+${closeScript}'
+%}
 
-<code>prompt()</code>-komennolle voidaan antaa parametri samalla tavalla kuin <code>alert()</code>-komennolle. Tällöin komentoon lisätään sulkeiden sisään lainausmerkit, joiden sisään kirjoitetaan haluttu teksti.
-		
-<!--Pitäisikö esimerkkien olla enemmän tehtävien kaltaisia, vai onkohan nämä tälläiset esimerkit ihan kelvollisia.-->
-<div class="codebox example">
-<h3>Esimerkki 2.b</h3>
-Ohjelmassa olevalle <code>prompt()</code>-komennolle on annettu parametrina "Mikä sinun nimesi on?".
-<script>
-				addEditor(
-`<!doctype HTML>
-<script>
-	prompt("Mikä sinun nimesi on?")
-${closeScript}`
-			);</script>
-</div>
+JavaScript-komento `prompt()` näyttää ohjelmassa samanlaisen ikkunan, kuin `alert()` komentokin, mutta tällä kertaa ikkunassa on myös kenttä, johon ohjelman käyttäjä voi kirjoittaa ja klikkaamalla "OK" _syöttää_ tiedon ohjelmalle. Kirjoittamalla yksinkertaisen ohjelman
 
-<div class="codebox task">
-<!--Pitäskö tehtävistä tehdä enemmän saman tyyppisiä, kuin lopussa on? -->
-<h3>Tehtävä 2.5</h3> 
-Kirjoita ohjelmaan komento, joka saa parametriksi merkkijonon "Mikä sinun ikäsi on?". Käyttäjä voi antaa syötteenä ikänsä. Käytätkö <code>prompt()</code>- vai <code>alert()</code>-komentoa?
+```html
 <script>
-				addEditor(
-`<!doctype HTML>
+    prompt()
+</script>
+```
+
+ikkuna aukeaa. 
+
+{% include task.html 
+tehtava-ohje='Kirjoita <code>prompt()</code>-komento oikeaan kohtaan koodissa.'
+tehtava-koodi='<!doctype HTML>
 <script>
-${closeScript}`
-			);</script>
-</div>
+${closeScript}'
+%}
 
-## Muuttujat
-			
-		
-Jotta voimme tehdä käyttäjän antamalla syötteellä jotain, täytyy se tallentaa ohjelman käyttöön. Ohjelmoidessa tieto tallennetaan <b>muuttujiin</b>. Ne ovat ohjelmoinnin peruspalikoita ja niitä tulet käyttämään paljon.
-		
-<!--Tee tästä ekstra -->
-<!--No tälle pitäs tehdä jotain.-->
-### Muuttuja
-Muuttujiin tallennetaan tietoa. Muttujille voidaan antaa nimi. Muuttujia voidaan käyttää uudelleen.
-		
-Muuttuja tapa antaa tiedolle nimi. Myöhemmin meidän ei tarvitse laskea tai kysyä tietoa uudestaan, vaan voimme käyttää muuttujaa. Luomme muuttujan <code>const</code>-komennolla. Alla on esimerkki muuttujien käytöstä <code>alert()</code>-komennon kanssa ja muistutus siitä, miltä komento näyttää ilman muuttujia.
-		
-<script>codeExample(
-`// Tässä on alert()-komento, 
-// jolle annetaan parametrina "Kissat ovat kivoja!".
-alert("Kissat ovat kivoja!")
+{% include example.html
+esimerkki-selitys='<code>prompt()</code> komennolle annetaan <i>parametrina</i> merkkijono "Hei! Mikä sinun nimesi on?"'
 
-// Tässä talletetaan ensin "Kissat ovat kivoja!" muuttujaan.
-const viesti = "Kissat ovat kivoja!"
-// Annamme nyt edellisellä rivillä 
-// olevan muuttujan parametrina alert()-komennolle.
-alert(viesti) `,
-"javascript");</script>
-		
-Voimme antaa <code>alert()</code>-komennolle parametrina muuttujan. Komento ei siis näytä käyttäjälle sanaa "viesti", vaan tekstin "Kissat ovat kivoja!". Tämä johtuu siitä, että emme laittaneet lainausmerkkejä <code>viesti</code>-sanan ympärille. JavaScriptissä vain lainausmerkeissä olevat sanat ovat merkkijonoja. Ilman lainausmerkkejä sanat ovat muuttujia tai komentoja. <code>viesti</code> on siis nimi merkkijonolle "Kissat ovat kivoja!".
-		
+esimerkki-koodi='<!doctype HTML>
+<script>
+	prompt("Hei! Mikä sinun nimesi on?")
+${closeScript}'
+%}
+
+Kun `prompt()`-komennon sisälle kirjoitetaan lainausmerkkien sisälle merkkijono, niin teksti _tulostuu_ näytölle _syötekentän_ yläpuolelle
+
+```html
+<script>
+    prompt("Hei! Mikä sinun nimesi on?")
+</script>
+```
+
+{% include task.html
+tehtava-ohje='Tee ohjelma, joka kysyy "Kuinka vanha sinä olet?". Käytätkö <code>prompt()</code>- vai <code>alert()</code>-komentoa?'
+tehtava-koodi='<!doctype HTML>
+<script>
+${closeScript}'
+%}
+
+{% include example.html
+esimerkki-selitys='<code>prompt()</code> komennon syöte talletetaan <b>muuttujaan</b> "nimi" ja se tulostetaan <code>alert()</code>-komennolla.'
+
+esimerkki-koodi='<!doctype HTML>
+<script>
+	nimi = prompt("Hei! Mikä sinun nimesi on?")
+    alert("Hei "+ nimi + "!")
+${closeScript}'
+%}
+
+Jotta käyttäjän _syötteellä_ voidaan tehdä jotain hyödyllistä, täytyy se tallettaa **muuttujaan**. Lisätään komennon `prompt("Hei! Mikä sinun nimesi on?")` vielä muuttujan määrittely
+
+```html
+<script>
+    nimi = prompt("Hei! Mikä sinun nimesi on?")
+</script>
+```
+
+Huomaatko eron edelliseen koodiin? `prompt()`-komennon eteen on lisätty `nimi =`, joka määrittelee `nimi`-nimisen muuttujanja yhtäsuuruus-merkki asettaa tälle `nimi`-muuttujalle arvon.
+
+Kun yhdistetään `prompt()`-komento ja `alert()`-komento ohjelma pystyy käyttämään käyttäjän syötteitä toiminnassaan. Muuttujaa `nimi` voi käyttää `alert()`-komennossa
+
+```html
+<script>
+    nimi = prompt("Hei! Mikä sinun nimesi on?")
+    alert("Hei "+ nimi + "!")
+</script>
+```
+{% include task.html
+tehtava-ohje='Tee ohjelma, joka kysyy "Kuinka vanha sinä olet?". Tallenna vastaus muuttujaan, jonka nimi on "ikä". Tulosta tämän jälkeen <code>alert()</code>-komennolla "ikä"-muuttujan arvo.'
+tehtava-koodi='<!doctype HTML>
+<script>
+${closeScript}'
+%}
+
+{% include task.html
+tehtava-ohje='Tee ohjelma, joka kysyy ensin käyttäjältä "Mikä sinun nimesi on? ja talleta vastaus muuttujaan "nimi". Nimen kysymisen jälkeen ohjelman tulee kysyä "Kuinka vanha olet?" ja tallettaa vastaus muuttujaan "ikä". Tämän jälkeen ohjelma tulostaa "Hei " + nimi + "! Sinä olet " + ikä + " vuotta vanha.".'
+tehtava-koodi='<!doctype HTML>
+<script>
+${closeScript}'
+%}
+
+{% include extra.html
+otsikko='<code>alert()</code> on monipuolisempi. '
+vinkki='Käyttäjälle tulostaminen JavaScrip-komennoilla on monipuolisempaa, kuin HTML-koodissa tekstin näyttäminen. Javascriptissä voidaan hyödyntää muuttujia tulostuksessa.'
+%}
+
+## 1.4 Rakennuspalikka: Muuttujat
+
+`prompt()`-komennon yhteydessä esiteltiin muuttuja, jolle annettiin nimeksi `nimi`. Muuttujat ovat ohjelman eräänlaisia rakennuspalikoita. Muuttujat antavat tiedolle nimen, jonka jälkeen _muuttujan arvoa_ voidaan käyttää annetun _muuttujan nimen_ perusteella.
+
+Muuttujan nimen ohjelmoija, eli sinä, voit itse päättää. On kuitenkin hyvä, jos muuttujan nimi on sen käyttötarkoitusta kuvaava. Esimerkiksi ikä ja nimi kannattaa tallettaa muuttujiin, joiden nimet ovat `ikä` ja `nimi`.
+
+Tiedät jo ainakin yhden tavan asettaa muuttujan arvon. `prompt()`-komennon yhteydessä asetimme muuttujan arvoksi _käyttäjän syötteen_. Tämä onnistui käyttämällä yhtäsuuruusmerkkiä muuttujan nimen jälkeen. Muuttujalle voidaan antaa arvo myös asettamalla haluttu arvo yhtäsuuruusmerkin oikeallepuolelle. Esimerkiksi muuttuja nimeltä `ikä`, jonka arvo on `12` määritetään kirjoittamalla koodiin `ikä = 12` ja muuttuja, jonka nimi on `nimi` ja arvo `Milla` määritetään `nimi = "Milla"`.
+
+{% include example.html
+esimerkki-selitys='Muuttujan <code>eläin</code> arvoksi on annettu "koira" ja muuttujan <code>nimi</code> arvon määrittää käyttäjän <i>syöte</i>. Lopuksi muuttujia hyödynnetään tulostuksessa.'
+esimerkki-koodi='<!doctype HTML>
+<script>
+	eläin = "koira"
+	nimi = prompt("Olen " + eläin +". Mikä minun nimeni on?")
+	alert("Minun nimeni on " + nimi + " ja olen " + eläin + ".")
+${closeScript}'
+%}
+
+{% include extra.html 
+otsikko='Samaa tarkoittavia ilmaisuja'
+vinkki='Muuttujien luomista voidaan kutsua myös muuttujan määrittämiseksi tai muuttujan arvon asettamiseksi.'
+%}
+
 <img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/muuttuja.webp" width="901" height="507"/>
 
-<div class="codebox example">
-<h3>Esimerkki 2.b</h3>
-Tässä on ohjelma, joka kysyy käyttäjältä nimen ja tulostaa sen jälkeen tervehdyksen.
+{% include task.html
+tehtava-ohje='Tee ohjelma, jossa ensin kysytään käyttäjältä jokin syöte, joka tallennetaan muuttujaan. Määrittele tämän jälkeen muuttuja, jolle annat itse arvon. Tulosta tämän jälkeen muuttujat näytölle käyttäen <code>alert()</code>-komentoa.'
+tehtava-koodi='<!doctype HTML>
 <script>
-				addEditor(
-`<!doctype HTML>
-<script>
-	const syöte = prompt("Nimesi on?")
-	alert("Hei, " + syöte)
-${closeScript}`
-		);</script>
-</div>
-		
-Yllä olevassa esimerkissä kysymme käyttäjältä hänen nimensä. Sen jälkeen asetamme vastauksen muuttujaan <code>syöte</code>. Tämän jälkeen <code>syöte</code> viittaa siis käyttäjän antamaan nimeen.
-		
-Esimerkissä käytetään myös <code>+</code>-operaattoria. Tämä operaattori liittää kaksi merkkijonoa yhteen yhdeksi pitkäksi merkkijonoksi. Operaattori toimii näin:
+${closeScript}'
+%}
 
-<ol>
-	<li>Kuvitellaan, että käyttäjä antoi nimekseen "Ankka".
-	<li>Tällöin <code>syöte</code> viittaa merkkijonoon <code>"Ankka"</code>.
-    <li>Siispä <code>"Hei, " + syöte</code> on sama asia kuin <code>"Hei, " + "Ankka"</code>.
-	<li><code>+</code>-operaattori yhdistää kaksi merkkijonoa ja lopputulos on <code>"Hei, Ankka"</code>.
-	<li>Lopulta <code>alert()</code> komento näyttää käyttäjälle merkkijonon "Hei, Ankka".
-</ol>
+Muuttujien arvoa voidaan **vaihtaa** määrittämällä uudelleen saman niminen muuttuja, mutta tällä kertaa uudella arvolla. Esimerkiksi, jos olemme koodissa määritellyt muuttujan `nimi = "Milla"`, niin kirjoittamalla koodiin `nimi = "Pekka"` vaihtaa muuttujan `nimi` arvoksi `"Pekka"`.
 
-<div class="codebox task">
-<h3>Tehtävä 2.9</h3> 
-			
-Pyydä käyttäjältä syötteenä hedelmä. Tulosta vastaus <code>hedelmä + "ovat ankkojen suosikki ruoka."</code>.
-			
+{% include example.html
+esimerkki-selitys='<code>Lempiväri</code>-muuttujan arvo on ensin "vihreä", mutta se vaihdetaan arvoksi "keltainen".'
+esimerkki-koodi='<!doctype HTML>
 <script>
-addEditor(
-`<!doctype HTML>
-<script>
-${closeScript}`
-				);</script>
-</div>
+	lempiväri = "vihreä"
+	alert("Lempivärini oli ensin " + lempiväri)
+	lempiväri = "keltainen"
+	alert("Nykyään lempivärini on " + lempiväri)
+${closeScript}'
+%}
 
-<div class="codebox task">
-<h3>Tehtävä 2.9</h3> 
-			
-Pyydä käyttäjältä ensin syötteenä eläin. Kun käyttäjältä on pyydetty syötteenä eläin, niin pyydä tämän jälkeen häneltä syötteenä väri. Muista tallettaa vastaukset omiin muuttujiinsa. Tulosta lopuksi vastaus <code>väri + " " + eläin </code>.
-			
+{% include task.html
+tehtava-ohje='Ohjelmassa on valmiiksi muuttuja <code>suunta</code>, jonka arvo on "oikea". Kirjoita ohjelmaan koodi, joka vaihtaa <code>suunta</code> muuttujan arvoksi "vasen" ennen seuraavaa tulostusta.'
+tehtava-koodi='<!doctype HTML>
 <script>
-				addEditor(
-`<!doctype HTML>
+suunta = "oikea"
+alert("Aluksi suunta oli " + suunta)
+
+alert("Koska huomasimme joutuvamme umpikujaan uudeksi suunnaksi valittiin " + suunta)
+${closeScript}'
+%}
+
+### Lukumuuttujat
+
+Muuttujilla, joiden arvoksi on asetettu luku, voidaan käyttää matemaattisissa lausekkeissa, kuten tavallisia lukuja. Esimerkiksi kahdelle luku-muuttujalle voidaan suorittaa tavalliseen tapaan yhteen-, vähennys-, kerto- tai jakolasku
+
+```javascript
+a = 12
+b = 6
+yhteensa = a+b
+erotus = a-b
+tulo = a*b
+osamäärä = a/b
+```
+{% include example.html
+esimerkki-selitys='Lukumuuttujan a arvo on 12 ja lukumuuttujan b arvo on 6. Laskutoimitusten tulokset tallennetaan muuttujiin ja muuttujat tulostetaan.'
+esimerkki-koodi='<!doctype HTML>
 <script>
-${closeScript}`
-);</script>
-</div>
+a = 12
+b = 6
+alert("Muuttujan a arvo on " + a +" ja muuttujan b arvo on " + b)
+yhteensa = a+b
+alert("Yhteenlaskun tulos on "+ yhteensa)
+erotus = a-b
+alert("Vähennyslaskun tulos on "+ erotus)
+tulo = a*b
+alert("Kertolaskun tulos on  "+ tulo)
+osamäärä = a/b
+alert("Jakolaskun tulos on " + osamäärä)
+${closeScript}'
+%}
+
+Tällöin muuttujien arvoksi asetetaan yhtäsuuruusmerkin oikealla puolella olevan lausekkeen tulos. Tietokone siis näkee edellisen esimerkin koodin niin, että muuttujan nimen tilalle on sijoitettu sitä vastaava numeroarvo
+
+```javascript
+a = 12
+b = 6
+yhteensa = 12+6
+erotus = 12-6
+tulo = 12*6
+osamäärä = 12/6
+```
+{% include task.html
+tehtava-ohje='Tee ohjelma, joka kysyy ensin käyttäjältä "Mikä sinun nimesi on? ja talleta vastaus muuttujaan "nimi". Nimen kysymisen jälkeen ohjelman tulee kysyä "Kuinka vanha olet?" ja tallettaa vastaus muuttujaan "ikä". Tämän jälkeen ohjelma tulostaa "Hei " + nimi + "! Sinä olet " + ikä + " vuotta vanha.".'
+tehtava-koodi='<!doctype HTML>
+<script>
+${closeScript}'
+%}
+
+### Tekstimuuttujat
+
+Kun muuttujan arvoksi asetetaan tekstiä, teksti tulee laittaa lainausmerkkien - `""` sisälle. Teksti-muuttujia voidaan yhdistää käyttämällä +-merkkiä - `+`. 
+
+```javascript
+nimi = "Milla"
+lempiruoka = "makaronilaatikko"
+koira = "Papu"
+uusiNimi = nimi + koira
+```
+
+{% include example.html
+esimerkki-selitys='Tekstimuuttujia yhdistetään muuhun tekstiin käyttämällä "+"-merkkiä. Myös tekstimuuttujien yhdistämienn toisiinsa tapahtuu "+"-merkillä.'
+esimerkki-koodi='<!doctype HTML>
+<script>
+nimi = "Milla"
+lempiruoka = "makaronilaatikko"
+koira = "Papu"
+alert("Hei! Nimeni on " + nimi + " ja lempiruokani on " 
++ lempiruoka + ". Minulla on lemmikki, jonka nimi on " 
+  + koira)
+uusiNimi = nimi + koira
+alert("Kun nimeni yhdistää lemmikkini nimeen saadaan " + uusiNimi)
+${closeScript}'
+%}
+
+Esimerkin `uusiNimi`- muuttujan arvo saadaan yhdistämällä `nimi` ja `koira`-muuttujien arvo. Näin ollen `uusiNimi` arvo on `"MillaPapu"`.
+
+### Yhdistetään muuttujat
+
+Lukumuuttajan yhdistäminen tekstimuuttujaan tapahtuu plusmerkillä. Kun luvun laittaa keskelle tekstiä, pitää sen molemmille puolille laittaa plusmerkit.
+```javascript
+yhteenlasku = 6 + 6
+teksti = "Nimeni on Milla ja olen " + yhteenlasku + " vuotta vanha."
+```
+
+{% include example.html
+esimerkki-selitys='<code>alert()</code>-komennolle on annettu <i>parametrina</i> tekstimuuttuja nimeltä <code>teksti</code>. Muuttujan <code>teksti</code> arvoksi on annettu merkkijono, johon on yhdistettu lukumuuttuja nimeltään <code>yhteenlasku</code>.'
+esimerkki-koodi='<!doctype HTML>
+<script>
+yhteenlasku = 6 + 6
+teksti = "Nimeni on Milla ja olen " + yhteenlasku + " vuotta vanha."
+alert(teksti)
+${closeScript}'
+%}
 
 ## 2.4 Yhteenveto komennoista
-		
-<table>
-    <caption>Opitut komennot</caption>
-    	<tr>
-			<th>Komento
-			<th style="width: 300px;">Esimerkki
-			<th>Selitys
-		<tr>
-			<td><code>alert()</code>
-			<td><script>codeExample(`alert("Kissat ovat kivoja") `, "javascript", true);</script>
-			<td>Näyttää käyttäjälle merkkijonon
-		<tr>
-			<td><code>prompt()</code>
-			<td><script>codeExample(`prompt("Mikä sinun nimesi on?") `, "javascript", true);</script>
-			<td>Kysyy käyttäjältä merkkijonon
-		<tr>
-			<td><code>const</code>
-			<td><script>codeExample(`const viesti = "Hauska tavata"` + "\n" + `const syöte = prompt("Nimesi?") `, "javascript", true);</script>
-			<td>Luo uuden muuttujan
-</table>
-	
+
+| Komento       | Esimerkki           | Selitys  |
+| :-------------: |:-------------:| :-----: |
+| `alert()` | `alert("Kissat ovat kivoja.")` | Näyttää käyttäjälle merkkijonon |
+| `prompt()` | `prompt("Mikä sinun nimesi on?")` | Kysyy käyttäjältä syötteen |
+| muuttujanNimi = | viesti = "Hauska tavata" | Luo uuden muuttujan |
+|   | syöte = prompt("Nimesi?")  |  |

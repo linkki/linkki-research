@@ -133,7 +133,8 @@ nav a:hover {
 	padding: 1rem;
     margin: auto;
     background-color: white;
-    max-width: 45rem;
+	max-width: 45rem;
+	margin-top: 1rem;
 }
 
 .codebox > h3 {
@@ -151,7 +152,7 @@ nav a:hover {
 }
 
 .task > h3::before {
-	content: '✏️';
+	content: '✏';
 	margin-right: 1rem;
 }
 
@@ -169,12 +170,18 @@ span.task::before, p.task::before {
 	content: '❗';
 	margin-right: 1rem;
 }
-.note {
+.note, .extra {
 	border: 1px solid red;
 	border-radius: 0.5rem;
 	padding: 1rem;
 	margin-top: 1rem;
 }
+
+.tip > span::before {
+	content: '💡';
+	margin-right: 1rem;
+}
+
 
 .left {
 	grid-column: 1;
