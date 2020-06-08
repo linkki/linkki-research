@@ -15,6 +15,10 @@ html {
       background-attachment: fixed;
 }
 
+canvas {
+	background-color:beige;;
+}
+
 .page-content {
     background-color: white;
 }
@@ -170,7 +174,7 @@ span.task::before, p.task::before {
 	content: '❗';
 	margin-right: 1rem;
 }
-.note, .extra {
+.note, .extra, .tip {
 	border: 1px solid red;
 	border-radius: 0.5rem;
 	padding: 1rem;
