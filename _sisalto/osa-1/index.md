@@ -25,20 +25,6 @@ Erilaisten elementtien muoto on aina sama. Ne alkavat jollakin tägillä ja lopp
 Tällöin tekstiin ei voi viitata <b>JavaScript-koodista.</b>'
 %}
 
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/bold-2.webp" height="500" width="500"/>
-
-{% include task.html
-
-tehtava-ohje='Täydennä tägien sisälle sopivat arvot.'
-
-tehtava-koodi='<!doctype HTML>
-Nimi: <b></b>
-Ikä: <b></b>
-Kotikaupunki <b></b>
-Harrastan <i></i>.
-<u>Ensimmäinen tehtävä on tehty.</u>'
-%}
-
 ## 1.2 Mikä ihmeen JavaScript?
 
 HTML-koodilla erilaiset HTML-elementit tulivat näkyviin ohjelmassa. JavaScript koodi kirjoitetaan myös HTML-elementin sisälle. JavaScript-elementti käyttää `<script>`-tägiä eli JavaScript-koodi kirjoitetaan ympäristöön, joka alkaa tägillä `<script>` ja loppuu tägiin `</script>`. JavaScriptiä siis kirjoitetaan skriptielementin sisälle, joka on `script`-tyyppinen HTML-elementti.
