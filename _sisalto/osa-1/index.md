@@ -1,10 +1,8 @@
 ---
 layout: default
-title: Osa 1
+title: Osa 1 – JavaScriptin alkeet
 nav-title: Osa 1
 ---
-# Osa 1 – JavaScriptin alkeet
-
 ## 1.1 HTML ja tägit
 
 Sinunhan piti ohjelmoida Javascriptiä, joten miksi tämän osan otsikko on _HTML ja tägit_? HTML on kieli, jolla erilaiset elementit näytetään ohjelmassa. Elementtejä ovat esimerkiksi teksti, kuva tai painike, jotka näkyvät ohjelmassa. HTML-elementit koodataan käyttämällä tägejä.
@@ -23,6 +21,20 @@ Erilaisten elementtien muoto on aina sama. Ne alkavat jollakin tägillä ja lopp
 <button> Click me! </button>
 <p> Tekstiä voi kirjoittaa myös ilman <i>tekstielementtiä.</i></p>
 Tällöin tekstiin ei voi viitata <b>JavaScript-koodista.</b>'
+%}
+
+<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/bold-2.webp" height="500" width="500"/>
+
+{% include task.html
+
+tehtava-ohje='Täydennä tägien sisälle sopivat arvot.'
+
+tehtava-koodi='<!doctype HTML>
+Nimi: <b></b>
+Ikä: <b></b>
+Kotikaupunki <b></b>
+Harrastan <i></i>.
+<u>Ensimmäinen tehtävä on tehty.</u>'
 %}
 
 ## 1.2 Mikä ihmeen JavaScript?
@@ -186,7 +198,7 @@ esimerkki-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
-Jotta käyttäjän _syötteellä_ voidaan tehdä jotain hyödyllistä, täytyy se tallettaa **muuttujaan**. Lisätään komennon `prompt("Hei! Mikä sinun nimesi on?")` vielä muuttujan määrittely
+Jotta _syötteellä_ voidaan tehdä jotain hyödyllistä, täytyy se tallettaa **muuttujaan**. Lisätään komennon `prompt("Hei! Mikä sinun nimesi on?")` vielä muuttujan määrittely
 
 ```html
 <script>
@@ -194,16 +206,17 @@ Jotta käyttäjän _syötteellä_ voidaan tehdä jotain hyödyllistä, täytyy s
 </script>
 ```
 
-Huomaatko eron edelliseen koodiin? `prompt()`-komennon eteen on lisätty `nimi =`, joka määrittelee `nimi`-nimisen muuttujanja yhtäsuuruus-merkki asettaa tälle `nimi`-muuttujalle arvon.
+Huomaatko eron edelliseen koodiin? `prompt()`-komennon eteen on lisätty `var nimi =`, joka määrittelee `nimi`-nimisen muuttujanja yhtäsuuruus-merkki asettaa tälle `nimi`-muuttujalle arvon.
 
 Kun yhdistetään `prompt()`-komento ja `alert()`-komento ohjelma pystyy käyttämään käyttäjän syötteitä toiminnassaan. Muuttujaa `nimi` voi käyttää `alert()`-komennossa.
 
 ```html
 <script>
-    vaar nimi = prompt("Hei! Mikä sinun nimesi on?")
+    var nimi = prompt("Hei! Mikä sinun nimesi on?")
     alert("Hei "+ nimi + "!")
 </script>
 ```
+
 {% include task.html
 tehtava-ohje='Tee ohjelma, joka kysyy "Kuinka vanha sinä olet?". Tallenna vastaus muuttujaan, jonka nimi on "ikä". Tulosta tämän jälkeen <code>alert()</code>-komennolla "ikä"-muuttujan arvo.'
 tehtava-koodi='<!doctype HTML>
@@ -229,7 +242,7 @@ vinkki='Käyttäjälle tulostaminen JavaScrip-komennoilla on monipuolisempaa, ku
 
 Muuttujan nimen päättää ohjelmoija – eli sinä. On kuitenkin hyvä, jos muuttujan nimi on sen käyttötarkoitusta kuvaava. Esimerkiksi ikä ja nimi kannattaa tallettaa muuttujiin, joiden nimet ovat `ikä` ja `nimi`.
 
-Tiedät jo ainakin yhden tavan asettaa muuttujan arvon. `prompt()`-komennon yhteydessä asetimme muuttujan arvoksi _käyttäjän syötteen_. Tämä onnistui käyttämällä yhtäsuuruusmerkkiä muuttujan nimen jälkeen. Muuttujalle voidaan antaa arvo myös asettamalla haluttu arvo yhtäsuuruusmerkin oikeallepuolelle. Esimerkiksi muuttuja nimeltä `ikä`, jonka arvo on `12` määritetään kirjoittamalla koodiin `var ikä = 12` ja muuttuja, jonka nimi on `nimi` ja arvo `Milla` määritetään `var nimi = "Milla"`. `var`-sanaa käytetään, kun muuttuja määritellään ensimmäisen kerran.
+Tiedät jo ainakin yhden tavan asettaa muuttujan arvon. `prompt()`-komennon yhteydessä muuttujan arvoksi asetettiin _käyttäjän syötte_. Tämä onnistui käyttämällä yhtäsuuruusmerkkiä muuttujan nimen jälkeen. Muuttujalle voidaan antaa arvo myös asettamalla haluttu arvo yhtäsuuruusmerkin oikeallepuolelle. Esimerkiksi muuttuja nimeltä `ikä`, jonka arvo on `12` määritetään kirjoittamalla koodiin `var ikä = 12` ja muuttuja, jonka nimi on `nimi` ja arvo `Milla` määritetään `var nimi = "Milla"`. `var`-sanaa käytetään, kun muuttuja määritellään ensimmäisen kerran.
 
 {% include example.html
 esimerkki-selitys='Muuttujan <code>eläin</code> arvoksi on annettu "koira" ja muuttujan <code>nimi</code> arvon määrittää käyttäjän <i>syöte</i>. Lopuksi muuttujia hyödynnetään tulostuksessa.'
@@ -255,7 +268,7 @@ tehtava-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
-Muuttujien arvoa voidaan **vaihtaa** määrittämällä uudelleen saman niminen muuttuja, mutta tällä kertaa uudella arvolla. Tällä kertaa ei käytetä `var`-sanaa. Esimerkiksi, jos olemme koodissa määritelleet muuttujan `var nimi = "Milla"`, niin kirjoittamalla koodiin `nimi = "Pekka"` vaihtaa muuttujan `nimi` arvoksi `"Pekka"`.
+Muuttujien arvoa voidaan **vaihtaa** määrittämällä uudelleen saman niminen muuttuja, mutta tällä kertaa uudella arvolla ilman `var`-sanaa. Esimerkiksi, jos olemme koodissa määritelleet muuttujan `var nimi = "Milla"`, niin kirjoittamalla koodiin `nimi = "Pekka"` vaihtaa muuttujan `nimi` arvoksi `"Pekka"`.
 
 {% include example.html
 esimerkki-selitys='<code>Lempiväri</code>-muuttujan arvo on ensin "vihreä", mutta se vaihdetaan arvoksi "keltainen".'
@@ -319,12 +332,6 @@ var erotus = 12-6
 var tulo = 12*6
 var osamäärä = 12/6
 ```
-{% include task.html
-tehtava-ohje='Tee ohjelma, joka kysyy ensin käyttäjältä "Mikä sinun nimesi on? ja talleta vastaus muuttujaan "nimi". Nimen kysymisen jälkeen ohjelman tulee kysyä "Kuinka vanha olet?" ja tallettaa vastaus muuttujaan "ikä". Tämän jälkeen ohjelma tulostaa "Hei " + nimi + "! Sinä olet " + ikä + " vuotta vanha.".'
-tehtava-koodi='<!doctype HTML>
-<script>
-${closeScript}'
-%}
 
 ### Tekstimuuttujat
 
@@ -358,8 +365,8 @@ Esimerkin `uusiNimi`-muuttujan arvo saadaan yhdistämällä `nimi` ja `koira`-mu
 
 Lukumuuttajan yhdistäminen tekstimuuttujaan tapahtuu plusmerkillä. Kun luvun laittaa keskelle tekstiä, pitää sen molemmille puolille laittaa plusmerkit.
 ```javascript
-yhteenlasku = 6 + 6
-teksti = "Nimeni on Milla ja olen " + yhteenlasku + " vuotta vanha."
+var yhteenlasku = 6 + 6
+var teksti = "Nimeni on Milla ja olen " + yhteenlasku + " vuotta vanha."
 ```
 
 {% include example.html
@@ -371,6 +378,14 @@ var teksti = "Nimeni on Milla ja olen " + yhteenlasku + " vuotta vanha."
 alert(teksti)
 ${closeScript}'
 %}
+
+{% include task.html
+tehtava-ohje='Tee ohjelma, joka kysyy ensin käyttäjältä "Mikä sinun nimesi on? ja talleta vastaus muuttujaan "nimi". Nimen kysymisen jälkeen ohjelman tulee kysyä "Kuinka vanha olet?" ja tallettaa vastaus muuttujaan "ikä". Tämän jälkeen ohjelma tulostaa "Hei " + nimi + "! Sinä olet " + ikä + " vuotta vanha.".'
+tehtava-koodi='<!doctype HTML>
+<script>
+${closeScript}'
+%}
+
 
 ## 2.4 Yhteenveto komennoista
 
