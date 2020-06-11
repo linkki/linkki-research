@@ -1,39 +1,34 @@
 ---
 layout: default
-title: Osa 3
+title: Osa 3 - Ehdot
 nav-title: Osa 3
 ---
+## 3. 1 Mitä ovat ehto-lauseet?
 
-# Osa 3 - Ehdot
-
-## Mitä ovat ehto-lauseet?
 Jos Almalla on enemmän kuin 5 pähkinää, niin hän voi jakaa ne ystävänsä Brunon kanssa.Jakaako Alma pähkinät Brunon kanssa, jos hänellä on 10 pähkinää? Entäs jos hänellä on 2 pähkinää?
 
-<b>Ehdon</b> "Jos Almalla on enemmän kuin 5 pähkinää, niin hän jakaa pähkinät" perusteella ensimmäisessa tapauksessa Alma jakaa pähkinät Brunon kanssa. Kahden pähkinän tapauksessa näin kuitenkaan ei ole.
+**Ehdon** "Jos Almalla on enemmän kuin 5 pähkinää, niin hän jakaa pähkinät" perusteella ensimmäisessa tapauksessa Alma jakaa pähkinät Brunon kanssa. Kahden pähkinän tapauksessa näin kuitenkaan ei ole.
 
 Almalla oli ehto, jonka perusteella hän toimi tietyllä tavalla. Seuraavaksi tutustumme, miten voimme antaa tietokoneella samanlaisia ehtoja.
 
-## Jos-niin ehto
+## 3.2 Jos-niin ehto
 
-<u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa.
+_Jos_ Almalla on ennemmän kuin 5 pähkinää _niin_ Alma jakaa pähkinät Brunon kanssa.
 
-Ehto-lause on muotoa <code>if (ehto)</code>. Kun ehto toteutuu, suoritetaan koodi <code>{ }</code> lohkon sisältä. Edellisen kohdan esimerkki voitaisiin siis kirjoittaa muodossa
+Ehto-lause on muotoa `if (ehto)`. Kun ehto toteutuu, suoritetaan koodi `{ }` lohkon sisältä. Edellisen kohdan esimerkki voitaisiin siis kirjoittaa muodossa
 
-<code><pre>
+```javascript
     if(almanPähkinät > 5){
         brunonPähkinät = almanPähkinät/2
         almanPähkinät = almanPähkinät/2
     }
-</pre></code>
+```
 
 Tietokone ei kuitenkaan ymmärrä tätä koodia ihan tällaisenään. Tutkitaan JavaScriptillä kirjoitettua esimerkkiä, jonka tietokonekkin ymmärtää.
 
-<div class="codebox example">
-<h3>Esimerkki</h3>
-Tässä esimerkissä Almalla on aluksi 10 pähkinää.
-<script>
-addEditor(
-`<!doctype HTML>
+{% include example.html
+esimerkki-selitys='Tässä esimerkissä Almalla on aluksi 10 pähkinää.'
+esimerkki-koodi='<!doctype HTML>
 <script>
     almanPähkinät = 10
     brunonPähkinät = 0
@@ -42,19 +37,12 @@ addEditor(
         almanPähkinät = almanPähkinät/2
         alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
     }
-    
-${closeScript}`
-);</script>
-</div>
+${closeScript}'
+%}
 
-<div class="codebox task">
-<h3>Tehtävä</h3>
-
-Almalle ei ole annettu lainkaan pähkinöitä! Korjaa koodia niin, että Almalla on 2 pähkinää. Tulostaako ohjelma mitään?
-    
-<script>
-addEditor(
-`<!doctype HTML>
+{% include task.html
+tehtava-ohje='Almalle ei ole annettu lainkaan pähkinöitä! Korjaa koodia niin, että Almalla on 2 pähkinää. Tulostaako ohjelma mitään?'
+tehtava-koodi='<!doctype HTML>
 <script>
     almanPähkinät = 
     brunonPähkinät = 0
@@ -63,21 +51,14 @@ addEditor(
         almanPähkinät = almanPähkinät/2
         alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
     }
-    
-${closeScript}`
-                );</script>
-</div>
+${closeScript}'
+%}
 
 Ehto-lauseesta on erityisesti hyötyä silloin kun saamamme syöte ei ole aina sama.
 
-<div class="codebox example">
-<h3>Esimerkki</h3>
-
-Miksi syötteellä 3 Bruno ei saa pähkinöitä, mutta syötteellä 7 hän saa.
-    
-<script>
-addEditor(
-`<!doctype HTML>
+{% include example.html
+esimerkki-selitys='Miksi syötteellä 3 Bruno ei saa pähkinöitä, mutta syötteellä 7 hän saa.'
+esimerkki-koodi='<!doctype HTML>
 <script>
     pähkinät = prompt("Kuinka monta pähkinää?")
     brunonPähkinät = 0
@@ -87,15 +68,12 @@ addEditor(
         pähkinät = pähkinät/2
         alert("Bruno saa " + brunonPähkinät + " pähkinää ja pähkinöitä jää jäljelle " + pähkinät)
     }
-    
-${closeScript}`
-                );</script>
-</div>
+${closeScript}'
+%}
 
-<div class="extra">
-<h3>Vertailu</h3>
-
-Matematiikasta tuttuja vertailuoperaattoreita ovat pienempi <code>&lt;</code>, suurempi <code>&gt;</code> ja yhtäsuuri <code>&equals;</code>. Ohjelmoinnissa käytettään lähes samoja operaattoreita!
+{% include extra.html
+otsikko='Vertailu'
+vinkki='Matematiikasta tuttuja vertailuoperaattoreita ovat pienempi <code>&lt;</code>, suurempi <code>&gt;</code> ja yhtäsuuri <code>&equals;</code>. Ohjelmoinnissa käytettään lähes samoja operaattoreita!
     
 Numeroiden kokoa voidaan vertailla pienempi ja suurempi kuin merkeillä tavallisesti.
     
@@ -145,16 +123,12 @@ addEditor(
 <div class="note">
 <h3>"ankka" === "Ankka"</h3>
 Huomasithan, että edellisessä esimerkissä isolla kirjoitettu Ankka ei ollut sama asia kuin pienellä kirjoitettu ankka. Tässä tuleekin olla erityisen tarkkana. JavaScript on <b>case sensitive</b> eli sen mielestä isolla ja pienellä kirjoitetut sanat ovat erilaisia.
-</div>
+</div>'
+%}
 
-<div class="codebox task">
-<h3>Tehtävä 2.2</h3>
-
-Täydennä jos-ehtoja niin, että nimi tulostuu oikein.
-    
-<script>
-addEditor(
-`<!doctype HTML>
+{% include task.html
+tehtava-ohje='Täydennä jos-ehtoja niin, että nimi tulostuu oikein.'
+tehtava-koodi='<!doctype HTML>
     <script>
         ekaNimi = "Bella"
         tokaNimi = "Anton"
@@ -164,19 +138,12 @@ addEditor(
         if(){
             alert("Hei Anton!")
         }
-    ${closeScript}`
-                );</script>
+    ${closeScript}'
+%}
 
-</div>
-
-<div class="codebox task">
-<h3>Tehtävä</h3>
-
-Täydennä jos-ehtoa niin, että jos muuttujan brunonPähkinät on pienempää kuin 2, niin Bruno saa lisää pähkinöitä.
-    
-<script>
-addEditor(
-`<!doctype HTML>
+{% include task.html
+tehtava-ohje='Täydennä jos-ehtoa niin, että jos muuttujan brunonPähkinät on pienempää kuin 2, niin Bruno saa lisää pähkinöitä.'
+tehtava-koodi='<!doctype HTML>
     <script>
         brunonPähkinät = Number(prompt("Kuinka monta pähkinää Brunolla on?"))
         if(){
@@ -184,34 +151,27 @@ addEditor(
             brunonPähkinät += pähkinät
         }
         alert("Brunolla on " + brunonPähkinät + " pähkinää.")
-    ${closeScript}`
-                );</script>
+    ${closeScript}'
+%}
 
-</div>
+## 3.2 Jos muuten
 
-## Jos muuten
-
-<u>Jos</u> Almalla on ennemmän kuin 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa. <u>Muuten</u> Bruno saa 2 pähkinää.
+_Jos_ Almalla on ennemmän kuin 5 pähkinää _niin_ Alma jakaa pähkinät Brunon kanssa. _Muuten_ Bruno saa 2 pähkinää.
 
 Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkinät Brunon kanssa. Mitä jos Almalla on alle 5 pähkinää? Tällöin Bruno ei saa yhtään pähkinää.Tälläinen tilanne on Brunon mielestä epäreilu ja hän joutuu katselemaan vierestä, kun Alma syö pähkinöitä. Voimme kuitenkin määritellä, että Bruno saa lohdutus palkinnoksi 3 pähkinää.
 
-<code><pre>
+```javascript
     if(almanPähkinät > 5){
         brunonPähkinät = almanPähkinät/2
         almanPähkinät = almanPähkinät/2
     } else {
         brunonPähkinät = 2
     }
-</pre></code>
+```
 
-<div class="codebox example">
-<h3>Esimerkki</h3>
-
-Tässä esimerkissä Almalla on aluksi 2 pähkinää. Kuinka monta pähkinää Brunolla on?
-    
-<script>
-addEditor(
-`<!doctype HTML>
+{%include example.html
+esimerkki-selitys='Tässä esimerkissä Almalla on aluksi 2 pähkinää. Kuinka monta pähkinää Brunolla on?'
+esimerkki-koodi='<!doctype HTML>
     <script>
         almanPähkinät = 2
         brunonPähkinät = 0
@@ -223,17 +183,12 @@ addEditor(
         }
         alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
         
-    ${closeScript}`
-    );</script>
-</div>
+    ${closeScript}'
+%}
 
-<div class="codebox example">
-<h3>Esimerkki</h3>
-
-Esimerkissä on kuuntelija, joka odottaa, milloin tekstiä klikataan. Kun tekstiä on klikattu, tarkastamme ehto-lauseella, mitä tekstissä lukee. <b>Jos</b> tekstissä lukee "Klikkaa minua.", <b>niin</b> teksti vaihtuu tekstiksi "Moikka moi!". <b>Muutoin</b> teksti vaihtuu tekstiksi "Klikkaa minua.".
-<script>
-addEditor(
-`<!doctype HTML>
+{% include example.html
+esimerkki-selitys='Esimerkissä on kuuntelija, joka odottaa, milloin tekstiä klikataan. Kun tekstiä on klikattu, tarkastamme ehto-lauseella, mitä tekstissä lukee. <b>Jos</b> tekstissä lukee "Klikkaa minua.", <b>niin</b> teksti vaihtuu tekstiksi "Moikka moi!". <b>Muutoin</b> teksti vaihtuu tekstiksi "Klikkaa minua.".'
+esimerkki-koodi='<!doctype HTML>
 <p id = teksti>
     Klikkaa minua
 <script>
@@ -244,18 +199,16 @@ addEditor(
 	        teksti.textContent = "Klikkaa minua."
         }
     }
-    
-${closeScript}`, true
-                );</script>
-</div>
+${closeScript}'
+%}
 
-## Useamman ehdon käyttäminen
+## 3.3 Useamman ehdon käyttäminen
 
-<u>Jos</u> Almalla on tasan 5 pähkinää <u>niin</u> Alma jakaa pähkinät Brunon kanssa. <u>Muuten jos</u> Almalla on yli 10 pähkinää hän antaa Brunolle 5 pähkinää ja pitää loput ise. <u>Muuten</u> Bruno saa 2 pähkinää.
+_Jos_ Almalla on tasan 5 pähkinää _niin_ Alma jakaa pähkinät Brunon kanssa. Muuten _jos_ Almalla on yli 10 pähkinää hän antaa Brunolle 5 pähkinää ja pitää loput ise. _Muuten_ Bruno saa 2 pähkinää.
 
-Jos-ehtoja voidaan ketjuttaa. Tässä ideana on se, että kun ensimmäinen if-ehto täyttyy, niin silloin se <b>lohko</b> koodia toteutetaan. Jos mikään if-ehdoista ei täyty, niin silloin siirrytään else-lohkon koodiin. Huomaa, että vain yksi if-ehdoista toteutetaa
+Jos-ehtoja voidaan ketjuttaa. Tässä ideana on se, että kun ensimmäinen if-ehto täyttyy, niin silloin se **lohko** koodia toteutetaan. Jos mikään if-ehdoista ei täyty, niin silloin siirrytään else-lohkon koodiin. Huomaa, että vain yksi if-ehdoista toteutetaa
 
-<code><pre>
+```javascript
     if(almanPähkinät == 5){
         brunonPähkinät = almanPähkinät/2
         almanPähkinät = almanPähkinät/2
@@ -265,14 +218,11 @@ Jos-ehtoja voidaan ketjuttaa. Tässä ideana on se, että kun ensimmäinen if-eh
     } else {
         brunonPähkinät = brunonPähkinät + 2;
     }
-</pre></code>
-<div class="codebox example">
-<h3>Esimerkki</h3>
+```
 
-Tässä esimerkissä Almalla on aluksi 10 pähkinää.    
-<script>
-addEditor(
-`<!doctype HTML>
+{% include example.html
+esimerkki-selitys='Tässä esimerkissä Almalla on aluksi 10 pähkinää.'
+esimerkki-koodi='<!doctype HTML>
     <script>
         almanPähkinät = 7
         brunonPähkinät = 0
@@ -286,23 +236,18 @@ addEditor(
         } else {
             brunonPähkinät = brunonPähkinät + 2
         }
-
         alert("Bruno saa " + brunonPähkinät + " pähkinää ja Alma saa " + almanPähkinät)
-        
-    ${closeScript}`
-                );</script>
-        
+    ${closeScript}'
+%}
+
 Mitä eroa seuraavilla if-lauseilla on?
 
-<div class="codebox example">
- <h3>Esimerkki</h3>
-
-<script>
-addEditor(
-`<!doctype HTML>
+{% include example.html
+esimerkki-koodi='<!doctype HTML>
 <p id = teksti></p>
 <script>
     muuttuja = ""
+
     if(muuttuja === ""){
         teksti.textContent = "Heipä hei!"
         muuttuja = "Heipä hei!"
@@ -310,17 +255,12 @@ addEditor(
     if(muuttuja === "Heipä hei!"){
         teksti.textContent = "Ankka"
     }
-${closeScript}`, 
-            );</script>
-    </div>
-    <div class="codebox example">
-        <h3>Esimerkki</h3>
-            
+${closeScript}'
+%}
 
-        <script>
-            addEditor(
-                `<!doctype HTML>
-<p id = teksti>
+{%include example.html
+esimerkki-koodi='<!doctype HTML>
+<p id = teksti></p>
 <script>
     muuttuja = ""
 
@@ -330,19 +270,16 @@ ${closeScript}`,
     } else if (muuttuja === "Heipä hei!") {
         teksti.textContent = "Ankka"
     }
-${closeScript}`, 
-            );</script>
-    </div>
-    
+${closeScript}'
+%}
+
 ## Näppäimistön kuuntelija
 
-Jotta voimme kuunnella näppäimistöä, meidän täytyy käyttää monia asioita, joita olemme tähän asti opetelleet. Ensinnäkin tarvitsemme <b>tapahtuman kuuntelijan</b>, joka kuuntelee selaimessa, milloin painiketta painetaan. Kun näppäimen painaminen tapahtuu, meidän tulee tarkastaa, mitä näppäintä painettiin. 
+Jotta voimme kuunnella näppäimistöä, meidän täytyy käyttää monia asioita, joita olemme tähän asti opetelleet. Ensinnäkin tarvitsemme **tapahtuman kuuntelijan**, joka kuuntelee selaimessa, milloin painiketta painetaan. Kun näppäimen painaminen tapahtuu, meidän tulee tarkastaa, mitä näppäintä painettiin.
 
-<div class="codebox example">
-<h3>Esimerkki</h3>    
-<script>
-                addEditor(
- `<!doctype HTML>
+{% include example.html
+esimerkki-selitys='Näppäimistön kuuntelijat reagoivat näppäinten painalluksiin.'
+esimerkki-koodi='<!doctype HTML>
   <p id = teksti>
 <script>
     
@@ -360,11 +297,10 @@ Jotta voimme kuunnella näppäimistöä, meidän täytyy käyttää monia asioit
             teksti.textContent = "Oikealle."
         }
     }
-    
-${closeScript}`,
-                );</script>
-        </div>
+${closeScript}'
+%}
 
+## Kysymyksiä
 
 <div id="ehtokysymykset"></div>
 

@@ -26,6 +26,14 @@ url: "https://linkki.github.io/linkki-research/" # the base hostname & protocol 
 plugins:
   - jekyll-feed
 
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    default_lang: html
+    css_class   : 'syntax'
+
 collections:
   sivut:
     output: true

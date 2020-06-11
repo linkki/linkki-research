@@ -15,6 +15,10 @@ html {
       background-attachment: fixed;
 }
 
+canvas {
+	background-color:beige;;
+}
+
 .page-content {
     background-color: white;
 }
@@ -133,7 +137,8 @@ nav a:hover {
 	padding: 1rem;
     margin: auto;
     background-color: white;
-    max-width: 45rem;
+	max-width: 45rem;
+	margin-top: 1rem;
 }
 
 .codebox > h3 {
@@ -151,7 +156,7 @@ nav a:hover {
 }
 
 .task > h3::before {
-	content: '✏️';
+	content: '✏';
 	margin-right: 1rem;
 }
 
@@ -169,12 +174,18 @@ span.task::before, p.task::before {
 	content: '❗';
 	margin-right: 1rem;
 }
-.note {
+.note, .extra, .tip {
 	border: 1px solid red;
 	border-radius: 0.5rem;
 	padding: 1rem;
 	margin-top: 1rem;
 }
+
+.tip > span::before {
+	content: '💡';
+	margin-right: 1rem;
+}
+
 
 .left {
 	grid-column: 1;
@@ -207,6 +218,21 @@ li {
 
 .dialog > h2 {
 	border: none;
+}
+
+.footer {
+    text-align: left;
+    bottom: 0;
+    color: black;
+    background-color: rgba(134, 116, 92, 0.521);
+    padding: 1em 2em 1em 2em;
+    max-width: 45rem;
+	margin: auto;
+	line-height: 0.5em;
+}
+
+.footer img {
+    width: 250px;
 }
 
 #folderContent table {

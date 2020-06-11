@@ -3,14 +3,14 @@ layout: default
 title: Osa 5 - Funktiot
 nav-title: Osa 5
 ---
-<b>Funktio</b> eli aliohjelma ohjelmoijien käyttämä sana kasalle koodia, joka voidaan suorittaa tarvittaessa. Funktion koodia ei siis suoriteta heti, vaan vasta joskus myöhemmin. Olemme jo nähneet funktioita osassa 3, jossa loimme tapahtumakäsittelijöitä. Ne ovat eräs esimerkki funktiosta.
+**Funktio** eli aliohjelma ohjelmoijien käyttämä sana kasalle koodia, joka voidaan suorittaa tarvittaessa. Funktion koodia ei siis suoriteta heti, vaan vasta joskus myöhemmin. Olemme jo nähneet funktioita osassa 3, jossa loimme tapahtumakäsittelijöitä. Ne ovat eräs esimerkki funktiosta.
 
-Funktioita käytetään JavaScriptissä monilla eri tavoilla ja ne voivat näyttää erilaisilta. Yleisesti ottaen funktiot voi jakaa kahteen luokkaan: <b>nuolifunktoihin</b>, jotka tunnistaa nuolesta <code>=&gt;</code>, ja <b>avainsanafunktioihin</b>, jotka tunnistaa avainsanasta <code>function</code>.
+Funktioita käytetään JavaScriptissä monilla eri tavoilla ja ne voivat näyttää erilaisilta. Yleisesti ottaen funktiot voi jakaa kahteen luokkaan: **nuolifunktoihin**, jotka tunnistaa nuolesta `=>`, ja **avainsanafunktioihin**, jotka tunnistaa avainsanasta `function`.
 
 Alla on esimerkkejä erilaisista funktiosta, joihin tutustumme tässä luvussa.
 
-<script>codeExample(
-`// Tapahtumakäsittelijä:
+```javascript
+// Tapahtumakäsittelijä:
 
 teksti.onclick = () => {
     alert("Hei siellä!")
@@ -43,7 +43,7 @@ function piirrä() {
     requestAnimationFrame(piirrä)
 }
 requestAnimationFrame(piirrä)
-`,"javascript");</script>
+```
 
 <div class="codebox question">
 	<h3>Kysymys 5.1</h3>
@@ -56,43 +56,31 @@ requestAnimationFrame(piirrä)
 
 Tutustuimme tapahtumakäsittelijöihin jo luvussa 3. Ne ovat funktioita, jotka suoritetaan kun jotain tiettyä tapahtuu. Esimerkiksi napin painaminen ja hiiren liikuttaminen ovat tapahtumia.
 
-<div class="codebox example">
-	<h3>Esimerkki 5.2</h3>
-	<p>
-	Tapahtumakäsittelijä näyttää ilmoituksen, kun tekstiä klikataan.
-	</p>
-	<script>
-		addEditor(
-`<!doctype HTML>
+{% include example.html
+esimerkki-selitys='Tapahtumakäsittelijä näyttää ilmoituksen, kun tekstiä klikataan.'
+esimerkki-koodi='<!doctype HTML>
 <p id = teksti>Klikkaa tästä!</p>
 <script>
 	teksti.onclick = e => {
 		alert("Hei siellä!")
 	}
-${closeScript}`
-		);
-	</script>
-</div>
+${closeScript}'
+%}
 
 TODO: listaa tässä eri tapahtumakäsittelijöitä
 
 TODO: Tehtävä, jossa napin painaminen aiheuttaa jotain
 
-<div class="codebox task">
-	<h3>Tehtävä</h3>
-	<p>Lisää painikkeelle kuuntelija. 
-		Kun painiketta klikataan, niin tulosta <code>alert()</code>> komennolla "Klikkasit painiketta."</p>
-	<script>
-	addEditor(
-`<!doctype HTML>
+{% include task.html
+tehtava-ohje='Lisää painikkeelle kuuntelija. Kun painiketta klikataan, niin tulosta <code>alert()</code>> komennolla "Klikkasit painiketta."'
+tehtava-koodi='<!doctype HTML>
 <button id = painike>
 Missä ankat uivat?
 </button>
 
 <script>
-${closeScript}`
-	);</script>
-</div>
+${closeScript}'
+%}
 
 <div class="codebox task">
 	<h3>Tehtävä</h3>
@@ -174,7 +162,7 @@ ${closeScript}`);
 	addEditor(
 `<!doctype HTML>
 <canvas id=kangas>
-<canvas>
+</canvas>
 <script>
 	const piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillRect(10, 10, 50, 50)
