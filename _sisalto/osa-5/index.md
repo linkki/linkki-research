@@ -515,3 +515,37 @@ ${closeScript}`
 TODO: Tehtävä: Laatikon liikuttaminen nuolinäppäimillä
 
 TODO: Tehtävä/projekti: Kilpa-ajo, jossa yksi laatikko liikkuu kun nappia painetaan ja toinen liikkuu hitaasti itsestään. Kumpi pääsee toiseen reunaan ensin?
+
+## Kysymyksiä
+
+<div id="lisäfunktiokysymykset"></div>
+
+<script>createQuestionnaire({
+	id: "lisäfunktiokysymykset",
+	questions: [
+		{
+			text: "Mitä päivityssilmukka tekee?",
+			alternatives: [
+				{ text: "Piirtää hahmot ruudulle (\"päivittää\" näytön)" },
+				{ text: "Sitä kutsutaan aina, kun käyttäjä painaa nappia tai klikkaa hiirellä" },
+				{ text: "Se päivittää tasaisin väliajoin olioiden tietoja muistissa", correct: true },
+			]
+		},
+		{
+			text: "Kuinka usein piirtosilmukka suoritetaan?",
+			alternatives: [
+				{ text: "Ohjelmoija päättää sen itse" },
+				{ text: "Selain päättää sen", correct: true },
+				{ text: "24 kertaa sekunnissa" },
+			]
+		},
+		{
+			text: "Miksi piirtosilmukassa on kaksi kertaa requestAnimationFrame?",
+			alternatives: [
+				{ text: "Jotta asiat piirrettäisiin kaksi kertaa nopeammin" },
+				{ text: "Funktion ulkopuolella oleva suorittaa funktion ensimmäisen kerran, sisällä oleva sen jälkeen", correct: true },
+				{ text: "Kaikki selaimet eivät tue vain yhtä, joten yhteensopivuuden vuoksi niitä on oltava kaksi" },
+			]
+		}
+	]
+})</script>
