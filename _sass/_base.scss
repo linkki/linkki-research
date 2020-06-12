@@ -271,8 +271,9 @@ li {
 	border: 2px solid #ef3f3f;
         margin-top: 1rem;
         margin-bottom: 1rem;
-	width: 804px;
-        height: 404px;
+	width: 800px;
+        height: 400px;
+        flex-shrink: 0;
 }
 
 .traingifcontainer .gifframe800px img {
