@@ -386,6 +386,59 @@ tehtava-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
+## Kysymyksiä
+
+<div id="osa1kysymykset"></div>
+
+<script>createQuestionnaire({
+	id: "osa1kysymykset",
+	questions: [
+		{
+			text: "Mitä tägiä käytetään tummennetun tekstin näyttämiseen?",
+			alternatives: [
+				{ text: "<t>" },
+				{ text: "<l>" },
+				{ text: "<w>" },
+				{ text: "<b>", correct: true },
+				{ text: "<d>" },
+			]
+		},
+		{
+			text: "Mitä tägiä käytetään kursiivitekstin näyttämiseen?",
+			alternatives: [
+				{ text: "<b>" },
+				{ text: "<d>" },
+				{ text: "<i>", correct: true },
+				{ text: "<k>" },
+				{ text: "<p>" },
+			]
+		},
+		{
+			text: "Ohjelmoija haluaa näyttää tekstin \"Ankat ovat kivoja!\", mutta hänen koodinsa ei toimi. Miksi? Hän on kirjoittanut koodiin: alert(Ankat ovat kivoja!)",
+			alternatives: [
+				{ text: "alert-komento ei osaa näyttää huutomerkkejä" },
+				{ text: "Tekstissä on liikaa välilyöntejä" },
+				{ text: "Tekstin ympärillä ei ole lainausmerkkejä", correct: true },
+			]
+		},
+		{
+			text: "Ohjelmoija haluaa näyttää tekstin \"Joessa ui 4 ankkaa\". Hän on kirjoittanut koodiin: alert(\"Joessa ui \" + 2 + 2 + \" ankkaa\"). Mitä hänen koodinsa tulostaa?",
+			alternatives: [
+				{ text: "Joessa ui 4 ankkaa" },
+				{ text: "Joessa ui 22 ankkaa", correct: true },
+				{ text: "Koodi kaatuu, koska se on virheellinen" },
+			]
+		},
+		{
+			text: "Miten edellisen kysymyksen ongelman voi ratkaista?",
+			alternatives: [
+				{ text: "Laskemalla laskutoimituksen muuttujassa etukäteen", correct: true },
+				{ text: "Käyttämällä sulkuja laskutoimituksen ympärillä", correct: true },
+				{ text: "Käyttämällä +-merkin sijasta &-merkkiä" },
+			]
+		}
+	]
+})</script>
 
 ## 2.4 Yhteenveto komennoista
 
