@@ -299,3 +299,29 @@ esimerkki-koodi='<!doctype HTML>
     }
 ${closeScript}'
 %}
+
+## Kysymyksiä
+
+<div id="ehtokysymykset"></div>
+
+<script>createQuestionnaire({
+	id: "ehtokysymykset",
+	questions: [
+		{
+			text: "Koodissa lukee: if (pähkinöitä < 5) { if (pähkinöitä > 2) { alert(\"Pähkinöitä on vähän!\") } else { alert(\"Pähkinöitä on liian vähän!\") } } else { alert(\"Pähkinöitä on liikaa!\") }. Pähkinöitä on 3. Mikä viesti näytetään?",
+			alternatives: [
+				{ text: "Pähkinöitä on vähän!", correct: true },
+				{ text: "Pähkinöitä on liian vähän!" },
+				{ text: "Pähkinöitä on liikaa!" },
+			]
+		},
+		{
+			text: "Koodissa lukee: if (pähkinöitä > 5) { if (pähkinöitä < 3) { alert(\"Vähän!\") } } else { alert(\"Paljon!\") }. Mikä seuraavista pähkinöiden määristä ei tulosta mitään?",
+			alternatives: [
+				{ text: "2" },
+				{ text: "4" },
+				{ text: "6", correct: true },
+			]
+		}
+	]
+})</script>

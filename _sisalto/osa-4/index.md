@@ -376,6 +376,49 @@ tehtava-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
+## Kysymyksiä
+
+<div id="piirtokysymykset"></div>
+
+<script>createQuestionnaire({
+	id: "piirtokysymykset",
+	questions: [
+		{
+			text: "Mitä funktiota käytetään neliön piirtämiseen?",
+			alternatives: [
+				{ text: "fillSquare" },
+				{ text: "fillRect", correct: true },
+				{ text: "fillPolygon" },
+			]
+		},
+		{
+			text: "Miten polun piirtäminen aloitetaan?",
+			alternatives: [
+				{ text: "piirtäjä.startPath()" },
+				{ text: "piirtäjä.penDown()" },
+				{ text: "piirtäjä.beginPath()", correct: true },
+			]
+		},
+		{
+			text: "Miten polkua piirrettäessä piirretään viiva?",
+			alternatives: [
+				{ text: "piirtäjä.lineTo(x, y)", correct: true },
+				{ text: "piirtäjä.moveTo(x, y)" },
+				{ text: "piirtäjä.strokeTo(x, y)" },
+			]
+		},
+		{
+			text: "Miten polkua piirrettäessä valitaan väri?",
+			alternatives: [
+				{ text: "piirtäjä.lineStyle =" },
+				{ text: "piirtäjä.penStyle =" },
+				{ text: "piirtäjä.fillStyle =" },
+				{ text: "piirtäjä.strokeStyle =", correct: true },
+			]
+		}
+	]
+})</script>
+
 ## 4.4 `setInterval` ja animaatiot
 
 Jos haluamme tehdä pelejä tai animaatioita, meidän on saatava neliöt liikkumaan. Miten tämä tapahtuu? Vastaus on JavaScriptin `setInterval`-komento. `setInterval` toistaa sille annettuja komentoja ikuisesti annetulla nopeudella.
