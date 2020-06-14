@@ -249,8 +249,18 @@ li {
 	cursor: pointer;
 }
 
-.duckimg {
+.duckimg-float {
 	float: right;
+}
+
+.duckimg-center {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.duckimg-center-container {
+	display: flex;
+	justify-content: center;
 }
 
 

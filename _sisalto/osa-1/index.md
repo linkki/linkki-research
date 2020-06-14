@@ -23,7 +23,15 @@ Erilaisten elementtien muoto on aina sama. Ne alkavat jollakin tägillä ja lopp
 Tällöin tekstiin ei voi viitata <b>JavaScript-koodista.</b>'
 %}
 
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/bold-2.webp" height="500" width="500"/>
+<div class="duckimg-center-container">
+<img 
+  src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/bold-2.webp" 
+  class="duckimg-center"
+/>
+<!--
+  height="600" width="500" 
+-->
+</div>
 
 {% include task.html
 
@@ -67,7 +75,12 @@ Alussa mainittiin, että HTML-elementit saavat sisällön näkymään ohjelmassa
 vinkki='Ole tarkkana oletko kirjoittamassa JavaScript vai HTML-koodia.'
 %}
 
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/kaaroja.webp">
+<div class="duckimg-center-container">
+<img 
+  src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/kaaroja.webp"
+  class="duckimg-center"
+/>
+</div>
 
 ### Ensimmäinen komento `alert()`
 
@@ -259,7 +272,15 @@ otsikko='Samaa tarkoittavia ilmaisuja'
 vinkki='Muuttujien luomista voidaan kutsua myös muuttujan määrittämiseksi tai muuttujan arvon asettamiseksi.'
 %}
 
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/muuttuja.webp" width="901" height="507"/>
+<div class="duckimg-center-container">
+<img 
+  src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/muuttuja.webp" 
+  class="duckimg-center"
+/>
+<!--
+width="901" height="507"
+-->
+</div>
 
 {% include task.html
 tehtava-ohje='Tee ohjelma, jossa ensin kysytään käyttäjältä jokin syöte, joka tallennetaan muuttujaan. Määrittele tämän jälkeen muuttuja, jolle annat itse arvon. Tulosta tämän jälkeen muuttujat näytölle käyttäen <code>alert()</code>-komentoa.'
