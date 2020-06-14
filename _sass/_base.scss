@@ -277,7 +277,8 @@ li {
 }
 
 .traingifcontainer .gifframe800px img {
-	image-rendering: crisp-edges;
+	image-rendering: crisp-edges;  /* firefox */
+	image-rendering: pixelated;    /* chrome  */
         width: 100%;
         height: auto;
 }
