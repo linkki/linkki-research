@@ -33,8 +33,11 @@ Sellainen luodaan käyttämällä hakasulkuja:
 
 <p>
 
-<div style="display: flex; justify-content: center;">
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/train5.webp">
+<div class="duckimg-center-container">
+<img 
+  src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/train5.webp"
+  class="duckimg-center"
+/>
 </div>
 
 Listan sisällä oleviin asioihin eli <b>alkioihin</b> voi viitata kirjoittamalla listan nimen ja hakasuluissa luvun.

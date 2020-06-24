@@ -15,12 +15,12 @@ title: Tervetuloa
 
 ## Hei!
 
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/moi.webp" width="400" height="400" class="duckimg"/>
+<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/moi.webp" width="400" height="400" class="duckimg-float"/>
 
 Olet saanut käsiisi ohjelmointioppaan, jonka läpikäymällä opit ohjelmoimaan. Ohjelmointikieliä on olemassa nykyään monia, mutta olemme valinneet tämän oppaan kieleksi **JavaScriptin**. JavaScriptiä käytetään erityisesti verkkosivujen ja -sovellusten ohjelmoinnissa. Tulet myös oppimaan hieman **HTML**-kieltä.
 
 ## Miten aloitan?
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/new-tools.webp" class="duckimg"/>
+<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/new-tools.webp" class="duckimg-float"/>
 
 Voit siirtyä suoraan ensimmäisen osaan! Tehtävät voi tehdä suoraan selaimessa käyttämällä ohjelmointiympäristöä. Toinen vaihtoehto on tehdä materiaalin tehtävät paikallisesti omalla koneella.
 
