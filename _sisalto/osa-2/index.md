@@ -25,9 +25,9 @@ Kun klikkaat hiirellä tietokoneen näyttöä tai painat tietokoneen näppäimi�
 
 ## 2.2 Tapahtuma: Klikkaus
 
-Jotta tiedetään, missä klikkaus tapahtuu on HTML-elementit merkittävä _id-tunnistella_. Luodaan tekstielementti ja annetaan sille _id-tunnisteeksi_ `teksti` `<p id=teksti>Klikkaa. minua</p>`. Id-tunniste määritetään **tägien** sisällä käyttämällä määrettä `id=` ja yhtäsuuruusmerkin oikealla puolella on **id**, joka elementille asetetaan. 
+Jotta tiedetään, missä klikkaus tapahtuu on HTML-elementit merkittävä _id-tunnistella_. Luodaan tekstielementti ja annetaan sille _id-tunnisteeksi_ `teksti` `<p id=teksti>Klikkaa. minua</p>`. Id-tunniste määritetään **tägien** sisällä käyttämällä määrettä `id=` ja yhtäsuuruusmerkin oikealla puolella on **tunniste**, joka elementille asetetaan. 
 
-Käyttämällä id-tunnistetta Javascript-koodissa luodaan **kuuntelija**, joka odottaa, milloin elementtiä klikataan eli milloin _tapahtuma_ tapahtuu. Kuuntelija luodaan määrittämällä skriptielementin sisällä **tapahtumankäsittelijä**
+Javascript-koodissa luodaan **kuuntelija**, joka odottaa, milloin id-tunnistettua elementtiä klikataan eli milloin _tapahtuma_ tapahtuu. Kuuntelija luodaan määrittämällä skriptielementin sisällä **tapahtumankäsittelijä**
 
 ```html
 <p id=teksti>
@@ -39,7 +39,7 @@ Käyttämällä id-tunnistetta Javascript-koodissa luodaan **kuuntelija**, joka 
 </script>
 ```
 
-**Tapahtumankäsittelijä** määritetään **id-tunnistetulle** elementille kirjoittamalla piste elementin id-tunnisteen jälkeen ja pisteen jälkeen kirjoitetaan avainsana `onclick`. Tällä avainsanalla saamme tietää, milloin id-tunnistettua elementtiä klikataan. Avainsanan jälkeen määritetään hieman kummallisen näköinen funktiokutsun `= () => { }`. Funktioihin tutustutaan lisään osassa 6, mutta ohitetaan ne nyt ja käytetään rakennetta osana **tapahtumankäsittelijää**. Tärkein osa tästä osasta on viimeiset aaltosulkeet `{ }`. Niiden sisälle kirjoitetaan se koodi, joka suoritetaan, kun id-tunnistettua elementtiä klikataan. Esimkerkiksi, jos tekstin klikkaamisen jälkeen halutaan tulostaa käyttäjälle lause `Onnittelut, klikkasit oikeaa paikkaa.`. Kirjoitetaan se _aaltosulkeiden sisälle_  
+**Tapahtumankäsittelijä** määritetään **id-tunnistetulle** elementille kirjoittamalla piste elementin id-tunnisteen jälkeen ja pisteen jälkeen kirjoitetaan avainsana `onclick`. Tällä avainsanalla saamme tietää, milloin id-tunnistettua elementtiä klikataan. Avainsanan jälkeen määritetään hieman kummallisen näköinen funktiokutsun `= () => { }`. Funktioihin tutustutaan lisään osassa 6, mutta ohitetaan ne nyt ja käytetään rakennetta osana **tapahtumankäsittelijää**. Tärkein osa tästä osasta on viimeiset aaltosulkeet `{ }`. Niiden sisälle kirjoitetaan se koodi, joka suoritetaan, kun id-tunnistettua elementtiä klikataan. Esimerkiksi, jos tekstin klikkaamisen jälkeen halutaan tulostaa käyttäjälle lause `"Onnittelut, klikkasit oikeaa paikkaa."`. Kirjoitetaan se _aaltosulkeiden sisälle_  
 
 ```html
 <p id=teksti>
@@ -53,7 +53,7 @@ Käyttämällä id-tunnistetta Javascript-koodissa luodaan **kuuntelija**, joka 
 ```
 
 {% include task.html 
-tehtava-ohje='Kirjoita ohjelmaan koodi, jolla <code>alert()</code> komennolla tulostetaan "Ankat uivat lammessa." kun tekstiä "Missä ankat uivat" klikataan.'
+tehtava-ohje='Kirjoita ohjelmaan koodi, jolla <code>alert()</code> komennolla tulostetaan "Ankat uivat lammessa." kun tekstiä "Missä ankat uivat?" klikataan.'
 tehtava-koodi='<!doctype HTML>
 <p id = teksti>
     Missä ankat uivat?
@@ -80,7 +80,7 @@ vinkki='Id-tunniste annetaan HTML-elementille. Id-tunnistetta käytetään HTML-
 %}
 
 {% include task.html
-tehtava-ohje='Kirjoita ohjelmaan &lt;p&gt;-tägien sisälle teksti "Koodiankat ovat keltaisia.". Anna tägeille tunnisteeksi "teksti". Lisää tunnisteeseen viittaus `<code>`onclick</code>-komentoon oikeaan kohtaan.'
+tehtava-ohje='Ohjelmoija on unohtanut tästä koodista id-tunnisteen. Korjaa koodiin id-tunniste siten, että kun tekstielementtiä klikataan, niin tulostetaan Javascript koodin <code>alert()</code>-komento.'
 tehtava-koodi='<!doctype HTML>
 <p>
     Saammeko tekstin toimimaan tapahtumana?
@@ -93,7 +93,7 @@ ${closeScript}'
 %}
 
 {% include task.html
-tehtava-ohje='Kirjoita ohjelmaan tekstielementti, jossa lukee "Koodiankat auttavat ihmisiä ohjelmoinnissa.". Anna tekstielementille tunnisteeksi "teksti". Lisää <code>onclick</code>-komento ja kirjoita sen sisälle <code>alert()</code>-komento, joka tulostaa tekstin "Koodiankat ovat söpöjä.".'
+tehtava-ohje='Kirjoita ohjelmaan tekstielementti, jossa lukee "Koodiankat auttavat ihmisiä ohjelmoinnissa.". Anna tekstielementille tunnisteeksi "teksti". Lisää <code>onclick</code>-komento ja kirjoita sen sisälle <code>alert()</code>-komento, joka tulostaa tekstin "Lisäksi koodiankat ovat söpöjä.".'
 tehtava-koodi='<!doctype HTML>
 <script>
 ${closeScript}'
@@ -111,6 +111,8 @@ esimerkki-koodi='<!doctype HTML>
     }
 ${closeScript}'
 %}
+
+Id-tunnistetun tekstielementin sisältö eli sitä, mitä tekstielementissä lukee vaihdetaan käyttämällä id-tunnistetun tekstielementin komentoa `textContent`.
 
 ### Painike
 
@@ -173,7 +175,7 @@ ${closeScript}'
 %}
 
 {% include task.html
-tehtava-ohje='Tässä tehtävässä vaihdetaan <code>&lt;p id=teksti&gt;</code>-objektin tekstiä. Lisää komento, joka vaihtaa <code>&lt;p id=teksti&gt;</code>-objektin tekstin tekstiksi "Onnistuin!".'
+tehtava-ohje='Tässä tehtävässä vaihdetaan <code>&lt;p id=teksti&gt;</code>-elementin tekstiä. Lisää komento, joka vaihtaa <code>&lt;p id=teksti&gt;</code>-elementin tekstin tekstiksi "Onnistuin!".'
 tehtava-koodi='<!doctype HTML>
 <p id=teksti>
     Onnistutko vaihtamaan tämän tekstin?
@@ -187,7 +189,18 @@ ${closeScript}'
 
 ## 2.3 Tapahtuma: Näppäin
 
-
+{%
+include example.html
+esimerkki-selitys='Ohjelma odottaa, milloin käyttäjä painaa painiketta. Seuraavassa luvussa opimme, miten erotetaan, mitä näppäintä käyttäjä painoi. Esimerkissä tehdään aluksi tyhjä tekstielementti, joten kun painat lippukuvaketta mitään ei tule näkyviin.'
+esimerkki-koodi='<!doctype HTML>
+<p id=teksti>
+</p>
+<script>
+    document.onkeydown = event => {
+        teksti.textContent = "Näppäintä painettiin."
+    }
+${closeScript}'
+%}
 
 Näppäimen painallusta kuunnellan eri tavalla, kuin klikkaamista. Tämä johtuu siitä, että klikkaaminen kohdistuu tavallisesti johonkin **elementtiin**, mutta näppäimen painaminen ei yleensä liity mihinkään yksittäiseen elementtiin.
 
@@ -213,15 +226,35 @@ Tämä tapahtumankäsittelijä odottaa koko sivulla näppäimen painallusta, jot
 </p>
 <script>
     document.onkeydown = event => {
-        teksi.textContent = "Näppäintä painettiin."
+        teksti.textContent = "Näppäintä painettiin."
     }
 </script>
 ```
 
 Tällä hetkellä mikä tahansa painike saa aikaan tapahtuman. Seuraavassa osassa opimme, miten voimme selvittää ehtojen avulla, mitä painiketta käyttäjä painoi.
 
+{% include task.html
+tehtava-ohje='Tee ohjelma, joka vaihtaa tekstielementin tekstiksi "Voitit pelin.".'
+tehtava-koodi='<!doctype HTML>
+<p id=teksti>
+    Paina mitä tahansa näppäintä näppäimistöllä!
+<p>
+<script>
+
+${closeScript}'
+%}
+
+{% include task.html
+tehtava-ohje='Tee ohjelma, jossa näppäintä painettaessa näytölle tulostuu <code>alert()</code>-komennolla "PÖÖ!".'
+tehtava-koodi='<!doctype HTML>
+<script>
+
+${closeScript}'
+%}
 
 ## Opitut komennot
+
+
 
 
 | Komento       | Esimerkki           | Selitys  |
@@ -231,18 +264,7 @@ Tällä hetkellä mikä tahansa painike saa aikaan tapahtuman. Seuraavassa osass
 | | `//...` | |
 | | `}` | |
 | `textContent` | `teksti.textContent = "Moikka moi!` | Vaihtaa id-tunnistetun muuttujan arvon. |
-
-
-
-
-
-
-
-
-### Opitut komennot
-
-Opimme tässä osassa muuttamaan tapahtumien avulla HTML-sivulla olevien objektien sisältöä. Kerrataan vielä, mitä komentoja opimme.
-
-| Komento       | Esimerkki           | Selitys  |
-| :-------------: |:-------------| :-----: |
 | `<button id=nappi>` | `<button id=nappi>Tämä on painike.</button>` | Luo painikkeen HTML-koodissa. |
+| `document.onkeydown = event => { ... }` | `document.onkeydown = event => {` | Odottaa, milloin käyttäjä painaa näppäimistön painiketta. |
+|| `alert("Painoit näppäintä")` | |
+|| `}` | |
