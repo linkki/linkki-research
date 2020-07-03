@@ -3,7 +3,26 @@ layout: default
 title: Osa 3 - Ehdot
 nav-title: Osa 3
 ---
+
 ## 3. 1 Mitä ovat ehto-lauseet?
+
+{% include example.html
+esimerkki-selitys='Ehto-lauseilla voidaan määritellä ohjelmalle vaihtelevia lopputuloksia.'
+esimerkki-koodi='<!doctype HTML>
+<script>
+    let almanPähkinät = prompt("Kuinka monta pähkinää Almalla on?")
+    let brunonPähkinät = 0
+
+    if (almanPähkinät > 5) {
+        brunonPähkinät = almanPähkinät/2
+        almanPähkinät = almanPähkinät/2
+    }
+
+    alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
+
+${closeScript}'
+%}
+
 
 Jos Almalla on enemmän kuin 5 pähkinää, niin hän voi jakaa ne ystävänsä Brunon kanssa.Jakaako Alma pähkinät Brunon kanssa, jos hänellä on 10 pähkinää? Entäs jos hänellä on 2 pähkinää?
 
@@ -24,64 +43,62 @@ Ehto-lause on muotoa `if (ehto)`. Kun ehto toteutuu, suoritetaan koodi `{ }` loh
     }
 ```
 
-Tietokone ei kuitenkaan ymmärrä tätä koodia ihan tällaisenään. Tutkitaan JavaScriptillä kirjoitettua esimerkkiä, jonka tietokonekkin ymmärtää.
-
 {% include example.html
 esimerkki-selitys='Tässä esimerkissä Almalla on aluksi 10 pähkinää.'
 esimerkki-koodi='<!doctype HTML>
 <script>
-    almanPähkinät = 10
-    brunonPähkinät = 0
+    let almanPähkinät = 10
+    let brunonPähkinät = 0
+
     if (almanPähkinät > 5) {
         brunonPähkinät = almanPähkinät/2
         almanPähkinät = almanPähkinät/2
-        alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
     }
+
+    alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
 ${closeScript}'
 %}
 
 {% include task.html
-tehtava-ohje='Almalle ei ole annettu lainkaan pähkinöitä! Korjaa koodia niin, että Almalla on 2 pähkinää. Tulostaako ohjelma mitään?'
+tehtava-ohje='Almalle ei ole annettu lainkaan pähkinöitä! Korjaa koodia niin, että Almalla on 2 pähkinää. Saako Bruno yhtään pähkinää?'
 tehtava-koodi='<!doctype HTML>
 <script>
-    almanPähkinät = 
-    brunonPähkinät = 0
+    let almanPähkinät = 
+    let brunonPähkinät = 0
     if (almanPähkinät > 5) {
         brunonPähkinät = almanPähkinät/2
         almanPähkinät = almanPähkinät/2
-        alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
     }
+    alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
 ${closeScript}'
 %}
 
-Ehto-lauseesta on erityisesti hyötyä silloin kun saamamme syöte ei ole aina sama.
+Ehto-lauseesta on erityisesti hyötyä silloin kun muuttujien arvo voi vaihtua.
 
 {% include example.html
 esimerkki-selitys='Miksi syötteellä 3 Bruno ei saa pähkinöitä, mutta syötteellä 7 hän saa.'
 esimerkki-koodi='<!doctype HTML>
 <script>
-    pähkinät = prompt("Kuinka monta pähkinää?")
-    brunonPähkinät = 0
+    let pähkinät = prompt("Kuinka monta pähkinää?")
+    let brunonPähkinät = 0
     alert("Pähkinöitä on " + pähkinät + " kappaletta.")
     if (pähkinät > 5) {
         brunonPähkinät = pähkinät/2
         pähkinät = pähkinät/2
-        alert("Bruno saa " + brunonPähkinät + " pähkinää ja pähkinöitä jää jäljelle " + pähkinät)
     }
+    alert("Bruno saa " + brunonPähkinät + " pähkinää ja pähkinöitä jää jäljelle " + pähkinät)
 ${closeScript}'
 %}
 
-{% include extra.html
-otsikko='Vertailu'
-vinkki='Matematiikasta tuttuja vertailuoperaattoreita ovat pienempi <code>&lt;</code>, suurempi <code>&gt;</code> ja yhtäsuuri <code>&equals;</code>. Ohjelmoinnissa käytettään lähes samoja operaattoreita!
-    
-Numeroiden kokoa voidaan vertailla pienempi ja suurempi kuin merkeillä tavallisesti.
-    
-<div class="codebox example">
+### Vertailu
 
-<script>
-addEditor(
-`<!doctype HTML>
+Matematiikasta tuttuja vertailuoperaattoreita ovat pienempi <code>&lt;</code>, suurempi <code>&gt;</code> ja yhtäsuuri <code>&equals;</code>. Ohjelmoinnissa käytettään lähes samoja operaattoreita! Vertailua käytetään erityisesti silloin, kun ehtolausetta käytetään. Vertailun tulos määrittää sen, tapahtuuko ehto.
+    
+Numeroiden kokoa voidaan vertailla pienempi kuin- ja suurempi kuin-merkeillä tavallisesti.
+
+{% include example.html
+esimerkki-selitys='Numeroita vertaillaan kuten matematiikassa.'
+esimerkki-koodi='<!doctype HTML>
     <script>
         if (6 > 3) {
             alert("Kuusi on suurempaa kuin kolme.")
@@ -92,17 +109,14 @@ addEditor(
         if (5 < 3) {
             alert("Viisi on pienempää kuin kolme.")
         }
-    ${closeScript}`
-                    );</script>
-</div>
+    ${closeScript}'
+%}
 
-Usein ohjelmissa halaumme tietää, onko kaksi asiaa täsmälleen samat. Tämä onnistuu JavaScriptissä käyttämällä kolmoisyhtäsuuruutta <code>===</code>. Kolmoisyhtäsuuruus käy merkkijonojen ja numeroiden vertailuun.
-    
-<div class="codebox example">
+Yhtäsuuruuden vertailu onnistuu JavaScriptissä käyttämällä kolmoisyhtäsuuruutta <code>===</code>. Kolmoisyhtäsuuruus käy merkkijonojen ja numeroiden vertailuun.
 
-<script>
-addEditor(
-`<!doctype HTML>
+{% include example.html
+esimerkki-selitys='Yhtäsuuruutta vertaillaa kolmoisyhtäsuuruudella.'
+esimerkki-koodi='<!doctype HTML>
     <script>
         if ("ankka" === "ankka") {
             alert("ankka on sama asia kuin ankka.")
@@ -116,14 +130,12 @@ addEditor(
         if (5 === 2) {
             alert("5 = 2")
         }
-    ${closeScript}`
-                    );</script>
-</div>
+    ${closeScript}'
+%}
 
-<div class="note">
-<h3>"ankka" === "Ankka"</h3>
-Huomasithan, että edellisessä esimerkissä isolla kirjoitettu Ankka ei ollut sama asia kuin pienellä kirjoitettu ankka. Tässä tuleekin olla erityisen tarkkana. JavaScript on <b>case sensitive</b> eli sen mielestä isolla ja pienellä kirjoitetut sanat ovat erilaisia.
-</div>'
+{% include note.html 
+otsikko='"ankka" === "Ankka"'
+teksti='Huomasithan, että edellisessä esimerkissä isolla kirjoitettu Ankka ei ollut sama asia kuin pienellä kirjoitettu ankka. Tässä tuleekin olla erityisen tarkkana. JavaScript on <b>case sensitive</b> eli sen mielestä isolla ja pienellä kirjoitetut sanat ovat erilaisia.'
 %}
 
 {% include task.html
@@ -156,9 +168,28 @@ tehtava-koodi='<!doctype HTML>
 
 ## 3.2 Jos muuten
 
+{% include example.html
+esimerkki-selitys='Bruno saa lohdutuspalkintona pähkinöitä, jos Almalla on liian vähän pähkinöitä.'
+esimerkki-koodi='<!doctype HTML>
+<script>
+    let almanPähkinät = prompt("Kuinka monta pähkinää Almalla on?")
+    let brunonPähkinät = 0
+
+    if (almanPähkinät > 5) {
+        brunonPähkinät = almanPähkinät/2
+        almanPähkinät = almanPähkinät/2
+    } else {
+        brunonPähkinät = 2
+    }
+
+    alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
+
+${closeScript}'
+%}
+
 _Jos_ Almalla on ennemmän kuin 5 pähkinää _niin_ Alma jakaa pähkinät Brunon kanssa. _Muuten_ Bruno saa 2 pähkinää.
 
-Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkinät Brunon kanssa. Mitä jos Almalla on alle 5 pähkinää? Tällöin Bruno ei saa yhtään pähkinää.Tälläinen tilanne on Brunon mielestä epäreilu ja hän joutuu katselemaan vierestä, kun Alma syö pähkinöitä. Voimme kuitenkin määritellä, että Bruno saa lohdutus palkinnoksi 3 pähkinää.
+Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkinät Brunon kanssa. Mitä jos Almalla on alle 5 pähkinää? Tällöin Bruno ei saa yhtään pähkinää.Tälläinen tilanne on Brunon mielestä epäreilu ja hän joutuu katselemaan vierestä, kun Alma syö pähkinöitä. Voimme kuitenkin määritellä, että Bruno saa lohdutuspalkinnoksi 3 pähkinää.
 
 ```javascript
     if(almanPähkinät > 5){
@@ -168,6 +199,8 @@ Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkin�
         brunonPähkinät = 2
     }
 ```
+
+Jos _jos_-ehto ei toteudu niin suoritetaan _else_-lohko.
 
 {%include example.html
 esimerkki-selitys='Tässä esimerkissä Almalla on aluksi 2 pähkinää. Kuinka monta pähkinää Brunolla on?'
@@ -202,7 +235,37 @@ esimerkki-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
+{% include task.html 
+tehtava-ohje='Tee ohjelma, joka kysyy käyttäjältä numeron. Jos numero on 42, niin tulosta <code>alert()</code>-komennolla "Löysit onnen lukuni!", Jos käyttäjä syöttää minkä tahansa muun numeron ohjelma tulostaa "Et osunut tällä kertaa oikeaan."'
+tehtava-koodi='<!doctype HTML>
+    <script>
+    
+    ${closeScript}'
+%}
+
 ## 3.3 Useamman ehdon käyttäminen
+
+{% include example.html
+esimerkki-selitys='Useamman ehto-lauseen käyttäminen lisää ohjelman mahdollisten lopputulosten määrää.'
+esimerkki-koodi='<!doctype HTML>
+<script>
+    let almanPähkinät = prompt("Kuinka monta pähkinää Almalla on?")
+    let brunonPähkinät = 0
+
+     if(almanPähkinät == 5){
+        brunonPähkinät = almanPähkinät/2
+        almanPähkinät = almanPähkinät/2
+    } else if (almanPähkinät > 10){
+        almanPähkinät = almanPähkinät - 5;
+        brunonPähkinät = 5;
+    } else {
+        brunonPähkinät = brunonPähkinät + 2;
+    }
+
+    alert("Almalla on " + almanPähkinät + " pähkinää. Brunolla on " + brunonPähkinät + " pähkinää.")
+
+${closeScript}'
+%}
 
 _Jos_ Almalla on tasan 5 pähkinää _niin_ Alma jakaa pähkinät Brunon kanssa. Muuten _jos_ Almalla on yli 10 pähkinää hän antaa Brunolle 5 pähkinää ja pitää loput ise. _Muuten_ Bruno saa 2 pähkinää.
 
@@ -240,7 +303,7 @@ esimerkki-koodi='<!doctype HTML>
     ${closeScript}'
 %}
 
-Mitä eroa seuraavilla if-lauseilla on?
+## Mitä eroa seuraavilla if-lauseilla on?
 
 {% include example.html
 esimerkki-koodi='<!doctype HTML>
@@ -273,9 +336,52 @@ esimerkki-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
-## Näppäimistön kuuntelija
+## Näppäimistön kuuntelija tietylle näppäimelle
 
-Jotta voimme kuunnella näppäimistöä, meidän täytyy käyttää monia asioita, joita olemme tähän asti opetelleet. Ensinnäkin tarvitsemme **tapahtuman kuuntelijan**, joka kuuntelee selaimessa, milloin painiketta painetaan. Kun näppäimen painaminen tapahtuu, meidän tulee tarkastaa, mitä näppäintä painettiin.
+Edellisessa osassa tutustuimme, miten voidaan tarkkailla, milloin _mitä tahansa_ näppäintä painetaan. Ehto-lauseiden avulla, voimme määrittää tapahtuman tietylle näppäimelle. Aloitetaan sillä, mitä toisessa osassa opittiin eli luodaan näppäimistön kuuntelija ja tekstilementti, jota näppäimen painallus muuttaa
+
+```html
+<p id=teksti>
+    Mysteerinäppäin vaihtaa tekstini.
+</p>
+<script>
+    document.onkeydown = event => {
+        teksti.textContent = "Voitin pelin!"
+    }
+</script>
+```
+
+Halutaan, että kun painetaan näppäintä `a`, niin ohjelma muuttaa tekstielementin tekstiä. Käytetään tähän ehto-lausetta. Painetun näppäimen saa tietoon tapahtumalta (englnniksi event) käskyllä `event.key`
+
+```html
+<p id=teksti>
+    Mysteerinäppäin vaihtaa tekstini.
+</p>
+<script>
+    if (event.key === "a") {
+        document.onkeydown = event => {
+            teksti.textContent = "Voitin pelin!"
+        }
+    }
+</script>
+```
+
+{% include example.html
+esimerkki-selitys='Mysteerinäppäintä painamalla teksti vaihtuu.'
+esimerkki-koodi='<!doctype HTML>
+<p id=teksti>
+    Mysteerinäppäin vaihtaa tekstini.
+</p>
+<script>
+    document.onkeydown = event => {
+        if (event.key === "a") {
+            teksti.textContent = "Voitin pelin!"
+        }
+    }
+${closeScript}'
+%}
+
+Nuolinäppäimet nimet ovat selaimessa _ArrowUp_, _ArrowDown_, _ArrowLeft_ ja _ArrowRight_. Kun vertaillaan painettua näppäintä näihin nimiin, niin tiedetään, mitä nuolipainiketta painettiin.
 
 {% include example.html
 esimerkki-selitys='Näppäimistön kuuntelijat reagoivat näppäinten painalluksiin.'
