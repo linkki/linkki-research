@@ -4,10 +4,10 @@ title: Osa 3 - Ehdot
 nav-title: Osa 3
 ---
 
-## 3. 1 Mitä ovat ehto-lauseet?
+## 3. 1 Mitä ovat ehtolauseet?
 
 {% include example.html
-esimerkki-selitys='Ehto-lauseilla voidaan määritellä ohjelmalle vaihtelevia lopputuloksia.'
+esimerkki-selitys='Ehtolauseilla voidaan määritellä ohjelmalle vaihtelevia lopputuloksia.'
 esimerkki-koodi='<!doctype HTML>
 <script>
     let almanPähkinät = prompt("Kuinka monta pähkinää Almalla on?")
@@ -24,7 +24,7 @@ ${closeScript}'
 %}
 
 
-Jos Almalla on enemmän kuin 5 pähkinää, niin hän voi jakaa ne ystävänsä Brunon kanssa.Jakaako Alma pähkinät Brunon kanssa, jos hänellä on 10 pähkinää? Entäs jos hänellä on 2 pähkinää?
+Jos Almalla on enemmän kuin 5 pähkinää, niin hän voi jakaa ne ystävänsä Brunon kanssa. Jakaako Alma pähkinät Brunon kanssa, jos hänellä on 10 pähkinää? Entäs jos hänellä on 2 pähkinää?
 
 **Ehdon** "Jos Almalla on enemmän kuin 5 pähkinää, niin hän jakaa pähkinät" perusteella ensimmäisessa tapauksessa Alma jakaa pähkinät Brunon kanssa. Kahden pähkinän tapauksessa näin kuitenkaan ei ole.
 
@@ -34,7 +34,7 @@ Almalla oli ehto, jonka perusteella hän toimi tietyllä tavalla. Seuraavaksi tu
 
 _Jos_ Almalla on ennemmän kuin 5 pähkinää _niin_ Alma jakaa pähkinät Brunon kanssa.
 
-Ehto-lause on muotoa `if (ehto)`. Kun ehto toteutuu, suoritetaan koodi `{ }` lohkon sisältä. Edellisen kohdan esimerkki voitaisiin siis kirjoittaa muodossa
+Ehtolause on muotoa `if (ehto)`. Kun ehto toteutuu, suoritetaan koodi `{ }` lohkon sisältä. Edellisen kohdan esimerkki voitaisiin siis kirjoittaa muodossa
 
 ```javascript
     if(almanPähkinät > 5){
@@ -73,7 +73,7 @@ tehtava-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
-Ehto-lauseesta on erityisesti hyötyä silloin kun muuttujien arvo voi vaihtua.
+Ehtolauseesta on erityisesti hyötyä silloin kun muuttujien arvo voi vaihtua.
 
 {% include example.html
 esimerkki-selitys='Miksi syötteellä 3 Bruno ei saa pähkinöitä, mutta syötteellä 7 hän saa.'
@@ -92,9 +92,9 @@ ${closeScript}'
 
 ### Vertailu
 
-Matematiikasta tuttuja vertailuoperaattoreita ovat pienempi <code>&lt;</code>, suurempi <code>&gt;</code> ja yhtäsuuri <code>&equals;</code>. Ohjelmoinnissa käytettään lähes samoja operaattoreita! Vertailua käytetään erityisesti silloin, kun ehtolausetta käytetään. Vertailun tulos määrittää sen, tapahtuuko ehto.
+Matematiikasta tuttuja vertailuoperaattoreita ovat _pienempi kuin_ <code>&lt;</code>, _suurempi kuin_ <code>&gt;</code> ja _yhtäsuuri kuin_ <code>&equals;</code>. Ohjelmoinnissa käytettään lähes samoja operaattoreita! Vertailua käytetään erityisesti silloin, kun ehtolausetta käytetään. Vertailun tulos määrittää sen, tapahtuuko ehto.
     
-Numeroiden kokoa voidaan vertailla pienempi kuin- ja suurempi kuin-merkeillä tavallisesti.
+Numeroiden kokoa voidaan vertailla _pienempi kuin_ ja _suurempi kuin_ -merkeillä tavallisesti.
 
 {% include example.html
 esimerkki-selitys='Numeroita vertaillaan kuten matematiikassa.'
@@ -112,7 +112,7 @@ esimerkki-koodi='<!doctype HTML>
     ${closeScript}'
 %}
 
-Yhtäsuuruuden vertailu onnistuu JavaScriptissä käyttämällä kolmoisyhtäsuuruutta <code>===</code>. Kolmoisyhtäsuuruus käy merkkijonojen ja numeroiden vertailuun.
+Yhtäsuuruuden vertailu onnistuu Javascriptissä käyttämällä kolmoisyhtäsuuruutta <code>===</code>. Kolmoisyhtäsuuruus käy merkkijonojen ja numeroiden vertailuun.
 
 {% include example.html
 esimerkki-selitys='Yhtäsuuruutta vertaillaa kolmoisyhtäsuuruudella.'
@@ -189,7 +189,7 @@ ${closeScript}'
 
 _Jos_ Almalla on ennemmän kuin 5 pähkinää _niin_ Alma jakaa pähkinät Brunon kanssa. _Muuten_ Bruno saa 2 pähkinää.
 
-Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkinät Brunon kanssa. Mitä jos Almalla on alle 5 pähkinää? Tällöin Bruno ei saa yhtään pähkinää.Tälläinen tilanne on Brunon mielestä epäreilu ja hän joutuu katselemaan vierestä, kun Alma syö pähkinöitä. Voimme kuitenkin määritellä, että Bruno saa lohdutuspalkinnoksi 3 pähkinää.
+Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkinät Brunon kanssa. Mitä jos Almalla on alle 5 pähkinää? Tällöin Bruno ei saa yhtään pähkinää. Tälläinen tilanne on Brunon mielestä epäreilu ja hän joutuu katselemaan vierestä, kun Alma syö pähkinöitä. Voimme kuitenkin määritellä, että Bruno saa lohdutuspalkinnoksi 3 pähkinää.
 
 ```javascript
     if(almanPähkinät > 5){
@@ -220,7 +220,7 @@ esimerkki-koodi='<!doctype HTML>
 %}
 
 {% include example.html
-esimerkki-selitys='Esimerkissä on kuuntelija, joka odottaa, milloin tekstiä klikataan. Kun tekstiä on klikattu, tarkastamme ehto-lauseella, mitä tekstissä lukee. <b>Jos</b> tekstissä lukee "Klikkaa minua.", <b>niin</b> teksti vaihtuu tekstiksi "Moikka moi!". <b>Muutoin</b> teksti vaihtuu tekstiksi "Klikkaa minua.".'
+esimerkki-selitys='Esimerkissä on kuuntelija, joka odottaa, milloin tekstiä klikataan. Kun tekstiä on klikattu, tarkastamme ehtolauseella, mitä tekstissä lukee. <b>Jos</b> tekstissä lukee "Klikkaa minua.", <b>niin</b> teksti vaihtuu tekstiksi "Moikka moi!". <b>Muutoin</b> teksti vaihtuu tekstiksi "Klikkaa minua.".'
 esimerkki-koodi='<!doctype HTML>
 <p id = teksti>
     Klikkaa minua
@@ -246,7 +246,7 @@ tehtava-koodi='<!doctype HTML>
 ## 3.3 Useamman ehdon käyttäminen
 
 {% include example.html
-esimerkki-selitys='Useamman ehto-lauseen käyttäminen lisää ohjelman mahdollisten lopputulosten määrää.'
+esimerkki-selitys='Useamman ehtolauseen käyttäminen lisää ohjelman mahdollisten lopputulosten määrää.'
 esimerkki-koodi='<!doctype HTML>
 <script>
     let almanPähkinät = prompt("Kuinka monta pähkinää Almalla on?")
@@ -338,7 +338,7 @@ ${closeScript}'
 
 ## Näppäimistön kuuntelija tietylle näppäimelle
 
-Edellisessa osassa tutustuimme, miten voidaan tarkkailla, milloin _mitä tahansa_ näppäintä painetaan. Ehto-lauseiden avulla, voimme määrittää tapahtuman tietylle näppäimelle. Aloitetaan sillä, mitä toisessa osassa opittiin eli luodaan näppäimistön kuuntelija ja tekstilementti, jota näppäimen painallus muuttaa
+Edellisessa osassa tutustuimme, miten voidaan tarkkailla, milloin _mitä tahansa_ näppäintä painetaan. Ehtolauseiden avulla, voimme määrittää tapahtuman tietylle näppäimelle. Aloitetaan sillä, mitä toisessa osassa opittiin eli luodaan näppäimistön kuuntelija ja tekstilementti, jota näppäimen painallus muuttaa
 
 ```html
 <p id=teksti>
@@ -351,7 +351,7 @@ Edellisessa osassa tutustuimme, miten voidaan tarkkailla, milloin _mitä tahansa
 </script>
 ```
 
-Halutaan, että kun painetaan näppäintä `a`, niin ohjelma muuttaa tekstielementin tekstiä. Käytetään tähän ehto-lausetta. Painetun näppäimen saa tietoon tapahtumalta (englnniksi event) käskyllä `event.key`
+Halutaan, että kun painetaan näppäintä `a`, niin ohjelma muuttaa tekstielementin tekstiä. Käytetään tähän ehtolausetta. Painetun näppäimen saa tietoon tapahtumalta (englanniksi _event_) käskyllä `event.key`
 
 ```html
 <p id=teksti>
