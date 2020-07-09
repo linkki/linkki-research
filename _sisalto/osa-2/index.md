@@ -21,13 +21,13 @@ nav-title: Osa 2
 ${closeScript}'
 %}
 
-Kun klikkaat hiirellä tietokoneen näyttöä tai painat tietokoneen näppäimiä, saat aikaan **tapahtuman**. Javascript koodilla määritellään, mitä klikkauksesta tai näppäimen painamisesta tapahtuu.
+Kun klikkaat hiirellä tietokoneen näyttöä tai painat tietokoneen näppäimiä, saat aikaan **tapahtuman**. Javascript-koodilla määritellään, mitä klikkauksesta tai näppäimen painamisesta tapahtuu.
 
 ## 2.2 Tapahtuma: Klikkaus
 
-Jotta tiedetään, missä klikkaus tapahtuu on HTML-elementit merkittävä _id-tunnistella_. Luodaan tekstielementti ja annetaan sille _id-tunnisteeksi_ `teksti` `<p id=teksti>Klikkaa. minua</p>`. Id-tunniste määritetään **tägien** sisällä käyttämällä määrettä `id=` ja yhtäsuuruusmerkin oikealla puolella on **tunniste**, joka elementille asetetaan. 
+Jotta tiedetään, missä klikkaus tapahtuu on HTML-elementit merkittävä _id-tunnistella_. Luodaan tekstielementti ja annetaan sille id-tunnisteeksi `teksti`: `<p id=teksti>Klikkaa. minua</p>`. Id-tunniste määritetään **tägien** sisällä käyttämällä määrettä `id=` ja yhtäsuuruusmerkin oikealla puolella on **tunniste**, joka elementille asetetaan. 
 
-Javascript-koodissa luodaan **kuuntelija**, joka odottaa, milloin id-tunnistettua elementtiä klikataan eli milloin _tapahtuma_ tapahtuu. Kuuntelija luodaan määrittämällä skriptielementin sisällä **tapahtumankäsittelijä**
+Javascript-koodissa luodaan **kuuntelija**, joka odottaa, milloin id-tunnistettua elementtiä klikataan eli milloin _tapahtuma_ tapahtuu. Kuuntelija luodaan määrittämällä skriptielementin sisällä **tapahtumakäsittelijä**:
 
 ```html
 <p id=teksti>
@@ -39,7 +39,7 @@ Javascript-koodissa luodaan **kuuntelija**, joka odottaa, milloin id-tunnistettu
 </script>
 ```
 
-**Tapahtumankäsittelijä** määritetään **id-tunnistetulle** elementille kirjoittamalla piste elementin id-tunnisteen jälkeen ja pisteen jälkeen kirjoitetaan avainsana `onclick`. Tällä avainsanalla saamme tietää, milloin id-tunnistettua elementtiä klikataan. Avainsanan jälkeen määritetään hieman kummallisen näköinen funktiokutsun `= () => { }`. Funktioihin tutustutaan lisään osassa 6, mutta ohitetaan ne nyt ja käytetään rakennetta osana **tapahtumankäsittelijää**. Tärkein osa tästä osasta on viimeiset aaltosulkeet `{ }`. Niiden sisälle kirjoitetaan se koodi, joka suoritetaan, kun id-tunnistettua elementtiä klikataan. Esimerkiksi, jos tekstin klikkaamisen jälkeen halutaan tulostaa käyttäjälle lause `"Onnittelut, klikkasit oikeaa paikkaa."`. Kirjoitetaan se _aaltosulkeiden sisälle_  
+**Tapahtumakäsittelijä** määritetään **id-tunnistetulle** elementille kirjoittamalla piste elementin id-tunnisteen jälkeen ja pisteen jälkeen kirjoitetaan avainsana `onclick`. Tällä avainsanalla saamme tietää, milloin id-tunnistettua elementtiä klikataan. Avainsanan jälkeen määritetään hieman kummallisen näköinen funktiokutsun `= () => { }`. Funktioihin tutustutaan lisään osassa 6, mutta ohitetaan ne nyt ja käytetään rakennetta osana **tapahtumakäsittelijää**. Tärkein osa tästä osasta on viimeiset aaltosulkeet `{ }`. Niiden sisälle kirjoitetaan se koodi, joka suoritetaan, kun id-tunnistettua elementtiä klikataan. Esimerkiksi jos tekstin klikkaamisen jälkeen halutaan tulostaa käyttäjälle lause `"Onnittelut, klikkasit oikeaa paikkaa."`, kirjoitetaan se _aaltosulkeiden sisälle_:
 
 ```html
 <p id=teksti>
@@ -53,7 +53,7 @@ Javascript-koodissa luodaan **kuuntelija**, joka odottaa, milloin id-tunnistettu
 ```
 
 {% include task.html 
-tehtava-ohje='Kirjoita ohjelmaan koodi, jolla <code>alert()</code> komennolla tulostetaan "Ankat uivat lammessa." kun tekstiä "Missä ankat uivat?" klikataan.'
+tehtava-ohje='Kirjoita ohjelmaan koodi, jossa komennolla <code>alert()</code> tulostetaan "Ankat uivat lammessa.", kun tekstiä "Missä ankat uivat?" klikataan.'
 tehtava-koodi='<!doctype HTML>
 <p id = teksti>
     Missä ankat uivat?
@@ -65,7 +65,7 @@ ${closeScript}'
 %}
 
 {% include task.html
-tehtava-ohje='Kirjoita ohjelmaan koodi, jolla <code>alert()</code>-komennolla tulostetaan "Höyhenpeite on myös vettähylkivä.", kun tekstiä "Ankkojen höyhenpeite on pehmeä" klikataan.'
+tehtava-ohje='Kirjoita ohjelmaan koodi, jossa <code>alert()</code>-komennolla tulostetaan "Höyhenpeite on myös vettähylkivä.", kun tekstiä "Ankkojen höyhenpeite on pehmeä" klikataan.'
 tehtava-koodi='<!doctype HTML>
 <p id = teksti>
     Ankkojen höyhenpeite on pehmeä.
@@ -140,7 +140,7 @@ esimerkki-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
-<button>Painike</button> on HTML-elementti, jota usein on tarkoitus klikata. Painikkeen määrittelävä tägi on `<button>`. Ilman Javascript-koodia painikkeen klikkaamisesta ei tapahdu mitään. Painikkeen klikkausta _kuunnellaan_ samalla tavalla, kuin muidenkin HTML-elementtien klikkausta. Tämä tarkoittaa sitä, että painikkeelle annetaan **id-tunniste** ja tämän jälkeen tunnistetulle painikkeelle tehdään **tapahtumankäsittelijä** skripitielementtiin.
+<button>Painike</button> on HTML-elementti, jota usein on tarkoitus klikata. Painikkeen määrittelävä tägi on `<button>`. Ilman Javascript-koodia painikkeen klikkaamisesta ei tapahdu mitään. Painikkeen klikkausta _kuunnellaan_ samalla tavalla, kuin muidenkin HTML-elementtien klikkausta. Tämä tarkoittaa sitä, että painikkeelle annetaan **id-tunniste** ja tämän jälkeen tunnistetulle painikkeelle tehdään **tapahtumakäsittelijä** skripitielementtiin.
 
 ```html
 <button id=painike>
@@ -209,7 +209,7 @@ Luodaan ensin tekstielementti ja asetetaan sille **id-tunniste**, jolla tekstiä
 <p id=teksti>
 </p>
 ```
-Lisätään skriptielementti ja kirjoitetaan sinne koko sivua kuunteleva tapahtumankäsittelijä
+Lisätään skriptielementti ja kirjoitetaan sinne koko sivua kuunteleva tapahtumakäsittelijä:
 
 ```html
 <p id=teksti>
@@ -220,7 +220,7 @@ Lisätään skriptielementti ja kirjoitetaan sinne koko sivua kuunteleva tapahtu
 </script>
 ```
 
-Tämä tapahtumankäsittelijä odottaa koko sivulla näppäimen painallusta, joten pisteen jälkeen tulee avainsana `onkeydown`. Tämän jälkeen teemme samantapaisen funktiokutsun, kuin klikkauksenkin tapauksessa, mutta lisäämme koodiin avainsanan `event`. Lopuksi aaltosulkeiden sisälle määritetään, mitä näppäimen painalluksessa tapahtuu. Määritetään, että näppäimen painalluksesta tekstielementin sisältöä muutetaan käyttämällä komentoa `textContent`.
+Tämä tapahtumakäsittelijä odottaa koko sivulla näppäimen painallusta, joten pisteen jälkeen tulee avainsana `onkeydown`. Tämän jälkeen teemme samantapaisen funktiokutsun, kuin klikkauksenkin tapauksessa, mutta lisäämme koodiin avainsanan `event`. Lopuksi aaltosulkeiden sisälle määritetään, mitä näppäimen painalluksessa tapahtuu. Määritetään, että näppäimen painalluksesta tekstielementin sisältöä muutetaan käyttämällä komentoa `textContent`.
 ```html
 <p id=teksti>
 </p>
