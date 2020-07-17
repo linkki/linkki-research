@@ -35,7 +35,7 @@ Sellainen luodaan käyttämällä hakasulkuja:
 
 <div class="duckimg-center-container">
 <img 
-  src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/train5.webp"
+  src="{{ site.img-url }}/train5.webp"
   class="duckimg-center"
 />
 </div>
@@ -98,7 +98,7 @@ ${closeScript}
 
 <div class="traingifcontainer">
 <div class="gifframe800px">
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/op-push.gif">
+<img src="{{ site.img-url }}/op-push.gif">
 </div>
 </div>
 
@@ -121,7 +121,7 @@ ${closeScript}
 
 <div class="traingifcontainer">
 <div class="gifframe800px">
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/op-pop.gif">
+<img src="{{ site.img-url }}/op-pop.gif">
 </div>
 </div>
 
@@ -150,7 +150,7 @@ ${closeScript}
 
 <div class="traingifcontainer">
 <div class="gifframe800px">
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/op-shift.gif">
+<img src="{{ site.img-url }}/op-shift.gif">
 </div>
 </div>
 
@@ -170,13 +170,11 @@ Kuten <code>shift</code>in kanssa, alkiot siirtyvät listassa – tällä kertaa
 ${closeScript}
 `);</script>
 
-<!--
 <div class="traingifcontainer">
 <div class="gifframe800px">
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/unshift.gif">
+<img src="{{ site.img-url }}/op-unshift.gif">
 </div>
 </div>
--->
 
 <h3>Kysymyksiä</h3>
 
@@ -220,7 +218,7 @@ Listan keskelle lisäämiseen ja poistamiseen on kuitenkin vain yksi komento, <c
 
 <div class="traingifcontainer">
 <div class="gifframe800px">
-<img src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/op-splice.gif">
+<img src="{{ site.img-url }}/op-splice.gif">
 </div>
 </div>
 
