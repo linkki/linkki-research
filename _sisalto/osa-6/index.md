@@ -33,11 +33,10 @@ Sellainen luodaan käyttämällä hakasulkuja:
 
 <p>
 
-<div class="duckimg-center-container">
-<img 
-  src="{{ site.img-url }}/train5.webp"
-  class="duckimg-center"
-/>
+<div class="traingifcontainer">
+<div class="gifframe800px">
+<img src="{{ site.img-url }}/op-nop.gif">
+</div>
 </div>
 
 Listan sisällä oleviin asioihin eli <b>alkioihin</b> voi viitata kirjoittamalla listan nimen ja hakasuluissa luvun.
