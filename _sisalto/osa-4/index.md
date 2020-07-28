@@ -69,12 +69,12 @@ teksti='Koulussa matematiikassa koordinaatiston Y-koordinaatit kasvavat <em>ylö
 	Ohjelmoinnissa Y kuitenkin kasvaa <em>alaspäin</em>, eli suurempi Y tarkoittaa, että piste on alempana. Tämä johtuu historiallisista syistä.'
 %}
  
-<div class="duckimg-center-container">
+<!--<div class="duckimg-center-container">
 <img 
   src="{{ site.img-url }}/directions.webp"
   class="duckimg-center"
 />
-</div>
+</div>-->
 
 
 {% include koordinaattityokalu.html %}
