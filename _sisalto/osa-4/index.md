@@ -4,33 +4,43 @@ title: Osa 4 – Maalia kankaalle
 nav-title: Osa 4
 ---
 
-Tässä osassa tutustumme **kankaisiin** ja niille piirtämiseen. Kankaat ovat erikoisia alueita sivulla, joihin voimme piirtää JavaScript-komennoilla kuvioita.
+Tässä osassa tutustutaan **kankaisiin** ja niille piirtämiseen. Kankaat ovat HTML-elementtejä, joihin voi piirtää JavaScript-komennoilla kuvioita.
 
 {% include example.html 
-esimerkki-selitys='Kangas, jolle on piirretty musta neliö.'
+esimerkki-selitys='Kangas, jolle on piirretty neliö.'
 esimerkki-koodi='<!doctype HTML>
 <canvas
-	id = kangas
-	style = background-color:beige;></canvas>
+	id = kangas>
+</canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillRect(10, 10, 50, 50)
 ${closeScript}'
 %}
 
-Yllä olevassa esimerkissä määrittelemme, että sivulla on kangas <code>&lt;canvas&gt;</code>-tägillä. Kankaalla on id "<code>kangas</code>", jotta voimme viitata siihen JavaScript-koodissa. Kankaalla on myös taustaväri beige (eräs vaaleanruskean sävy), jotta se erottuu sivun valkoisesta taustasta. Älä välitä, jos et ymmärrä miten taustavärikoodi toimii.
+Kangas määritellään canvas-elementtinä ja sille tulee asettaa _id-tunniste_, jotta siihen voidaan viitata javascript koodissa. Kankaan taustaväri on automaattisesti asetettu valkoiseksi. Valkoinen kangas ei kuitenkaan erotu sivun pohjasta, joka on valkoinen. Jos kangas halutaan saada näkyviin sivulla, annetaan sille taustaväri. Taustaväri voi olla mikä tahansa väri. Esimerkiksi beigen taustavärin saa määrittämällä id-tunnisteen lisäksi `style`-arvon.
 
-Canvas-tägin alla on JavaScript-koodia, jossa tapahtuu seuraavaa:
+{% include example.html 
+esimerkki-selitys='Beige kangas, jolle on piirretty neliö.'
+esimerkki-koodi='<!doctype HTML>
+<canvas
+	id = kangas
+	style = background:beige;>
+</canvas>
+<script>
+	var piirtäjä = kangas.getContext("2d")
+	piirtäjä.fillRect(10, 10, 50, 50)
+${closeScript}'
+%}
 
-1. Luomme <code>piirtäjä</code>-muuttujan, joka on nimi kankaan "kontekstille". Konteksti on tarkoittaa tässä tapauksessa sitä JavaScriptin osaa, jota käytetään kuvioiden piirtämiseen näytölle.
-<script>codeExample(
-`const piirtäjä = kangas.getContext("2d") `
-, "javascript");</script>
+Kangasta muokataan javascript koodilla. Kangas on ikään kuin paperi, jolle voidaan piirtää ohjelmalla. Luodaan muuttuja `var piirtäjä`, jonka arvoksi asetetaan kankaan sisältö `const piirtäjä = kangas.getContext("2d") `. Tätä muuttujaa käytettään kankaalle piirtämiseen, siksi se nimi on `piirtäjä`. 
 
-2. Piirrämme kankaalle suorakulmion piirtäjän avulla <code>fillRect</code>-komennon avulla. <code>fillRect</code> on lyhenne englannin sanoista "fill rectangle" eli "täytä suorakulmio". Komennon nimen jälkeen tulee sulkeissa neljä parametria, jotka kertovat missä kohtaa suorakulmio on ja minkä kokoinen se on.
-<script>codeExample(
-`piirtäjä.fillRect(10, 10, 50, 50) `
-, "javascript");</script>
+Kankaalle piirretään suorakulmion käyttämällä komentoa `piirtäjä.fillRect`, jolle annetaan neljä **parametria**. Ensimmäiset kaksi ovat suorakulmion sijainti kankaalla eli koordinaatit. Viimeiset kaksi ovat suorakulmion korkeus ja leveys.  
+
+<!-- TODO 
+Kuva parametreista.
+-->
+
 
 {% include task.html
 tehtava-ohje='Lisää ohjelmaan koodi, jossa piirretään kankaalle neliö, jonka parametrit ovat (0,0,30,30).'
@@ -44,15 +54,14 @@ ${closeScript}'
 
 ## 4.1 Koordinaatisto
 
-Jotta osaisimme käyttää `fillRect`-komentoa, meidän on opeteltava ensin, miten tietokone ymmärtää sijainteja ja kokoja lukuina.
+Kun kankaalle piirretään, käytetään siihen kankaan _koordinaatteja_. Tutustutaan, miten kankaan koordinaatit toimivat.
 
-Tietokoneen näyttö koostuu koneesta riippuen sadoista tuhansista tai jopa miljoonista **pikseleistä**. Yksi pikseli on hyvin pieni piste, jolla on jokin väri.Näytöllä pikselit on järjestetty riveihin, joita on satoja päällekkäin.
-
-Jotta voimme vaihtaa jonkun tietyn pikselin väriä, meidän on kerrottava tietokoneelle, mitä pikseliä haluamme muuttaa. Tämä tehdään antamalla tietokoneelle tieto siitä, kuinka mones pikselirivin pikseli pikseli on ja kuinka mones pikselirivi on kyseessä. Tätä tietoa sanotaan pikselin **koordinaateiksi**. Tarkemmin pikselin **X-koordinaatti** kertoo, kuinka mones pikseli pikseli on omalla rivillään. **Y-koordinaatti** taas kertoo, kuinka mones pikselirivi on kyseessä.
+Tietokoneen näyttö koostuu koneesta riippuen sadoista tuhansista tai jopa miljoonista **pikseleistä**. Yksi pikseli on hyvin pieni piste, jolla on jokin väri. Näytöllä pikselit on järjestetty riveihin, joita on satoja päällekkäin. Laittamalla tietyn värisiä pikseleitä sopivasti vierekkäin tietokoneen näytölle, voidaan muodostaa kuvia ja tekstiä, jota ihminen pystyy ymmärtämään. Pikselin sijainnin perusteella sen väriä voidaan muuttaa tietokone ohjelmalla. Pikselin sijaintia tietokoeneen näytöllä kutsutaan pikselin **koordinaateiksi**. Tarkemmin pikselin **X-koordinaatti** kertoo, kuinka mones pikseli pikseli on omalla rivillään. **Y-koordinaatti** taas kertoo, kuinka mones pikselirivi on kyseessä.
 
 TODO: Havainne kuva.
 
-Ohjelmoinnissa asioiden laskeminen aloitetaan usein nollasta eikä yhdestä. Myös pikselirivin ensimmäistä pikseliä sanotaan "pikseliksi 0" ja ensimmäistä pikseliriviä "riviksi 0". Aivan ensimmäisen pikselin (joka on näytön vasemmassa ylänurkassa) X-koordinaatti on siis 0 ja Y-koordinaatti 0. Tätä pikseliä sanotaan näytön **origoksi**.
+Ohjelmoinnissa asioiden laskeminen aloitetaan nollasta eikä yhdestä. Myös pikselirivin ensimmäistä pikseliä sanotaan "pikseliksi 0" ja ensimmäistä pikseliriviä "riviksi 0". Aivan ensimmäisen pikselin (joka on näytön vasemmassa ylänurkassa) X-koordinaatti on siis 0 ja Y-koordinaatti 0. Tätä pikseliä sanotaan näytön **origoksi**.
+
 
 {% include note.html 
 otsikko='Huom!'
@@ -103,13 +112,7 @@ teksti='Koulussa matematiikassa koordinaatiston Y-koordinaatit kasvavat <em>ylö
 	}</script>
 </div>
 
-## 4.2 <code>fillRect</code>-komento
-
-Voimme käyttää `fillRect`-komentoa piirtääksemme suorakulmioita näytölle. Komennolla on neljä parametria. Ne ovat järjestyksessä: X, Y, leveys pikseleinä, korkeus pikseleinä.
-
-<script>codeExample(`piirtäjä.fillRect(x, y, leveys, korkeus) `, "javascript");</script>
-
-Neliöstä voi myös tehdä eri värisen. Tähän käytämme `fillStyle`-komentoa.
+## 4.2 `fillStyle`-komento
 
 {% include example.html
 esimerkki-teksti='Kangas, jolle on piirretty punainen neliö.'
@@ -124,39 +127,30 @@ esimerkki-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
-`fillStyle` käskee piirtäjää piirtämään tietyllä värillä. Väri kirjoitetaan englanniksi lainausmerkkien sisään.
-
-<script>codeExample(`piirtäjä.fillStyle = "green" `, "javascript");</script>
-
-<!-- Tässä joitakin englanninkielisiä värien nimiä:
-Jostain syystä markdown vihaa style parametrejä joten tämä ei toimi-->
-<!--<table>
-	<caption>Värejä englanniksi</caption>
-	<thead>
-	<tr>
-		<th>Väri</th>
-		<th>Englanniksi</th>
-		<th>Suomksi</th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td style="background-color: white;"></td>
-		<td>white</td>
-		<td>valkoinen</td>
-		</tr>
-	<tr>
-		<td style="background-color: beige;"></td>
-		<td>beige</td>
-		<td>beige</td>
-		</tr>
-	<tr>
-		<td style="background-color: gray;"></td>
-		<td>gray</td>
-		<td>harmaa</td>
-		</tr>
-	<tr>
-		<td style="background-color: black;">
+`piirtäjä`n väriä vaihdetaan käyttämällä `piirtäjä.fillStyle` komentoa ennen kuin kuvio piirretään kankaalle. Haluttu väri annetaan komennolle parametrina. Alla olevasta listasta näet värit ja niiden nimet javascriptissä.
+<table>
+  <tr>
+    <th>Väri</th>
+    <th>Englanniksi</th>
+	<th>Suomksi</th>
+  </tr>
+  <tr>
+    <td style="background: white; width: 3em"></td>
+    <td>white</td>
+    <td>valkoinen</td>
+  </tr>
+  <tr>
+    <td style="background-color: beige;"></td>
+	<td>beige</td>
+	<td>beige</td>
+  </tr>
+  <tr>
+    <td style="background-color: gray;"></td>
+	<td>gray</td>
+	<td>harmaa</td>
+  </tr>
+  <tr>
+		<td style="background-color: black;"></td>
 		<td>black</td>
 		<td>musta</td>
 	</tr>
@@ -200,8 +194,7 @@ Jostain syystä markdown vihaa style parametrejä joten tämä ei toimi-->
 		<td>green</td>
 		<td>vihreä</td>
 	</tr>
-</tbody>
-</table>-->
+</table>
 
 Useimpien värien eteen voi lisätä sanan "dark" tarkoittamaan tummaa ja "light" tarkoittamaan vaaleaa. Esimerkiksi "lightgreen" on vaaleanvihreä ja "darkblue" tummansininen.
 
@@ -228,9 +221,11 @@ tehtava-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
+<!-- TODO: tehtävä, jossa on neliöitä, joiden värejä pitä vaihtaa-->
+
 ### Useita neliöitä
 
-Kankaalle voi piirtää useita neliöitä kirjoittamalla monta `fillRect`-komentoa. `fillStyle`-komentoa käytetään vasta, kun piirtäjän väri muuttuu.
+Kankaalle piirretään useita neliöitä kirjoittamalla monta `fillRect`-komentoa.
 
 {% include example.html
 esimerkki-selitys='Kangas, jolle on piirretty kaksi punaista ja kaksi sinistä neliötä.'
@@ -249,14 +244,18 @@ esimerkki-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
+<!-- TODO: tehtävä, jossa piirretään useita neliöitä vierekkäin-->
+<!-- TODO: tehtävä, jossa piirretään neliöitä lomikkai päällekkäin-->
+<!--- TODO: tehtävä, jossa neliöitä piirtämällä tulee joku kuva esim hymiö sydän, labyrintti.-->
+
 ## 4.3 Polut
 
-JavaScriptin avulla voi piirtää monia muitakin asioita kuin suorakulmioita. Monimutkaisemmat asiat tehdään yleensä **polkujen** avulla. Polun piirtäminen muistuttaa kynällä piirtämistä. Kerromme eri komentojen avulla piirtäjälle, miten kynää liikutetaan paperilla. Tärkeimmät komennot on alla olevassa taulukossa.
+Kankaalle monimutkaisemmat kuviot piirretään **polkujen** avulla. Polun piirtäminen muistuttaa kynällä piirtämistä. Komennoilla kerrotaan piirtäjälle, miten kynää liikutetaan kankaalla. Tärkeimmät komennot on alla olevassa taulukossa.
 
 | Komento | Esimerkki | Selitys |
 | :----- |:----------| :----- |
 |`.strokeStyle` | `piirtäjä.strokeStyle = "red" `|Kertoo minkä värisellä kynällä polku piirretään|
-|`.beginPath()` | `piirtäjä.beginPath()`|Kertoo piirtäjälle, että aloitamme polun piirtämisen ("ota kynä esiin")|
+|`.beginPath()` | `piirtäjä.beginPath()`|Kertoo piirtäjälle, että aloitamme polun piirtämisen |
 |`.moveTo(x, y)`|`piirtäjä.moveTo(10, 10)`|Käskee piirtäjää siirtämään kynän annettuihin koordinaatteihin _koskettamatta paperia_|
 |`.lineTo(x, y)`|`piirtäjä.lineTo(50, 50)`|Käskee piirtäjää vetämään kynän annettuihin koordinaatteihin niin, että _kynä koskettaa paperia_|
 |`.stroke()`|`piirtäjä.stroke()` |Kertoo piirtäjälle, että lopetamme polun piirtämisen|
@@ -282,23 +281,8 @@ esimerkki-koodi='<!doctype HTML>
 	piirtäjä.stroke()
 ${closeScript}'
 %}
-Esimerkki toimii siis näin:
 
-1. Ensin kerromme, että haluamme aloittaa polun piirtämisen:
-<script>codeExample(`piirtäjä.beginPath() `, "javascript");</script>
-
-2. Seuraavaksi käskemme siirtämään kynän koordinaatteihin (10, 10), eli vasempaan ylänurkkaan.
-<script>codeExample(`piirtäjä.moveTo(10, 10) `, "javascript");</script>
-
-3. Siirrämme kynän paperia pitkin piirtämällä koordinaatteihin (50, 50), eli oikeaan alanurkkaan.
-<script>codeExample(`piirtäjä.lineTo(10, 10) `, "javascript");</script>
-
-4. Sitten teemme saman eri nurkkien kanssa:
- siirrämme kynän koskematta paperiin kohtaan (10, 50) ja piirrämme viivan kohtaan (50, 10).
-<script>codeExample(`piirtäjä.moveTo(10, 50)` + "\n" + `piirtäjä.lineTo(50, 10) `, "javascript");</script>
-
-5. Lopuksi lopetamme polun piirtämisen <code>stroke()</code>-komennolla.
-<script>codeExample(`piirtäjä.stroke() `, "javascript");</script>
+Tarkastellaan seuraavaksi, miten kankaalle piirretään raksi. Ensin pitää aloittaa polun piirtäminen käyttämällä komentoa `piirtäjä.begin.Path()` ja siirretään kynä siihne pisteeseen, josta raksi alkaa komennolla `piirtäjä.moveTo(10, 10)`. Kun kynä on kohdassa, josta kuva aloitetaan piirtäämään, niin piirretään raksin ensimmäinen viiva alaviistoon komennolla `piirtäjä.lineTo(10, 10)`. Ensimmäisen viivan jälkeen kynä siirretään raksin toisen viivan alkusijaintiin komennolla `piirtäjä.moveTo(10, 50)` ja piirretään viiva alaoikeaan komennolla `piirtäjä.lineTo(50, 10) `. Kun raksi on valmis, piirtäminen lopetetaan komennolla `piirtäjä.stroke()`.
 
 {% include note.html
 otsikko='Huom!'
@@ -425,9 +409,10 @@ ${closeScript}'
 	]
 })</script>
 
+<!-- Tän osion voi siirtää siihen osaan, missä käsitellään loopit.
 ## 4.4 `setInterval` ja animaatiot
 
-Jos haluamme tehdä pelejä tai animaatioita, meidän on saatava neliöt liikkumaan. Miten tämä tapahtuu? Vastaus on JavaScriptin `setInterval`-komento. `setInterval` toistaa sille annettuja komentoja ikuisesti annetulla nopeudella.
+Pelien ja animaatioiden grafiikat liikkuvat, joten seuraavaksi täytyy selvittää, miten tämä onnistuu kankaalla. Käytetään piirrustuksien liikuttamiseen `setInterval`-komentoa. `setInterval` toistaa sille annettuja komentoja ikuisesti annetulla nopeudella.
 
 {% include example.html
 esimerkki-selitys='Neliö liikkuu kankaalla.'
@@ -447,4 +432,4 @@ esimerkki-koodi='<!doctype HTML>
 		piirtäjä.fillRect(Math.cos(aika)*20+125, Math.sin(aika)*20+50, 50, 50)
 	}, 10)
 ${closeScript}'
-%}
+%}-->
