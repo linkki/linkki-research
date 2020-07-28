@@ -38,6 +38,7 @@ kramdown:
   syntax_highlighter_opts:
     default_lang: html
     css_class   : 'syntax'
+  html_to_native: true
 
 collections:
   sivut:
