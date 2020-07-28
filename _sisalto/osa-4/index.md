@@ -77,38 +77,7 @@ teksti='Koulussa matematiikassa koordinaatiston Y-koordinaatit kasvavat <em>ylö
 </div>
 
 
-<div class="codebox">
-	<h3>Koordinaatit kankaalla</h3>
-	<p>
-		Vie hiiri kankaan päälle nähdäksesi hiiren sijainnin esitettynä koordinaatteina.
-		Tämän kankaan leveys on 300 pikseliä ja korkeus 150 pikseliä.
-	</p>
-	<canvas
-		id = koordinaattityökalu
-		width = 300
-		height = 150
-	></canvas>
-	<script>{
-		function viiva(x1, y1, x2, y2) {
-			piirtäjä.beginPath();
-			piirtäjä.moveTo(x1, y1);
-			piirtäjä.lineTo(x2, y2);
-			piirtäjä.stroke();
-		}
-		const piirtäjä = koordinaattityökalu.getContext("2d");
-		koordinaattityökalu.onmousemove = tapahtuma => {
-			const x = tapahtuma.offsetX;
-			const y = tapahtuma.offsetY;
-			piirtäjä.clearRect(0, 0, 300, 150);
-			piirtäjä.strokeStyle = "darkred"
-			viiva(0, y, 300, y);
-			viiva(x, 0, x, 150);
-			piirtäjä.fillText(y, 1, y+10);
-			piirtäjä.fillText(x, x+1, 150);
-			piirtäjä.fillText("X: " + x + ", Y: " + y, 15, 20);
-		};
-	}</script>
-</div>
+{% include koordinaattityokalu.html %}
 
 ## 4.2 `fillStyle`-komento
 
