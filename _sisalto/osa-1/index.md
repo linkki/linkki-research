@@ -25,7 +25,7 @@ Tällöin tekstiin ei voi viitata <b>JavaScript-koodista.</b>'
 
 <div class="duckimg-center-container">
 <img 
-  src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/bold-2.webp" 
+  src="{{ site.img-url }}/bold-2.webp" 
   class="duckimg-center"
 />
 <!--
@@ -77,7 +77,7 @@ vinkki='Ole tarkkana oletko kirjoittamassa JavaScript vai HTML-koodia.'
 
 <div class="duckimg-center-container">
 <img 
-  src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/kaaroja.webp"
+  src="{{ site.img-url }}/kaaroja.webp"
   class="duckimg-center"
 />
 </div>
@@ -274,7 +274,7 @@ vinkki='Muuttujien luomista voidaan kutsua myös muuttujan määrittämiseksi ta
 
 <div class="duckimg-center-container">
 <img 
-  src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/muuttuja.webp" 
+  src="{{ site.img-url }}/muuttuja.webp" 
   class="duckimg-center"
 />
 <!--

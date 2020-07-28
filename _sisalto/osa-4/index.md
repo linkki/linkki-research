@@ -71,11 +71,9 @@ teksti='Koulussa matematiikassa koordinaatiston Y-koordinaatit kasvavat <em>ylö
  
 <div class="duckimg-center-container">
 <img 
-  src="https://www.mv.helsinki.fi/home/lawkaita/more/linkki/img/directions.webp"
+  src="{{ site.img-url }}/directions.webp"
   class="duckimg-center"
 />
-<!--
--->
 </div>
 
 
