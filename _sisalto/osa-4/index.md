@@ -40,6 +40,12 @@ Kankaalle piirretään suorakulmion käyttämällä komentoa `piirtäjä.fillRec
 <!-- TODO 
 Kuva parametreista.
 -->
+<div class="duckimg-center-container">
+<img
+  src="{{ site.img-url }}/kaavakuva-fill.webp"
+  class="duckimg-center"
+/>
+</div>
 
 
 {% include task.html
