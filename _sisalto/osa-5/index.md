@@ -44,13 +44,49 @@ function piirrä() {
 }
 requestAnimationFrame(piirrä)
 ```
-<!---TODO: Tästä voisi tehdä kyselyn --->
-<div class="codebox question">
-	<h3>Kysymys 5.1</h3>
-	<p>
-		Mitkä yllä olevista funktioista ovat nuolifunktiota ja mitkä avainsanafunktioita?
-	</p>
-</div>
+
+<div id="funktiokysymykset-alku"></div>
+
+<script>createQuestionnaire({
+	id: "funktiokysymykset-alku",
+	questions: [
+		{
+			text: "Onko tapahtumakäsittelijä teksti.onclick nuolifunktio vai avainsanafunktio?",
+			alternatives: [
+				{ text: "nuolifunktio", correct: true },
+				{ text: "avainsanafunktio" },
+			]
+		},
+		{
+			text: "Onko ajastin nuolifunktio vai avainsanafunktio?",
+			alternatives: [
+				{ text: "nuolifunktio", correct: true },
+				{ text: "avainsanafunktio" },
+			]
+		},
+		{
+			text: "Onko toistettu funktio nuolifunktio vai avainsanafunktio?",
+			alternatives: [
+				{ text: "nuolifunktio", correct: true },
+				{ text: "avainsanafunktio" },
+			]
+		},
+		{
+			text: "Onko nimetty funktio liikutaYlös nuolifunktio vai avainsanafunktio?",
+			alternatives: [
+				{ text: "nuolifunktio" },
+				{ text: "avainsanafunktio", correct: true },
+			]
+		},
+		{
+			text: "Onko piirtofunktio piirrä nuolifunktio vai avainsanafunktio?",
+			alternatives: [
+				{ text: "nuolifunktio" },
+				{ text: "avainsanafunktio", correct: true },
+			]
+		}
+	]
+})</script>
 
 ## Tapahtumäkäsittelijät – kertaus
 
@@ -83,7 +119,7 @@ ${closeScript}'
 %}
 
 {% include task.html
-tehtava-ohje='Täydennä ohjelmaa niin, että kun käyttäjä painaa näppäintä "a",niin tulostuu <code>alert()</code> komennolla "Ankka aivasti avaruudessa."'
+tehtava-ohje='Täydennä ohjelmaa niin, että kun käyttäjä painaa näppäintä "a", niin tulostuu <code>alert()</code> komennolla "Ankka aivasti avaruudessa."'
 
 tehtava-koodi='<!doctype HTML>
 <script>
@@ -91,7 +127,7 @@ tehtava-koodi='<!doctype HTML>
 		if(event.key == "a"){
 
 		}
-}
+	}
 ${closeScript}'
 %}
 
@@ -242,7 +278,7 @@ ${closeScript}'
 
 {%include extra.html
 otsikko='Miten toistetun funktion saa loppumaan?'
-vinkki='Toistetun funktion saa loppumaan käyttämällä komentoa <code>clearInterval</code>. Komennolle pitää antaa <b>parametrina</b> toistttu funktio. Tämä tarkoittaa sitä, että toistettu funktio pitää nimetä jotenkin. Talletetaan siis toistettu funktio muuttujaan
+vinkki='Toistetun funktion saa loppumaan käyttämällä komentoa <code>clearInterval</code>. Komennolle pitää antaa <b>parametrina</b> toistettu funktio. Tämä tarkoittaa sitä, että toistettu funktio pitää nimetä jotenkin. Talletetaan siis toistettu funktio muuttujaan.
 
 <div class="codebox example">
 	<script>
