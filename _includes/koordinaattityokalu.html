@@ -16,7 +16,7 @@
 			piirtäjä.lineTo(x2, y2);
 			piirtäjä.stroke();
 		}
-		const piirtäjä = koordinaattityökalu.getContext("2d");
+		var piirtäjä = koordinaattityökalu.getContext("2d");
 		koordinaattityökalu.onmousemove = tapahtuma => {
 			const x = tapahtuma.offsetX;
 			const y = tapahtuma.offsetY;

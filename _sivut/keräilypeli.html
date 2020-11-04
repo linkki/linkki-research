@@ -27,7 +27,7 @@ function siirräKohti(hahmo1, hahmo2, nopeus) {
 	hahmo1.Y += dy/e*nopeus
 }
 
-const piirtäjä = kangas.getContext("2d")
+var piirtäjä = kangas.getContext("2d")
 
 // laitetaan kuvan silotus pois päältä
 // koska hahmojen kuvat ovat pixelarttia
@@ -134,9 +134,7 @@ setInterval(() => {
 <h3>Alkuvalmistelut</h3>
 
 <p class=task>Kopioi aloituspohja (kankaan kokoa ja väriä voi muuttaa halutessaan:</p>
-<script>codeExample(`<!doctype HTML>
-
-<canvas width = 800
+<script>codeExample(`<canvas width = 800
         height = 600
         style = background-color:beige;></canvas>
 
@@ -144,7 +142,7 @@ setInterval(() => {
 
 ${closeScript}`, "html");</script>
 
-<p class=task>Käytämme tehtävässä seuraavia funktioita kahden hahmon etäisyyden laskemiseen ja hahmon liikuttamiseen. Kopioi ne <code>&lt;script&gt;</code>-tägien väliin.</p>
+<p class=task>Käytämme tehtävässä seuraavia funktioita kahden hahmon etäisyyden laskemiseen ja hahmon liikuttamiseen. Kopioi ne <code>&lt;script&gt;</code>-tagien väliin.</p>
 <script>codeExample(`// Apufunktio etäisyyden laskemiseen
 function etäisyys(hahmo1, hahmo2) {
 	const dx = hahmo1.X - hahmo2.X
@@ -164,7 +162,7 @@ function siirräKohti(hahmo1, hahmo2, nopeus) {
 `, "javascript");</script>
 
 <p class=task>Määrittele piirtäjä-muuttuja piirtämistä varten:</p>
-<script>codeExample(`const piirtäjä = kangas.getContext("2d") `, "javascript");</script>
+<script>codeExample(`var piirtäjä = kangas.getContext("2d") `, "javascript");</script>
 
 <h3>Hahmojen muuttujat</h3>
 

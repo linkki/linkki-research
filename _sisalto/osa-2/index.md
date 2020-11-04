@@ -10,8 +10,7 @@ nav-title: Osa 2
 
  esimerkki-selitys='Tekstiä klikkaamalla suoritetaan <b>tapahtuma</b>. '
 
- esimerkki-koodi='<!doctype HTML>
-<p id = teksti>
+ esimerkki-koodi='<p id = teksti>
     Klikkaa minua.
 </p>
 <script>
@@ -25,7 +24,7 @@ Kun klikkaat hiirellä tietokoneen näyttöä tai painat tietokoneen näppäimi�
 
 ## 2.2 Tapahtuma: Klikkaus
 
-Jotta tiedetään, missä klikkaus tapahtuu on HTML-elementit merkittävä _id-tunnistella_. Luodaan tekstielementti ja annetaan sille id-tunnisteeksi `teksti`: `<p id=teksti>Klikkaa. minua</p>`. Id-tunniste määritetään **tägien** sisällä käyttämällä määrettä `id=` ja yhtäsuuruusmerkin oikealla puolella on **tunniste**, joka elementille asetetaan. 
+Jotta tiedetään, missä klikkaus tapahtuu on HTML-elementit merkittävä _id-tunnistella_. Luodaan tekstielementti ja annetaan sille id-tunnisteeksi `teksti`: `<p id=teksti>Klikkaa. minua</p>`. Id-tunniste määritetään **tagien** sisällä käyttämällä määrettä `id=` ja yhtäsuuruusmerkin oikealla puolella on **tunniste**, joka elementille asetetaan. 
 
 Javascript-koodissa luodaan **kuuntelija**, joka odottaa, milloin id-tunnistettua elementtiä klikataan eli milloin _tapahtuma_ tapahtuu. Kuuntelija luodaan määrittämällä skriptielementin sisällä **tapahtumakäsittelijä**:
 
@@ -54,8 +53,7 @@ Javascript-koodissa luodaan **kuuntelija**, joka odottaa, milloin id-tunnistettu
 
 {% include task.html 
 tehtava-ohje='Kirjoita ohjelmaan koodi, jossa komennolla <code>alert()</code> tulostetaan "Ankat uivat lammessa.", kun tekstiä "Missä ankat uivat?" klikataan.'
-tehtava-koodi='<!doctype HTML>
-<p id = teksti>
+tehtava-koodi='<p id = teksti>
     Missä ankat uivat?
 </p>
 <script>
@@ -66,8 +64,7 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Kirjoita ohjelmaan koodi, jossa <code>alert()</code>-komennolla tulostetaan "Höyhenpeite on myös vettähylkivä.", kun tekstiä "Ankkojen höyhenpeite on pehmeä" klikataan.'
-tehtava-koodi='<!doctype HTML>
-<p id = teksti>
+tehtava-koodi='<p id = teksti>
     Ankkojen höyhenpeite on pehmeä.
 </p>
 <script>
@@ -81,8 +78,7 @@ vinkki='Id-tunniste annetaan HTML-elementille. Id-tunnistetta käytetään HTML-
 
 {% include task.html
 tehtava-ohje='Ohjelmoija on unohtanut tästä koodista id-tunnisteen. Korjaa koodiin id-tunniste siten, että kun tekstielementtiä klikataan, niin tulostetaan Javascript koodin <code>alert()</code>-komento.'
-tehtava-koodi='<!doctype HTML>
-<p>
+tehtava-koodi='<p>
     Saammeko tekstin toimimaan tapahtumana?
 </p>
 <script>
@@ -94,8 +90,7 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Kirjoita ohjelmaan tekstielementti, jossa lukee "Koodiankat auttavat ihmisiä ohjelmoinnissa.". Anna tekstielementille tunnisteeksi "teksti". Lisää <code>onclick</code>-komento ja kirjoita sen sisälle <code>alert()</code>-komento, joka tulostaa tekstin "Lisäksi koodiankat ovat söpöjä.".'
-tehtava-koodi='<!doctype HTML>
-<script>
+tehtava-koodi='<script>
 ${closeScript}'
 %}
 
@@ -103,8 +98,7 @@ ${closeScript}'
 
 {% include example.html
 esimerkki-selitys='Tekstiä klikkaamalla teksti vaihtuu.'
-esimerkki-koodi='<!doctype HTML>
-<p id = teksti>Klikkaa minua.</p>
+esimerkki-koodi='<p id = teksti>Klikkaa minua.</p>
 <script>
     teksti.onclick = () => {
 		teksti.textContent = "Moikka moi!"    
@@ -118,8 +112,7 @@ Id-tunnistetun tekstielementin sisältö eli sitä, mitä tekstielementissä luk
 
 {% include example.html
 esimerkki-selitys='Painikkeesta tapahtuu alert().'
-esimerkki-koodi='<!doctype HTML>
-<button id=nappi>Klikkaa tästä.</button>
+esimerkki-koodi='<button id=nappi>Klikkaa tästä.</button>
 <script>
 	nappi.onclick = () =>  {
 		alert("Nappia painettiin.")
@@ -130,8 +123,7 @@ ${closeScript}'
 
 {% include example.html
 esimerkki-selitys='Painiketta <code>&lt;button&gt;</code> painettaessa suoritetaan komento <code>nappi.onclick</code>.'
-esimerkki-koodi='<!doctype HTML>
-<p id = teksti>hello!<p>
+esimerkki-koodi='<p id = teksti>hello!<p>
 <button id=nappi>Vaihda tekstiä</button>
 <script>
     nappi.onclick = () =>  {
@@ -140,7 +132,7 @@ esimerkki-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
-<button>Painike</button> on HTML-elementti, jota usein on tarkoitus klikata. Painikkeen määrittelävä tägi on `<button>`. Ilman Javascript-koodia painikkeen klikkaamisesta ei tapahdu mitään. Painikkeen klikkausta _kuunnellaan_ samalla tavalla, kuin muidenkin HTML-elementtien klikkausta. Tämä tarkoittaa sitä, että painikkeelle annetaan **id-tunniste** ja tämän jälkeen tunnistetulle painikkeelle tehdään **tapahtumakäsittelijä** skripitielementtiin.
+<button>Painike</button> on HTML-elementti, jota usein on tarkoitus klikata. Painikkeen määrittelävä tagi on `<button>`. Ilman Javascript-koodia painikkeen klikkaamisesta ei tapahdu mitään. Painikkeen klikkausta _kuunnellaan_ samalla tavalla, kuin muidenkin HTML-elementtien klikkausta. Tämä tarkoittaa sitä, että painikkeelle annetaan **id-tunniste** ja tämän jälkeen tunnistetulle painikkeelle tehdään **tapahtumakäsittelijä** skripitielementtiin.
 
 ```html
 <button id=painike>
@@ -155,8 +147,7 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Kirjoita ohjelma, joka tulostaa näytölle "Klikkasit painiketta.'
-tehtava-koodi='<!doctype HTML>
-<button id=nappi>Klikkaa minua</button>
+tehtava-koodi='<button id=nappi>Klikkaa minua</button>
 <script>
 nappi.onclick = () => {
 }
@@ -165,8 +156,7 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Lisää ohjelmaan id-tunniste painikkeelle. Huomaa, että id-tunniste tulee antaa myös <code>.onclick</code>-metodille.'
-tehtava-koodi='<!doctype HTML>
-<button>Klikkaa minua</button>
+tehtava-koodi='<button>Klikkaa minua</button>
 <script>
 	.onclick = () => {
     alert("Hyvää työtä!")
@@ -176,8 +166,7 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Tässä tehtävässä vaihdetaan <code>&lt;p id=teksti&gt;</code>-elementin tekstiä. Lisää komento, joka vaihtaa <code>&lt;p id=teksti&gt;</code>-elementin tekstin tekstiksi "Onnistuin!".'
-tehtava-koodi='<!doctype HTML>
-<p id=teksti>
+tehtava-koodi='<p id=teksti>
     Onnistutko vaihtamaan tämän tekstin?
 <p>
 <button id=nappi>Vaihda tekstiä</button>
@@ -192,8 +181,7 @@ ${closeScript}'
 {%
 include example.html
 esimerkki-selitys='Ohjelma odottaa, milloin käyttäjä painaa painiketta. Seuraavassa luvussa opimme, miten erotetaan, mitä näppäintä käyttäjä painoi. Esimerkissä tehdään aluksi tyhjä tekstielementti, joten kun painat lippukuvaketta mitään ei tule näkyviin.'
-esimerkki-koodi='<!doctype HTML>
-<p id=teksti>
+esimerkki-koodi='<p id=teksti>
 </p>
 <script>
     document.onkeydown = event => {
@@ -235,8 +223,7 @@ Tällä hetkellä mikä tahansa painike saa aikaan tapahtuman. Seuraavassa osass
 
 {% include task.html
 tehtava-ohje='Tee ohjelma, joka vaihtaa tekstielementin tekstiksi "Voitit pelin.".'
-tehtava-koodi='<!doctype HTML>
-<p id=teksti>
+tehtava-koodi='<p id=teksti>
     Paina mitä tahansa näppäintä näppäimistöllä!
 <p>
 <script>
@@ -246,8 +233,7 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Tee ohjelma, jossa näppäintä painettaessa näytölle tulostuu <code>alert()</code>-komennolla "PÖÖ!".'
-tehtava-koodi='<!doctype HTML>
-<script>
+tehtava-koodi='<script>
 
 ${closeScript}'
 %}

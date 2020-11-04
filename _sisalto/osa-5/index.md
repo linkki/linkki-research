@@ -94,8 +94,7 @@ Tapahtumankäsittelijöihin tutustuttiin jo kolmannessa luvussa. Ne ovat funktio
 
 {% include example.html
 esimerkki-selitys='Tapahtumakäsittelijä näyttää ilmoituksen, kun tekstiä klikataan.'
-esimerkki-koodi='<!doctype HTML>
-<p id = teksti>Klikkaa tästä!</p>
+esimerkki-koodi='<p id = teksti>Klikkaa tästä!</p>
 <script>
 	teksti.onclick = e => {
 		alert("Hei siellä!")
@@ -109,8 +108,7 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Lisää painikkeelle kuuntelija. Kun painiketta klikataan, niin tulosta <code>alert()</code>> komennolla "Klikkasit painiketta."'
-tehtava-koodi='<!doctype HTML>
-<button id = painike>
+tehtava-koodi='<button id = painike>
 Missä ankat uivat?
 </button>
 
@@ -121,8 +119,7 @@ ${closeScript}'
 {% include task.html
 tehtava-ohje='Täydennä ohjelmaa niin, että kun käyttäjä painaa näppäintä "a", niin tulostuu <code>alert()</code> komennolla "Ankka aivasti avaruudessa."'
 
-tehtava-koodi='<!doctype HTML>
-<script>
+tehtava-koodi='<script>
 	document.onkeydown = event => {
 		if(event.key == "a"){
 
@@ -133,15 +130,14 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Täydennä ohjelmaa niin, että kun käyttäjä klikkaa painiketta, niin neliön väri vaihtuu punaiseksi. Neliön väri vaihtuu, kun piirrät sen päälle uuden neliön, joka on erivärinen.'
-tehtava-koodi='<!doctype HTML>
-<canvas id=kangas></canvas>
+tehtava-koodi='<canvas id=kangas></canvas>
 <br>
 <button>
 	Vaihda väriä.	
 </button>
 
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillRect(10, 10, 50, 50)
 	
 ${closeScript}'
@@ -151,15 +147,14 @@ ${closeScript}'
 
 {% include example.html
 esimerkki-selitys='Ajastettu funktio, joka suoritetaan 3 sekunnin kuluttua.'
-esimerkki-koodi='<!doctype HTML>
-<script>
+esimerkki-koodi='<script>
 	setTimeout(() => {
 		alert("Yllätys!")
 	}, 3000)
 ${closeScript}'
 %}
 
-Ajastettu funktio suoritetaan, kun ohjelman käynnistämisestä on kulunut määritellyn verran aikaa. Esimerkiksi jos ohjelman halutaan tulostavan kolmen sekunnin kuluttua suorituksen aloittamisesta `alert("Yllätys!")`, niin ajastettu funktio eli `setTimeout` funktio näyttää seuraavalta
+Ajastettu funktio suoritetaan, kun ohjelman käynnistämisestä on kulunut määritellyn verran aikaa. Esimerkiksi jos ohjelman halutaan tulostavan viiden sekunnin kuluttua suorituksen aloittamisesta `alert("Yllätys!")`, niin ajastettu funktio eli `setTimeout` funktio näyttää seuraavalta
 
 ```javascript
 setTimeout(() => {
@@ -209,19 +204,17 @@ Tämä funktio siis tulostaa viiden sekunin kuluttua ohjelman käynnistymisestä
 
 {% include task.html
 tehtava-ohje='Tee ajastettu funktio, joka tulostaa 2 sekunnin kuluttua näytölle <code>prompt()</code> kysymyksen "Yllätyitkö?" Talleta vastaus muuttujaan, jonka nimi on "vastaus". Tulosta <code>prompt()</code> komennon jälkeen <code>alert()</code> komennolla käyttäjän vastaus.'
-tehtava-koodi='<!doctype HTML>
-<script>
+tehtava-koodi='<script>
 
 ${closeScript}'
 %}
 
 {% include task.html 
 tehtava-ohje='Tee ohjelma, joka vaihtaa neliön väriä kahden sekunnin kuluttua keltaiseksi. Muista, että neliön väri vaihtuu, kun sen päälle piirretään uusi eri värinen neliö.'
-tehtava-koodi='<!doctype HTML>
-<canvas id=kangas>
+tehtava-koodi='<canvas id=kangas>
 </canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillRect(10, 10, 50, 50)
 ${closeScript}'
 %}
@@ -230,8 +223,7 @@ Ajastetun funktion voi laittaa tapahtumakäsittelijän sisälle, jolloin se suor
 
 {% include example.html
 esimerkki-selitys='Ajastettu funktio tapahtumakäsittelijän sisällä. Mitä tapahtuu, jos klikkaat tekstiä uudestaan ennen viestin ilmestymistä?'
-esimerkki-koodi='<!doctype HTML>
-<p id = teksti>Klikkaa tästä!</p>
+esimerkki-koodi='<p id = teksti>Klikkaa tästä!</p>
 <script>
 	teksti.onclick = e => {
 		setTimeout(() => {
@@ -248,8 +240,7 @@ ${closeScript}'
 
 {% include example.html
 esimerkki-selitys='Toistettu funktio, joka lisää rivejä tekstiin. Komento <code>.textContent +=</code> lisää loppuun uutta tekstiä.'
-esimerkki-koodi='<!doctype HTML>
-<p id = teksti>Ensimmäinen lause on tässä.</p>
+esimerkki-koodi='<p id = teksti>Ensimmäinen lause on tässä.</p>
 <script>
 	setInterval(() => {
 		teksti.textContent += " Tässä on uusi lause!"
@@ -269,8 +260,7 @@ Toistetussa funktiossa suoritettva koodi menee tuttuun tapaan _aaltosulkeiden_ s
 
 {% include task.html
 tehtava-ohje='Tee ohjelma, joka lisää sivulle 3,5 sekunnin välein tekstin "Pöö!". Käytä <code>setInterval</code> funktiota.'
-tehtava-koodi='<!doctype HTML>
-<p id = teksti>Loppumaton yllätys!</p>
+tehtava-koodi='<p id = teksti>Loppumaton yllätys!</p>
 <script>
 
 ${closeScript}'
@@ -283,8 +273,7 @@ vinkki='Toistetun funktion saa loppumaan käyttämällä komentoa <code>clearInt
 <div class="codebox example">
 	<script>
 		addEditor(
-`<!doctype HTML>
-<p id = teksti>Ensimmäinen lause on tässä.</p>
+`<p id = teksti>Ensimmäinen lause on tässä.</p>
 <script>
 	toisto = setInterval(() => {
 		teksti.textContent += " Tässä on uusi lause!"
@@ -298,8 +287,7 @@ Lisätään <code>clearInterval</code> komento siten, että painiketta klikatess
 <div class="codebox example">
 	<script>
 		addEditor(
-`<!doctype HTML>
-<button id=painike>Pysäytä</button>
+`<button id=painike>Pysäytä</button>
 <p id = teksti>Ensimmäinen lause on tässä.</p>
 <script>
 	toisto = setInterval(() => {
@@ -321,8 +309,7 @@ ${closeScript}`
 
 {% include example.html 
 esimerkki-selitys='Nimetty funktio, joka suoritetaan heti, 5 s kuluttua ja kun tekstiä painetaan.'
-esimerkki-koodi='<!doctype HTML>
-<p id = teksti>Klikkaa tästä!</p>
+esimerkki-koodi='<p id = teksti>Klikkaa tästä!</p>
 <script>
 	function yllätys() {
 		alert("Yllätys!")
@@ -357,8 +344,7 @@ vinkki='Funktioita käytetään, jotta koodia ei tarvitsisi kirjoittaa joka kert
 
 {% include example.html
 esimerkki-selitys='Jokaisen painikkeen painaminen kutsuu samaa funktiota, jonka nimi on "<code>tervehdi()</code>.'
-esimerkki-koodi='<!doctype HTML>
-<button id=painike1>Eka</button>
+esimerkki-koodi='<button id=painike1>Eka</button>
 <button id=painike2>Toka</button>
 <button id=painike3>Kolmas</button>
 <button id=painike4>Neljäs</button>
@@ -402,8 +388,7 @@ Nimetylle funktiolle voi antaa <b>parametreja</b>. Parametrit ovat muuttujia, jo
 	</p>
 	<script>
 		addEditor(
-`<!doctype HTML>
-<p id = teksti>Klikkaa tästä!</p>
+`<p id = teksti>Klikkaa tästä!</p>
 <script>
 	function yllätys(viesti) {
 		alert("Yllätys " + viesti + "!")

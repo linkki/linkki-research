@@ -60,7 +60,7 @@ Kun olemme luoneet listan, voimme käyttää <code>for of</code> -silmukkaa käy
 	var luvut = [1, 2, 3]
 
 	for (var luku of luvut) {
-		alert(luku + 1)
+		alert(luku)
 	}
 ${closeScript}
 `);</script>
@@ -69,7 +69,7 @@ ${closeScript}
 Silmukan sisällä oleva koodi suoritetaan kolme kertaa eli kerran jokaiselle listan alkiolle.
 Jokaisella suorituskerralla muuttuja <code>luku</code> asetetaan ensin viittamaan yhteen listan alkioista.
 Ensin <code>luku</code> on <code>1</code>, toisella suorituskerralla se on <code>2</code> ja viimeisellä kerralla <code>3</code>.
-Koska tulostamme arvon <code>luku + 1</code>, näytölle pitäisi tulostua luvut 1+1, 2+1 ja 3+1 eli 2, 3 ja 4.
+Näytölle pitäisi siis tulostua luvut 1, 2 ja 3.
 
 <p>
 TODO: Tehtäviä, joissa luodaan listoja.
@@ -244,8 +244,8 @@ Olion voi lisätä listaan samalla tavalla kuin luvunkin käyttämällä sopivaa
 <script>codeExample(
 `var hahmot = []
 hahmot.push({
-	X: 0,
-	Y: 0,
+	x: 0,
+	y: 0,
 })
 `,"javascript");</script>
 
@@ -254,7 +254,7 @@ Kun oliolistaan on lisätty haluttu määrä olioita, se voidaan käydä läpi <
 
 <script>codeExample(
 `for (var hahmo of hahmot) {
-	piirtädä.drawRect(hahmo.X, hahmo.Y, 100, 100)
+	piirtädä.drawRect(hahmo.x, hahmo.y, 100, 100)
 }
 `,"javascript");</script>
 

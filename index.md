@@ -26,7 +26,7 @@ Voit siirtyä suoraan ensimmäisen osaan! Tehtävät voi tehdä suoraan selaimes
 
 ### Ohjelmointiympäristön käyttäminen
 
-Ohjelmointiympäristössä vasemmalla puolella on koodi-ikkuna ja oikealla puolella on ohjelma. Kun painat lippukuvaketta, koodi-ikkunan koodi _kääntyy_ ja lopputulos ilmestyy oikealle puolella. Voit myös kopioida koodin koodi-ikkunasta tietokoneesi muistiosovellukseen ja tallettaa tiedoston html-tiedostona. Kun avaat tiedoston, niin sama _kääntäminen_ tapahtuu koneellasi paikallisesti. Katso tarkemmat ohjeet kohdasta Omalla koneella tehtävän tekeminen.
+Ohjelmointiympäristössä vasemmalla puolella on koodi-ikkuna ja oikealla puolella on ohjelma. Kun painat lippukuvaketta, koodi-ikkunan koodi _suoritetaan_ ja lopputulos ilmestyy oikealle puolella. Voit myös kopioida koodin koodi-ikkunasta tietokoneesi koodieditoriin ja tallettaa tiedoston html-tiedostona. Kun avaat tiedoston, niin sama _suorittaminen_ tapahtuu koneellasi paikallisesti. Katso tarkemmat ohjeet kohdasta Omalla koneella tehtävän tekeminen.
 
 #### Ohjelmointiympäristö: Esimerkki
 
@@ -38,11 +38,11 @@ Tehtävän tunnistaa kynäkuvakkeesta. Tehtävässä sinun on tarkoitus kirjoitt
 
 ### Omalla koneella tehtävän tekeminen
 
-Voit tehdä tehtävät myös paikallisesti omalla koneellasi käyttämällä muistiosovellusta. Lähes jokaisessa tietokoneessa on jonkinlainen muistiosovellus. Voimme kirjoittaa tällaisella sovelluksella html-tiedostoja.
+Voit tehdä tehtävät myös paikallisesti omalla koneellasi käyttämällä koodieditoria. Lähes jokaisessa tietokoneessa on jonkinlainen koodieditori (esimerkiksi Windowsissa Notepad). Emme tarkoita nyt editorilla Wordiä tai LibreOfficea: jos editorissa voi tummentaa tai kursivoida sanoja, se sopii huonosti koodin kirjoittamiseen. Html-koodissa tummennus tehdään html-tageilla eikä editorilla.
 
-1. Avaa muistiosovellus.
-2. Kirjoita ohjelma muistioon.
-3. Anna tiedostolle nimi tiedostonNimi.html (tiedostonNimi-osan voi vaihtaa, miksi haluaa).
+1. Avaa tekstieditori.
+2. Kirjoita ohjelma editoriin.
+3. Anna tiedostolle nimi tiedoston-nimi.html (tiedoston-nimi-osan voi vaihtaa, miksi haluaa).
 4. Etsi tiedosto tietokoneella.
 5. Nyt kun kaksoisklikkaat tiedoston auki niin se aukeaa selaimessa ja näet tekemäsi verkkosivun.
 
