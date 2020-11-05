@@ -8,8 +8,7 @@ nav-title: Osa 3
 
 {% include example.html
 esimerkki-selitys='Ehtolauseilla voidaan määritellä ohjelmalle vaihtelevia lopputuloksia.'
-esimerkki-koodi='<!doctype HTML>
-<script>
+esimerkki-koodi='<script>
     let almanPähkinät = prompt("Kuinka monta pähkinää Almalla on?")
     let brunonPähkinät = 0
 
@@ -45,8 +44,7 @@ Ehtolause on muotoa `if (ehto)`. Kun ehto toteutuu, suoritetaan koodi `{ }` lohk
 
 {% include example.html
 esimerkki-selitys='Tässä esimerkissä Almalla on aluksi 10 pähkinää.'
-esimerkki-koodi='<!doctype HTML>
-<script>
+esimerkki-koodi='<script>
     let almanPähkinät = 10
     let brunonPähkinät = 0
 
@@ -61,8 +59,7 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Almalle ei ole annettu lainkaan pähkinöitä! Korjaa koodia niin, että Almalla on 2 pähkinää. Saako Bruno yhtään pähkinää?'
-tehtava-koodi='<!doctype HTML>
-<script>
+tehtava-koodi='<script>
     let almanPähkinät = 
     let brunonPähkinät = 0
     if (almanPähkinät > 5) {
@@ -77,8 +74,7 @@ Ehtolauseesta on erityisesti hyötyä silloin kun muuttujien arvo voi vaihtua.
 
 {% include example.html
 esimerkki-selitys='Miksi syötteellä 3 Bruno ei saa pähkinöitä, mutta syötteellä 7 hän saa.'
-esimerkki-koodi='<!doctype HTML>
-<script>
+esimerkki-koodi='<script>
     let pähkinät = prompt("Kuinka monta pähkinää?")
     let brunonPähkinät = 0
     alert("Pähkinöitä on " + pähkinät + " kappaletta.")
@@ -98,8 +94,7 @@ Numeroiden kokoa voidaan vertailla _pienempi kuin_ ja _suurempi kuin_ -merkeill�
 
 {% include example.html
 esimerkki-selitys='Numeroita vertaillaan kuten matematiikassa.'
-esimerkki-koodi='<!doctype HTML>
-    <script>
+esimerkki-koodi='<script>
         if (6 > 3) {
             alert("Kuusi on suurempaa kuin kolme.")
         }
@@ -116,8 +111,7 @@ Yhtäsuuruuden vertailu onnistuu Javascriptissä käyttämällä kolmoisyhtäsuu
 
 {% include example.html
 esimerkki-selitys='Yhtäsuuruutta vertaillaa kolmoisyhtäsuuruudella.'
-esimerkki-koodi='<!doctype HTML>
-    <script>
+esimerkki-koodi='<script>
         if ("ankka" === "ankka") {
             alert("ankka on sama asia kuin ankka.")
         }
@@ -140,8 +134,7 @@ teksti='Huomasithan, että edellisessä esimerkissä isolla kirjoitettu Ankka ei
 
 {% include task.html
 tehtava-ohje='Täydennä jos-ehtoja niin, että nimi tulostuu oikein.'
-tehtava-koodi='<!doctype HTML>
-    <script>
+tehtava-koodi='<script>
         ekaNimi = "Bella"
         tokaNimi = "Anton"
         if(){
@@ -155,8 +148,7 @@ tehtava-koodi='<!doctype HTML>
 
 {% include task.html
 tehtava-ohje='Täydennä jos-ehtoa niin, että jos muuttujan brunonPähkinät on pienempää kuin 2, niin Bruno saa lisää pähkinöitä.'
-tehtava-koodi='<!doctype HTML>
-    <script>
+tehtava-koodi='<script>
         brunonPähkinät = Number(prompt("Kuinka monta pähkinää Brunolla on?"))
         if(){
             pähkinät = Number(prompt("Kuinka monta pähkinää Brunolle annetaan?"))
@@ -170,8 +162,7 @@ tehtava-koodi='<!doctype HTML>
 
 {% include example.html
 esimerkki-selitys='Bruno saa lohdutuspalkintona pähkinöitä, jos Almalla on liian vähän pähkinöitä.'
-esimerkki-koodi='<!doctype HTML>
-<script>
+esimerkki-koodi='<script>
     let almanPähkinät = prompt("Kuinka monta pähkinää Almalla on?")
     let brunonPähkinät = 0
 
@@ -204,8 +195,7 @@ Jos _jos_-ehto ei toteudu niin suoritetaan _else_-lohko.
 
 {%include example.html
 esimerkki-selitys='Tässä esimerkissä Almalla on aluksi 2 pähkinää. Kuinka monta pähkinää Brunolla on?'
-esimerkki-koodi='<!doctype HTML>
-    <script>
+esimerkki-koodi='<script>
         almanPähkinät = 2
         brunonPähkinät = 0
         if (almanPähkinät > 5) {
@@ -221,8 +211,7 @@ esimerkki-koodi='<!doctype HTML>
 
 {% include example.html
 esimerkki-selitys='Esimerkissä on kuuntelija, joka odottaa, milloin tekstiä klikataan. Kun tekstiä on klikattu, tarkastamme ehtolauseella, mitä tekstissä lukee. <b>Jos</b> tekstissä lukee "Klikkaa minua.", <b>niin</b> teksti vaihtuu tekstiksi "Moikka moi!". <b>Muutoin</b> teksti vaihtuu tekstiksi "Klikkaa minua.".'
-esimerkki-koodi='<!doctype HTML>
-<p id = teksti>
+esimerkki-koodi='<p id = teksti>
     Klikkaa minua
 <script>
     teksti.onclick = () => {
@@ -236,9 +225,8 @@ ${closeScript}'
 %}
 
 {% include task.html 
-tehtava-ohje='Tee ohjelma, joka kysyy käyttäjältä numeron. Jos numero on 42, niin tulosta <code>alert()</code>-komennolla "Löysit onnen lukuni!", Jos käyttäjä syöttää minkä tahansa muun numeron ohjelma tulostaa "Et osunut tällä kertaa oikeaan."'
-tehtava-koodi='<!doctype HTML>
-    <script>
+tehtava-ohje='Tee ohjelma, joka kysyy käyttäjältä luvun. Jos luku on 42, niin tulosta <code>alert()</code>-komennolla "Löysit onnen lukuni!", Jos käyttäjä syöttää minkä tahansa muun luvun ohjelma tulostaa "Et osunut tällä kertaa oikeaan."'
+tehtava-koodi='<script>
     
     ${closeScript}'
 %}
@@ -247,8 +235,7 @@ tehtava-koodi='<!doctype HTML>
 
 {% include example.html
 esimerkki-selitys='Useamman ehtolauseen käyttäminen lisää ohjelman mahdollisten lopputulosten määrää.'
-esimerkki-koodi='<!doctype HTML>
-<script>
+esimerkki-koodi='<script>
     let almanPähkinät = prompt("Kuinka monta pähkinää Almalla on?")
     let brunonPähkinät = 0
 
@@ -285,8 +272,7 @@ Jos-ehtoja voidaan ketjuttaa. Tässä ideana on se, että kun ensimmäinen if-eh
 
 {% include example.html
 esimerkki-selitys='Tässä esimerkissä Almalla on aluksi 10 pähkinää.'
-esimerkki-koodi='<!doctype HTML>
-    <script>
+esimerkki-koodi='<script>
         almanPähkinät = 7
         brunonPähkinät = 0
 
@@ -306,8 +292,7 @@ esimerkki-koodi='<!doctype HTML>
 ## Mitä eroa seuraavilla if-lauseilla on?
 
 {% include example.html
-esimerkki-koodi='<!doctype HTML>
-<p id = teksti></p>
+esimerkki-koodi='<p id = teksti></p>
 <script>
     muuttuja = ""
 
@@ -322,8 +307,7 @@ ${closeScript}'
 %}
 
 {%include example.html
-esimerkki-koodi='<!doctype HTML>
-<p id = teksti></p>
+esimerkki-koodi='<p id = teksti></p>
 <script>
     muuttuja = ""
 
@@ -368,8 +352,7 @@ Halutaan, että kun painetaan näppäintä `a`, niin ohjelma muuttaa tekstieleme
 
 {% include example.html
 esimerkki-selitys='Mysteerinäppäintä painamalla teksti vaihtuu.'
-esimerkki-koodi='<!doctype HTML>
-<p id=teksti>
+esimerkki-koodi='<p id=teksti>
     Mysteerinäppäin vaihtaa tekstini.
 </p>
 <script>
@@ -385,8 +368,7 @@ Nuolinäppäimet nimet ovat selaimessa _ArrowUp_, _ArrowDown_, _ArrowLeft_ ja _A
 
 {% include example.html
 esimerkki-selitys='Näppäimistön kuuntelijat reagoivat näppäinten painalluksiin.'
-esimerkki-koodi='<!doctype HTML>
-  <p id = teksti>
+esimerkki-koodi='<p id = teksti>
 <script>
     
     document.onkeydown = event => {

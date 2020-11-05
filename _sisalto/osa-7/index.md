@@ -43,8 +43,7 @@ Esimerkiksi jos haluamme puhua hahmon väristä, sanomme <code>hahmo.väri</code
 	</p>
 	<script>
 		addEditor(
-`<!doctype HTML>
-<script>
+`<script>
 	const hahmo = {
 		X: 20,
 		Y: 10,
@@ -130,8 +129,7 @@ Esimerkit yhdistettynä:
 	</p>
 	<script>
 		addEditor(
-`<!doctype HTML>
-<canvas
+`<canvas
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
@@ -141,7 +139,7 @@ Esimerkit yhdistettynä:
 		väri: "green",
 	}
 
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 
 	function piirrä() {
 		// Tyhjennetään ruutu

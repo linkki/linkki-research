@@ -88,7 +88,7 @@ title: Labyrinttipeli
         ]
         piirrä()
     }
-    const piirtäjä = kangas.getContext("2d")
+    var piirtäjä = kangas.getContext("2d")
     const pelaaja = {
         X: 50,
         Y: 100,
@@ -315,9 +315,7 @@ Canvas alueen tunnisteeksi asetetaan "kangas" ja sen taustaväri on valkoinen.
 Lisätään myös painike, jolla pelin voi aloittaa alusta.
 Painikkeelle annetaan id.
 Voit toteuttaa canvaksen itse tai kopioida alla olevan pohjan.
-<script>codeExample(`<!doctype HTML>
-
-<canvas width = 425
+<script>codeExample(`<canvas width = 425
         height = 150
         style = background-color:white;></canvas>
 

@@ -10,7 +10,7 @@ title: Matopeli
 
 <script>
 
-const piirtäjä = kangas.getContext("2d")
+var piirtäjä = kangas.getContext("2d")
 
 const mato = {
 	X: 100,
@@ -100,9 +100,7 @@ setInterval(() => {
 <h2>Alkuvalmistelut</h2>
 
 <p class=task>Kopioi aloituspohja (kankaan kokoa ja väriä voi muuttaa halutessaan:</p>
-<script>codeExample(`<!doctype HTML>
-
-<canvas width = 800
+<script>codeExample(`<canvas width = 800
         height = 600
         style = background-color:beige;></canvas>
 
@@ -111,7 +109,7 @@ setInterval(() => {
 ${closeScript}`, "html");</script>
 
 <p class=task>Määrittele piirtäjä-muuttuja piirtämistä varten:</p>
-<script>codeExample(`const piirtäjä = kangas.getContext("2d") `, "javascript");</script>
+<script>codeExample(`var piirtäjä = kangas.getContext("2d") `, "javascript");</script>
 
 <h2>Madon pää</h2>
 

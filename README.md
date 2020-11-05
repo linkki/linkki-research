@@ -10,8 +10,7 @@ deploy locally: bundle exec jekyll serve
 
  esimerkki-selitys='Tämä on esimerkki esimerkki ohjelmointiympäristön käytöstä'
 
- esimerkki-koodi='<!doctype HTML>
-<p id=esimerkki> Tervetuloa! </p>
+ esimerkki-koodi='<p id=esimerkki> Tervetuloa! </p>
 <button> Vaihda teksti </button>
 
 <script>

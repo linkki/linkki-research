@@ -8,8 +8,7 @@ Tässä osassa tutustutaan **kankaisiin** ja niille piirtämiseen. Kankaat ovat 
 
 {% include example.html 
 esimerkki-selitys='Kangas, jolle on piirretty neliö.'
-esimerkki-koodi='<!doctype HTML>
-<canvas
+esimerkki-koodi='<canvas
 	id = kangas>
 </canvas>
 <script>
@@ -22,8 +21,7 @@ Kangas määritellään canvas-elementtinä ja sille tulee asettaa _id-tunniste_
 
 {% include example.html 
 esimerkki-selitys='Beige kangas, jolle on piirretty neliö.'
-esimerkki-koodi='<!doctype HTML>
-<canvas
+esimerkki-koodi='<canvas
 	id = kangas
 	style = background:beige;>
 </canvas>
@@ -33,7 +31,7 @@ esimerkki-koodi='<!doctype HTML>
 ${closeScript}'
 %}
 
-Kangasta muokataan javascript koodilla. Kangas on ikään kuin paperi, jolle voidaan piirtää ohjelmalla. Luodaan muuttuja `var piirtäjä`, jonka arvoksi asetetaan kankaan sisältö `const piirtäjä = kangas.getContext("2d") `. Tätä muuttujaa käytettään kankaalle piirtämiseen, siksi se nimi on `piirtäjä`. 
+Kangasta muokataan javascript koodilla. Kangas on ikään kuin paperi, jolle voidaan piirtää ohjelmalla. Luodaan muuttuja `var piirtäjä`, jonka arvoksi asetetaan kankaan sisältö `var piirtäjä = kangas.getContext("2d") `. Tätä muuttujaa käytettään kankaalle piirtämiseen, siksi se nimi on `piirtäjä`. 
 
 Kankaalle piirretään suorakulmion käyttämällä komentoa `piirtäjä.fillRect`, jolle annetaan neljä **parametria**. Ensimmäiset kaksi ovat suorakulmion sijainti kankaalla eli koordinaatit. Viimeiset kaksi ovat suorakulmion korkeus ja leveys.  
 
@@ -50,11 +48,10 @@ Kuva parametreista.
 
 {% include task.html
 tehtava-ohje='Lisää ohjelmaan koodi, jossa piirretään kankaalle neliö, jonka parametrit ovat (0,0,30,30).'
-tehtava-koodi='<!doctype HTML>
-<canvas id=kangas>
+tehtava-koodi='<canvas id=kangas>
 	</canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 ${closeScript}'
 %}
 
@@ -62,7 +59,7 @@ ${closeScript}'
 
 Kun kankaalle piirretään, käytetään siihen kankaan _koordinaatteja_. Tutustutaan, miten kankaan koordinaatit toimivat.
 
-Tietokoneen näyttö koostuu koneesta riippuen sadoista tuhansista tai jopa miljoonista **pikseleistä**. Yksi pikseli on hyvin pieni piste, jolla on jokin väri. Näytöllä pikselit on järjestetty riveihin, joita on satoja päällekkäin. Laittamalla tietyn värisiä pikseleitä sopivasti vierekkäin tietokoneen näytölle, voidaan muodostaa kuvia ja tekstiä, jota ihminen pystyy ymmärtämään. Pikselin sijainnin perusteella sen väriä voidaan muuttaa tietokone ohjelmalla. Pikselin sijaintia tietokoeneen näytöllä kutsutaan pikselin **koordinaateiksi**. Tarkemmin pikselin **X-koordinaatti** kertoo, kuinka mones pikseli pikseli on omalla rivillään. **Y-koordinaatti** taas kertoo, kuinka mones pikselirivi on kyseessä.
+Tietokoneen näyttö koostuu koneesta riippuen sadoista tuhansista tai jopa miljoonista **pikseleistä**. Yksi pikseli on hyvin pieni piste, jolla on jokin väri. Näytöllä pikselit on järjestetty riveihin, joita on satoja päällekkäin. Laittamalla tietyn värisiä pikseleitä sopivasti vierekkäin tietokoneen näytölle, voidaan muodostaa kuvia ja tekstiä, jota ihminen pystyy ymmärtämään. Pikselin sijainnin perusteella sen väriä voidaan muuttaa tietokone ohjelmalla. Pikselin sijaintia tietokoneen näytöllä kutsutaan pikselin **koordinaateiksi**. Tarkemmin pikselin **X-koordinaatti** kertoo, kuinka mones pikseli pikseli on omalla rivillään. **Y-koordinaatti** taas kertoo, kuinka mones pikselirivi on kyseessä.
 
 TODO: Havainne kuva.
 
@@ -89,18 +86,17 @@ teksti='Koulussa matematiikassa koordinaatiston Y-koordinaatit kasvavat <em>ylö
 
 {% include example.html
 esimerkki-teksti='Kangas, jolle on piirretty punainen neliö.'
-esimerkki-koodi='<!doctype HTML>
-<canvas
+esimerkki-koodi='<canvas
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillStyle = "red"
 	piirtäjä.fillRect(10, 10, 50, 50)
 ${closeScript}'
 %}
 
-`piirtäjä`n väriä vaihdetaan käyttämällä `piirtäjä.fillStyle` komentoa ennen kuin kuvio piirretään kankaalle. Haluttu väri annetaan komennolle parametrina. Alla olevasta listasta näet värit ja niiden nimet javascriptissä.
+`piirtäjä`n väriä vaihdetaan käyttämällä `piirtäjä.fillStyle` komentoa ennen kuin kuvio piirretään kankaalle. Haluttu väri annetaan komennolle parametrina. Alla olevasta listasta näet joitakin värejä ja niiden nimiä JavaScriptissä.
 <table>
   <tr>
     <th>Väri</th>
@@ -173,24 +169,22 @@ Useimpien värien eteen voi lisätä sanan "dark" tarkoittamaan tummaa ja "light
 
 {% include task.html
 tehtava-ohje='Muuta <code>fillRect</code>-komennon koordinaatteja siten, että neliö on kankaan oikean reunan keskellä. Voit käyttää yllä olevaa <i>Koordinaatit kankaalla</i> -työkalua sopivien koordinaattien löytämiseksi.'
-tehtava-koodi='<!doctype HTML>
-<canvas
+tehtava-koodi='<canvas
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillRect(10, 10, 50, 50)
 ${closeScript}'
 %}
 
 {% include task.html
 tehtava-ohje='Piirrä kankaan alareunaan sininen neliö.'
-tehtava-koodi='<!doctype HTML>
-<canvas
+tehtava-koodi='<canvas
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 ${closeScript}'
 %}
 
@@ -202,12 +196,11 @@ Kankaalle piirretään useita neliöitä kirjoittamalla monta `fillRect`-komento
 
 {% include example.html
 esimerkki-selitys='Kangas, jolle on piirretty kaksi punaista ja kaksi sinistä neliötä.'
-esimerkki-koodi='<!doctype HTML>
-<canvas
+esimerkki-koodi='<canvas
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillStyle = "red"
 	piirtäjä.fillRect(10, 10, 50, 50)
 	piirtäjä.fillRect(80, 10, 50, 50)
@@ -235,12 +228,11 @@ Kankaalle monimutkaisemmat kuviot piirretään **polkujen** avulla. Polun piirt�
 
 {% include example.html
 esimerkki-selitys='Kangas, jolle on piirretty raksi.'
-esimerkki-koodi='<!doctype HTML>
-<canvas
+esimerkki-koodi='<canvas
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.strokeStyle = "red"
 	
 	piirtäjä.beginPath()
@@ -265,12 +257,11 @@ teksti='<code>fillRect()</code>-komennon väri määritetään <code>fillStyle</
 
 {% include task.html
 tehtava-ohje='Muuta koordinaatteja siten, että raksi on koko kankaan kokoinen. Etsi sopivat koordinaatit <i>koordinaatit kankaalla</i>-työkalulla.'
-tehtava-koodi='<!doctype HTML>
-<canvas
+tehtava-koodi='<canvas
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.strokeStyle = "red"
 	
 	piirtäjä.beginPath()
@@ -287,12 +278,11 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Lisää <code>moveTo()</code>- ja <code>lineTo</code>-komentoja siten, että kankaalla näkyy ainakin kolme eri viivaa.'
-tehtava-koodi='<!doctype HTML>
-<canvas
+tehtava-koodi='<canvas
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.strokeStyle = "red"
 	
 	piirtäjä.beginPath()
@@ -305,12 +295,11 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Lisää <code>moveTo()</code>- ja <code>lineTo</code>-komentoja piirtäksesi kolmion.'
-tehtava-koodi='<!doctype HTML>
-<canvas
+tehtava-koodi='<canvas
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.strokeStyle = "red"
 	
 	piirtäjä.beginPath()
@@ -323,12 +312,11 @@ ${closeScript}'
 
 {% include task.html
 tehtava-ohje='Lisää <code>moveTo()</code>- ja <code>lineTo</code>-komentoja piirtäksesi talon (neliöstä ja kolmiosta).'
-tehtava-koodi='<!doctype HTML>
-<canvas
+tehtava-koodi='<canvas
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.strokeStyle = "red"
 	
 	piirtäjä.beginPath()
@@ -389,12 +377,11 @@ Pelien ja animaatioiden grafiikat liikkuvat, joten seuraavaksi täytyy selvittä
 
 {% include example.html
 esimerkki-selitys='Neliö liikkuu kankaalla.'
-esimerkki-koodi='<!doctype HTML>
-<canvas
+esimerkki-koodi='<canvas
 	id = kangas
 	style = background-color:beige;></canvas>
 <script>
-	const piirtäjä = kangas.getContext("2d")
+	var piirtäjä = kangas.getContext("2d")
 	piirtäjä.fillStyle = "red"
 
 	let aika = 0
