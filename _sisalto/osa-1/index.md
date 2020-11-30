@@ -244,6 +244,16 @@ Muuttujan nimen päättää ohjelmoija – eli sinä. On kuitenkin hyvä, jos mu
 
 Tiedät jo ainakin yhden tavan asettaa muuttujan arvon. `prompt()`-komennon yhteydessä muuttujan arvoksi asetettiin _käyttäjän syöte_. Tämä onnistui käyttämällä yhtäsuuruusmerkkiä muuttujan nimen jälkeen. Muuttujalle voidaan antaa arvo myös asettamalla haluttu arvo yhtäsuuruusmerkin oikeallepuolelle. Esimerkiksi muuttuja nimeltä `ikä`, jonka arvo on `12` määritetään kirjoittamalla koodiin `var ikä = 12` ja muuttuja, jonka nimi on `nimi` ja arvo `Milla` määritetään `var nimi = "Milla"`. `var`-sanaa käytetään, kun muuttuja määritellään ensimmäisen kerran.
 
+<div class="duckimg-center-container">
+<img 
+  src="{{ site.img-url }}/muuttuja.webp" 
+  class="duckimg-center"
+/>
+<!--
+width="901" height="507"
+-->
+</div>
+
 {% include example.html
 esimerkki-selitys='Muuttujan <code>eläin</code> arvoksi on annettu "koira" ja muuttujan <code>nimi</code> arvon määrittää käyttäjän <i>syöte</i>. Lopuksi muuttujia hyödynnetään tulostuksessa.'
 esimerkki-koodi='<script>
@@ -258,15 +268,6 @@ otsikko='Samaa tarkoittavia ilmaisuja'
 vinkki='Muuttujien luomista voidaan kutsua myös muuttujan määrittämiseksi tai muuttujan arvon asettamiseksi.'
 %}
 
-<div class="duckimg-center-container">
-<img 
-  src="{{ site.img-url }}/muuttuja.webp" 
-  class="duckimg-center"
-/>
-<!--
-width="901" height="507"
--->
-</div>
 
 {% include task.html
 tehtava-ohje='Tee ohjelma, jossa ensin kysytään käyttäjältä jokin syöte, joka tallennetaan muuttujaan. Määrittele tämän jälkeen muuttuja, jolle annat itse arvon. Tulosta tämän jälkeen muuttujat näytölle käyttäen <code>alert()</code>-komentoa.'
