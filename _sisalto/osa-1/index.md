@@ -163,6 +163,16 @@ JavaScript-komento `prompt()` näyttää ohjelmassa samanlaisen ikkunan, kuin `a
 
 ikkuna aukeaa. 
 
+<div class="duckimg-center-container">
+<img 
+  src="{{ site.img-url }}/prompt.webp" 
+  class="duckimg-center"
+/>
+<!--
+width="901" height="507"
+-->
+</div>
+
 {% include task.html 
 tehtava-ohje='Kirjoita <code>prompt()</code>-komento oikeaan kohtaan koodissa.'
 tehtava-koodi='<script>
@@ -276,6 +286,16 @@ ${closeScript}'
 %}
 
 Muuttujien arvoa voidaan **vaihtaa** määrittämällä uudelleen saman niminen muuttuja, mutta tällä kertaa uudella arvolla ilman `var`-sanaa. Esimerkiksi, jos olemme koodissa määritelleet muuttujan `var nimi = "Milla"`, niin kirjoittamalla koodiin `nimi = "Pekka"` vaihtaa muuttujan `nimi` arvoksi `"Pekka"`.
+
+<div class="duckimg-center-container">
+<img 
+  src="{{ site.img-url }}/muuttuja-vaihto.webp" 
+  class="duckimg-center"
+/>
+<!--
+width="901" height="507"
+-->
+</div>
 
 {% include example.html
 esimerkki-selitys='<code>Lempiväri</code>-muuttujan arvo on ensin "vihreä", mutta se vaihdetaan arvoksi "keltainen".'

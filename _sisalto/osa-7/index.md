@@ -36,6 +36,23 @@ Olio on siis tietopaketti, johon on tallennettu useita eri tietoja.
 Voimme käyttää näitä tietoja <b>pisteoperaattorilla</b>, joka vastaa suomen kielen genetiiviä.
 Esimerkiksi jos haluamme puhua hahmon väristä, sanomme <code>hahmo.väri</code>.
 
+<div class="duckimg-center-container">
+<img 
+  src="{{ site.img-url }}/olio-koipi.webp" 
+  class="duckimg-center"
+/>
+<!--
+width="901" height="507"
+-->
+</div>
+
+<div style="text-align: center"> 
+<em>
+<code>Ankka.koipi</code>, tuumasi ankka.
+</em>
+</div>
+
+
 <div class="codebox example">
 	<h3>Esimerkki 5.8</h3>
 	<p>
@@ -61,6 +78,17 @@ Alla on esimerkki, jossa asetamme hahmon väriksi punaisen.
 
 <script>codeExample(
 `hahmo.väri = "red"`,"javascript");</script>
+
+<div class="duckimg-center-container">
+<img 
+  src="{{ site.img-url }}/olio-vari.webp" 
+  class="duckimg-center"
+/>
+<!--
+width="901" height="507"
+-->
+</div>
+
 
 Huomaa, että oliota luotaessa avaimen ja arvon välissä on kaksoispiste.
 Olemassa olevaa oliota muokatessa avaimen ja arvon välissä on yhtäsuuruusmerkki.
