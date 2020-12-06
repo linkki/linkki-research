@@ -9,10 +9,11 @@ nav-title: Osa 5
   src="{{ site.img-url }}/kakku.webp" 
   class="duckimg-center"
 />
-<!--
-width="901" height="507"
--->
 </div>
+<div class="duckimg-caption">
+Ankka halusi leipoa kakun. Ankan pieni pää ei kuitenkaan muistanut miten se tehdään. Onneksi joku oli kirjoittanut siitä ohjeet ylös! Ankka haki tuon ohjeen joka kerta, kun se halusi tehdä kakun.
+</div>
+
 
 **Funktio** eli aliohjelma on koodin osa, joka voidaan suorittaa tarvittaessa. Funktion koodia ei siis suoriteta heti. Olemme jo nähneet funktioita osassa 3, jossa tutustuttiin tapahtumakäsittelijöihin. Ne nimittäin ovat funktioita.
 
@@ -161,9 +162,6 @@ ${closeScript}'
   src="{{ site.img-url }}/ajastin.webp" 
   class="duckimg-center"
 />
-<!--
-width="901" height="507"
--->
 </div>
 
 {% include example.html

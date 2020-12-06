@@ -23,6 +23,17 @@ Yleensä sanalla olio kuitenkin viitataan <b>avain-arvopareja</b> sisältäviin 
 Näitä käytetään esimerkiksi pelihahmojen kuvaamiseen.
 Alla on esimerkki.
 
+<figure class="duckimg-float">
+<img 
+  src="{{ site.img-url }}/olio-koipi.webp" 
+  width="350" height="350"
+/>
+
+<figcaption class="duckimg-caption">
+<code>Ankka.koipi</code>, tuumasi ankka.
+</figcaption>
+</figure>
+
 <script>codeExample(
 `const hahmo = {
 	X: 200,
@@ -35,23 +46,6 @@ Yllä luomme muuttujan <code>hahmo</code>, joka on nimi oliolle, jonka luomme. I
 Olio on siis tietopaketti, johon on tallennettu useita eri tietoja.
 Voimme käyttää näitä tietoja <b>pisteoperaattorilla</b>, joka vastaa suomen kielen genetiiviä.
 Esimerkiksi jos haluamme puhua hahmon väristä, sanomme <code>hahmo.väri</code>.
-
-<div class="duckimg-center-container">
-<img 
-  src="{{ site.img-url }}/olio-koipi.webp" 
-  class="duckimg-center"
-/>
-<!--
-width="901" height="507"
--->
-</div>
-
-<div style="text-align: center"> 
-<em>
-<code>Ankka.koipi</code>, tuumasi ankka.
-</em>
-</div>
-
 
 <div class="codebox example">
 	<h3>Esimerkki 5.8</h3>
@@ -73,22 +67,22 @@ ${closeScript}`
 	</script>
 </div>
 
+<figure class="duckimg-float" style="width:350;">
+<img 
+  src="{{ site.img-url }}/olio-vari.webp" 
+  width="350" height="350"
+/>
+
+<figcaption class="duckimg-caption">
+Jossakin suoritettiin komento <code>ankka.vari = red</code>. Ankka pelästyi, kun muuttui yhtäkkiä punaiseksi!
+</figcaption>
+</figure>
+
 Oliota voi muokata. Tällöin käytämme sekä pisteoperaattoria että yhtäsuuruusoperaattoria.
 Alla on esimerkki, jossa asetamme hahmon väriksi punaisen.
 
 <script>codeExample(
 `hahmo.väri = "red"`,"javascript");</script>
-
-<div class="duckimg-center-container">
-<img 
-  src="{{ site.img-url }}/olio-vari.webp" 
-  class="duckimg-center"
-/>
-<!--
-width="901" height="507"
--->
-</div>
-
 
 Huomaa, että oliota luotaessa avaimen ja arvon välissä on kaksoispiste.
 Olemassa olevaa oliota muokatessa avaimen ja arvon välissä on yhtäsuuruusmerkki.

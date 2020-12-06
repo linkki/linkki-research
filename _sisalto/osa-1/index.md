@@ -27,9 +27,6 @@ Tällöin tekstiin ei voi viitata <b>JavaScript-koodista.</b>'
   src="{{ site.img-url }}/bold-2.webp" 
   class="duckimg-center"
 />
-<!--
-  height="600" width="500" 
--->
 </div>
 
 {% include task.html
@@ -68,16 +65,16 @@ ${closeScript}'
 
 Alussa mainittiin, että HTML-elementit saavat sisällön näkymään ohjelmassaa. Skriptielementti on erityinen siinä mielessä, että se ei varsinaisesti tuo mitään näkyviin ohjelmaan. Skriptielementtiin kirjoitetaan toiminnallisuutta, jota käytetään ohjelmassa.
 
-{% include tip.html
-vinkki='Ole tarkkana oletko kirjoittamassa JavaScript vai HTML-koodia.'
-%}
-
 <div class="duckimg-center-container">
 <img 
   src="{{ site.img-url }}/kaaroja.webp"
   class="duckimg-center"
 />
 </div>
+
+{% include tip.html
+vinkki='Ole tarkkana oletko kirjoittamassa JavaScript vai HTML-koodia.'
+%}
 
 ### Ensimmäinen komento `alert()`
 
@@ -168,9 +165,9 @@ ikkuna aukeaa.
   src="{{ site.img-url }}/prompt.webp" 
   class="duckimg-center"
 />
-<!--
-width="901" height="507"
--->
+</div>
+<div class="duckimg-caption">
+Ankalta kysyttiin tämän nimeä ja ikää.
 </div>
 
 {% include task.html 
@@ -259,9 +256,6 @@ Tiedät jo ainakin yhden tavan asettaa muuttujan arvon. `prompt()`-komennon yhte
   src="{{ site.img-url }}/muuttuja.webp" 
   class="duckimg-center"
 />
-<!--
-width="901" height="507"
--->
 </div>
 
 {% include example.html
@@ -292,9 +286,9 @@ Muuttujien arvoa voidaan **vaihtaa** määrittämällä uudelleen saman niminen 
   src="{{ site.img-url }}/muuttuja-vaihto.webp" 
   class="duckimg-center"
 />
-<!--
-width="901" height="507"
--->
+</div>
+<div class="duckimg-caption">
+Ankka vaihtoi muttujan <code>nimi</code> arvoksi <code>"Pekka"</code>.
 </div>
 
 {% include example.html
