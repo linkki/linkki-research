@@ -28,6 +28,9 @@ Tällöin tekstiin ei voi viitata <b>JavaScript-koodista.</b>'
   class="duckimg-center"
 />
 </div>
+<div class="duckimg-caption">
+Toinen ankka asettui b-tagien väliin, ja sen viivat muuttuivat paksummiksi!
+</div>
 
 {% include task.html
 
@@ -245,6 +248,12 @@ vinkki='Käyttäjälle tulostaminen JavaScrip-komennoilla on monipuolisempaa, ku
 
 ## 1.4 Rakennuspalikka: Muuttujat
 
+<img
+  src="{{ site.img-url }}/muuttuja-lappu.webp"
+  class="duckimg-float"
+  width="400"
+/>
+
 `prompt()`-komennon yhteydessä esiteltiin muuttuja, jolle annettiin nimeksi `nimi`. Muuttujat ovat ohjelman eräänlaisia rakennuspalikoita. Muuttujat antavat tiedolle nimen, jonka jälkeen _muuttujan arvoa_ voidaan käyttää annetun _muuttujan nimen_ perusteella.
 
 Muuttujan nimen päättää ohjelmoija – eli sinä. On kuitenkin hyvä, jos muuttujan nimi on sen käyttötarkoitusta kuvaava. Esimerkiksi ikä ja nimi kannattaa tallettaa muuttujiin, joiden nimet ovat `ikä` ja `nimi`.
@@ -252,8 +261,8 @@ Muuttujan nimen päättää ohjelmoija – eli sinä. On kuitenkin hyvä, jos mu
 Tiedät jo ainakin yhden tavan asettaa muuttujan arvon. `prompt()`-komennon yhteydessä muuttujan arvoksi asetettiin _käyttäjän syöte_. Tämä onnistui käyttämällä yhtäsuuruusmerkkiä muuttujan nimen jälkeen. Muuttujalle voidaan antaa arvo myös asettamalla haluttu arvo yhtäsuuruusmerkin oikeallepuolelle. Esimerkiksi muuttuja nimeltä `ikä`, jonka arvo on `12` määritetään kirjoittamalla koodiin `var ikä = 12` ja muuttuja, jonka nimi on `nimi` ja arvo `Milla` määritetään `var nimi = "Milla"`. `var`-sanaa käytetään, kun muuttuja määritellään ensimmäisen kerran.
 
 <div class="duckimg-center-container">
-<img 
-  src="{{ site.img-url }}/muuttuja.webp" 
+<img
+  src="{{ site.img-url }}/muuttuja.webp"
   class="duckimg-center"
 />
 </div>
@@ -282,8 +291,8 @@ ${closeScript}'
 Muuttujien arvoa voidaan **vaihtaa** määrittämällä uudelleen saman niminen muuttuja, mutta tällä kertaa uudella arvolla ilman `var`-sanaa. Esimerkiksi, jos olemme koodissa määritelleet muuttujan `var nimi = "Milla"`, niin kirjoittamalla koodiin `nimi = "Pekka"` vaihtaa muuttujan `nimi` arvoksi `"Pekka"`.
 
 <div class="duckimg-center-container">
-<img 
-  src="{{ site.img-url }}/muuttuja-vaihto.webp" 
+<img
+  src="{{ site.img-url }}/muuttuja-vaihto.webp"
   class="duckimg-center"
 />
 </div>

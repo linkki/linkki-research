@@ -107,6 +107,13 @@ ${closeScript}'
 
 ### HTML-elementin tekstin vaihtaminen
 
+<div class="duckimg-center-container">
+<img
+  src="{{ site.img-url }}/html-vaihto.webp"
+  class="duckimg-center"
+/>
+</div>
+
 {% include example.html
 esimerkki-selitys='Tekstiä klikkaamalla teksti vaihtuu.'
 esimerkki-koodi='<p id = teksti>Klikkaa minua.</p>
