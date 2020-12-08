@@ -66,6 +66,7 @@ nav a:hover {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
+    background-position: 50% 40%; /* x% y% */
     background-clip: border-box;
     text-align: center;
     padding: 8em 0 0 0;
@@ -256,6 +257,10 @@ li {
 
 .duckimg-float {
 	float: right;
+}
+
+.clear {
+	clear: right;
 }
 
 .duckimg-center {
