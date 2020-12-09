@@ -24,6 +24,17 @@ Kun klikkaat hiirellä tietokoneen näyttöä tai painat tietokoneen näppäimi�
 
 ## 2.2 Tapahtuma: Klikkaus
 
+<div class="duckimg-center-container">
+<img 
+  src="{{ site.img-url }}/hiirikuuntelu.webp" 
+  class="duckimg-center"
+/>
+</div>
+
+<div class="duckimg-caption">
+Ankka kuuntelei, tapahtuuko hiiressä mitään.
+</div>
+
 Jotta tiedetään, missä klikkaus tapahtuu on HTML-elementit merkittävä _id-tunnistella_. Luodaan tekstielementti ja annetaan sille id-tunnisteeksi `teksti`: `<p id=teksti>Klikkaa. minua</p>`. Id-tunniste määritetään **tagien** sisällä käyttämällä määrettä `id=` ja yhtäsuuruusmerkin oikealla puolella on **tunniste**, joka elementille asetetaan. 
 
 Javascript-koodissa luodaan **kuuntelija**, joka odottaa, milloin id-tunnistettua elementtiä klikataan eli milloin _tapahtuma_ tapahtuu. Kuuntelija luodaan määrittämällä skriptielementin sisällä **tapahtumakäsittelijä**:
@@ -95,6 +106,13 @@ ${closeScript}'
 %}
 
 ### HTML-elementin tekstin vaihtaminen
+
+<div class="duckimg-center-container">
+<img
+  src="{{ site.img-url }}/html-vaihto.webp"
+  class="duckimg-center"
+/>
+</div>
 
 {% include example.html
 esimerkki-selitys='Tekstiä klikkaamalla teksti vaihtuu.'

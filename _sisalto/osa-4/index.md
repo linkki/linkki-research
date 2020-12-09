@@ -216,6 +216,13 @@ ${closeScript}'
 
 ## 4.3 Polut
 
+<div class="duckimg-center-container">
+<img 
+  src="{{ site.img-url }}/piirtaja.webp" 
+  class="duckimg-center"
+/>
+</div>
+
 Kankaalle monimutkaisemmat kuviot piirretään **polkujen** avulla. Polun piirtäminen muistuttaa kynällä piirtämistä. Komennoilla kerrotaan piirtäjälle, miten kynää liikutetaan kankaalla. Tärkeimmät komennot on alla olevassa taulukossa.
 
 | Komento | Esimerkki | Selitys |

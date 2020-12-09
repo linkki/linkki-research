@@ -3,6 +3,18 @@ layout: default
 title: Osa 5 - Funktiot
 nav-title: Osa 5
 ---
+
+<div class="duckimg-center-container">
+<img 
+  src="{{ site.img-url }}/kakku.webp" 
+  class="duckimg-center"
+/>
+</div>
+<div class="duckimg-caption">
+Ankka halusi leipoa kakun. Ankan pieni pää ei kuitenkaan muistanut miten se tehdään. Onneksi joku oli kirjoittanut siitä ohjeet ylös! Ankka haki tuon ohjeen joka kerta, kun se halusi tehdä kakun.
+</div>
+
+
 **Funktio** eli aliohjelma on koodin osa, joka voidaan suorittaa tarvittaessa. Funktion koodia ei siis suoriteta heti. Olemme jo nähneet funktioita osassa 3, jossa tutustuttiin tapahtumakäsittelijöihin. Ne nimittäin ovat funktioita.
 
 Funktioita käytetään javascriptissä monilla eri tavoilla ja ne voivat näyttää erilaisilta. Yleisesti ottaen funktiot voidaan jakaa kahteen luokkaan: **nuolifunktoihin**, jotka tunnistaa nuolesta `=>`, ja **avainsanafunktioihin**, jotka tunnistaa avainsanasta `function`.
@@ -144,6 +156,13 @@ ${closeScript}'
 %}
 
 ## Ajastimet
+
+<div class="duckimg-center-container">
+<img 
+  src="{{ site.img-url }}/ajastin.webp" 
+  class="duckimg-center"
+/>
+</div>
 
 {% include example.html
 esimerkki-selitys='Ajastettu funktio, joka suoritetaan 3 sekunnin kuluttua.'

@@ -61,8 +61,15 @@ nav a:hover {
 }
 
 .header{
+    background-image: url(#{$img_url}/kaaroja.webp);
+    background-size: contain;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 50% 40%; /* x% y% */
+    background-clip: border-box;
     text-align: center;
-    padding: 5em 0 0 0;
+    padding: 8em 0 0 0;
     top: 0;
     width: 100%;
     margin: 0 0 0 0;
@@ -252,6 +259,10 @@ li {
 	float: right;
 }
 
+.clear {
+	clear: right;
+}
+
 .duckimg-center {
 	max-width: 100%;
 	max-height: 100%;
@@ -260,6 +271,10 @@ li {
 .duckimg-center-container {
 	display: flex;
 	justify-content: center;
+}
+.duckimg-caption {
+	text-align: center;
+	font-style: italic;
 }
 
 

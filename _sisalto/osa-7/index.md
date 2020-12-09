@@ -23,6 +23,17 @@ Yleensä sanalla olio kuitenkin viitataan <b>avain-arvopareja</b> sisältäviin 
 Näitä käytetään esimerkiksi pelihahmojen kuvaamiseen.
 Alla on esimerkki.
 
+<figure class="duckimg-float">
+<img 
+  src="{{ site.img-url }}/olio-koipi.webp" 
+  width="350" height="350"
+/>
+
+<figcaption class="duckimg-caption">
+<code>Ankka.koipi</code>, tuumasi ankka.
+</figcaption>
+</figure>
+
 <script>codeExample(
 `const hahmo = {
 	X: 200,
@@ -55,6 +66,17 @@ ${closeScript}`
 		);
 	</script>
 </div>
+
+<figure class="duckimg-float" style="width:350;">
+<img 
+  src="{{ site.img-url }}/olio-vari.webp" 
+  width="350" height="350"
+/>
+
+<figcaption class="duckimg-caption">
+Jossakin suoritettiin komento <code>ankka.vari = red</code>. Ankka pelästyi, kun muuttui yhtäkkiä punaiseksi!
+</figcaption>
+</figure>
 
 Oliota voi muokata. Tällöin käytämme sekä pisteoperaattoria että yhtäsuuruusoperaattoria.
 Alla on esimerkki, jossa asetamme hahmon väriksi punaisen.

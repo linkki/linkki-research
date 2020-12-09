@@ -22,12 +22,46 @@ esimerkki-koodi='<script>
 ${closeScript}'
 %}
 
+<div>
+  <figure class="duckimg-float" style="width:400;">
+  <img
+    src="{{ site.img-url }}/alma-bruno_1.webp"
+    width="400"
+  />
+  </figure>
 
-Jos Almalla on enemmän kuin 5 pähkinää, niin hän voi jakaa ne ystävänsä Brunon kanssa. Jakaako Alma pähkinät Brunon kanssa, jos hänellä on 10 pähkinää? Entäs jos hänellä on 2 pähkinää?
+  <p>
+    Jos Almalla on enemmän kuin 5 pähkinää, niin hän voi jakaa ne ystävänsä Brunon kanssa. Jakaako Alma pähkinät Brunon kanssa, jos hänellä on 10 pähkinää? Entäs jos hänellä on 2 pähkinää?
+  </p>
+  <div class="clear"></div>
+</div>
 
-**Ehdon** "Jos Almalla on enemmän kuin 5 pähkinää, niin hän jakaa pähkinät" perusteella ensimmäisessa tapauksessa Alma jakaa pähkinät Brunon kanssa. Kahden pähkinän tapauksessa näin kuitenkaan ei ole.
+<div>
+  <figure class="duckimg-float" style="width:400;">
+  <img
+    src="{{ site.img-url }}/alma-bruno_2.webp"
+    width="400"
+  />
+  </figure>
 
-Almalla oli ehto, jonka perusteella hän toimi tietyllä tavalla. Seuraavaksi tutustumme, miten voimme antaa tietokoneella samanlaisia ehtoja.
+  <p>
+    <b>Ehdon</b> "Jos Almalla on enemmän kuin 5 pähkinää, niin hän jakaa pähkinät" perusteella ensimmäisessa tapauksessa Alma jakaa pähkinät Brunon kanssa. Kahden pähkinän tapauksessa näin kuitenkaan ei ole.
+  </p>
+  <div class="clear"></div>
+</div>
+
+<div>
+  <figure class="duckimg-float" style="width:400;">
+  <img
+    src="{{ site.img-url }}/alma-bruno_3.webp"
+    width="400"
+  />
+  </figure>
+  <p>
+    Almalla oli ehto, jonka perusteella hän toimi tietyllä tavalla. Seuraavaksi tutustumme, miten voimme antaa tietokoneella samanlaisia ehtoja.
+  </p>
+  <div class="clear"></div>
+</div>
 
 ## 3.2 Jos-niin ehto
 
