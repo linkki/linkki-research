@@ -357,7 +357,7 @@ function funktionNimi() {
 Ensin kirjoitetaan avainsana `function`, josta tunnistetaan, että kysessä on funktio. Tämän jälkeen kirjoitetaan funktion nimi. Esimerkissä funktion nimi on `funktionNimi`, mutta se voi olla mitä ohjelmoija päättää keksiä. Funktion nimen jälkeen kijroitetaan sulut, jonka jälkeen kirjoitetaan aaltosulut. Aaltosulkeiden sisään tulee koodi, joka suoritetaan funktiota kutsuttaessa. Nimetyt funktiot ovat kuten muuttujia, mutta niillä voidaan tehdä paljon enemmän asioita
 
 {% include tip.html
-vinkki='Funktioita käytetään, jotta koodia ei tarvitsisi kirjoittaa joka kerta uudeestaa. Niiden avulla voimme uusio käyttää tiettyä toiminnallisuutta useita kertoja.'
+vinkki='Funktioita käytetään, jotta koodia ei tarvitsisi kirjoittaa joka kerta uudestaan. Niiden avulla voimme uusio käyttää tiettyä toiminnallisuutta useita kertoja.'
 %}
 
 
