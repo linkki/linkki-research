@@ -62,21 +62,31 @@ nav a:hover {
 
 .header{
     background-image: url(#{$img_url}/kaaroja.webp);
-    background-size: contain;
     background-size: 100%;
     background-repeat: no-repeat;
-    background-position: center;
-    background-position: 50% 40%; /* x% y% */
+    background-position: 50% 45%; /* x% y% */
     background-clip: border-box;
     text-align: center;
-    padding: 8em 0 0 0;
+    padding-top: 8em;
+    padding-left: 0;
+    padding-right: 0;
+    /* +++ padding +x, margin -x to overflow background image */
+    padding-bottom: 10%; /* 4em for example */
+    margin-bottom: -10%;
+    /* --- */
     top: 0;
     width: 100%;
-    margin: 0 0 0 0;
     left: 0px;
-    margin-left: 0;
     font-size: 2rem;
     color: black;
+}
+
+.header > h1 {
+    background-color: rgba(245, 245, 245, .80);
+    display: inline-block;
+    border-radius: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .content {
