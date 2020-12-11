@@ -164,7 +164,7 @@ ${closeScript}'
 ```
 
 {% include task.html
-tehtava-ohje='Kirjoita ohjelma, joka tulostaa näytölle "Klikkasit painiketta.'
+tehtava-ohje='Kirjoita ohjelma, joka tulostaa näytölle "Klikkasit painiketta".'
 tehtava-koodi='<button id=nappi>Klikkaa minua</button>
 <script>
 nappi.onclick = () => {
