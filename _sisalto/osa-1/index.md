@@ -131,7 +131,7 @@ ${closeScript}'
 {%
 include task.html
 
-tehtava-ohje='Kirjoita ohjelma, jossa on kaksi alert()-komentoa. Ensimmäinen alert()-komento tulostaa "Tervehdys ensimmäisestä komennosta!" ja toinen komento tulostaa "Tervehdys toisest komennosta!".'
+tehtava-ohje='Kirjoita ohjelma, jossa on kaksi alert()-komentoa. Ensimmäinen alert()-komento tulostaa "Tervehdys ensimmäisestä komennosta!" ja toinen komento tulostaa "Tervehdys toisesta komennosta!".'
 
 tehtava-koodi='<script>
 ${closeScript}'
@@ -322,7 +322,7 @@ ${closeScript}'
 
 ### Lukumuuttujat
 
-Muuttujilla, joiden arvoksi on asetettu luku, voidaan käyttää matemaattisissa lausekkeissa, kuten tavallisia lukuja. Esimerkiksi kahdelle lukumuuttujalle voidaan suorittaa tavalliseen tapaan yhteen-, vähennys-, kerto- tai jakolasku
+Muuttujilla, joiden arvoksi on asetettu luku, voidaan käyttää matemaattisissa lausekkeissa, kuten tavallisia lukuja. Esimerkiksi kahdelle lukumuuttujalle voidaan suorittaa tavalliseen tapaan yhteen-, vähennys-, kerto- tai jakolasku.
 
 ```javascript
 var a = 12
@@ -349,7 +349,7 @@ alert("Jakolaskun tulos on " + osamäärä)
 ${closeScript}'
 %}
 
-Tällöin muuttujien arvoksi asetetaan yhtäsuuruusmerkin oikealla puolella olevan lausekkeen tulos. Tietokone siis näkee edellisen esimerkin koodin niin, että muuttujan nimen tilalle on sijoitettu sitä vastaava numeroarvo
+Tällöin muuttujien arvoksi asetetaan yhtäsuuruusmerkin oikealla puolella olevan lausekkeen tulos. Tietokone siis näkee edellisen esimerkin koodin niin, että muuttujan nimen tilalle on sijoitettu sitä vastaava numeroarvo.
 
 ```javascript
 var a = 12

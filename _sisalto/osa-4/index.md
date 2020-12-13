@@ -254,7 +254,7 @@ esimerkki-koodi='<canvas
 ${closeScript}'
 %}
 
-Tarkastellaan seuraavaksi, miten kankaalle piirretään raksi. Ensin pitää aloittaa polun piirtäminen käyttämällä komentoa `piirtäjä.begin.Path()` ja siirretään kynä siihne pisteeseen, josta raksi alkaa komennolla `piirtäjä.moveTo(10, 10)`. Kun kynä on kohdassa, josta kuva aloitetaan piirtäämään, niin piirretään raksin ensimmäinen viiva alaviistoon komennolla `piirtäjä.lineTo(10, 10)`. Ensimmäisen viivan jälkeen kynä siirretään raksin toisen viivan alkusijaintiin komennolla `piirtäjä.moveTo(10, 50)` ja piirretään viiva alaoikeaan komennolla `piirtäjä.lineTo(50, 10) `. Kun raksi on valmis, piirtäminen lopetetaan komennolla `piirtäjä.stroke()`.
+Tarkastellaan seuraavaksi, miten kankaalle piirretään raksi. Ensin pitää aloittaa polun piirtäminen käyttämällä komentoa `piirtäjä.begin.Path()` ja siirretään kynä siihen pisteeseen, josta raksi alkaa komennolla `piirtäjä.moveTo(10, 10)`. Kun kynä on kohdassa, josta kuva aloitetaan piirtäämään, niin piirretään raksin ensimmäinen viiva alaviistoon komennolla `piirtäjä.lineTo(10, 10)`. Ensimmäisen viivan jälkeen kynä siirretään raksin toisen viivan alkusijaintiin komennolla `piirtäjä.moveTo(10, 50)` ja piirretään viiva alaoikeaan komennolla `piirtäjä.lineTo(50, 10)`. Kun raksi on valmis, piirtäminen lopetetaan komennolla `piirtäjä.stroke()`.
 
 {% include note.html
 otsikko='Huom!'
