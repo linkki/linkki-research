@@ -6,6 +6,13 @@ nav-title: Osa 3
 
 ## 3. 1 Mitä ovat ehtolauseet?
 
+<div class="duckimg-center-container">
+<img
+  src="{{ site.img-url }}/plain-if.webp"
+  class="duckimg-center"
+/>
+</div>
+
 {% include example.html
 esimerkki-selitys='Ehtolauseilla voidaan määritellä ohjelmalle vaihtelevia lopputuloksia.'
 esimerkki-koodi='<script>
