@@ -32,7 +32,7 @@ Kun klikkaat hiirellä tietokoneen näyttöä tai painat tietokoneen näppäimi�
 </div>
 
 <div class="duckimg-caption">
-Ankka kuuntelei, tapahtuuko hiiressä mitään.
+Ankka kuunteli, tapahtuuko hiiressä mitään.
 </div>
 
 Jotta tiedetään, missä klikkaus tapahtuu on HTML-elementit merkittävä _id-tunnistella_. Luodaan tekstielementti ja annetaan sille id-tunnisteeksi `teksti`: `<p id=teksti>Klikkaa. minua</p>`. Id-tunniste määritetään **tagien** sisällä käyttämällä määrettä `id=` ja yhtäsuuruusmerkin oikealla puolella on **tunniste**, joka elementille asetetaan. 

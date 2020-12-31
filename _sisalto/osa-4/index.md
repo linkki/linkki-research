@@ -59,11 +59,34 @@ ${closeScript}'
 
 Kun kankaalle piirretään, käytetään siihen kankaan _koordinaatteja_. Tutustutaan, miten kankaan koordinaatit toimivat.
 
-Tietokoneen näyttö koostuu koneesta riippuen sadoista tuhansista tai jopa miljoonista **pikseleistä**. Yksi pikseli on hyvin pieni piste, jolla on jokin väri. Näytöllä pikselit on järjestetty riveihin, joita on satoja päällekkäin. Laittamalla tietyn värisiä pikseleitä sopivasti vierekkäin tietokoneen näytölle, voidaan muodostaa kuvia ja tekstiä, jota ihminen pystyy ymmärtämään. Pikselin sijainnin perusteella sen väriä voidaan muuttaa tietokone ohjelmalla. Pikselin sijaintia tietokoneen näytöllä kutsutaan pikselin **koordinaateiksi**. Tarkemmin pikselin **X-koordinaatti** kertoo, kuinka mones pikseli pikseli on omalla rivillään. **Y-koordinaatti** taas kertoo, kuinka mones pikselirivi on kyseessä.
+Tietokoneen näyttö koostuu koneesta riippuen sadoista tuhansista tai jopa miljoonista **pikseleistä**. Yksi pikseli on hyvin pieni piste, jolla on jokin väri. Näytöllä pikselit on järjestetty riveihin, joita on satoja päällekkäin. Laittamalla tietyn värisiä pikseleitä sopivasti vierekkäin tietokoneen näytölle, voidaan muodostaa kuvia ja tekstiä, jota ihminen pystyy ymmärtämään. 
 
-TODO: Havainne kuva.
+<div class="duckimg-center-container">
+<img 
+  src="{{ site.img-url }}/pikselitolemassa.webp" 
+  class="duckimg-center"
+/>
+</div>
+<div class="duckimg-caption">
+Vuonna 2010 valistetun tietokonenäytön pikselit voi erottaa tavallisen suurennuslasin avulla.
+</div>
+
+Pikselin sijainnin perusteella sen väriä voidaan muuttaa tietokone ohjelmalla. Pikselin sijaintia tietokoneen näytöllä kutsutaan pikselin **koordinaateiksi**. Tarkemmin pikselin **X-koordinaatti** kertoo, kuinka mones pikseli pikseli on omalla rivillään. **Y-koordinaatti** taas kertoo, kuinka mones pikselirivi on kyseessä.
 
 Ohjelmoinnissa asioiden laskeminen aloitetaan nollasta eikä yhdestä. Myös pikselirivin ensimmäistä pikseliä sanotaan "pikseliksi 0" ja ensimmäistä pikseliriviä "riviksi 0". Aivan ensimmäisen pikselin (joka on näytön vasemmassa ylänurkassa) X-koordinaatti on siis 0 ja Y-koordinaatti 0. Tätä pikseliä sanotaan näytön **origoksi**.
+
+<div class="duckimg-center-container">
+<img 
+  src="{{ site.img-url }}/koordinaatisto2.webp" 
+  class="duckimg-center"
+/>
+</div>
+<div class="duckimg-caption">
+Ankkanappula siirtyy ruutupaperilla. Laskemalla rivin ruutuja nollasta alkaen laskemme oikeastaan, kuinka monta askelta nappulan paikka muuttuu rivin suunnassa. Kuvassa rivin paikka muuttuu yhdellä. Samoin laskemalla rivejä nollasta, laskemmekin kuinka monta riviä nappulan paikka muuttuu. Kuvassa nappulan paikka muttuu kahdella. Nappulan alkuruudun voi ajatella olevan origo.
+Näin voimme osoittaa mitä tahansa paperin ruutua sen koordinaattien avulla. 
+
+Vastaavasti tietokonenäytöllä olevan kankaan ensimmäinen pikseli toimii tuon kankaan origona. Sen avulla laskemme kankaan jokaisen pikselin koordinaatit. 
+</div>
 
 
 {% include note.html 
