@@ -129,6 +129,16 @@ ${closeScript}'
 
 ### Vertailu
 
+<figure class="duckimg-float" style="width:300;">
+  <img
+    src="{{ site.img-url }}/2lt3.webp"
+    width="300"
+  />
+  <figcaption class="duckimg-caption">
+Kaksi pähkinää on vähemmän kuin kolme pähkinää.
+  </figcaption>
+</figure>
+
 Matematiikasta tuttuja vertailuoperaattoreita ovat _pienempi kuin_ <code>&lt;</code>, _suurempi kuin_ <code>&gt;</code> ja _yhtäsuuri kuin_ <code>&equals;</code>. Ohjelmoinnissa käytettään lähes samoja operaattoreita! Vertailua käytetään erityisesti silloin, kun ehtolausetta käytetään. Vertailun tulos määrittää sen, tapahtuuko ehto.
     
 Numeroiden kokoa voidaan vertailla _pienempi kuin_ ja _suurempi kuin_ -merkeillä tavallisesti.
