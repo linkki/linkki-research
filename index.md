@@ -51,5 +51,3 @@ Tälläistä tallennusta kutsumme paikalliseksi tallennukseksi. Näin toimivat v
 ## Vinkkejä harjoitteluun
 
 * Tutustu esimerkkeihin huolella.
-
-## Terveiset materiaalin tekijöiltä
