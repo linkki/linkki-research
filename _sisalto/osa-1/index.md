@@ -322,7 +322,7 @@ ${closeScript}'
 
 ### Lukumuuttujat
 
-Muuttujia, joiden arvoksi on asetettu luku, voidaan käyttää matemaattisissa lausekkeissa kuten tavallisia lukuja. Esimerkiksi kahdelle lukumuuttujalle voidaan suorittaa tavalliseen tapaan yhteen-, vähennys-, kerto- tai jakolasku.
+Muuttujia, joiden arvoksi on asetettu luku, voidaan käyttää matemaattisissa laskutoimituksissa kuten tavallisia lukuja. Esimerkiksi kahdelle lukumuuttujalle voidaan suorittaa tavalliseen tapaan yhteen-, vähennys-, kerto- tai jakolasku.
 
 ```javascript
 var a = 12
@@ -349,7 +349,7 @@ alert("Jakolaskun tulos on " + osamäärä)
 ${closeScript}'
 %}
 
-Tällöin muuttujien arvoksi asetetaan yhtäsuuruusmerkin oikealla puolella olevan lausekkeen tulos. Tietokone siis näkee edellisen esimerkin koodin niin, että muuttujan nimen tilalle on sijoitettu sitä vastaava numeroarvo.
+Tällöin muuttujien arvoksi asetetaan yhtäsuuruusmerkin oikealla puolella olevan laskutoimituksen tulos. Tietokone siis näkee edellisen esimerkin lausekkeet niin, että a:n tilalle laitetaan aina 12 ja b:n tilalle 6. Lopputulos lasketaan näiden perusteella.
 
 ```javascript
 var a = 12
@@ -362,7 +362,7 @@ var osamäärä = 12/6
 
 ### Tekstimuuttujat
 
-Kun muuttujan arvoksi asetetaan tekstiä, teksti tulee laittaa lainausmerkkien - `""` – sisälle. Tekstimuuttujia voidaan yhdistää käyttämällä plus-merkkiä - `+`. 
+Kun muuttujan arvoksi asetetaan tekstiä, teksti tulee laittaa lainausmerkkien `""` sisälle. Tekstimuuttujia voidaan yhdistää käyttämällä plus-merkkiä: `+`. 
 
 ```javascript
 var nimi = "Milla"
@@ -372,7 +372,7 @@ var uusiNimi = nimi + koira
 ```
 
 {% include example.html
-esimerkki-selitys='Tekstimuuttujia yhdistetään muuhun tekstiin käyttämällä "+"-merkkiä. Myös tekstimuuttujien yhdistämienn toisiinsa tapahtuu "+"-merkillä.'
+esimerkki-selitys='Tekstimuuttujia yhdistetään muuhun tekstiin käyttämällä "+"-merkkiä. Myös tekstimuuttujien yhdistäminen toisiinsa tapahtuu "+"-merkillä.'
 esimerkki-koodi='<script>
 var nimi = "Milla"
 var lempiruoka = "makaronilaatikko"
@@ -381,22 +381,22 @@ alert("Hei! Nimeni on " + nimi + " ja lempiruokani on "
 + lempiruoka + ". Minulla on lemmikki, jonka nimi on " 
   + koira)
 var uusiNimi = nimi + koira
-alert("Kun nimeni yhdistää lemmikkini nimeen saadaan " + uusiNimi)
+alert("Kun nimeni yhdistää lemmikkini nimeen, saadaan " + uusiNimi)
 ${closeScript}'
 %}
 
-Esimerkin `uusiNimi`-muuttujan arvo saadaan yhdistämällä `nimi` ja `koira`-muuttujien arvo. Näin ollen `uusiNimi` arvo on `"MillaPapu"`.
+Esimerkin `uusiNimi`-muuttujan arvo saadaan yhdistämällä `nimi`- ja `koira`-muuttujien arvo. Näin ollen `uusiNimi`-muuttujan arvo on `"MillaPapu"`.
 
 ### Yhdistetään muuttujat
 
-Lukumuuttajan yhdistäminen tekstimuuttujaan tapahtuu plusmerkillä. Kun luvun laittaa keskelle tekstiä, pitää sen molemmille puolille laittaa plusmerkit.
+Lukumuuttujan yhdistäminen tekstimuuttujaan tapahtuu plusmerkillä. Kun luvun laittaa keskelle tekstiä, pitää sen molemmille puolille laittaa plusmerkit.
 ```javascript
 var yhteenlasku = 6 + 6
 var teksti = "Nimeni on Milla ja olen " + yhteenlasku + " vuotta vanha."
 ```
 
 {% include example.html
-esimerkki-selitys='<code>alert()</code>-komennolle on annettu <i>parametrina</i> tekstimuuttuja nimeltä <code>teksti</code>. Muuttujan <code>teksti</code> arvoksi on annettu merkkijono, johon on yhdistettu lukumuuttuja nimeltään <code>yhteenlasku</code>.'
+esimerkki-selitys='<code>alert()</code>-komennolle on annettu <i>parametrina</i> tekstimuuttuja nimeltä <code>teksti</code>. Muuttujan <code>teksti</code> arvoksi on annettu merkkijono, johon on yhdistetty lukumuuttuja nimeltään <code>yhteenlasku</code>.'
 esimerkki-koodi='<script>
 var yhteenlasku = 6 + 6
 var teksti = "Nimeni on Milla ja olen " + yhteenlasku + " vuotta vanha."
@@ -405,7 +405,7 @@ ${closeScript}'
 %}
 
 {% include task.html
-tehtava-ohje='Tee ohjelma, joka kysyy ensin käyttäjältä "Mikä sinun nimesi on? ja talleta vastaus muuttujaan "nimi". Nimen kysymisen jälkeen ohjelman tulee kysyä "Kuinka vanha olet?" ja tallettaa vastaus muuttujaan "ikä". Tämän jälkeen ohjelma tulostaa "Hei " + nimi + "! Sinä olet " + ikä + " vuotta vanha.".'
+tehtava-ohje='Tee ohjelma, joka kysyy ensin käyttäjältä "Mikä sinun nimesi on?" ja talleta vastaus muuttujaan "nimi". Nimen kysymisen jälkeen ohjelman tulee kysyä "Kuinka vanha olet?" ja tallettaa vastaus muuttujaan "ikä". Tämän jälkeen ohjelma tulostaa "Hei " + nimi + "! Sinä olet " + ikä + " vuotta vanha.".'
 tehtava-koodi='<script>
 ${closeScript}'
 %}
