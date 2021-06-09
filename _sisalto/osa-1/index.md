@@ -7,9 +7,9 @@ nav-title: Osa 1
 
 Sinunhan piti ohjelmoida Javascriptiä, joten miksi tämän osan otsikko on _HTML ja tagit_? HTML on kieli, jolla erilaiset elementit näytetään ohjelmassa. Elementtejä ovat esimerkiksi teksti, kuva tai painike, jotka näkyvät ohjelmassa. HTML-elementit koodataan käyttämällä tageja.
 
-Tutkitaan seuraavaksi, miten tekstielementti koodataan ohjelmaan. Tekstielementtiä käytetään, kun sivulla näytetään tekstiä. Tekstinä voidaan pitää mitä vain lauseen ja yhden kirjaimen välillä. Teksi elementti alkaa tagilla `<p>` ja loppuu tagiin `</p>`. Esimerkiksi lause "Mikä sinun nimesi on?" näyttää koodissa tekstielementtinä `<p>Mikä sinun nimesi on?</p>`.
+Tutkitaan seuraavaksi, miten tekstielementti koodataan ohjelmaan. Tekstielementtiä käytetään, kun sivulla näytetään tekstiä. Tekstinä voidaan pitää mitä vain lauseen ja yhden kirjaimen välillä. Tekstielementti alkaa tagilla `<p>` ja loppuu tagiin `</p>`. Esimerkiksi lause "Mikä sinun nimesi on?" näyttää koodissa tekstielementtinä seuraavalta: `<p>Mikä sinun nimesi on?</p>`.
 
-Erilaisten elementtien muoto on aina sama. Ne alkavat jollakin tagillä ja loppuvat tagiin, jossa on mukana kauttamerkki - `/`. Tämä tarkoitta sitä, että kun ohjelmaan tehdään painike se kirjoitetaan `<button>` tagien sisälle ja painike-elementti koodissa on `<button>Painike</button>`. Huomaatko miten koodissa on taas aloitus- ja lopetustagit, vain tagien teksti vaihtuu?
+Erilaisten elementtien muoto on aina sama. Ne alkavat jollakin tagillä ja loppuvat tagiin, jossa on mukana kauttamerkki - `/`. Tämä tarkoittaa sitä, että kun ohjelmaan tehdään painike, se kirjoitetaan `<button>` tagien sisälle ja painike-elementti koodissa on `<button>Painike</button>`. Huomaatko miten koodissa on taas aloitus- ja lopetustagit, vain tagien teksti vaihtuu?
 
 {%
  include example.html
@@ -19,7 +19,7 @@ Erilaisten elementtien muoto on aina sama. Ne alkavat jollakin tagillä ja loppu
  esimerkki-koodi='<p> Tervetuloa! </p>
 <button> Click me! </button>
 <p> Tekstiä voi kirjoittaa myös ilman <i>tekstielementtiä.</i></p>
-Tällöin tekstiin ei voi viitata <b>JavaScript-koodista.</b>'
+<p>Tällöin tekstiin ei voi viitata <b>JavaScript-koodista.</b></p>'
 %}
 
 <div class="duckimg-center-container">
@@ -49,7 +49,7 @@ HTML-koodilla erilaiset HTML-elementit tulivat näkyviin ohjelmassa. JavaScript 
 
 ```html
 <script>
-    //JavaScript koodi kirjoitetaa tänne
+    //JavaScript koodi kirjoitetaan tänne
 </script>
 ```
 
@@ -66,7 +66,7 @@ Koska skriptielementti on vain yhden tyyppinen HTML-elementti, myös muunlaisia 
 ${closeScript}'
 %}
 
-Alussa mainittiin, että HTML-elementit saavat sisällön näkymään ohjelmassaa. Skriptielementti on erityinen siinä mielessä, että se ei varsinaisesti tuo mitään näkyviin ohjelmaan. Skriptielementtiin kirjoitetaan toiminnallisuutta, jota käytetään ohjelmassa.
+Alussa mainittiin, että HTML-elementit saavat sisällön näkymään ohjelmassa. Skriptielementti on erityinen siinä mielessä, että se ei varsinaisesti tuo mitään näkyviin ohjelmaan. Skriptielementtiin kirjoitetaan toiminnallisuutta, jota käytetään ohjelmassa.
 
 <div class="duckimg-center-container">
 <img 
@@ -76,12 +76,12 @@ Alussa mainittiin, että HTML-elementit saavat sisällön näkymään ohjelmassa
 </div>
 
 {% include tip.html
-vinkki='Ole tarkkana oletko kirjoittamassa JavaScript vai HTML-koodia.'
+vinkki='Ole tarkkana oletko kirjoittamassa JavaScript- vai HTML-koodia.'
 %}
 
-### Ensimmäinen komento `alert()`
+### Ensimmäinen komento: `alert()`
 
-JavaScript komennolla `alert()` _tulostetaan_ tekstiä näytölle. Tulostaminen on vanha sana, joka periytyy ajalta jolloin näyttöjen sijasta käytettiin kirjoittimia. Nykyään tulostaminen tarkoittaa tekstin näyttämistä näytöllä.
+JavaScript-komennolla `alert()` _tulostetaan_ tekstiä näytölle. Tulostaminen on vanha sana, joka periytyy ajalta jolloin näyttöjen sijasta käytettiin kirjoittimia. Nykyään tulostaminen tarkoittaa tekstin näyttämistä näytöllä.
 
 Tulostettava teksti kirjoitetaan sulkujen sisään ja ympäröidään vielä lainausmerkeillä - `""`. Tulostuskomento kokonaisuudessaan on siis muotoa `alert("Heissulivei Maailma!")`. Laitetaan koodi vielä `<script>`-tagien sisälle ja saamme valmiiksi ensimmäisen JavaScript-ohjelman.
 
@@ -100,7 +100,7 @@ ${closeScript}'
 
 {% include extra.html
 otsikko='&lt;p&gt; vs. alert()'
-vinkki='Aluksi näytimme ohjelmassa tekstiä käyttämällä HTML-koodin tekstielementtiä ja nyt teemme lähes saman asian JavaScrip-koodilla. Seuraavassa osassa selviää, onko tässä mitään järkeä.'
+vinkki='Aluksi näytimme ohjelmassa tekstiä käyttämällä HTML-koodin tekstielementtiä ja nyt teemme lähes saman asian JavaScript-koodilla. Seuraavassa osassa selviää, onko tässä mitään järkeä.'
 %}
 
 {% include task.html
@@ -139,7 +139,7 @@ ${closeScript}'
 
 {% include extra.html
 otsikko="Parametri"
-vinkki="Parametri on komennolle annettava arvo. Esimerkiksi <code>alert()</code>-komennolle annetaan parametrina sulkujen sisälle tuleva sisältö. Parametrien avulla annamme komennoille tietoa, jota ne voivat käyttää toiminnassaan."
+vinkki="Parametri on komennolle annettava arvo. Esimerkiksi <code>alert()</code>-komennolle annetaan parametrina sulkujen sisälle tuleva teksti. Parametrien avulla annamme komennoille tietoa, jota ne voivat käyttää toiminnassaan."
 %}
 
 ## 1.3 Uusi komento `prompt()`
@@ -153,7 +153,7 @@ esimerkki-koodi='<script>
 ${closeScript}'
 %}
 
-JavaScript-komento `prompt()` näyttää ohjelmassa samanlaisen ikkunan, kuin `alert()` komentokin, mutta tällä kertaa ikkunassa on myös kenttä, johon ohjelman käyttäjä voi kirjoittaa ja klikkaamalla "OK" _syöttää_ tiedon ohjelmalle. Kirjoittamalla yksinkertaisen ohjelman
+JavaScript-komento `prompt()` näyttää ohjelmassa samanlaisen ikkunan kuin `alert()` komentokin, mutta tällä kertaa ikkunassa on myös kenttä, johon ohjelman käyttäjä voi kirjoittaa jonkin vastauksen. Kun käyttäjä klikkaa "OK", _syöttää_ prompt-elementti vastauksen ohjelmalle. Kirjoittamalla yksinkertaisen ohjelman
 
 ```html
 <script>
@@ -202,7 +202,7 @@ ${closeScript}'
 %}
 
 {% include example.html
-esimerkki-selitys='<code>prompt()</code> komennon syöte talletetaan <b>muuttujaan</b> "nimi" ja se tulostetaan <code>alert()</code>-komennolla.'
+esimerkki-selitys='<code>prompt()</code>-komennon syöte talletetaan <b>muuttujaan</b> "nimi" ja se tulostetaan <code>alert()</code>-komennolla.'
 
 esimerkki-koodi='<script>
 	var nimi = prompt("Hei! Mikä sinun nimesi on?")
@@ -210,7 +210,7 @@ esimerkki-koodi='<script>
 ${closeScript}'
 %}
 
-Jotta _syötteellä_ voidaan tehdä jotain hyödyllistä, täytyy se tallettaa **muuttujaan**. Lisätään komennon `prompt("Hei! Mikä sinun nimesi on?")` vielä muuttujan määrittely
+Jotta _syötteellä_ voidaan tehdä jotain hyödyllistä, täytyy se tallettaa **muuttujaan**. Lisätään komennon `prompt("Hei! Mikä sinun nimesi on?")` alkuun vielä muuttujan määrittely
 
 ```html
 <script>
@@ -218,9 +218,9 @@ Jotta _syötteellä_ voidaan tehdä jotain hyödyllistä, täytyy se tallettaa *
 </script>
 ```
 
-Huomaatko eron edelliseen koodiin? `prompt()`-komennon eteen on lisätty `var nimi =`, joka määrittelee `nimi`-nimisen muuttujanja yhtäsuuruus-merkki asettaa tälle `nimi`-muuttujalle arvon.
+Huomaatko eron edelliseen koodiin? `prompt()`-komennon eteen on lisätty `var nimi =`, joka määrittelee `nimi`-nimisen muuttujan ja yhtäsuuruus-merkki asettaa tälle `nimi`-muuttujalle arvon.
 
-Kun yhdistetään `prompt()`-komento ja `alert()`-komento ohjelma pystyy käyttämään käyttäjän syötteitä toiminnassaan. Muuttujaa `nimi` voi käyttää `alert()`-komennossa.
+Kun yhdistetään `prompt()`-komento ja `alert()`-komento, ohjelma pystyy käyttämään käyttäjän syötteitä toiminnassaan. Muuttujaa `nimi` voi käyttää `alert()`-komennossa.
 
 ```html
 <script>
@@ -236,14 +236,14 @@ ${closeScript}'
 %}
 
 {% include task.html
-tehtava-ohje='Tee ohjelma, joka kysyy ensin käyttäjältä "Mikä sinun nimesi on? ja talleta vastaus muuttujaan "nimi". Nimen kysymisen jälkeen ohjelman tulee kysyä "Kuinka vanha olet?" ja tallettaa vastaus muuttujaan "ikä". Tämän jälkeen ohjelma tulostaa "Hei " + nimi + "! Sinä olet " + ikä + " vuotta vanha.".'
+tehtava-ohje='Tee ohjelma, joka kysyy ensin käyttäjältä "Mikä sinun nimesi on?" ja talleta vastaus muuttujaan "nimi". Nimen kysymisen jälkeen ohjelman tulee kysyä "Kuinka vanha olet?" ja tallettaa vastaus muuttujaan "ikä". Tämän jälkeen ohjelma tulostaa "Hei " + nimi + "! Sinä olet " + ikä + " vuotta vanha.".'
 tehtava-koodi='<script>
 ${closeScript}'
 %}
 
 {% include extra.html
 otsikko='Tulostaminen JavaScriptillä on monipuolisempaa. '
-vinkki='Käyttäjälle tulostaminen JavaScrip-komennoilla on monipuolisempaa, kuin HTML-koodissa tekstin näyttäminen. Javascriptissä voidaan hyödyntää muuttujia tulostuksessa.'
+vinkki='Käyttäjälle tulostaminen JavaScript-komennoilla on monipuolisempaa, kuin HTML-koodissa tekstin näyttäminen. JavaScriptissä voidaan hyödyntää muuttujia tulostuksessa.'
 %}
 
 ## 1.4 Rakennuspalikka: Muuttujat
@@ -258,7 +258,7 @@ vinkki='Käyttäjälle tulostaminen JavaScrip-komennoilla on monipuolisempaa, ku
 
 Muuttujan nimen päättää ohjelmoija – eli sinä. On kuitenkin hyvä, jos muuttujan nimi on sen käyttötarkoitusta kuvaava. Esimerkiksi ikä ja nimi kannattaa tallettaa muuttujiin, joiden nimet ovat `ikä` ja `nimi`.
 
-Tiedät jo ainakin yhden tavan asettaa muuttujan arvon. `prompt()`-komennon yhteydessä muuttujan arvoksi asetettiin _käyttäjän syöte_. Tämä onnistui käyttämällä yhtäsuuruusmerkkiä muuttujan nimen jälkeen. Muuttujalle voidaan antaa arvo myös asettamalla haluttu arvo yhtäsuuruusmerkin oikeallepuolelle. Esimerkiksi muuttuja nimeltä `ikä`, jonka arvo on `12` määritetään kirjoittamalla koodiin `var ikä = 12` ja muuttuja, jonka nimi on `nimi` ja arvo `Milla` määritetään `var nimi = "Milla"`. `var`-sanaa käytetään, kun muuttuja määritellään ensimmäisen kerran.
+Tiedät jo ainakin yhden tavan asettaa muuttujan arvon. `prompt()`-komennon yhteydessä muuttujan arvoksi asetettiin _käyttäjän syöte_. Tämä onnistui käyttämällä yhtäsuuruusmerkkiä muuttujan nimen jälkeen. Muuttujalle voidaan antaa arvo myös asettamalla haluttu arvo yhtäsuuruusmerkin oikealle puolelle. Esimerkiksi muuttuja nimeltä `ikä`, jonka arvo on `12`, määritetään kirjoittamalla koodiin `var ikä = 12` ja muuttuja, jonka nimi on `nimi` ja arvo `Milla`, määritetään `var nimi = "Milla"`. `var`-sanaa käytetään, kun muuttuja määritellään ensimmäisen kerran.
 
 <div class="duckimg-center-container">
 <img
@@ -283,7 +283,7 @@ vinkki='Muuttujien luomista voidaan kutsua myös muuttujan määrittämiseksi ta
 
 
 {% include task.html
-tehtava-ohje='Tee ohjelma, jossa ensin kysytään käyttäjältä jokin syöte, joka tallennetaan muuttujaan. Määrittele tämän jälkeen muuttuja, jolle annat itse arvon. Tulosta tämän jälkeen muuttujat näytölle käyttäen <code>alert()</code>-komentoa.'
+tehtava-ohje='Tee ohjelma, jossa ensin kysytään käyttäjältä jokin syöte, joka tallennetaan muuttujaan. Määrittele tämän jälkeen jokin muuttuja, jolle annat itse arvon. Tulosta tämän jälkeen muuttujat näytölle käyttäen <code>alert()</code>-komentoa.'
 tehtava-koodi='<script>
 ${closeScript}'
 %}
@@ -297,7 +297,7 @@ Muuttujien arvoa voidaan **vaihtaa** määrittämällä uudelleen saman niminen 
 />
 </div>
 <div class="duckimg-caption">
-Ankka vaihtoi muttujan <code>nimi</code> arvoksi <code>"Pekka"</code>.
+Ankka vaihtoi muuttujan <code>nimi</code> arvoksi <code>"Pekka"</code>.
 </div>
 
 {% include example.html
@@ -311,18 +311,18 @@ ${closeScript}'
 %}
 
 {% include task.html
-tehtava-ohje='Ohjelmassa on valmiiksi muuttuja <code>suunta</code>, jonka arvo on "oikea". Kirjoita ohjelmaan koodi, joka vaihtaa <code>suunta</code> muuttujan arvoksi "vasen" ennen seuraavaa tulostusta.'
+tehtava-ohje='Ohjelmassa on valmiiksi muuttuja <code>suunta</code>, jonka arvo on "oikea". Kirjoita ohjelmaan koodi, joka vaihtaa <code>suunta</code>-muuttujan arvoksi "vasen" ennen seuraavaa tulostusta.'
 tehtava-koodi='<script>
 var suunta = "oikea"
 alert("Aluksi suunta oli " + suunta)
 
-alert("Koska huomasimme joutuvamme umpikujaan uudeksi suunnaksi valittiin " + suunta)
+alert("Koska huomasimme joutuvamme umpikujaan, uudeksi suunnaksi valittiin " + suunta)
 ${closeScript}'
 %}
 
 ### Lukumuuttujat
 
-Muuttujilla, joiden arvoksi on asetettu luku, voidaan käyttää matemaattisissa lausekkeissa, kuten tavallisia lukuja. Esimerkiksi kahdelle lukumuuttujalle voidaan suorittaa tavalliseen tapaan yhteen-, vähennys-, kerto- tai jakolasku.
+Muuttujia, joiden arvoksi on asetettu luku, voidaan käyttää matemaattisissa lausekkeissa kuten tavallisia lukuja. Esimerkiksi kahdelle lukumuuttujalle voidaan suorittaa tavalliseen tapaan yhteen-, vähennys-, kerto- tai jakolasku.
 
 ```javascript
 var a = 12
