@@ -100,7 +100,7 @@ ${closeScript}'
 
 {% include extra.html
 otsikko='&lt;p&gt; vs. alert()'
-vinkki='Aluksi näytimme ohjelmassa tekstiä käyttämällä HTML-koodin tekstielementtiä (`<p>`) ja nyt teemme lähes saman asian JavaScript-koodilla. Seuraavassa osassa selviää, onko tässä mitään järkeä.'
+vinkki='Aluksi näytimme ohjelmassa tekstiä käyttämällä HTML-koodin tekstielementtiä (`&lt;p&gt;`) ja nyt teemme lähes saman asian JavaScript-koodilla. Seuraavassa osassa selviää, onko tässä mitään järkeä.'
 %}
 
 {% include task.html
