@@ -471,4 +471,4 @@ ${closeScript}'
 | `alert()` | `alert("Kissat ovat kivoja.")` | Näyttää käyttäjälle merkkijonon |
 | `prompt()` | `prompt("Mikä sinun nimesi on?")` | Kysyy käyttäjältä syötteen |
 | `var muuttujanNimi =` | `var viesti = "Hauska tavata"` | Luo uuden muuttujan |
-|   | var syöte = prompt("Nimesi?")  |  |
+|   | `var syöte = prompt("Nimesi?")`  |  |
