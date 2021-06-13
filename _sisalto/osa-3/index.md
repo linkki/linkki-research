@@ -141,7 +141,7 @@ Kaksi pähkinää on vähemmän kuin kolme pähkinää.
 
 Matematiikasta tuttuja vertailuoperaattoreita ovat _pienempi kuin_ <code>&lt;</code>, _suurempi kuin_ <code>&gt;</code> ja _yhtäsuuri kuin_ <code>&equals;</code>. Ohjelmoinnissa käytettään lähes samoja operaattoreita! Vertailua käytetään erityisesti silloin, kun ehtolausetta käytetään. Vertailun tulos määrittää sen, tapahtuuko ehto.
     
-Numeroiden kokoa voidaan vertailla _pienempi kuin_ ja _suurempi kuin_ -merkeillä tavallisesti.
+Lukujen kokoa voidaan vertailla _pienempi kuin_ ja _suurempi kuin_ -merkeillä tavallisesti.
 
 {% include example.html
 esimerkki-selitys='Numeroita vertaillaan kuten matematiikassa.'
@@ -158,10 +158,10 @@ esimerkki-koodi='<script>
     ${closeScript}'
 %}
 
-Yhtäsuuruuden vertailu onnistuu Javascriptissä käyttämällä kolmoisyhtäsuuruutta <code>===</code>. Kolmoisyhtäsuuruus käy merkkijonojen ja numeroiden vertailuun.
+Yhtäsuuruuden vertailu onnistuu JavaScriptissä käyttämällä kolmoisyhtäsuuruutta <code>===</code>. Kolmoisyhtäsuuruus käy merkkijonojen ja numeroiden vertailuun.
 
 {% include example.html
-esimerkki-selitys='Yhtäsuuruutta vertaillaa kolmoisyhtäsuuruudella.'
+esimerkki-selitys='Yhtäsuuruutta vertaillaan kolmoisyhtäsuuruudella.'
 esimerkki-koodi='<script>
         if ("ankka" === "ankka") {
             alert("ankka on sama asia kuin ankka.")
@@ -198,7 +198,7 @@ tehtava-koodi='<script>
 %}
 
 {% include task.html
-tehtava-ohje='Täydennä jos-ehtoa niin, että jos muuttujan brunonPähkinät on pienempää kuin 2, niin Bruno saa lisää pähkinöitä.'
+tehtava-ohje='Täydennä jos-ehtoa niin, että jos muuttuja brunonPähkinät on pienempää kuin 2, niin Bruno saa lisää pähkinöitä.'
 tehtava-koodi='<script>
         brunonPähkinät = Number(prompt("Kuinka monta pähkinää Brunolla on?"))
         if(){
@@ -231,7 +231,7 @@ ${closeScript}'
 
 _Jos_ Almalla on ennemmän kuin 5 pähkinää _niin_ Alma jakaa pähkinät Brunon kanssa. _Muuten_ Bruno saa 2 pähkinää.
 
-Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkinät Brunon kanssa. Mitä jos Almalla on alle 5 pähkinää? Tällöin Bruno ei saa yhtään pähkinää. Tälläinen tilanne on Brunon mielestä epäreilu ja hän joutuu katselemaan vierestä, kun Alma syö pähkinöitä. Voimme kuitenkin määritellä, että Bruno saa lohdutuspalkinnoksi 3 pähkinää.
+Edellisessä esimerkissä jos Almalla on 5 pähkinää, niin hän jakaa pähkinät Brunon kanssa. Mitä jos Almalla on alle 5 pähkinää? Tällöin Bruno ei saa yhtään pähkinää. Tälläinen tilanne on Brunon mielestä epäreilu ja hän joutuu katselemaan vierestä, kun Alma syö pähkinöitä. Voimme kuitenkin määritellä, että Bruno saa lohdutuspalkinnoksi 2 pähkinää.
 
 ```javascript
     if(almanPähkinät > 5){
@@ -276,10 +276,10 @@ ${closeScript}'
 %}
 
 {% include task.html 
-tehtava-ohje='Tee ohjelma, joka kysyy käyttäjältä luvun. Jos luku on 42, niin tulosta <code>alert()</code>-komennolla "Löysit onnen lukuni!", Jos käyttäjä syöttää minkä tahansa muun luvun ohjelma tulostaa "Et osunut tällä kertaa oikeaan."'
+tehtava-ohje='Tee ohjelma, joka kysyy käyttäjältä luvun. Jos luku on 42, niin tulosta <code>alert()</code>-komennolla "Löysit onnenlukuni!". Jos käyttäjä syöttää minkä tahansa muun luvun, ohjelma tulostaa "Et osunut tällä kertaa oikeaan."'
 tehtava-koodi='<script>
     
-    ${closeScript}'
+${closeScript}'
 %}
 
 ## 3.3 Useamman ehdon käyttäminen
