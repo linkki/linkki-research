@@ -20,7 +20,7 @@ nav-title: Osa 2
 ${closeScript}'
 %}
 
-Kun klikkaat hiirellä tietokoneen näyttöä tai painat tietokoneen näppäimiä, saat aikaan **tapahtuman**. Javascript-koodilla määritellään, mitä klikkauksesta tai näppäimen painamisesta tapahtuu.
+Kun klikkaat hiirellä tietokoneen näyttöä tai painat tietokoneen näppäimiä, saat aikaan **tapahtuman**. JavaScript-koodilla määritellään, mitä klikkauksesta tai näppäimen painamisesta tapahtuu.
 
 ## 2.2 Tapahtuma: Klikkaus
 
@@ -35,9 +35,9 @@ Kun klikkaat hiirellä tietokoneen näyttöä tai painat tietokoneen näppäimi�
 Ankka kuunteli, tapahtuuko hiiressä mitään.
 </div>
 
-Jotta tiedetään, missä klikkaus tapahtuu on HTML-elementit merkittävä _id-tunnistella_. Luodaan tekstielementti ja annetaan sille id-tunnisteeksi `teksti`: `<p id=teksti>Klikkaa. minua</p>`. Id-tunniste määritetään **tagien** sisällä käyttämällä määrettä `id=` ja yhtäsuuruusmerkin oikealla puolella on **tunniste**, joka elementille asetetaan. 
+Jotta tiedetään, missä klikkaus tapahtuu, on HTML-elementit merkittävä _id-tunnisteella_. Luodaan siis tekstielementti ja annetaan sille id-tunnisteeksi `teksti`: `<p id=teksti>Klikkaa minua.</p>`. Id-tunniste määritetään **tagien** sisällä käyttämällä määrettä `id=` ja yhtäsuuruusmerkin oikealla puolella on **tunniste**, joka elementille asetetaan. 
 
-Javascript-koodissa luodaan **kuuntelija**, joka odottaa, milloin id-tunnistettua elementtiä klikataan eli milloin _tapahtuma_ tapahtuu. Kuuntelija luodaan määrittämällä skriptielementin sisällä **tapahtumakäsittelijä**:
+JavaScript-koodissa luodaan **kuuntelija**, joka odottaa, milloin id-tunnistettua elementtiä klikataan eli milloin _tapahtuma_ tapahtuu. Kuuntelija luodaan määrittämällä skriptielementin sisällä **tapahtumakäsittelijä**:
 
 ```html
 <p id=teksti>
@@ -74,7 +74,7 @@ ${closeScript}'
 %}
 
 {% include task.html
-tehtava-ohje='Kirjoita ohjelmaan koodi, jossa <code>alert()</code>-komennolla tulostetaan "Höyhenpeite on myös vettähylkivä.", kun tekstiä "Ankkojen höyhenpeite on pehmeä" klikataan.'
+tehtava-ohje='Kirjoita ohjelmaan koodi, jossa <code>alert()</code>-komennolla tulostetaan "Höyhenpeite on myös vettähylkivä.", kun tekstiä "Ankkojen höyhenpeite on pehmeä." klikataan.'
 tehtava-koodi='<p id = teksti>
     Ankkojen höyhenpeite on pehmeä.
 </p>
@@ -84,11 +84,11 @@ ${closeScript}'
 
 {% include extra.html
 otsikko='Id-tunniste'
-vinkki='Id-tunniste annetaan HTML-elementille. Id-tunnistetta käytetään HTML-koodin ja Javascript-koodin väliseen komminukaatioon. Kun HTML-elementti tunnistetaan id-tunnisteella, niin siihen voidaan viitata Javascript koodissa.' 
+vinkki='Id-tunniste annetaan HTML-elementille. Id-tunnistetta käytetään HTML-koodin ja JavaScript-koodin väliseen kommunikaatioon. Kun HTML-elementti tunnistetaan id-tunnisteella, niin siihen voidaan viitata JavaScript-koodissa.' 
 %}
 
 {% include task.html
-tehtava-ohje='Ohjelmoija on unohtanut tästä koodista id-tunnisteen. Korjaa koodiin id-tunniste siten, että kun tekstielementtiä klikataan, niin tulostetaan Javascript koodin <code>alert()</code>-komento.'
+tehtava-ohje='Ohjelmoija on unohtanut tästä koodista id-tunnisteen. Korjaa koodiin id-tunniste siten, että kun tekstielementtiä klikataan, niin tulostetaan JavaScript-koodin <code>alert()</code>-komento.'
 tehtava-koodi='<p>
     Saammeko tekstin toimimaan tapahtumana?
 </p>
@@ -150,7 +150,7 @@ esimerkki-koodi='<p id = teksti>hello!<p>
 ${closeScript}'
 %}
 
-<button>Painike</button> on HTML-elementti, jota usein on tarkoitus klikata. Painikkeen määrittelävä tagi on `<button>`. Ilman Javascript-koodia painikkeen klikkaamisesta ei tapahdu mitään. Painikkeen klikkausta _kuunnellaan_ samalla tavalla, kuin muidenkin HTML-elementtien klikkausta. Tämä tarkoittaa sitä, että painikkeelle annetaan **id-tunniste** ja tämän jälkeen tunnistetulle painikkeelle tehdään **tapahtumakäsittelijä** skripitielementtiin.
+<button>Painike</button> on HTML-elementti, jota usein on tarkoitus klikata. Painikkeen määrittelävä tagi on `<button>`. Ilman JavaScript-koodia painikkeen klikkaamisesta ei tapahdu mitään. Painikkeen klikkausta _kuunnellaan_ samalla tavalla, kuin muidenkin HTML-elementtien klikkausta. Tämä tarkoittaa sitä, että painikkeelle annetaan **id-tunniste** ja tämän jälkeen tunnistetulle painikkeelle tehdään **tapahtumakäsittelijä** skriptielementtiin.
 
 ```html
 <button id=painike>
@@ -198,7 +198,7 @@ ${closeScript}'
 
 {%
 include example.html
-esimerkki-selitys='Ohjelma odottaa, milloin käyttäjä painaa painiketta. Seuraavassa luvussa opimme, miten erotetaan, mitä näppäintä käyttäjä painoi. Esimerkissä tehdään aluksi tyhjä tekstielementti, joten kun painat lippukuvaketta mitään ei tule näkyviin.'
+esimerkki-selitys='Ohjelma odottaa, milloin käyttäjä painaa painiketta. Seuraavassa luvussa opimme, miten erotetaan, mitä näppäintä käyttäjä painoi. Esimerkissä tehdään aluksi tyhjä tekstielementti, joten kun painat lippukuvaketta mitään ei tule näkyviin. Oikean puolen ohjelmaikkunan voit aktivoida klikkaamalla sitä kerran.'
 esimerkki-koodi='<p id=teksti>
 </p>
 <script>
@@ -208,9 +208,9 @@ esimerkki-koodi='<p id=teksti>
 ${closeScript}'
 %}
 
-Näppäimen painallusta kuunnellan eri tavalla, kuin klikkaamista. Tämä johtuu siitä, että klikkaaminen kohdistuu tavallisesti johonkin **elementtiin**, mutta näppäimen painaminen ei yleensä liity mihinkään yksittäiseen elementtiin.
+Näppäimen painallusta kuunnellaan eri tavalla, kuin klikkaamista. Tämä johtuu siitä, että klikkaaminen kohdistuu tavallisesti johonkin **elementtiin**, mutta näppäimen painaminen ei yleensä liity mihinkään yksittäiseen elementtiin.
 
-Luodaan ensin tekstielementti ja asetetaan sille **id-tunniste**, jolla tekstiä voidaan muutta, kun näppäintä painetaan. 
+Luodaan ensin tekstielementti ja asetetaan sille **id-tunniste**, jolla tekstiä voidaan muuttaa, kun näppäintä painetaan. 
 ```html
 <p id=teksti>
 </p>
