@@ -9,7 +9,7 @@ Sinunhan piti ohjelmoida Javascriptiä, joten miksi tämän osan otsikko on _HTM
 
 Tutkitaan seuraavaksi, miten tekstielementti koodataan ohjelmaan. Tekstielementtiä käytetään, kun sivulla näytetään tekstiä. Tekstinä voidaan pitää mitä vain lauseen ja yhden kirjaimen välillä. Tekstielementti alkaa tagilla `<p>` ja loppuu tagiin `</p>`. Esimerkiksi lause "Mikä sinun nimesi on?" näyttää koodissa tekstielementtinä seuraavalta: `<p>Mikä sinun nimesi on?</p>`.
 
-Erilaisten elementtien muoto on aina sama. Ne alkavat jollakin tagillä ja loppuvat tagiin, jossa on mukana kauttamerkki - `/`. Tämä tarkoittaa sitä, että kun ohjelmaan tehdään painike, se kirjoitetaan `<button>` tagien sisälle ja painike-elementti koodissa on `<button>Painike</button>`. Huomaatko miten koodissa on taas aloitus- ja lopetustagit, vain tagien teksti vaihtuu?
+Erilaisten elementtien muoto on aina sama. Ne alkavat jollakin tagillä ja loppuvat tagiin, jossa on mukana kauttamerkki: `/`. Tämä tarkoittaa sitä, että kun ohjelmaan tehdään painike, se kirjoitetaan `<button>` tagien sisälle ja painike-elementti koodissa on `<button>Painike</button>`. Huomaatko miten koodissa on taas aloitus- ja lopetustagit, vain tagien teksti vaihtuu?
 
 {%
  include example.html
@@ -19,7 +19,7 @@ Erilaisten elementtien muoto on aina sama. Ne alkavat jollakin tagillä ja loppu
  esimerkki-koodi='<p> Tervetuloa! </p>
 <button> Click me! </button>
 <p> Tekstiä voi kirjoittaa myös ilman <i>tekstielementtiä.</i></p>
-<p>Tällöin tekstiin ei voi viitata <b>JavaScript-koodista.</b></p>'
+Tällöin tekstiin ei voi viitata <b>JavaScript-koodista.</b>'
 %}
 
 <div class="duckimg-center-container">
@@ -45,11 +45,11 @@ Harrastan <i></i>.
 
 ## 1.2 Mikä ihmeen JavaScript?
 
-HTML-koodilla erilaiset HTML-elementit tulivat näkyviin ohjelmassa. JavaScript koodi kirjoitetaan myös HTML-elementin sisälle. JavaScript-elementti käyttää `<script>`-tagiä eli JavaScript-koodi kirjoitetaan ympäristöön, joka alkaa tagilla `<script>` ja loppuu tagiin `</script>`. JavaScriptiä siis kirjoitetaan skriptielementin sisälle, joka on `script`-tyyppinen HTML-elementti.
+HTML-koodilla erilaiset HTML-elementit tulivat näkyviin ohjelmassa. JavaScript-koodi kirjoitetaan myös HTML-elementin sisälle. JavaScript-elementti käyttää `<script>`-tagiä eli JavaScript-koodi kirjoitetaan ympäristöön, joka alkaa tagilla `<script>` ja loppuu tagiin `</script>`. JavaScriptiä siis kirjoitetaan skriptielementin sisälle, joka on `script`-tyyppinen HTML-elementti.
 
 ```html
 <script>
-    //JavaScript koodi kirjoitetaan tänne
+    //JavaScript-koodi kirjoitetaan tänne
 </script>
 ```
 
@@ -83,7 +83,7 @@ vinkki='Ole tarkkana oletko kirjoittamassa JavaScript- vai HTML-koodia.'
 
 JavaScript-komennolla `alert()` _tulostetaan_ tekstiä näytölle. Tulostaminen on vanha sana, joka periytyy ajalta jolloin näyttöjen sijasta käytettiin kirjoittimia. Nykyään tulostaminen tarkoittaa tekstin näyttämistä näytöllä.
 
-Tulostettava teksti kirjoitetaan sulkujen sisään ja ympäröidään vielä lainausmerkeillä - `""`. Tulostuskomento kokonaisuudessaan on siis muotoa `alert("Heissulivei Maailma!")`. Laitetaan koodi vielä `<script>`-tagien sisälle ja saamme valmiiksi ensimmäisen JavaScript-ohjelman.
+Tulostettava teksti kirjoitetaan sulkujen sisään ja ympäröidään vielä lainausmerkeillä: `""`. Tulostuskomento kokonaisuudessaan on siis muotoa `alert("Heissulivei Maailma!")`. Laitetaan koodi vielä `<script>`-tagien sisälle ja saamme valmiiksi ensimmäisen JavaScript-ohjelman.
 
 ```html
 <script>
@@ -100,7 +100,7 @@ ${closeScript}'
 
 {% include extra.html
 otsikko='&lt;p&gt; vs. alert()'
-vinkki='Aluksi näytimme ohjelmassa tekstiä käyttämällä HTML-koodin tekstielementtiä ja nyt teemme lähes saman asian JavaScript-koodilla. Seuraavassa osassa selviää, onko tässä mitään järkeä.'
+vinkki='Aluksi näytimme ohjelmassa tekstiä käyttämällä HTML-koodin tekstielementtiä (`<p>`) ja nyt teemme lähes saman asian JavaScript-koodilla. Seuraavassa osassa selviää, onko tässä mitään järkeä.'
 %}
 
 {% include task.html
@@ -187,7 +187,7 @@ esimerkki-koodi='<script>
 ${closeScript}'
 %}
 
-Kun `prompt()`-komennon sisälle kirjoitetaan lainausmerkkien sisälle merkkijono, niin teksti _tulostuu_ näytölle _syötekentän_ yläpuolelle
+Kun `prompt()`-komennon sisälle kirjoitetaan lainausmerkkien sisälle merkkijono, niin teksti _tulostuu_ näytölle _syötekentän_ yläpuolelle:
 
 ```html
 <script>
@@ -202,7 +202,7 @@ ${closeScript}'
 %}
 
 {% include example.html
-esimerkki-selitys='<code>prompt()</code>-komennon syöte talletetaan <b>muuttujaan</b> "nimi" ja se tulostetaan <code>alert()</code>-komennolla.'
+esimerkki-selitys='<code>prompt()</code>-komennon saama syöte talletetaan <b>muuttujaan</b> "nimi" ja se tulostetaan <code>alert()</code>-komennolla.'
 
 esimerkki-koodi='<script>
 	var nimi = prompt("Hei! Mikä sinun nimesi on?")
@@ -210,7 +210,7 @@ esimerkki-koodi='<script>
 ${closeScript}'
 %}
 
-Jotta _syötteellä_ voidaan tehdä jotain hyödyllistä, täytyy se tallettaa **muuttujaan**. Lisätään komennon `prompt("Hei! Mikä sinun nimesi on?")` alkuun vielä muuttujan määrittely
+Jotta _syötteellä_ voidaan tehdä jotain hyödyllistä, täytyy se tallettaa **muuttujaan**. Lisätään komennon `prompt("Hei! Mikä sinun nimesi on?")` alkuun vielä muuttujan määrittely:
 
 ```html
 <script>
@@ -304,9 +304,9 @@ Ankka vaihtoi muuttujan <code>nimi</code> arvoksi <code>"Pekka"</code>.
 esimerkki-selitys='<code>Lempiväri</code>-muuttujan arvo on ensin "vihreä", mutta se vaihdetaan arvoksi "keltainen".'
 esimerkki-koodi='<script>
 	var lempiväri = "vihreä"
-	alert("Lempivärini oli ensin " + lempiväri)
+	alert("Lempivärini oli ensin " + lempiväri + ".")
 	lempiväri = "keltainen"
-	alert("Nykyään lempivärini on " + lempiväri)
+	alert("Nykyään lempivärini on " + lempiväri + ".")
 ${closeScript}'
 %}
 
@@ -349,7 +349,7 @@ alert("Jakolaskun tulos on " + osamäärä)
 ${closeScript}'
 %}
 
-Tällöin muuttujien arvoksi asetetaan yhtäsuuruusmerkin oikealla puolella olevan laskutoimituksen tulos. Tietokone siis näkee edellisen esimerkin lausekkeet niin, että a:n tilalle laitetaan aina 12 ja b:n tilalle 6. Lopputulos lasketaan näiden perusteella.
+Tällöin muuttujien arvoksi asetetaan yhtäsuuruusmerkin oikealla puolella olevan laskutoimituksen tulos. Tietokone siis näkee edellisen esimerkin laskutoimitukset niin, että a:n tilalle laitetaan aina 12 ja b:n tilalle 6. Lopputulos lasketaan näiden perusteella:
 
 ```javascript
 var a = 12
