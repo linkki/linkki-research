@@ -187,7 +187,7 @@ Ajastettu funktio saattaa näyttää hieman hämmentävältä. Siinä on kuitenk
 setTimeout()
 ```
 
-Tämä näyttää tavalliselta komennolta. Kirjoitetaan **sulkujen sisälle** nuolifunkito `() => { }`. 
+Tämä näyttää tavalliselta komennolta. Kirjoitetaan **sulkujen sisälle** nuolifunktio `() => { }`. 
 
 ```javascript
 setTimeout(() => { })
@@ -275,7 +275,7 @@ setInterval(() => {
 }, 1000)
 ```
 
-Toistetussa funktiossa suoritettva koodi menee tuttuun tapaan _aaltosulkeiden_ sisälle ja viimeisen aaltosulkeen jälkeen on pilkku, jonka jälkeen määritetään, kuinka usein funktio toistetaan. Esimerkiksi `1000 ms = 1 s`, joten esimerkissä olevaa funktiota toistetaan yhden sekunnin välein.
+Toistetussa funktiossa suoritettava koodi menee tuttuun tapaan _aaltosulkeiden_ sisälle, viimeisen aaltosulkeen jälkeen on pilkku ja pilkun jälkeen määritetään, kuinka usein funktio toistetaan. Esimerkiksi `1000 ms = 1 s`, joten esimerkissä olevaa funktiota toistetaan yhden sekunnin välein.
 
 {% include task.html
 tehtava-ohje='Tee ohjelma, joka lisää sivulle 3,5 sekunnin välein tekstin "Pöö!". Käytä <code>setInterval</code> funktiota.'
@@ -346,7 +346,7 @@ esimerkki-koodi='<p id = teksti>Klikkaa tästä!</p>
 ${closeScript}'
 %}
 
-Ajastimet, toistetut funktiot ja tapahtumankäsittelijät suoritetaan automaattisesti silloin, kun jotain tapahtuu, tai tietyn ajan päästä. _Nimetty funktio_ eroaa näistä funktioista siten, että koodissa pitää **kutsua** funktiota, jotta se suoritetaan. Jotta voisimme **kutsua** funktiota, täytyy sille antaa nimi, jolla funktiota kutsutaan. Siksi kutsumme tämän tyyppisiä funktioita _nimetyiksi_ funkitoiksi. Nimetyn funktion rakenne on seuraava
+Ajastimet, toistetut funktiot ja tapahtumankäsittelijät suoritetaan automaattisesti silloin, kun jotain tapahtuu, tai tietyn ajan päästä. _Nimetty funktio_ eroaa näistä funktioista siten, että koodissa pitää **kutsua** funktiota, jotta se suoritetaan. Jotta voisimme **kutsua** funktiota, täytyy sille antaa nimi, jolla funktiota kutsutaan. Siksi kutsumme tämän tyyppisiä funktioita _nimetyiksi_ funktioiksi. Nimetyn funktion rakenne on seuraava
 
 ```javascript
 function funktionNimi() {
